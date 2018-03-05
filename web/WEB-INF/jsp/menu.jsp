@@ -13,7 +13,7 @@
             o.preventDefault();
             $('body').removeClass('nav-expanded');
         });
-    });
+    });// PRUEBA
 
 </script>
 <!--MENU LATERAL-->
