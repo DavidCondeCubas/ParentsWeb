@@ -1,0 +1,23 @@
+@smartphones: ~"only screen and (max-width: 479px)";
+
+#infousuario{
+    color: white;
+    overflow: hidden;
+    background-color: #333;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#userform{
+    max-width: 35%;
+    
+    @media  @smartphones{
+        max-width: 100%;
+    }
+}
+

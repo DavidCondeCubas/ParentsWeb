@@ -1,24 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Montessori;
 
-/**
- *
- * @author nmohamed
- */
-
 import com.microsoft.sqlserver.jdbc.SQLServerDriver;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+
 public class LoginVerification {
     
     public LoginVerification(){}
@@ -46,8 +35,6 @@ public class LoginVerification {
         stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
         ResultSet.CONCUR_READ_ONLY);
         rs = stmt.executeQuery(queryString);
-        //stmt.close();
-        //conn.close();
         return rs;
     }
 
@@ -57,13 +44,11 @@ public class LoginVerification {
 
     public User consultUserDB(String user,String password) throws Exception {
         User u = null;
-       //user = 'shahad' and pswd = 'shahad1234' group = Spring
         String query = "select username,PersonID from Person where username = '"+user+"' and pswd = HASHBYTES('MD5', CONVERT(nvarchar(4000),'"+password+"'));";
-     
         ResultSet rs = SQLQuery(query);
-        // ResultSet rs = DBConect.ahBeforeFirst.executeQuery(query);
+
          if(!rs.next()) 
-         {u=new User();//TARDO
+         {u=new User();
                  u.setId(0);}
          else{
              rs.beforeFirst();
@@ -76,24 +61,13 @@ public class LoginVerification {
 
             }}
         return u;
-    }/*
-    public int getSecurityGroupID(String name) throws SQLException{
-        int sgid = 0;
-        String query ="select groupid from SecurityGroups where Name like '"+name+"'";
-        // ResultSet rs = SQLQuery(query);
-        ResultSet rs = DBConect.ah.executeQuery(query);
-            while(rs.next()){
-                sgid = rs.getInt(1);
-            }
-        return sgid;
-    }*/
+    }
     
     public HashMap getSecurityGroupID() throws SQLException{
      
         HashMap<Integer,String> mapGroups = new HashMap<Integer,String>();
                
         String query ="select groupid,Name from SecurityGroups";
-        // ResultSet rs = SQLQuery(query);
         ResultSet rs = DBConect.ah.executeQuery(query);
         while(rs.next()){
             mapGroups.put(rs.getInt("groupid"),rs.getString("Name")); 
@@ -109,18 +83,6 @@ public class LoginVerification {
        ResultSet rs = DBConect.ah.executeQuery(query);
             while(rs.next()){
                 aux = rs.getInt("groupid");
-            }
-      
-        return aux;
-    }
-    
-    public boolean fromGroup(int groupid, int staffid) throws SQLException{
-        boolean aux  = false;
-        String query = "select * from SecurityGroupMembership where groupid = "+groupid+" and StaffID = " + staffid;
-       // ResultSet rs = SQLQuery(query);
-       ResultSet rs = DBConect.ah.executeQuery(query);
-            while(rs.next()){
-                aux = true;
             }
       
         return aux;

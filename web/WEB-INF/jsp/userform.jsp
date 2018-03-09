@@ -13,10 +13,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Welcome</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap.css"/>" />
-        <link rel="stylesheet" type="text/css" href="<c:url value="/estilotabla.css"/>" />
-        <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/estilocolegio.css" />"/>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/styles.less"/>" />
+    
+        
     </head>
     <body>
         <div class="col-sm-12" style="margin-top: 10px;">
@@ -24,7 +27,7 @@
                 <div class="panel-body"align="center">
                     <div class="container " style="margin-top: 10%; margin-bottom: 10%;">
 
-                    <div class="panel panel-success" style="max-width: 35%;" align="left">
+                    <div class="panel panel-success" id="userform" align="left">
                         <div class="panel-heading form-group fondoGris">
                             <img class="img-responsive center-block" src="recursos/img/logoeduweb.png" alt="logo"/>
                         </div>

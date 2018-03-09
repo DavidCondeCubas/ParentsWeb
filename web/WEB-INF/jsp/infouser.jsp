@@ -10,6 +10,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link rel="icon" type="image/png" href="<c:url value="/recursos/img/iconos/favicon.ico" />" >
     <link rel="apple-touch-icon" href="<c:url value="/recursos/img/iconos/favicon.ico"/>">
     <link rel="shortcut icon" href="<c:url value="/recursos/img/iconos/favicon.ico"/>">
@@ -18,11 +19,11 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.svg"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.eot"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.wott"/>">
-    
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/style.css" />"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/menu-lateral.css"/>"/>
+
+ 
+  
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap.min.css"/>"/>
-<%--    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/calendar.css"/>"/>--%>
+    <%--    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/calendar.css"/>"/>--%>
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap-theme.min.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap-datetimepicker.css"/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap-toggle.css"/>"/>
@@ -42,8 +43,8 @@
     <script type="text/javascript" src="<c:url value="/recursos/starrating/bootstrap-rating-input.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/bootstrap.js" />"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/jquery-ui-1.11.4.custom/jquery-ui.js" />"></script>
-    
-   <script type="text/javascript" src="<c:url value="/recursos/js/tree/jstree.js" />"></script>
+
+    <script type="text/javascript" src="<c:url value="/recursos/js/tree/jstree.js" />"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/tree/jstree.checkbox.js" />"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/tree/jstree.search.js" />"></script>
 
@@ -59,7 +60,7 @@
     <script type="text/javascript" src="<c:url value="/recursos/fullcalendar/fullcalendar.js"/>"></script>
     <!--        CKEDITOR-->
     <script type="text/javascript" src="<c:url value="/recursos/js/ckeditor.js"/>"></script>
-    
+
     <!--        DATATABLES-->
     <%--        <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/dataTables/dataTables.bootstrap.css"/>" />--%>
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/dataTables/dataTables.foundation.css"/>" />
@@ -69,8 +70,7 @@
     <%--        <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/dataTables/dataTables.uikit.css"/>" />--%>
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/dataTables/jquery.dataTables.css"/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/dataTables/jquery.dataTables_themeroller.css"/>" />
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/estilocolegio.css" />"/>
-    
+
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/jquery.dataTables.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.bootstrap.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.bootstrap4.js"/>" ></script>
@@ -80,32 +80,32 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.jqueryui.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.material.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.uikit.js"/>" ></script>
+        
+    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/styles.less"/>" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
 </head>
 
 <script>
 //    $(document).ready(function () {
 //        $('logoutmodal').hide();
 //    });
-    function logout(){
+    function logout() {
         document.location.href = "<c:url value="/cerrarLogin.htm"/>";
     }
 </script>
 
-<div class="infousuario noPrint bg-primary" id="infousuario">
-    <div class="col-xs-3 text-left">
-        <%--<img src="<c:url value="/recursos/img/iconoschool.png"/>">--%>
-    </div>
-    
-    
-    <div class="col-xs-5 text-center">
-        <h1 class="text-center">Hi, <c:out value="${sessionScope.user.name}"/></h1>
-    </div>
-     <div class="col-xs-2 text-center">
-        <h3><c:out value="${sessionScope.termYearName}"/></h3>
-    </div>
-    <div class="col-xs-2 text-right">
-        <!--<a href="<c:url value="/cerrarLogin.htm"/>" role="button" aria-haspopup="true" aria-expanded="false"><img class="imgUser" src="<c:url value="/recursos/img/iconos/user-01.svg"/>"></a>-->
-        <a onclick="$('#logoutmodal').modal('show');" role="button" aria-haspopup="true" aria-expanded="false"><img class="imgUser" src="<c:url value="/recursos/img/iconos/user-01.svg"/>"></a>
+<div class="navbar navbar-toggleable-md navbar-light bg-faded navUsuario" id="infousuario">   
+    <div class="row">
+        <div class="col-xs-4" id="childrensNav">
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+            <h1 class="text-center">Hi, <c:out value="${sessionScope.user.name}"/></h1> <c:out value="${sessionScope.termYearName}"/>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <a onclick="$('#logoutmodal').modal('show');" role="button" aria-haspopup="true" aria-expanded="false"><img class="imgUser" src="<c:url value="/recursos/img/iconos/user-01.svg"/>"></a>
+        </div>
     </div>
 </div>    
 
@@ -113,20 +113,20 @@
 
 
 <div id="logoutmodal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header modal-header-delete">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">are you sure you want to logout?</h4>
-      </div>
-      <div class="modal-footer text-center">
-        <button id="buttonDelete" type="button" class="btn btn-danger" data-dismiss="modal" onclick="logout()">Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-      </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header modal-header-delete">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">are you sure you want to logout?</h4>
+            </div>
+            <div class="modal-footer text-center">
+                <button id="buttonDelete" type="button" class="btn btn-danger" data-dismiss="modal" onclick="logout()">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+        </div>
+
     </div>
-
-  </div>
 </div>
 

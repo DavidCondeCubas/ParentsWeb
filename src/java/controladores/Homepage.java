@@ -1,28 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
-/**
- *
- * @author nmohamed
- */
 import Montessori.*;
-import Reports.DataFactoryFolder.Profesor;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mapcusts.Getcusts;
 import quickbooksync.*;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,27 +76,9 @@ public class Homepage extends MultiActionController {
             } else {
                 result = false;
             }
-            /*int scgrpidTeacher = mapGroups.get("MontessoriTeacher");
-            int scgrpidAdmin = mapGroups.get("MontessoriAdmin");
-            int scgrpidSuper = mapGroups.get("MontessoriHead");*/
 
-// AQUI ES/*
-
-            /* scgrpidTeacher = login.getSecurityGroupID("MontessoriTeacher");
-            scgrpidAdmin = login.getSecurityGroupID("MontessoriAdmin");
-            scgrpidSuper = login.getSecurityGroupID("MontessoriHead");
-///////////////////
-            if (login.fromGroup(scgrpidAdmin, user.getId())) {
-                user.setType(0);
-            } else if (login.fromGroup(scgrpidTeacher, user.getId())) {
-                user.setType(1);
-            } else if (login.fromGroup(scgrpidSuper, user.getId())) {
-                user.setType(2);
-            } else {
-                result = false;
-            }*/
             if (result == true) {
-                ModelAndView mv = new ModelAndView("redirect:/homepage/loadLessons.htm");
+                ModelAndView mv = new ModelAndView("homepage");
                 String message = "welcome user";
                 int termId = 1, yearId = 1;
                 ResultSet rs2 = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
@@ -129,10 +99,11 @@ public class Homepage extends MultiActionController {
                 while (rs4.next()) {
                     nameYear = "" + rs4.getString("SchoolYear");
                 }
-
                 session.setAttribute("termYearName", nameTerm + " / " + nameYear);
 
                 mv.addObject("message", message);
+                mv.addObject("username", user.getName());
+                
                 return mv;
             } else {
                 ModelAndView mv = new ModelAndView("userform");
