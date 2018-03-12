@@ -15,10 +15,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Welcome</title>
+        
         <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap.css"/>" />
-        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/styles.less"/>" />
-    
+                
+        
+        <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/newstyle.css"/>" />
         
     </head>
     <body>

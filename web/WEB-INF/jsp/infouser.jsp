@@ -10,7 +10,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="icon" type="image/png" href="<c:url value="/recursos/img/iconos/favicon.ico" />" >
     <link rel="apple-touch-icon" href="<c:url value="/recursos/img/iconos/favicon.ico"/>">
     <link rel="shortcut icon" href="<c:url value="/recursos/img/iconos/favicon.ico"/>">
@@ -20,8 +20,8 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.eot"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.wott"/>">
 
- 
-  
+
+
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap.min.css"/>"/>
     <%--    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/calendar.css"/>"/>--%>
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap-theme.min.css"/>"/>
@@ -80,9 +80,9 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.jqueryui.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.material.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.uikit.js"/>" ></script>
-        
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/styles.less"/>" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+
+    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/newstyle.css"/>" />
+
 </head>
 
 <script>
@@ -94,16 +94,20 @@
     }
 </script>
 
-<div class="navbar navbar-toggleable-md navbar-light bg-faded navUsuario" id="infousuario">   
+<div class="navUsuario" id="infousuario">   
     <div class="row">
-        <div class="col-xs-4" id="childrensNav">
+        <div class="col-xs-6" id="childrensNav">
+                <div class="circle"> 
+                    <h1><a href="#">This text is out of the circle because there is space between .circle and child element in html</a></h1>
+                </div>
         </div>
-        <div class="col-xs-4">
+        <div class="divName col-xs-4">
             <div class="row">
-            <h1 class="text-center">Hi, <c:out value="${sessionScope.user.name}"/></h1> <c:out value="${sessionScope.termYearName}"/>
+                <p class="parentName text-center">Hi, Admin<c:out value="${sessionScope.user.name}"/></p> 
+                <p class="termName text-center">Q1/2018<c:out value="${sessionScope.termYearName}"/></p>
             </div>
         </div>
-        <div class="col-xs-2">
+        <div class="logOut col-xs-2">
             <a onclick="$('#logoutmodal').modal('show');" role="button" aria-haspopup="true" aria-expanded="false"><img class="imgUser" src="<c:url value="/recursos/img/iconos/user-01.svg"/>"></a>
         </div>
     </div>

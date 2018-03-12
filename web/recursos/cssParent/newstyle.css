@@ -1,0 +1,65 @@
+#userform {
+  max-width: 35%;
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+  #userform {
+    max-width: 100%;
+  }
+}
+.navUsuario {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  height: 80px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+  .navUsuario {
+    height: 40px;
+  }
+}
+.navUsuario .row {
+  height: 100%;
+}
+.navUsuario .row .divName {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-items: center;
+  height: 100%;
+}
+.navUsuario .row .divName .row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navUsuario .row .divName .row .parentName {
+  margin: 0px;
+  font-size: x-large;
+}
+@media only screen and (max-width: 479px) {
+  .navUsuario .row .divName .row .parentName {
+    font-size: x-small;
+  }
+}
+.navUsuario .row .divName .row .termName {
+  margin: 0px;
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+  .navUsuario .row .divName .row .termName {
+    margin: 0px;
+    font-size: xx-small;
+  }
+}
+.navUsuario .row .logOut {
+  height: 100%;
+}
+.navUsuario .row .logOut a img {
+  height: 100%;
+  width: 80%;
+}
+/*# sourceMappingURL=newstyle.css.map */

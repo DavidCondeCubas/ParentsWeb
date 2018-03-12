@@ -31,7 +31,8 @@ public class Homepage extends MultiActionController {
     }
 
     public ModelAndView inicio(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
-        return new ModelAndView("userform");
+        //return new ModelAndView("userform");
+        return new ModelAndView("homepage");
     }
 
     @RequestMapping
