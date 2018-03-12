@@ -1,6 +1,7 @@
 package controladores;
 
 import Montessori.*;
+import com.google.gson.Gson;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,8 +32,8 @@ public class Homepage extends MultiActionController {
     }
 
     public ModelAndView inicio(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
-        //return new ModelAndView("userform");
-        return new ModelAndView("homepage");
+        return new ModelAndView("userform");
+      //  return new ModelAndView("homepage");
     }
 
     @RequestMapping
@@ -57,28 +58,9 @@ public class Homepage extends MultiActionController {
             mv.addObject("message", message);
             return mv;
         } else {
-
-            HashMap<Integer, String> mapGroups = login.getSecurityGroupID();
-            int userGroup = login.fromGroup(user.getId());
-
-            if (mapGroups.containsKey(userGroup)) {
-                String groupName = mapGroups.get(userGroup);
-                switch (groupName) {
-                    case "MontessoriTeacher":
-                        user.setType(1);
-                        break;
-                    case "MontessoriAdmin":
-                        user.setType(0);
-                        break;
-                    case "MontessoriHead":
-                        user.setType(2);
-                        break;
-                }
-            } else {
-                result = false;
-            }
-
-            if (result == true) {
+            HashMap<Integer, String> mapSons = login.getSons(user.getId());
+            if (!mapSons.isEmpty()) {
+                
                 ModelAndView mv = new ModelAndView("homepage");
                 String message = "welcome user";
                 int termId = 1, yearId = 1;
@@ -102,6 +84,7 @@ public class Homepage extends MultiActionController {
                 }
                 session.setAttribute("termYearName", nameTerm + " / " + nameYear);
 
+                mv.addObject("sons",new Gson().toJson(mapSons));
                 mv.addObject("message", message);
                 mv.addObject("username", user.getName());
                 

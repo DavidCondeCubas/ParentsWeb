@@ -44,6 +44,7 @@ public class LoginVerification {
 
     public User consultUserDB(String user,String password) throws Exception {
         User u = null;
+      
         String query = "select username,PersonID from Person where username = '"+user+"' and pswd = HASHBYTES('MD5', CONVERT(nvarchar(4000),'"+password+"'));";
         ResultSet rs = SQLQuery(query);
 
@@ -87,5 +88,17 @@ public class LoginVerification {
       
         return aux;
     }
+     
+     public HashMap getSons(int staffid) throws SQLException{
+      
+        HashMap<Integer,String> mapSons = new HashMap<Integer,String>();        
+        String query ="Select FirstName,LastName,b.StudentID from Students inner join (select StudentID from Parent_Student where ParentID ="+staffid+" and custody = 'true' and ParentsWeb = 'true') b on b.StudentID = Students.StudentID";
+        
+        ResultSet rs = DBConect.ah.executeQuery(query);
+        while(rs.next()){
+            mapSons.put(rs.getInt("StudentID"),rs.getString("FirstName")+", "+rs.getString("LastName")); 
+        } 
+        return mapSons;
+    } 
     
 }

@@ -1,10 +1,15 @@
 @smartphones: ~"only screen and (max-width: 479px)";
 @tablets: ~"only screen and (min-width: 768px) and (max-width: 959px)";
+@colorCircle: #055263;
+@alturaNavDesktop: 75px;
+@alturaNavCell: 40px;
 
 #userform {
     max-width: 35%;
-
-    @media @smartphones, @tablets {
+    @media @tablets{
+        max-width:50%;
+    }
+    @media @smartphones{
         max-width:100%;
     }
 }
@@ -16,16 +21,46 @@
     top: 0;
     width: 100%;
     color: white;
-    height: 80px;
+    height: @alturaNavDesktop;
+    margin-bottom: 2px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-    @media @smartphones, @tablets {
-        height: 40px;
+    border-radius: 10px;
+    z-index: 2;
+    @media @smartphones{
+        height: @alturaNavCell;
     }
+    
     .row{
         height: 100%;
         #childrensNav{
-            .circle 
+             height: 100%;
+            .row{
+                margin: 0px;
+                height: 100%;
+                display:flex;
+                align-items: center;
+                .circle{
+                    cursor: pointer;
+                    background-color: @colorCircle;
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 50%;
+                    border: 3px solid #fff;
+                    margin-left: 5px; 
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 65px; 
+                    font-family: 'Coda Caption', sans-serif;
+                    font-size: xx-large;
+                    @media @smartphones {
+                        height: 35px;
+                        width: 35px;
+                        border: 2px solid #fff;
+                        line-height: 30px; 
+                        font-size: medium;
+                    }
+                }
+            }
         }
         .divName{
             display: flex;
@@ -62,5 +97,19 @@
                 width: 80%;
             } 
         }
+    }
+}
+
+#AreasDiv{
+    margin-top:  @alturaNavDesktop+2;
+    
+    @media @smartphones{
+       margin-top: @alturaNavCell+2;
+    }
+    .area{
+        height: 250px;
+        margin-bottom: 3px;
+        border-radius: 10px;
+        
     }
 }

@@ -29,7 +29,7 @@
                     <div class="container " style="margin-top: 10%; margin-bottom: 10%;">
 
                     <div class="panel panel-success" id="userform" align="left">
-                        <div class="panel-heading form-group fondoGris">
+                        <div class="panel-heading form-group fondoGris" style="background-color: #055263;">
                             <img class="img-responsive center-block" src="recursos/img/logoeduweb.png" alt="logo"/>
                         </div>
                         <div class="panel-body" >
@@ -49,7 +49,7 @@
                                     <label for="exampleInputPassword1"><spring:message code="etiq.txtpassword"/></label> 
                                     <input type="password" class="form-control" name="txtpassword" id="txtpassword" placeholder="<spring:message code='etiq.txtinsertpassword'/>" ><!--required="required"-->
                                 </div>
-                                <button type="submit" name="submit" value='<spring:message code="etiq.txtlogin"/>' style="width: 100%; font-size:1.1em;" class="btn btn-large btn btn-success btn-lg btn-block" ><b>Login</b></button>
+                                <button type="submit" name="submit" style="background-color: #055263;" value='<spring:message code="etiq.txtlogin"/>' style="width: 100%; font-size:1.1em;" class="btn btn-large btn btn-success btn-lg btn-block" ><b>Login</b></button>
 
                             </form>
                                 <div class="center-block text-center">

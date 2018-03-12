@@ -15,10 +15,7 @@
     <link rel="apple-touch-icon" href="<c:url value="/recursos/img/iconos/favicon.ico"/>">
     <link rel="shortcut icon" href="<c:url value="/recursos/img/iconos/favicon.ico"/>">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.ttf"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.svg"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.eot"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/fonts/icons/iconsAragon.wott"/>">
+
 
 
 
@@ -80,7 +77,7 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.jqueryui.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.material.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.uikit.js"/>" ></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Roboto:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/newstyle.css"/>" />
 
 </head>
@@ -96,15 +93,13 @@
 
 <div class="navUsuario" id="infousuario">   
     <div class="row">
-        <div class="col-xs-6" id="childrensNav">
-                <div class="circle"> 
-                    <h1><a href="#">This text is out of the circle because there is space between .circle and child element in html</a></h1>
-                </div>
+        <div class="col-xs-7" id="childrensNav">
+            <div class="row"> </div>
         </div>
-        <div class="divName col-xs-4">
+        <div class="divName col-xs-3">
             <div class="row">
-                <p class="parentName text-center">Hi, Admin<c:out value="${sessionScope.user.name}"/></p> 
-                <p class="termName text-center">Q1/2018<c:out value="${sessionScope.termYearName}"/></p>
+                <p class="parentName text-center"><strong><c:out value="${sessionScope.user.name}"/></strong></p> 
+                <p class="termName text-center"><c:out value="${sessionScope.termYearName}"/></p>
             </div>
         </div>
         <div class="logOut col-xs-2">

@@ -1,7 +1,12 @@
 #userform {
   max-width: 35%;
 }
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #userform {
+    max-width: 50%;
+  }
+}
+@media only screen and (max-width: 479px) {
   #userform {
     max-width: 100%;
   }
@@ -13,16 +18,51 @@
   top: 0;
   width: 100%;
   color: white;
-  height: 80px;
+  height: 75px;
+  margin-bottom: 2px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  z-index: 2;
 }
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (max-width: 479px) {
   .navUsuario {
     height: 40px;
   }
 }
 .navUsuario .row {
   height: 100%;
+}
+.navUsuario .row #childrensNav {
+  height: 100%;
+}
+.navUsuario .row #childrensNav .row {
+  margin: 0px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.navUsuario .row #childrensNav .row .circle {
+  cursor: pointer;
+  background-color: #055263;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-left: 5px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+  font-family: 'Coda Caption', sans-serif;
+  font-size: xx-large;
+}
+@media only screen and (max-width: 479px) {
+  .navUsuario .row #childrensNav .row .circle {
+    height: 35px;
+    width: 35px;
+    border: 2px solid #fff;
+    line-height: 30px;
+    font-size: medium;
+  }
 }
 .navUsuario .row .divName {
   display: flex;
@@ -61,5 +101,18 @@
 .navUsuario .row .logOut a img {
   height: 100%;
   width: 80%;
+}
+#AreasDiv {
+  margin-top: 77px;
+}
+@media only screen and (max-width: 479px) {
+  #AreasDiv {
+    margin-top: 42px;
+  }
+}
+#AreasDiv .area {
+  height: 250px;
+  margin-bottom: 3px;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=newstyle.css.map */
