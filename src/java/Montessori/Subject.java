@@ -24,6 +24,9 @@ public class Subject {
     private HashMap<Integer, Objective> mapObjectives;
 
 
+    public Subject(){
+        this.mapObjectives = new HashMap<>();
+    }
     public int getId() {
         return id;
     }
@@ -47,6 +50,9 @@ public class Subject {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void addObjective(int id,Objective o){
+        this.mapObjectives.put(id, o);
     }
 
 }

@@ -29,6 +29,9 @@ public class Objective {
     private HashMap<Integer, Step> mapSteps;
     private int idSubject;
 
+    public Objective(){
+        this.mapSteps = new HashMap<>();
+    }
     public int getIdSubject() {
         return idSubject;
     }

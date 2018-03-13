@@ -19,7 +19,9 @@
 
             var userId = ${user.id};
             var sons = ${sons};
-
+            var mapSubjects = ${mapSubjects};
+            var mapProfesores = ${mapProfesor};
+            
             $(document).ready(function () {
                 makeCircleSons();
 

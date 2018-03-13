@@ -21,7 +21,7 @@ public class Step {
     private String name;
     private int order;
     private int weight;
-    private Objective obj;
+    private int obj_id;
 
     public int getOrder() {
         return order;
@@ -35,16 +35,16 @@ public class Step {
         return weight;
     }
 
+    public int getObj_id() {
+        return obj_id;
+    }
+
+    public void setObj_id(int obj_id) {
+        this.obj_id = obj_id;
+    }
+
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-
-    public Objective getObj() {
-        return obj;
-    }
-
-    public void setObj(Objective obj) {
-        this.obj = obj;
     }
 
     public String getName() {
