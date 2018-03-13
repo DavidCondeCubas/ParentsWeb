@@ -18,7 +18,7 @@
   top: 0;
   width: 100%;
   color: white;
-  height: 75px;
+  height: 90px;
   margin-bottom: 2px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
@@ -37,7 +37,6 @@
 }
 .navUsuario .row #childrensNav .row {
   margin: 0px;
-  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -103,7 +102,7 @@
   width: 80%;
 }
 #AreasDiv {
-  margin-top: 77px;
+  margin-top: 92px;
 }
 @media only screen and (max-width: 479px) {
   #AreasDiv {
@@ -114,5 +113,15 @@
   height: 250px;
   margin-bottom: 3px;
   border-radius: 10px;
+}
+@media only screen and (max-width: 479px) {
+  #AreasDiv .area {
+    height: 250px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #AreasDiv .area {
+    height: 350px;
+  }
 }
 /*# sourceMappingURL=newstyle.css.map */

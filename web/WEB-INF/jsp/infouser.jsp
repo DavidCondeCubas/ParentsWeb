@@ -95,7 +95,11 @@
     <div class="row">
         <div class="col-xs-7" id="childrensNav">
             <div class="row"> </div>
+            <div class="col-xs-12"></div>
         </div>
+        
+        
+                
         <div class="divName col-xs-3">
             <div class="row">
                 <p class="parentName text-center"><strong><c:out value="${sessionScope.user.name}"/></strong></p> 

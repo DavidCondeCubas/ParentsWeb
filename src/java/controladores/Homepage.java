@@ -2,6 +2,8 @@ package controladores;
 
 import Montessori.*;
 import com.google.gson.Gson;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -246,5 +248,53 @@ public class Homepage extends MultiActionController {
         return mv;
 
     }
+    
+    List<Subject> getSubjects_Student(int studentid)throws SQLException {
+        List<Subject> subjects = new ArrayList<>();
+        List<Subject> activesubjects = new ArrayList<>();
+        HashMap<String, String> mapSubject = new HashMap<String, String>();
+        String termid = null;
+        String yearid = null;
+
+        try {
+            ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
+            while (rs.next()) {
+                termid = "" + rs.getInt("defaulttermid");
+                yearid = "" + rs.getInt("defaultyearid");
+            }
+            ResultSet rs1 = DBConect.ah.executeQuery("select distinct courses.courseid,courses.rcplacement, courses.title, courses.active from roster    inner join classes on roster.classid=classes.classid\n"
+                    + "                 inner join courses on courses.courseid=classes.courseid\n"
+                    + "                  where roster.studentid = " + studentid + " and roster.enrolled = 1" + termid + " and courses.active = 1 and courses.reportcard = 1 and classes.yearid = '" + yearid + "' order by courses.rcplacement DESC");// the term and year need to be dynamic, check with vincent
+
+            String name9, id;
+            while (rs1.next()) {
+                Subject sub = new Subject();
+                String[] ids = new String[1];
+                ids[0] = "" + rs1.getInt("CourseID");
+                sub.setId(ids);
+                subjects.add(sub);
+
+                name9 = rs1.getString("Title");
+                id = rs1.getString("CourseID");
+                mapSubject.put(id, name9);
+
+            }
+
+            for (int i = 0; i < subjects.size(); i++) {
+                String[] ids = new String[1];
+                ids = subjects.get(i).getId();
+                subjects.get(i).setName(mapSubject.get(ids[0]));
+                activesubjects.add(subjects.get(i));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error leyendo Subjects: " + ex);
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));
+        }
+
+        return activesubjects;
+    }
+    
 
 }

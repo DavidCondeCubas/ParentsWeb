@@ -29,9 +29,12 @@
                     if(color === "rgb(5, 82, 99)"){ //noSelect
                         $(".circle").css({ 'background-color': 'rgb(5, 82, 99)', 'color': 'white' });
                         $(this).css({ 'background-color': '#f99927', 'color': '#055263' });
+                        $("#nameStudent").text($(this).attr("title"));
                     }
                 });
                 
+                $("#childrensNav div").children().first().css({ 'background-color': '#f99927', 'color': '#055263' });
+                $("#nameStudent").text($("#childrensNav div").children().first().attr("title"));
             });
 
             function makeCircleSons() {
@@ -42,12 +45,12 @@
         </script>
     </head>
     <body>
+        <div class="col-xs-12" id="nameStudent"></div>
         <div id="AreasDiv">
-            <div class="col-xs-12 col-md-6 area" style="background-color: red;"></div>
-            <div class="col-xs-12 col-md-6 area" style="background-color: blue;"></div>
-            <div class="col-xs-12 col-md-6 area" style="background-color: green;"></div> 
-            <div class="col-xs-12 col-md-6 area" style="background-color: yellow;"></div>      
-            <div class="col-xs-12 col-md-12 area" style="background-color: grey;"></div>    
+            <div class="col-xs-12 col-md-6 area" style="background-color: #055263;"></div>
+            <div class="col-xs-12 col-md-6 area" style="background-color: #f99927;"></div>
+            <div class="col-xs-12 col-md-6 area" style="background-color: #055263;"></div> 
+            <div class="col-xs-12 col-md-6 area" style="background-color: #f99927;"></div>        
         </div>
     </body>
 </html>

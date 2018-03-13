@@ -1,7 +1,7 @@
 @smartphones: ~"only screen and (max-width: 479px)";
 @tablets: ~"only screen and (min-width: 768px) and (max-width: 959px)";
 @colorCircle: #055263;
-@alturaNavDesktop: 75px;
+@alturaNavDesktop: 90px;
 @alturaNavCell: 40px;
 
 #userform {
@@ -36,7 +36,7 @@
              height: 100%;
             .row{
                 margin: 0px;
-                height: 100%;
+               
                 display:flex;
                 align-items: center;
                 .circle{
@@ -110,6 +110,11 @@
         height: 250px;
         margin-bottom: 3px;
         border-radius: 10px;
-        
+        @media @smartphones {
+            height: 250px;
+        }
+        @media  @tablets{
+            height: 350px;
+        }
     }
 }
