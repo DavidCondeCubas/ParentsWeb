@@ -16,7 +16,9 @@ import quickbooksync.*;
 import javax.servlet.http.HttpSession;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
@@ -89,6 +91,8 @@ public class Homepage extends MultiActionController {
                 
                 HashMap<Integer, Subject> mapSubjects = SchoolData_Singleton.getData().getMapSubjects();
                 HashMap<Integer, Profesor> mapProfesor = SchoolData_Singleton.getData().getMapProfesor();
+                HashMap<Integer, Step> mapStep = SchoolData_Singleton.getData().getMapSteps();
+                HashMap<Integer, Objective> mapOb = SchoolData_Singleton.getData().getMapObjectives();
                 
                 mv.addObject("mapSubjects", new Gson().toJson(mapSubjects));
                 mv.addObject("mapProfesor", new Gson().toJson(mapProfesor));
@@ -107,6 +111,19 @@ public class Homepage extends MultiActionController {
 
     }
 
+    /*@RequestMapping("/getFinalRatings.htm")
+    @ResponseBody
+    public String getRating_Student( HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
+        try{
+            
+            
+        } catch (SQLException ex) {
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));
+        }
+        return new Gson().toJson();
+    }*/
+    
     public ModelAndView save(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
         ModelAndView mv = new ModelAndView("suhomepage");
         String qbdburl = hsr.getParameter("qbdburl");

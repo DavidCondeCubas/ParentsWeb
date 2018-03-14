@@ -1,12 +1,35 @@
+.nopaddingMargin {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.nopadding {
+  padding: 0 !important;
+}
+#nameStudent {
+  font-size: medium;
+  font-weight: bold;
+  background-color: #05526333;
+  border-radius: 3px;
+}
+@media only screen and (max-width: 769px) {
+  #nameStudent {
+    font-size: small;
+  }
+}
+@media only screen and (max-width: 481px) {
+  #nameStudent {
+    font-size: xx-small;
+  }
+}
 #userform {
   max-width: 35%;
 }
-@media only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (max-width: 769px) {
   #userform {
     max-width: 50%;
   }
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 481px) {
   #userform {
     max-width: 100%;
   }
@@ -24,7 +47,7 @@
   border-radius: 10px;
   z-index: 2;
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 481px) {
   .navUsuario {
     height: 40px;
   }
@@ -54,7 +77,7 @@
   font-family: 'Coda Caption', sans-serif;
   font-size: xx-large;
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 481px) {
   .navUsuario .row #childrensNav .row .circle {
     height: 35px;
     width: 35px;
@@ -80,7 +103,7 @@
   margin: 0px;
   font-size: x-large;
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 481px) {
   .navUsuario .row .divName .row .parentName {
     font-size: x-small;
   }
@@ -88,7 +111,7 @@
 .navUsuario .row .divName .row .termName {
   margin: 0px;
 }
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (max-width: 481px), only screen and (max-width: 769px) {
   .navUsuario .row .divName .row .termName {
     margin: 0px;
     font-size: xx-small;
@@ -104,7 +127,7 @@
 #AreasDiv {
   margin-top: 92px;
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 481px) {
   #AreasDiv {
     margin-top: 42px;
   }
@@ -114,14 +137,104 @@
   margin-bottom: 3px;
   border-radius: 10px;
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 481px) {
   #AreasDiv .area {
     height: 250px;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (max-width: 769px) {
   #AreasDiv .area {
     height: 350px;
   }
+}
+#accordion {
+  transition: margin-left 0.5s;
+  padding: 20px;
+  margin-top: 95px;
+}
+@media only screen and (max-width: 481px) {
+  #accordion {
+    margin-top: 45px;
+  }
+}
+#accordion h1 {
+  text-align: center;
+}
+#accordion .progressMastered {
+  width: 34%;
+  background-color: green;
+}
+#accordion .progressPresented {
+  width: 33%;
+  background-color: gold;
+  color: #333333;
+}
+#accordion .progressAttempted {
+  width: 33%;
+  background-color: orange;
+  color: #333333;
+}
+#accordion .progress {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#mySidenav {
+  margin-top: 92px;
+}
+@media only screen and (max-width: 481px) {
+  #mySidenav {
+    margin-top: 42px;
+  }
+}
+/* The side navigation menu */
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  background-color: #111;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+@media only screen and (max-width: 481px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+@media only screen and (max-width: 481px) {
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 /*# sourceMappingURL=newstyle.css.map */

@@ -1,9 +1,34 @@
-@smartphones: ~"only screen and (max-width: 479px)";
-@tablets: ~"only screen and (min-width: 768px) and (max-width: 959px)";
+@smartphones: ~"only screen and (max-width: 481px)";
+@tablets: ~"only screen and (max-width: 769px)";
+@desktop: ~"only screen and (min-width: 770px)";
+
 @colorCircle: #055263;
 @alturaNavDesktop: 90px;
 @alturaNavCell: 40px;
 
+.nopaddingMargin {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.nopadding{
+    padding: 0 !important;
+}
+
+
+
+#nameStudent{
+    font-size: medium;
+    font-weight: bold;
+    background-color: #05526333;
+    border-radius: 3px;
+    
+    @media @tablets{
+       font-size: small;
+    }
+    @media @smartphones{
+       font-size: xx-small;
+    }
+}
 #userform {
     max-width: 35%;
     @media @tablets{
@@ -29,14 +54,14 @@
     @media @smartphones{
         height: @alturaNavCell;
     }
-    
+
     .row{
         height: 100%;
         #childrensNav{
-             height: 100%;
+            height: 100%;
             .row{
                 margin: 0px;
-               
+
                 display:flex;
                 align-items: center;
                 .circle{
@@ -102,9 +127,9 @@
 
 #AreasDiv{
     margin-top:  @alturaNavDesktop+2;
-    
+
     @media @smartphones{
-       margin-top: @alturaNavCell+2;
+        margin-top: @alturaNavCell+2;
     }
     .area{
         height: 250px;
@@ -117,4 +142,83 @@
             height: 350px;
         }
     }
+}
+
+#accordion{
+    transition: margin-left .5s;
+    padding: 20px;
+    margin-top:  @alturaNavDesktop+5;
+    @media @smartphones{
+        margin-top: @alturaNavCell+5;
+    }
+    h1{
+        text-align: center;
+        
+    }
+    .progressMastered{
+        width: 34%;
+        background-color: green;
+    }
+
+    .progressPresented{
+        width: 33%;
+        background-color: gold;
+        color: #333333;
+    }
+
+    .progressAttempted{
+        width: 33%;
+        background-color: orange;
+        color: #333333;
+    }
+    .progress{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+#mySidenav{
+    margin-top:  @alturaNavDesktop+2;
+    @media @smartphones{
+        margin-top: @alturaNavCell+2;
+    } 
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    @media @smartphones {
+        padding-top: 15px;
+    }
+    a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        @media @smartphones {
+            font-size: 18px;
+        }
+    }
+    .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
 }
