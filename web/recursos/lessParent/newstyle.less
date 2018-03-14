@@ -151,6 +151,9 @@
     @media @smartphones{
         margin-top: @alturaNavCell+5;
     }
+    @media @desktop{
+        margin-left: 250px;    
+    }
     h1{
         text-align: center;
         
@@ -177,10 +180,16 @@
     }
 }
 #mySidenav{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     margin-top:  @alturaNavDesktop+2;
     @media @smartphones{
         margin-top: @alturaNavCell+2;
     } 
+    @media @desktop{
+        margin-top:  @alturaNavDesktop+30;
+        width: 250px;  
+    }
 }
 
 /* The side navigation menu */
