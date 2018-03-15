@@ -55,8 +55,9 @@
 
             function makeCircleSons() {
                 $.each(sons, function (key, value) {
-                    $("#childrensNav .row").append("<div data='" + key + "' title='" + value + "' class='circle'>" + value.substring(0, 2) + "</div>");
+                    $("#childrensNav .row").append("<div data-GradeLevel='"+value[1]+"' data='" + key + "' title='" + value[0] + "' class='circle'>" + value[0].substring(0, 2) + "</div>");
                 });
+                
                 $("#childrensNav div").children().first().css({'background-color': '#f99927', 'color': '#055263'});
                 $("#nameStudent").text($("#childrensNav div").children().first().attr("title"));
             }
@@ -72,14 +73,16 @@
         </div>-->
         <div id="progressStudent">
             <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">Mathematics</a>
-                <a href="#">Afrikaans</a>
-                <a href="#">Art</a>
-                <a href="#">English</a>
-                <a href="#">Music</a>
-                <a href="#">Xhosa</a>
-                <a href="#">Geometry</a>
+                <div>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">Mathematics</a>
+                    <a href="#">Afrikaans</a>
+                    <a href="#">Art</a>
+                    <a href="#">English</a>
+                    <a href="#">Music</a>
+                    <a href="#">Xhosa</a>
+                    <a href="#">Geometry</a>
+                </div>
             </div>
 
             <!-- Use any element to open the sidenav -->

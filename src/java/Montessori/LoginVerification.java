@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LoginVerification {
@@ -93,12 +94,16 @@ public class LoginVerification {
 
     public HashMap getSons(int staffid) throws SQLException {
 
-        HashMap<Integer, String> mapSons = new HashMap<Integer, String>();
-        String query = "Select FirstName,LastName,b.StudentID from Students inner join (select StudentID from Parent_Student where ParentID =" + staffid + " and custody = 'true' and ParentsWeb = 'true') b on b.StudentID = Students.StudentID";
+        HashMap<Integer, ArrayList<String>> mapSons = new HashMap<>();
+        String query = "Select FirstName,LastName,b.StudentID,GradeLevel from Students inner join (select StudentID from Parent_Student where ParentID =" + staffid + " and custody = 'true' and ParentsWeb = 'true') b on b.StudentID = Students.StudentID";
 
         ResultSet rs = DBConect.ah.executeQuery(query);
         while (rs.next()) {
-            mapSons.put(rs.getInt("StudentID"), rs.getString("FirstName") + ", " + rs.getString("LastName"));
+            ArrayList<String> student = new ArrayList<>();
+          
+            student.add(rs.getString("FirstName") + ", " + rs.getString("LastName"));
+            student.add(rs.getString("GradeLevel"));
+            mapSons.put(rs.getInt("StudentID"),student);
         }
         return mapSons;
     }
