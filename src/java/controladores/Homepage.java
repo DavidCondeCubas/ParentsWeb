@@ -1,6 +1,7 @@
 package controladores;
 
 import Montessori.*;
+import atg.taglib.json.util.JSONObject;
 import com.google.gson.Gson;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -91,11 +92,12 @@ public class Homepage extends MultiActionController {
                 
                 HashMap<Integer, Subject> mapSubjects = SchoolData_Singleton.getData().getMapSubjects();
                 HashMap<Integer, Profesor> mapProfesor = SchoolData_Singleton.getData().getMapProfesor();
-                HashMap<Integer, Step> mapStep = SchoolData_Singleton.getData().getMapSteps();
-                HashMap<Integer, Objective> mapOb = SchoolData_Singleton.getData().getMapObjectives();
+               // HashMap<Integer, Step> mapStep = SchoolData_Singleton.getData().getMapSteps();
+               // HashMap<Integer, Objective> mapOb = SchoolData_Singleton.getData().getMapObjectives();
                 
                 mv.addObject("mapSubjects", new Gson().toJson(mapSubjects));
                 mv.addObject("mapProfesor", new Gson().toJson(mapProfesor));
+                
                 mv.addObject("sons",new Gson().toJson(mapSons));
                 mv.addObject("message", message);
                 mv.addObject("username", user.getName());
@@ -111,18 +113,64 @@ public class Homepage extends MultiActionController {
 
     }
 
-    /*@RequestMapping("/getFinalRatings.htm")
+    @RequestMapping("/getSubjectsStudents.htm")
     @ResponseBody
-    public String getRating_Student( HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
-        try{
-            
-            
+    public String getSubjectsStudents( HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
+      String id = hsr.getParameter("seleccion");
+        JSONObject json = new JSONObject();
+        List<Subject> subs = getSubjects(Integer.parseInt(id));
+        Subject sub = new Subject();
+        sub.setName("Select Subject");
+        sub.setId(-1);
+        subs.add(0, sub);
+        String subjects = new Gson().toJson(subs);
+        json.put("subjects", subjects);
+        return json.toString();
+    }
+    
+    private List<Subject> getSubjects(int studentid) throws SQLException {
+        List<Subject> subjects = new ArrayList<>();
+        List<Subject> activesubjects = new ArrayList<>();
+        HashMap<String, String> mapSubject = new HashMap<>();
+        String termid = null;
+        String yearid = null;
+
+        try {
+            ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
+            while (rs.next()) {
+                termid = "" + rs.getInt("defaulttermid");
+                yearid = "" + rs.getInt("defaultyearid");
+            }
+            ResultSet rs1 = DBConect.ah.executeQuery("select distinct courses.courseid,courses.rcplacement, courses.title, courses.active from roster    inner join classes on roster.classid=classes.classid\n"
+                    + "                 inner join courses on courses.courseid=classes.courseid\n"
+                    + "                  where roster.studentid = " + studentid + " and roster.enrolled=1 and " + termid + "= 1 and courses.active = 1 and courses.reportcard = 1 and classes.yearid = '" + yearid + "' order by courses.rcplacement DESC");// the term and year need to be dynamic, check with vincent
+
+            String name9, id;
+            while (rs1.next()) {
+                Subject sub = new Subject();
+                int ids = rs1.getInt("CourseID");
+                sub.setId(ids);
+                subjects.add(sub);
+                name9 = rs1.getString("Title");
+                id = rs1.getString("CourseID");
+                mapSubject.put(id, name9);
+            }
+
+            for (int i = 0; i < subjects.size(); i++) {
+                int ids;
+                ids = subjects.get(i).getId();
+                subjects.get(i).setName(mapSubject.get(ids));
+                activesubjects.add(subjects.get(i));
+            }
+
         } catch (SQLException ex) {
+            System.out.println("Error leyendo Subjects: " + ex);
             StringWriter errors = new StringWriter();
             ex.printStackTrace(new PrintWriter(errors));
         }
-        return new Gson().toJson();
-    }*/
+
+        return activesubjects;
+    }
     
     public ModelAndView save(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
         ModelAndView mv = new ModelAndView("suhomepage");

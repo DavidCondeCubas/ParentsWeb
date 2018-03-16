@@ -6,12 +6,14 @@
   padding: 0 !important;
 }
 #nameStudent {
+  position: absolute;
+  top: 92px;
   font-size: medium;
   font-weight: bold;
   background-color: #05526333;
   border-radius: 3px;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (min-width: 482px) and (max-width: 769px) {
   #nameStudent {
     font-size: small;
   }
@@ -19,12 +21,13 @@
 @media only screen and (max-width: 481px) {
   #nameStudent {
     font-size: xx-small;
+    top: 42px;
   }
 }
 #userform {
   max-width: 35%;
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (min-width: 482px) and (max-width: 769px) {
   #userform {
     max-width: 50%;
   }
@@ -111,7 +114,7 @@
 .navUsuario .row .divName .row .termName {
   margin: 0px;
 }
-@media only screen and (max-width: 481px), only screen and (max-width: 769px) {
+@media only screen and (max-width: 481px), only screen and (min-width: 482px) and (max-width: 769px) {
   .navUsuario .row .divName .row .termName {
     margin: 0px;
     font-size: xx-small;
@@ -124,40 +127,59 @@
   height: 100%;
   width: 80%;
 }
-#AreasDiv {
-  margin-top: 92px;
+#homepage {
+  padding-top: 120px;
+  /*.area{
+        height: 250px;
+        margin-bottom: 3px;
+        border-radius: 10px;
+        @media @smartphones {
+            height: 250px;
+        }
+        @media  @tablets{
+            height: 350px;
+        }
+    }*/
+}
+@media only screen and (min-width: 482px) and (max-width: 769px) {
+  #homepage {
+    padding-top: 200px;
+  }
+}
+#homepage div div {
+  background-color: #055263;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 220px;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
 @media only screen and (max-width: 481px) {
-  #AreasDiv {
-    margin-top: 42px;
+  #homepage div div {
+    height: 110px;
+    font-size: smaller;
   }
 }
-#AreasDiv .area {
-  height: 250px;
-  margin-bottom: 3px;
-  border-radius: 10px;
-}
-@media only screen and (max-width: 481px) {
-  #AreasDiv .area {
-    height: 250px;
-  }
-}
-@media only screen and (max-width: 769px) {
-  #AreasDiv .area {
-    height: 350px;
-  }
+#homepage div .btnHomepage:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 #accordion {
   transition: margin-left 0.5s;
   padding: 20px;
-  margin-top: 95px;
+  margin-top: 98px;
 }
 @media only screen and (max-width: 481px) {
   #accordion {
-    margin-top: 45px;
+    margin-top: 48px;
   }
 }
-@media only screen and (min-width: 770px) {
+@media only screen and (min-width: 482px) and (max-width: 769px), only screen and (min-width: 770px) {
   #accordion {
     margin-left: 250px;
   }
@@ -186,14 +208,14 @@
 #mySidenav {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  margin-top: 92px;
+  margin-top: 95px;
 }
 @media only screen and (max-width: 481px) {
   #mySidenav {
-    margin-top: 42px;
+    margin-top: 45px;
   }
 }
-@media only screen and (min-width: 770px) {
+@media only screen and (min-width: 482px) and (max-width: 769px), only screen and (min-width: 770px) {
   #mySidenav {
     margin-top: 120px;
     width: 250px;
@@ -249,5 +271,8 @@
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
+}
+#subjectProgress {
+  margin-top: 15px;
 }
 /*# sourceMappingURL=newstyle.css.map */
