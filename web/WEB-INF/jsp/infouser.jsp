@@ -90,7 +90,7 @@
         document.location.href = "<c:url value="/cerrarLogin.htm"/>";
     }
 </script>
-
+<header>
 <div class="navUsuario" id="infousuario">   
     <div class="row">
         <div class="col-xs-7" id="childrensNav">
@@ -111,7 +111,7 @@
         </div>
     </div>
 </div>    
-
+</header>
 
 
 

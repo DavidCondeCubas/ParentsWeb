@@ -1,3 +1,26 @@
+body {
+  background-color: #dadada;
+}
+@media only screen and (max-width: 481px) {
+  img {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  img {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+  img {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  img {
+    width: 40%;
+  }
+}
 .nopaddingMargin {
   padding: 0 !important;
   margin: 0 !important;
@@ -13,7 +36,7 @@
   background-color: #05526333;
   border-radius: 3px;
 }
-@media only screen and (min-width: 482px) and (max-width: 769px) {
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #nameStudent {
     font-size: small;
   }
@@ -27,7 +50,7 @@
 #userform {
   max-width: 35%;
 }
-@media only screen and (min-width: 482px) and (max-width: 769px) {
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #userform {
     max-width: 50%;
   }
@@ -39,7 +62,7 @@
 }
 .navUsuario {
   overflow: hidden;
-  background-color: #333;
+  background-color: #111;
   position: fixed;
   top: 0;
   width: 100%;
@@ -114,7 +137,7 @@
 .navUsuario .row .divName .row .termName {
   margin: 0px;
 }
-@media only screen and (max-width: 481px), only screen and (min-width: 482px) and (max-width: 769px) {
+@media only screen and (max-width: 481px), only screen and (min-width: 482px) and ( max-width: 1023px) {
   .navUsuario .row .divName .row .termName {
     margin: 0px;
     font-size: xx-small;
@@ -128,7 +151,7 @@
   width: 80%;
 }
 #homepage {
-  padding-top: 120px;
+  padding-top: 80px;
   /*.area{
         height: 250px;
         margin-bottom: 3px;
@@ -141,20 +164,29 @@
         }
     }*/
 }
-@media only screen and (min-width: 482px) and (max-width: 769px) {
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #homepage {
-    padding-top: 200px;
+    padding-top: 120px;
+  }
+}
+@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+  #homepage {
+    padding-top: 120px;
+  }
+}
+@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #homepage {
+    padding-top: 120px;
   }
 }
 #homepage div div {
-  background-color: #055263;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: 8px;
   margin-bottom: 10px;
-  height: 220px;
+  height: 300px;
   flex-direction: column;
   color: white;
   font-weight: bold;
@@ -162,8 +194,33 @@
 }
 @media only screen and (max-width: 481px) {
   #homepage div div {
-    height: 110px;
+    height: 180px;
     font-size: smaller;
+    padding: 5%;
+  }
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #homepage div div {
+    height: 250px;
+    font-size: small;
+    padding: 2%;
+  }
+}
+@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+  #homepage div div {
+    height: 300px;
+    font-size: medium;
+    padding: 2%;
+  }
+}
+@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #homepage div div {
+    height: 350px;
+    font-size: medium;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
   }
 }
 #homepage div .btnHomepage:hover {
@@ -179,7 +236,7 @@
     margin-top: 48px;
   }
 }
-@media only screen and (min-width: 482px) and (max-width: 769px), only screen and (min-width: 770px) {
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px) {
   #accordion {
     margin-left: 250px;
   }
@@ -215,7 +272,7 @@
     margin-top: 45px;
   }
 }
-@media only screen and (min-width: 482px) and (max-width: 769px), only screen and (min-width: 770px) {
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px) {
   #mySidenav {
     margin-top: 120px;
     width: 250px;
@@ -274,5 +331,34 @@
 }
 #subjectProgress {
   margin-top: 15px;
+}
+/*By Jesús*/
+.panel-success > .panel-heading {
+  color: #3c763d;
+  background-color: #F39200;
+  border-color: #F39200;
+}
+.panel-success {
+  border-color: #F39200;
+}
+.btn-success {
+  color: #fff;
+  background-color: #F39200;
+  border-color: #F39200;
+}
+.btn-success:hover {
+  color: #fff;
+  background-color: #F39200;
+  border-color: #F39200;
+}
+.btn-success:active:focus {
+  color: #fff;
+  background-color: #F39200;
+  border-color: #F39200;
+}
+.btn-success:focus {
+  color: #fff;
+  background-color: #F39200;
+  border-color: #F39200;
 }
 /*# sourceMappingURL=newstyle.css.map */

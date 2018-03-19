@@ -1,12 +1,38 @@
 @smartphones: ~"only screen and (max-width: 481px)";
-@tablets: ~"only screen and (min-width: 482px) and (max-width: 769px)";
-@desktop: ~"only screen and (min-width: 770px)";
+@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
+@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
+@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
 
 @colorCircle: #055263;
 @colorCircleSelect: #f99927;
+@colorGrisEduWEB: #F39200;
 @alturaNavDesktop: 90px;
 @alturaNavCell: 40px;
 
+@fondo:#dadada;
+body
+{
+    background-color: @fondo;
+}
+img
+{
+    @media @smartphones{ 
+        width:60%;
+
+            }
+    @media @tablets{ 
+        width:60%;
+
+    }
+    @media @desktop{ 
+        width:60%;
+
+    }
+    @media @desktopXL{ 
+        width:40%;
+
+    }  
+}
 .nopaddingMargin {
     padding: 0 !important;
     margin: 0 !important;
@@ -14,7 +40,6 @@
 .nopadding{
     padding: 0 !important;
 }
-
 
 
 #nameStudent{
@@ -47,7 +72,7 @@
 
 .navUsuario{
     overflow: hidden;
-    background-color: #333;
+    background-color: #111;
     position: fixed;
     top: 0;
     width: 100%;
@@ -132,36 +157,65 @@
 }
 
 #homepage{
-    padding-top: 120px;
+    
+    padding-top: 80px;
     //height: -webkit-fill-available;
     @media @tablets{ 
-        padding-top: 200px;
+        padding-top: 120px;
     }
-
+    @media @desktop{ 
+        padding-top: 120px;
+    }
+    @media @desktopXL{ 
+        padding-top: 120px;
+    }
     div{
         div{
-            background-color: @colorCircle;
+            //background-color: @colorCircle;
+            
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             border-radius: 8px;
             margin-bottom: 10px;
-            height:220px;
+            height:300px;
             flex-direction: column;
             color: white;
             font-weight: bold;
             text-align: center;
             @media @smartphones{ 
-                height:110px;
+                height:180px;
                 font-size: smaller;
+                padding: 5%;
 
             }
+            @media @tablets{ 
+                height:250px;
+                font-size: small;
+                padding: 2%;
 
+            }
+            @media @desktop{ 
+                height:300px;
+                font-size: medium;
+                padding: 2%;
+
+            }
+            @media @desktopXL{ 
+                height:350px;
+                font-size: medium;
+                padding-left: 4%;
+                padding-right: 4%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+
+            }
         }
+
+        
         .btnHomepage:hover{
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-
         }
     }
     /*.area{
@@ -267,4 +321,34 @@
 }
 #subjectProgress{
     margin-top:15px;
+}
+
+/*By Jesús*/
+.panel-success > .panel-heading {
+    color: #3c763d;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.panel-success {
+    border-color: @colorGrisEduWEB;
+}
+.btn-success {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.btn-success:active:focus {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.btn-success:focus {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
 }

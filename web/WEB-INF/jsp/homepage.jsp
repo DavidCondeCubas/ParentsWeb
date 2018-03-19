@@ -24,7 +24,7 @@
             var mapObjectives = ${mapObjectives};
             var mapFinalRatings;
             var currentStudent;
-            
+
             $(document).ready(function () {
                 makeCircleSons();
                 mostrarHome();
@@ -98,50 +98,51 @@
                 });
             }
 
-            function  showObjectivesRatings(idSubject){
+            function  showObjectivesRatings(idSubject) {
                 $("#accordion").empty();
-                $("#accordion").append("<h1>"+mapSubjects[idSubject].name+"</h1>");
-                
-                 $.each(mapFinalRatings, function (key, value) {
-                    $("#accordion").append("<div class='card'>\n\
-                                                <div class='card-header col-xs-12' id='heading"+key+"'>\n\
+                $("#accordion").append("<h1>" + mapSubjects[idSubject].name + "</h1>");
+
+                $.each(mapFinalRatings, function (key, value) {
+                    if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
+                        $("#accordion").append("<div class='card'>\n\
+                                                <div class='card-header col-xs-12' id='heading" + key + "'>\n\
                                                     <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse"+key+"' aria-expanded='false' aria-controls='collapse"+key+"'>\n\
+                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
                                                             <div class='col-xs-12 nopadding text-left'>\n\
-                                                            "+"NOMBRE DE OBJETIVO"+"\
+                                                            " +mapObjectives[key.split("_")[1]].name+ "\
                                                             </div>\n\
                                                             <div class='col-xs-12 nopadding text-center'>\n\
                                                                 <div class='progress col-xs-8 col-xs-offset-2 nopadding'>\n\
-                                                                "+drawRating(value)+"\n\
+                                                                " + drawRating(value) + "\n\
                                                                 </div>\n\
                                                             </div>\n\
                                                         </button>\n\
                                                     </h5>\n\
                                                 </div>\n\
-                                                <div id='collapse"+key+"' class='collapse text-center' aria-labelledby='heading"+key+"' data-parent='#accordion'>\n\
+                                                <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
                                                     <div class='card-body'>\n\
-                                                        descripcionObjective\n\
+                                                        "+mapObjectives[key.split("_")[1]].description+"\n\
                                                     </div>\n\
                                                 </div>\n\
                                             </div>");
+                    }
                 });
             }
-            function drawRating(rating){
-                var res="<div class='progress-bar progress-bar-striped active progressAttempted' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
+            function drawRating(rating) {
+                var res = "<div class='progress-bar progress-bar-striped active progressAttempted' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
                             Attempted \n\
                         </div> ";
-                if(rating === "Presented"){
+                if (rating === "Presented") {
                     res += " <div class='progress-bar progress-bar-striped active progressPresented' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
                             Presented \n\
                         </div> "
-                }
-                else if(rating === "Mastered"){
-                    res +=  " <div class='progress-bar progress-bar-striped active progressMastered' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
+                } else if (rating === "Mastered") {
+                    res += " <div class='progress-bar progress-bar-striped active progressMastered' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
                             Mastered \n\
                         </div> "
                 }
                 return res;
-                             
+
             }
             function mostrarHome() {
                 $("#progressStudent").hide();
@@ -173,33 +174,38 @@
     </head>
     <body>
         <div class="col-xs-12" id="nameStudent"></div>
-
-        <div id="homepage" class="col-xs-12">
+        <div id="homepage" class="container-fluid">
             <div class="col-xs-12 col-md-12 col-lg-12">
-                <div class="btnHomepage col-xs-4 col-xs-offset-2 col-md-4 col-md-offset-2 col-lg-2 col-lg-offset-3" value="progressStudent" style="background-color:#f99927;">
-                    <img width="60%" src="<c:url value='/recursos/img/iconos/avance-profesional.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
-                    <p>Academic Progress</P>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="btnHomepage col-xs-12" value="progressStudent" style="background-color:#f99927;">
+                        <img src="<c:url value='/recursos/img/iconos/avance-profesional.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
+                        <p>Academic Progress</P>
+                    </div>
                 </div>
-                <div class="btnHomepage col-xs-4 col-xs-offset-1 col-md-4 col-md-offset-1 col-lg-2 col-lg-offset-1"  value="teacherObservations" style="background-color:#055263;">
-                    <img width="60%" src="<c:url value='/recursos/img/iconos/blog.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations" style="margin-left:15px;">
-                    <p> Teachers Observations</P>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="btnHomepage col-xs-12" value="teacherObservations" style="background-color:#055263;">
+                        <img src="<c:url value='/recursos/img/iconos/blog.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations" style="margin-left:15px;">
+                        <p> Teachers Observations</P>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="btnHomepage col-xs-4 col-xs-offset-2 col-md-4 col-md-offset-2 col-lg-2 col-lg-offset-3" value="whatIdo" style="background-color:#333333;">
-                    <img width="60%" src="<c:url value='/recursos/img/iconos/hombre-leyendo.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
-                    <p>What I am learning now?</P>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="btnHomepage col-xs-12" value="whatIdo" style="background-color:#333333;">
+                        <img src="<c:url value='/recursos/img/iconos/hombre-leyendo.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
+                        <p>What I am learning now?</P>
+                    </div>
                 </div>
-                <div class="btnHomepage col-xs-4 col-xs-offset-1 col-md-4 col-md-offset-1 col-lg-2 col-lg-offset-1"  value="calendar" style="background-color:#50d1c1;">
-                    <img width="60%" src="<c:url value='/recursos/img/iconos/megafono (2).svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
-                    <p>Calendar and Announcements</P>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="btnHomepage col-xs-12" value="calendar" style="background-color:#50d1c1;">
+                        <img src="<c:url value='/recursos/img/iconos/megafono (2).svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
+                        <p>Calendar and Announcements</P>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="btnHomepage col-xs-4 col-xs-offset-2 col-md-4 col-md-offset-2 col-lg-2 col-lg-offset-3" value="reportCard" style="background-color:#fd8469;">     
-                    <img width="60%" src="<c:url value='/recursos/img/iconos/analitica.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
-                    <p>Report Card</P>
-                </div> 
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                    <div class="btnHomepage col-xs-12" value="reportCard" style="background-color:#fd8469;">
+                        <img src="<c:url value='/recursos/img/iconos/analitica.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                        <p>Report Card</P>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -213,7 +219,7 @@
             <div class="col-xs-12" id="subjectProgress"><span onclick="openNav()">open</span></div>
 
             <div id="accordion">
-             
+
             </div>
         </div>
     </body>

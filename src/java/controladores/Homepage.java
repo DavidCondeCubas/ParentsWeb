@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RequestMapping("/")
 public class Homepage extends MultiActionController {
@@ -77,7 +79,7 @@ public class Homepage extends MultiActionController {
                 session.setAttribute("user", user);
                 session.setAttribute("termId", termId);
                 session.setAttribute("yearId", yearId);
-
+                
                 String nameTerm = "", nameYear = "";
                 ResultSet rs3 = DBConect.ah.executeQuery("select name from SchoolTerm where TermID = " + termId + " and YearID = " + yearId);
                 while (rs3.next()) {
@@ -93,10 +95,11 @@ public class Homepage extends MultiActionController {
                 HashMap<Integer, Subject> mapSubjects = SchoolData_Singleton.getData().getMapSubjects();
                 HashMap<Integer, Profesor> mapProfesor = SchoolData_Singleton.getData().getMapProfesor();
                // HashMap<Integer, Step> mapStep = SchoolData_Singleton.getData().getMapSteps();
-               // HashMap<Integer, Objective> mapOb = SchoolData_Singleton.getData().getMapObjectives();
+                HashMap<Integer, Objective> mapOb = SchoolData_Singleton.getData().getMapObjectives();
                 
                 mv.addObject("mapSubjects", new Gson().toJson(mapSubjects));
                 mv.addObject("mapProfesor", new Gson().toJson(mapProfesor));
+                mv.addObject("mapObjectives", new Gson().toJson(mapOb));
                 
                 mv.addObject("sons",new Gson().toJson(mapSons));
                 mv.addObject("message", message);
@@ -116,60 +119,62 @@ public class Homepage extends MultiActionController {
     @RequestMapping("/getSubjectsStudents.htm")
     @ResponseBody
     public String getSubjectsStudents( HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
-      String id = hsr.getParameter("seleccion");
-        JSONObject json = new JSONObject();
+        /*String id = hsr.getParameter("seleccion");   
+        
         List<Subject> subs = getSubjects(Integer.parseInt(id));
-        Subject sub = new Subject();
-        sub.setName("Select Subject");
-        sub.setId(-1);
-        subs.add(0, sub);
-        String subjects = new Gson().toJson(subs);
-        json.put("subjects", subjects);
+        return new Gson().toJson(subs);*/
+        
+        String id = hsr.getParameter("seleccion");   
+        JSONObject json = new JSONObject();
+        
+        List<String> subs = getSubjects(Integer.parseInt(id));
+        
+        json.put("subjects", new Gson().toJson(subs));
+        json.put("mapFinalRatings", new Gson().toJson(getfinalrating(id)));
+            
         return json.toString();
+        
     }
     
-    private List<Subject> getSubjects(int studentid) throws SQLException {
-        List<Subject> subjects = new ArrayList<>();
-        List<Subject> activesubjects = new ArrayList<>();
-        HashMap<String, String> mapSubject = new HashMap<>();
-        String termid = null;
-        String yearid = null;
-
-        try {
+    private List<String> getSubjects(int studentid) throws SQLException {
+        List<String> subjects = new ArrayList<>();
+        String termid="",yearid="";
+        try  {
             ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
             while (rs.next()) {
                 termid = "" + rs.getInt("defaulttermid");
                 yearid = "" + rs.getInt("defaultyearid");
             }
-            ResultSet rs1 = DBConect.ah.executeQuery("select distinct courses.courseid,courses.rcplacement, courses.title, courses.active from roster    inner join classes on roster.classid=classes.classid\n"
+            String consulta = "select distinct courses.courseid,courses.rcplacement, courses.title, courses.active from roster    inner join classes on roster.classid=classes.classid\n"
                     + "                 inner join courses on courses.courseid=classes.courseid\n"
-                    + "                  where roster.studentid = " + studentid + " and roster.enrolled=1 and " + termid + "= 1 and courses.active = 1 and courses.reportcard = 1 and classes.yearid = '" + yearid + "' order by courses.rcplacement DESC");// the term and year need to be dynamic, check with vincent
-
-            String name9, id;
-            while (rs1.next()) {
-                Subject sub = new Subject();
-                int ids = rs1.getInt("CourseID");
-                sub.setId(ids);
-                subjects.add(sub);
-                name9 = rs1.getString("Title");
-                id = rs1.getString("CourseID");
-                mapSubject.put(id, name9);
+                    + "                  where roster.studentid = " + studentid + " and roster.enrolled"+termid+" =1 and courses.active = 1 and courses.reportcard = 1 and classes.yearid = '" + yearid + "' order by courses.rcplacement DESC";
+            ResultSet rs1 = DBConect.ah.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
+            while(rs1.next()){
+                subjects.add(rs1.getString("courseid"));
             }
-
-            for (int i = 0; i < subjects.size(); i++) {
-                int ids;
-                ids = subjects.get(i).getId();
-                subjects.get(i).setName(mapSubject.get(ids));
-                activesubjects.add(subjects.get(i));
-            }
-
         } catch (SQLException ex) {
             System.out.println("Error leyendo Subjects: " + ex);
             StringWriter errors = new StringWriter();
             ex.printStackTrace(new PrintWriter(errors));
         }
 
-        return activesubjects;
+        return subjects;
+    }
+    
+    private HashMap<String, String> getfinalrating(String id) throws SQLException {
+        HashMap<String, String> result = new HashMap<>();
+        try {
+            ResultSet rs1 = DBConect.eduweb.executeQuery("SELECT rating.name,student_id,objective_id FROM rating inner join (select rating_id,student_id,objective_id from progress_report a where comment_date = (select max(comment_date) from progress_report \n"
+                    + "                                                        where student_id = "+id+" AND objective_id =a.objective_id and rating_id not in(6,7))) c ON id = c.rating_id");
+            while (rs1.next()) {
+                result.put(rs1.getInt("student_id") + "_" + rs1.getInt("objective_id"), rs1.getString("name"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));
+        }
+        return result;
     }
     
     public ModelAndView save(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {

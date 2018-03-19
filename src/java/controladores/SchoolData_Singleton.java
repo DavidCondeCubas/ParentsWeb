@@ -107,7 +107,7 @@ public class SchoolData_Singleton {
                     int idObj = rs5.getInt("id");
                     auxObj.setId(idObj);
                     auxObj.setDescription(rs5.getString("description"));
-                    auxObj.setName("name");
+                    auxObj.setName(rs5.getString("name"));
                     auxObj.setIdSubject(idSubject);
                     this.mapObjectives.put(idObj, auxObj);
                     this.mapSubjects.get(idSubject).addObjective(idObj, auxObj);
