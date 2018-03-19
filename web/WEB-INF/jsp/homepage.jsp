@@ -21,7 +21,10 @@
             var sons = ${sons};
             var mapSubjects = ${mapSubjects};
             var mapProfesores = ${mapProfesor};
+            var mapObjectives = ${mapObjectives};
+            var mapFinalRatings;
             var currentStudent;
+            
             $(document).ready(function () {
                 makeCircleSons();
                 mostrarHome();
@@ -33,14 +36,17 @@
                         $(".circle").css({'background-color': 'rgb(5, 82, 99)', 'color': 'white'});
                         $(this).css({'background-color': '#f99927', 'color': '#055263'});
                         $("#nameStudent").text($(this).attr("title"));
+                        +
+                                getRating_Student();
                     }
                 });
+
 
                 $(".btnHomepage").click(function () {
                     var nameDiv = $(this).attr("value")
                     switch (nameDiv) {
                         case "progressStudent":
-                            getRating_Student();                          
+                            getRating_Student();
                             break;
                         case "teacherObservations":
                             text = "I am not a fan of orange.";
@@ -68,8 +74,21 @@
                     data: id,
                     dataType: 'text',
                     success: function (data) {
-                        var obj = JSON.parse(data);
-                        var t = JSON.parse(obj.t);
+                        var data = JSON.parse(data);
+                        var subjects = JSON.parse(data.subjects);
+                        mapFinalRatings = JSON.parse(data.mapFinalRatings);
+
+                        $("#mySidenav").empty();
+                        $("#mySidenav").append(" <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>&times;</a>")
+                        for (var i = 0; i < subjects.length; i++) {
+                            $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='subjectsMenu'>" + mapSubjects[subjects[i]].name + "</a>")
+                        }
+
+                        $(".subjectsMenu").click(function () {
+                            $(".subjectsMenu").css({'color': '#818181'});
+                            $(this).css({'color': 'white'});
+                            showObjectivesRatings($(this).attr("id"));
+                        });
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         console.log(xhr.status);
@@ -78,7 +97,52 @@
                     }
                 });
             }
-            
+
+            function  showObjectivesRatings(idSubject){
+                $("#accordion").empty();
+                $("#accordion").append("<h1>"+mapSubjects[idSubject].name+"</h1>");
+                
+                 $.each(mapFinalRatings, function (key, value) {
+                    $("#accordion").append("<div class='card'>\n\
+                                                <div class='card-header col-xs-12' id='heading"+key+"'>\n\
+                                                    <h5 class='mb-0' style='width:100%'\n\
+                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse"+key+"' aria-expanded='false' aria-controls='collapse"+key+"'>\n\
+                                                            <div class='col-xs-12 nopadding text-left'>\n\
+                                                            "+"NOMBRE DE OBJETIVO"+"\
+                                                            </div>\n\
+                                                            <div class='col-xs-12 nopadding text-center'>\n\
+                                                                <div class='progress col-xs-8 col-xs-offset-2 nopadding'>\n\
+                                                                "+drawRating(value)+"\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </button>\n\
+                                                    </h5>\n\
+                                                </div>\n\
+                                                <div id='collapse"+key+"' class='collapse text-center' aria-labelledby='heading"+key+"' data-parent='#accordion'>\n\
+                                                    <div class='card-body'>\n\
+                                                        descripcionObjective\n\
+                                                    </div>\n\
+                                                </div>\n\
+                                            </div>");
+                });
+            }
+            function drawRating(rating){
+                var res="<div class='progress-bar progress-bar-striped active progressAttempted' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
+                            Attempted \n\
+                        </div> ";
+                if(rating === "Presented"){
+                    res += " <div class='progress-bar progress-bar-striped active progressPresented' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
+                            Presented \n\
+                        </div> "
+                }
+                else if(rating === "Mastered"){
+                    res +=  " <div class='progress-bar progress-bar-striped active progressMastered' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
+                            Mastered \n\
+                        </div> "
+                }
+                return res;
+                             
+            }
             function mostrarHome() {
                 $("#progressStudent").hide();
                 $("#homepage").show();
@@ -142,14 +206,6 @@
         <div id="progressStudent">
             <div id="mySidenav" class="sidenav">
                 <div>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">Mathematics</a>
-                    <a href="#">Afrikaans</a>
-                    <a href="#">Art</a>
-                    <a href="#">English</a>
-                    <a href="#">Music</a>
-                    <a href="#">Xhosa</a>
-                    <a href="#">Geometry</a>
                 </div>
             </div>
 
@@ -157,73 +213,7 @@
             <div class="col-xs-12" id="subjectProgress"><span onclick="openNav()">open</span></div>
 
             <div id="accordion">
-                <h1>Mathematics</h1>
-                <div class="card">
-                    <div class="card-header col-xs-12" id="headingThree">              
-
-                        <h5 class="mb-0" style="width:100%">
-                            <button class="btn btn-link collapsed col-xs-12 nopadding" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <div class="col-xs-12 nopadding text-left">
-                                    T1 - Counting in 2s, 5s and 10s 
-                                </div>
-                                <div class="col-xs-12 nopadding text-center">
-                                    <div class="progress col-xs-8 col-xs-offset-2 nopadding">
-                                        <div class="progress-bar progress-bar-striped active progressAttempted" role="progressbar"
-                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                            Attempted
-                                        </div>
-                                        <div class="progress-bar progress-bar-striped active progressPresented" role="progressbar"
-                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                            Presented
-                                        </div>
-                                    </div>
-                                </div>  
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseThree" class="collapse text-center" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body">
-                            Abstracting, calculating, memorising, counting                        
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card">
-                    <div class="card-header col-xs-12" id="headingFour">              
-
-                        <h5 class="mb-0" style="width:100%">
-                            <button class="btn btn-link collapsed col-xs-12 nopadding" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <div class="col-xs-12 nopadding text-left">
-                                    T1 - Ordering and sequencing numbers
-                                </div>
-                                <div class="col-xs-12 nopadding text-center">
-
-                                    <div class="progress col-xs-8 col-xs-offset-2 nopadding">
-                                        <div class="progress-bar progress-bar-striped active progressAttempted" role="progressbar"
-                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                            Attempted
-                                        </div>
-                                        <div class="progress-bar progress-bar-striped active progressPresented" role="progressbar"
-                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                            Presented
-                                        </div>
-                                        <div class="progress-bar progress-bar-striped active progressMastered" role="progressbar"
-                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                                            Mastered
-                                        </div>
-                                    </div>
-                                </div>  
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseFour" class="collapse text-center" aria-labelledby="headingFour" data-parent="#accordion">
-                        <div class="card-body">
-                            Abstracting, analysing, calculating, concluding, identifying, recognising, decomposing, writing, spelling               
-                        </div>
-                    </div>
-
-                </div>
+             
             </div>
         </div>
     </body>
