@@ -4,10 +4,17 @@
 @desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
 
 @colorCircle: #055263;
+@circleDarkBlue: #055263;
 @colorCircleSelect: #f99927;
+@circleOrange: #f99927;
 @colorGrisEduWEB: #F39200;
 @alturaNavDesktop: 90px;
 @alturaNavCell: 40px;
+
+@backgroundPresented: #054663;
+@backgroundAttempted: #753cd9;
+@backgroundMastered: #3d8341;
+@colorProgress: white;
 
 @fondo:#dadada;
 body
@@ -19,7 +26,7 @@ img
     @media @smartphones{ 
         width:60%;
 
-            }
+    }
     @media @tablets{ 
         width:60%;
 
@@ -97,7 +104,7 @@ img
                 align-items: center;
                 .circle{
                     cursor: pointer;
-                    background-color: @colorCircle;
+                    background-color: @circleDarkBlue;
                     height: 70px;
                     width: 70px;
                     border-radius: 50%;
@@ -157,7 +164,7 @@ img
 }
 
 #homepage{
-    
+
     padding-top: 80px;
     //height: -webkit-fill-available;
     @media @tablets{ 
@@ -172,7 +179,7 @@ img
     div{
         div{
             //background-color: @colorCircle;
-            
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -213,7 +220,7 @@ img
             }
         }
 
-        
+
         .btnHomepage:hover{
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
         }
@@ -238,32 +245,55 @@ img
     @media @smartphones{
         margin-top: @alturaNavCell+8;
     }
-    @media @tablets,@desktop{
+    @media @tablets,@desktop,@desktopXL{
         margin-left: 250px;    
     }
     h1{
         text-align: center;
+        @media @smartphones{
+            font-size: large;
+            font-weight: bold;
+        }
 
     }
     .progressMastered{
         width: 34%;
-        background-color: green;
+        background-color: @backgroundMastered;
+        color: white !important;
     }
 
     .progressPresented{
         width: 33%;
-        background-color: gold;
-        color: #333333;
+        background-color: @backgroundPresented;
+        color: white !important;
     }
 
     .progressAttempted{
         width: 33%;
-        background-color: orange;
-        color: #333333;
+        background-color: @backgroundAttempted;
+        color: white !important;
     }
     .progress{
         margin-top: 10px;
         margin-bottom: 10px;
+
+    }
+    .card{
+        .card-header{
+            border-bottom: 1px solid #bbb7b7e6;
+        }
+        .card-header:last-child {
+            border-bottom: 1px solid white;
+        }
+        div{
+            div{
+                @media @tablets,@desktop,@desktopXL {
+                    font-size: large;
+                } 
+                // color: @circleOrange;
+
+            }
+        }
     }
 }
 #mySidenav{
@@ -273,7 +303,7 @@ img
     @media @smartphones{
         margin-top: @alturaNavCell+5;
     } 
-    @media @tablets,@desktop{
+    @media @tablets,@desktop,@desktopXL{
         margin-top:  @alturaNavDesktop+30;
         width: 250px;  
     }
@@ -292,7 +322,11 @@ img
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 
+
     @media @smartphones {
+        a:nth-child(2) {
+            margin-top: 10px;
+        }
         padding-top: 15px;
     }
     a {
@@ -312,6 +346,10 @@ img
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
+        @media @smartphones {
+            top: -2%;
+            right: 2%;
+        }
     }
 }
 
@@ -319,8 +357,30 @@ img
 .sidenav a:hover {
     color: #f1f1f1;
 }
+
 #subjectProgress{
     margin-top:15px;
+    display: flex;
+    justify-content: space-between;
+    @media @tablets,@desktop,@desktopXL {
+        font-size: x-large;
+    } 
+    div:nth-child(1) {
+        display: flex;
+        align-items: baseline;
+    }
+
+    div:nth-child(2) {
+        font-size: large;
+        @media @tablets,@desktop,@desktopXL {
+            font-size: xx-large;
+        } 
+        font-weight: bold;
+    }
+
+    div:nth-child(3) {
+        color: @circleOrange;
+    }
 }
 
 /*By Jesús*/
@@ -351,4 +411,18 @@ img
     color: #fff;
     background-color: @colorGrisEduWEB;
     border-color: @colorGrisEduWEB;
+}
+
+#navbarInferior{
+    background-color: #4d4d4d;
+    height: 50px;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    img{
+        width: 100%;
+    }
 }

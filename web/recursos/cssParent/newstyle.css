@@ -236,7 +236,7 @@ body {
     margin-top: 48px;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px) {
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
   #accordion {
     margin-left: 250px;
   }
@@ -244,23 +244,41 @@ body {
 #accordion h1 {
   text-align: center;
 }
+@media only screen and (max-width: 481px) {
+  #accordion h1 {
+    font-size: large;
+    font-weight: bold;
+  }
+}
 #accordion .progressMastered {
   width: 34%;
-  background-color: green;
+  background-color: #3d8341;
+  color: white !important;
 }
 #accordion .progressPresented {
   width: 33%;
-  background-color: gold;
-  color: #333333;
+  background-color: #054663;
+  color: white !important;
 }
 #accordion .progressAttempted {
   width: 33%;
-  background-color: orange;
-  color: #333333;
+  background-color: #753cd9;
+  color: white !important;
 }
 #accordion .progress {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+#accordion .card .card-header {
+  border-bottom: 1px solid #bbb7b7e6;
+}
+#accordion .card .card-header:last-child {
+  border-bottom: 1px solid white;
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #accordion .card div div {
+    font-size: large;
+  }
 }
 #mySidenav {
   border-top-right-radius: 10px;
@@ -272,7 +290,7 @@ body {
     margin-top: 45px;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px) {
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
   #mySidenav {
     margin-top: 120px;
     width: 250px;
@@ -304,6 +322,9 @@ body {
   .sidenav {
     padding-top: 15px;
   }
+  .sidenav a:nth-child(2) {
+    margin-top: 10px;
+  }
 }
 .sidenav a {
   padding: 8px 8px 8px 32px;
@@ -325,12 +346,41 @@ body {
   font-size: 36px;
   margin-left: 50px;
 }
+@media only screen and (max-width: 481px) {
+  .sidenav .closebtn {
+    top: -2%;
+    right: 2%;
+  }
+}
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
 }
 #subjectProgress {
   margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #subjectProgress {
+    font-size: x-large;
+  }
+}
+#subjectProgress div:nth-child(1) {
+  display: flex;
+  align-items: baseline;
+}
+#subjectProgress div:nth-child(2) {
+  font-size: large;
+  font-weight: bold;
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #subjectProgress div:nth-child(2) {
+    font-size: xx-large;
+  }
+}
+#subjectProgress div:nth-child(3) {
+  color: #f99927;
 }
 /*By Jesús*/
 .panel-success > .panel-heading {
@@ -360,5 +410,18 @@ body {
   color: #fff;
   background-color: #F39200;
   border-color: #F39200;
+}
+#navbarInferior {
+  background-color: #4d4d4d;
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+#navbarInferior img {
+  width: 100%;
 }
 /*# sourceMappingURL=newstyle.css.map */
