@@ -24,7 +24,7 @@
             var mapObjectives = ${mapObjectives};
             var mapFinalRatings;
             var currentStudent;
-
+            var currentOption;
             var monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
             ];
@@ -34,6 +34,7 @@
             $(document).ready(function () {
                 makeCircleSons();
                 mostrarHome();
+                $("#anotherOptions").hide();
 
                 $(".circle").click(function () {
                     var color = $(this).css("background-color");
@@ -42,12 +43,9 @@
                         $(".circle").css({'background-color': 'rgb(5, 82, 99)', 'color': 'white'});
                         $(this).css({'background-color': '#f99927', 'color': '#055263'});
                         $("#nameStudent").text($(this).attr("title"));
-                        +
-                                getRating_Student();
+                        menu(currentOption);
                     }
                 });
-
-
 
                 $(".btnHomepage").click(function () {
                     menu($(this).attr("value"));
@@ -55,71 +53,111 @@
 
                 $("#navbarInferior div").click(function () {
                     var nameDiv = $(this).attr("id"), url;
+                    hideAllElements();
                     resetNavInf();
                     switch (nameDiv) {
                         case "navInfProgress":
+                            currentOption = "progressStudent";
                             $("#navInfProgress").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
                             $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
                             menu("progressStudent");
                             break;
                         case "navInfObservations":
+                            currentOption = "teacherObservations";
                             $("#navInfObservations").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
                             $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
                             menu("teacherObservations");
                             break;
                         case "navInfWhatIam":
+                            currentOption = "whatIdo";
                             $("#navInfWhatIam").empty();
                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
                             $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
                             menu("whatIdo");
                             break;
                         case "navInfCalendar":
+                            currentOption = "calendar";
                             $("#navInfCalendar").empty();
                             url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
                             $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
                             menu("calendar");
                             break;
+                        case "navInfCalendar":
+                            currentOption = "calendar";
+                            $("#navInfCalendar").empty();
+                            url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
+                            $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
+                            menu("calendar");
+                            break;
+                        case "navInfReport":
+                            currentOption = "report";
+                            $("#navInfReport").empty();
+                            url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
+                            $("#navInfReport").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
+                            menu("report");
+                            break;
+
                         default: //more
+                            var prevState = $("#navInfMore").attr("value") === "a_MenuIcon.svg";
+                            resetNavInf();
                             $("#navInfMore").empty();
-                            url = "<c:url value='/recursos/img/iconos/n_MenuIconNaranja.svg'/>";
+                            
+                            if (prevState) {
+                                url = "<c:url value='/recursos/img/iconos/n_MenuIconNaranja.svg'/>";
+                                $("#navInfMore").attr("value","n_MenuIconNaranja.svg")
+                            }
+                            else{
+                                url = "<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>";
+                                $("#navInfMore").attr("value","a_MenuIcon.svg")
+                            }
                             $("#navInfMore").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='More'>");
-                            menu("more");
                     }
                     $("#" + nameDiv).show();
-
                     $("#homepage").hide();
                 });
 
             });
 
+
             function menu(nameDiv) {
                 switch (nameDiv) {
                     case "progressStudent":
+                        currentOption = "progressStudent";
                         getRating_Student();
                         document.body.style.backgroundColor = "white";
                         $("#navInfProgress").empty();
                         url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
                         $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
+                        $("#progressStudent").show();
                         break;
                     case "teacherObservations":
+                        currentOption = "navInfObservations";
                         text = "I am not a fan of orange.";
                         break;
                     case "whatIdo":
+                        currentOption = "navInfWhatIam";
                         text = "How you like them apples?";
                         break;
                     case "calendar":
+                        currentOption = "navInfCalendar";
                         text = "How you like them apples?";
                         break;
-                    case "more":
+                    case "report":
+                        currentOption = "navInfReport";
                         break;
-                    default: //reportcard
+                    default: //more
                         text = "I have never heard of that fruit...";
                 }
                 $("#" + nameDiv).show();
                 $("#navbarInferior").show();
                 $("#homepage").hide();
+            }
+            function hideAllElements() {
+                $("#mySidenav").empty();
+                $("#accordion").empty();
+                $("#subjectProgress").empty();
             }
             function resetNavInf() {
                 $("#navInfProgress").empty();
@@ -127,6 +165,7 @@
                 $("#navInfWhatIam").empty();
                 $("#navInfCalendar").empty();
                 $("#navInfMore").empty();
+                $("#navInfReport").empty();
 
                 var url = "<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>";
                 $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
@@ -143,164 +182,13 @@
                 url = "<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>";
                 $("#navInfMore").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='More'>");
 
+                url = "<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>";
+                $("#navInfReport").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Report Card'>");
 
             }
-            function getRating_Student() {
-                var id = currentStudent;
-                $.ajax({
-                    type: "POST",
-                    url: "getSubjectsStudents.htm?seleccion=" + id,
-                    data: id,
-                    dataType: 'text',
-                    success: function (data) {
-                        var data = JSON.parse(data);
-                        var subjects = JSON.parse(data.subjects);
-                        mapFinalRatings = JSON.parse(data.mapFinalRatings);
 
-                        $("#mySidenav").empty();
-                        $("#mySidenav").append(" <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>&times;</a>")
-                        for (var i = 1; i < subjects.length; i++) {
-                            $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='animated zoomIn subjectsMenu'>" + mapSubjects[subjects[i]].name + "</a>")
-                        }
-
-                        $(".subjectsMenu").click(function () {
-                            $(".subjectsMenu").css({'color': '#818181'});
-                            $(this).css({'color': 'white'});
-                            showObjectivesRatings($(this).attr("id"));
-                            closeNav();
-                        });
-                        var firstSubject = $("#mySidenav").children().first().next().attr("id");
-                        if (firstSubject !== undefined)
-                            showObjectivesRatings(firstSubject);
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        console.log(xhr.status);
-                        console.log(xhr.responseText);
-                        console.log(thrownError);
-                    }
-                });
-            }
-
-            function  showObjectivesRatings(idSubject) {
-                var currentMonth = new Date();
-
-                $("#accordion").empty();
-                $("#subjectProgress").empty();
-                $("#subjectProgress").append("<div col-xs-3  onclick='openNav()'><span class='glyphicon glyphicon-chevron-left'></span><span>Subjects</span></div>");
-                $("#subjectProgress").append("<div col-xs-6>" + (mapSubjects[idSubject].name).toUpperCase() + "</h1></div>");
-                $("#subjectProgress").append("<div col-xs-3>" + monthNames[currentMonth.getMonth()] + "</div>");
-
-                $.each(mapFinalRatings, function (key, value) {
-                    if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
-                        $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' id='heading" + key + "'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
-                                                            " + mapObjectives[key.split("_")[1]].name + "\
-                                                            </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='progress  animated bounceInLeft col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
-                                                                " + drawRating(value) + "\n\
-                                                                </div>\n\
-                                                            </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
-                                                </div>\n\
-                                                <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
-                                                    <div class='card-body'>\n\
-                                                        " + mapObjectives[key.split("_")[1]].description + "\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>");
-                    }
-                });
-
-                $.each(mapFinalRatings, function (key, value) {
-                    if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
-                        $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' id='heading" + key + "'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
-                                                            " + mapObjectives[key.split("_")[1]].name + "\
-                                                            </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
-                                                                " + drawRating(value) + "\n\
-                                                                </div>\n\
-                                                            </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
-                                                </div>\n\
-                                                <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
-                                                    <div class='card-body'>\n\
-                                                        " + mapObjectives[key.split("_")[1]].description + "\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>");
-                    }
-                });
-                $.each(mapFinalRatings, function (key, value) {
-                    if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
-                        $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' id='heading" + key + "'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
-                                                            " + mapObjectives[key.split("_")[1]].name + "\
-                                                            </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
-                                                                " + drawRating(value) + "\n\
-                                                                </div>\n\
-                                                            </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
-                                                </div>\n\
-                                                <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
-                                                    <div class='card-body'>\n\
-                                                        " + mapObjectives[key.split("_")[1]].description + "\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>");
-                    }
-                });
-                //DIV VACIO PARA DARLE ESPACIO A LA BARRA INFERIOR
-                $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' style='height:50px'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse'  aria-expanded='false'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
-                                                            \
-                                                            </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
-                                                                \n\
-                                                                </div>\n\
-                                                            </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
-                                                </div>\n\
-                                            </div>");
-            }
-            function drawRating(rating) {
-                var res = "<div class='progress-bar progress-bar-striped active progressAttempted' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
-                            Attempted \n\
-                        </div> ";
-                if (rating === "Presented") {
-                    res += " <div class='progress-bar progress-bar-striped active progressPresented' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
-                            Presented \n\
-                        </div> "
-                } else if (rating === "Mastered") {
-                    res += " <div class='progress-bar progress-bar-striped active progressMastered' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
-                            Mastered \n\
-                        </div> "
-                }
-                return res;
-
-            }
             function mostrarHome() {
+
                 $("#progressStudent").hide();
                 $("#navbarInferior").hide();
                 $("#homepage").show();
@@ -393,6 +281,11 @@
             <div class="col-xs-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="More">
             </div>
-        </div>                
+        </div> 
+        <div id="anotherOptions">
+            <div id="navInfReport" value="a_ReportIcon.svg">
+                <img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+            </div>
+        </div>
     </body>
 </html>

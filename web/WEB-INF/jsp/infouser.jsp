@@ -78,6 +78,7 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.material.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.uikit.js"/>" ></script>
     
+    <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/progressStudent.js"/>"></script>
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Roboto:700" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/newstyle.css"/>" />
@@ -124,7 +125,7 @@
         <div class="modal-content">
             <div class="modal-header modal-header-delete">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">are you sure you want to logout?</h4>
+                <h4 class="modal-title">Are you sure you want to logout?</h4>
             </div>
             <div class="modal-footer text-center">
                 <button id="buttonDelete" type="button" class="btn btn-danger" data-dismiss="modal" onclick="logout()">Yes</button>

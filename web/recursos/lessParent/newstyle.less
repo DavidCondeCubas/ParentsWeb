@@ -8,6 +8,7 @@
 @colorCircleSelect: #f99927;
 @circleOrange: #f99927;
 @colorGrisEduWEB: #F39200;
+@colorNavBar: #4d4d4d;
 @alturaNavDesktop: 90px;
 @alturaNavCell: 40px;
 
@@ -79,7 +80,7 @@ img
 
 .navUsuario{
     overflow: hidden;
-    background-color: #111;
+    background-color: @colorNavBar;
     position: fixed;
     top: 0;
     width: 100%;
@@ -414,7 +415,7 @@ img
 }
 
 #navbarInferior{
-    background-color: #4d4d4d;
+    background-color: @colorNavBar;
     height: 50px;
     position: fixed;
     bottom: 0px;
@@ -425,4 +426,16 @@ img
     img{
         width: 100%;
     }
+}
+#anotherOpstions{
+    position: absolute;
+    display: flex;
+    background-color: #272727;
+    bottom: 50px;
+    right: 0;
+    width: 16.66666667%;
+    height: 50px;
+    padding-top: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
