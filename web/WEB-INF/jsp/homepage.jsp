@@ -50,30 +50,7 @@
 
 
                 $(".btnHomepage").click(function () {
-                    var nameDiv = $(this).attr("value")
-                    switch (nameDiv) {
-                        case "progressStudent":
-                            getRating_Student();
-                            document.body.style.backgroundColor = "white";
-                            $("#navInfProgress").empty();
-                            url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
-                            $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
-                            break;
-                        case "teacherObservations":
-                            text = "I am not a fan of orange.";
-                            break;
-                        case "whatIdo":
-                            text = "How you like them apples?";
-                            break;
-                        case "calendar":
-                            text = "How you like them apples?";
-                            break;
-                        default: //reportcard
-                            text = "I have never heard of that fruit...";
-                    }
-                    $("#" + nameDiv).show();
-                    $("#navbarInferior").show();
-                    $("#homepage").hide();
+                    menu($(this).attr("value"));
                 });
 
                 $("#navbarInferior div").click(function () {
@@ -84,26 +61,31 @@
                             $("#navInfProgress").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
                             $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
+                            menu("progressStudent");
                             break;
                         case "navInfObservations":
                             $("#navInfObservations").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
                             $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
+                            menu("teacherObservations");
                             break;
                         case "navInfWhatIam":
                             $("#navInfWhatIam").empty();
                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
                             $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
+                            menu("whatIdo");
                             break;
                         case "navInfCalendar":
                             $("#navInfCalendar").empty();
                             url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
                             $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
+                            menu("calendar");
                             break;
                         default: //more
                             $("#navInfMore").empty();
                             url = "<c:url value='/recursos/img/iconos/n_MenuIconNaranja.svg'/>";
                             $("#navInfMore").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='More'>");
+                            menu("more");
                     }
                     $("#" + nameDiv).show();
 
@@ -111,6 +93,34 @@
                 });
 
             });
+
+            function menu(nameDiv) {
+                switch (nameDiv) {
+                    case "progressStudent":
+                        getRating_Student();
+                        document.body.style.backgroundColor = "white";
+                        $("#navInfProgress").empty();
+                        url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
+                        $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
+                        break;
+                    case "teacherObservations":
+                        text = "I am not a fan of orange.";
+                        break;
+                    case "whatIdo":
+                        text = "How you like them apples?";
+                        break;
+                    case "calendar":
+                        text = "How you like them apples?";
+                        break;
+                    case "more":
+                        break;
+                    default: //reportcard
+                        text = "I have never heard of that fruit...";
+                }
+                $("#" + nameDiv).show();
+                $("#navbarInferior").show();
+                $("#homepage").hide();
+            }
             function resetNavInf() {
                 $("#navInfProgress").empty();
                 $("#navInfObservations").empty();
@@ -190,7 +200,7 @@
                                                             " + mapObjectives[key.split("_")[1]].name + "\
                                                             </div>\n\
                                                             <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
+                                                                <div class='progress  animated bounceInLeft col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
                                                                 " + drawRating(value) + "\n\
                                                                 </div>\n\
                                                             </div>\n\
