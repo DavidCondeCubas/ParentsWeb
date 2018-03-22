@@ -34,7 +34,7 @@
             $(document).ready(function () {
                 makeCircleSons();
                 mostrarHome();
-                $("#anotherOptions").hide();
+                $("#navInfReport").hide();
 
                 $(".circle").click(function () {
                     var color = $(this).css("background-color");
@@ -51,66 +51,100 @@
                     menu($(this).attr("value"));
                 });
 
+
+
                 $("#navbarInferior div").click(function () {
                     var nameDiv = $(this).attr("id"), url;
                     hideAllElements();
-                    resetNavInf();
+
                     switch (nameDiv) {
                         case "navInfProgress":
+                            resetNavInf();
                             currentOption = "progressStudent";
                             $("#navInfProgress").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
                             $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
                             menu("progressStudent");
+                            $("#navInfReport").hide();
+                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
                             break;
                         case "navInfObservations":
+                            resetNavInf();
                             currentOption = "teacherObservations";
                             $("#navInfObservations").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
                             $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
                             menu("teacherObservations");
+
+                            $("#navInfReport").hide();
+                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
                             break;
                         case "navInfWhatIam":
+                            resetNavInf();
                             currentOption = "whatIdo";
                             $("#navInfWhatIam").empty();
                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
                             $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
                             menu("whatIdo");
+                            $("#navInfReport").hide();
+                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
                             break;
                         case "navInfCalendar":
+                            resetNavInf();
                             currentOption = "calendar";
                             $("#navInfCalendar").empty();
                             url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
                             $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
                             menu("calendar");
-                            break;
-                        case "navInfCalendar":
-                            currentOption = "calendar";
-                            $("#navInfCalendar").empty();
-                            url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
-                            $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
-                            menu("calendar");
+                            $("#navInfReport").hide();
+                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
                             break;
                         case "navInfReport":
+                            resetNavInf();
                             currentOption = "report";
                             $("#navInfReport").empty();
-                            url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
+                            url = "<c:url value='/recursos/img/iconos/n_ReportIconNaranja.svg'/>";
                             $("#navInfReport").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
                             menu("report");
+
                             break;
 
                         default: //more
                             var prevState = $("#navInfMore").attr("value") === "a_MenuIcon.svg";
-                            resetNavInf();
+                            $("#navInfProgress").empty();
+                            $("#navInfObservations").empty();
+                            $("#navInfWhatIam").empty();
+                            $("#navInfCalendar").empty();
+
+                            var url = "<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>";
+                            $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
+
+                            url = "<c:url value='/recursos/img/iconos/a_ObservationIcon.svg'/>";
+                            $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
+
+                            url = "<c:url value='/recursos/img/iconos/a_LearningIcon.svg'/>";
+                            $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
+
+                            url = "<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>";
+                            $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
+
+
                             $("#navInfMore").empty();
-                            
                             if (prevState) {
+
                                 url = "<c:url value='/recursos/img/iconos/n_MenuIconNaranja.svg'/>";
-                                $("#navInfMore").attr("value","n_MenuIconNaranja.svg")
-                            }
-                            else{
+                                $("#navInfMore").attr("value", "n_MenuIconNaranja.svg");
+                                $("#navInfReport").show();
+                            } else {
+                                /* 
+                                 if ($("#navInfReport").attr("value") !== "n_ReportIconNaranja.svg") {
+                                 
+                                 $("#navInfMore").empty();
+                                 }*/
                                 url = "<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>";
-                                $("#navInfMore").attr("value","a_MenuIcon.svg")
+                                $("#navInfMore").attr("value", "a_MenuIcon.svg");
+                                $("#navInfReport").hide();
+
                             }
                             $("#navInfMore").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='More'>");
                     }
@@ -120,13 +154,17 @@
 
             });
 
-
+            function hideAllOptionsContent() {
+                $("#progressStudent").hide();
+                $("#teacherObservations").hide();
+            }
             function menu(nameDiv) {
+                document.body.style.backgroundColor = "white";
+                hideAllOptionsContent();
                 switch (nameDiv) {
                     case "progressStudent":
                         currentOption = "progressStudent";
                         getRating_Student();
-                        document.body.style.backgroundColor = "white";
                         $("#navInfProgress").empty();
                         url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
                         $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
@@ -134,7 +172,10 @@
                         break;
                     case "teacherObservations":
                         currentOption = "navInfObservations";
-                        text = "I am not a fan of orange.";
+                        $("#navInfObservations").empty();
+                        url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
+                        $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
+                        $("#teacherObservations").show();
                         break;
                     case "whatIdo":
                         currentOption = "navInfWhatIam";
@@ -188,8 +229,8 @@
             }
 
             function mostrarHome() {
-
                 $("#progressStudent").hide();
+                $("#teacherObservations").hide();
                 $("#navbarInferior").hide();
                 $("#homepage").show();
             }
@@ -265,6 +306,41 @@
             <div id="accordion">
             </div>
         </div>
+        <div id="teacherObservations">
+           
+            <div id="allWeeks" class="col-xs-12" style="position:relative;max-width:100%;overflow:auto">
+                <div id="divCircleWeeks" style="width:1500px">
+                    <div class="circleWeek">1w</div>
+                    <div class="circleWeek">2w</div>
+                    <div class="circleWeek">3w</div>
+                    <div class="circleWeek">4w</div>
+                    <div class="circleWeek">5w</div>
+                    <div class="circleWeek">1w</div>
+                    <div class="circleWeek">2w</div>
+                    <div class="circleWeek">3w</div>
+                    <div class="circleWeek">4w</div>
+                    <div class="circleWeek">1w</div>
+                    <div class="circleWeek">2w</div>
+                    <div class="circleWeek">3w</div>
+                    <div class="circleWeek">4w</div>
+                    <div class="circleWeek">5w</div>
+                    <div class="circleWeek">6w</div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div id="allDays" class="col-xs-1">
+                    <div id="divCircleDays">
+                        <div class="circleDay">1</div>
+                        <div class="circleDay">4</div>
+                        <div class="circleDay">7</div>
+                        <div class="circleDay">11</div>
+                        <div class="circleDay">18</div>
+                        <div class="circleDay">27</div>
+                        <div style="height:50px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-xs-12 col-md-12" id="navbarInferior">
             <div class="col-xs-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
@@ -281,11 +357,10 @@
             <div class="col-xs-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="More">
             </div>
-        </div> 
-        <div id="anotherOptions">
-            <div id="navInfReport" value="a_ReportIcon.svg">
+            <div  id="navInfReport" value="a_ReportIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
             </div>
-        </div>
+        </div> 
+
     </body>
 </html>

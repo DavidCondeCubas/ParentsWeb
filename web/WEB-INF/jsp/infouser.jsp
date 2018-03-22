@@ -79,6 +79,8 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.uikit.js"/>" ></script>
     
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/progressStudent.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/teacherObservations.js"/>"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Roboto:700" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/newstyle.css"/>" />

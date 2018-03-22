@@ -70,7 +70,6 @@ body {
   height: 90px;
   margin-bottom: 2px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 10px;
   z-index: 2;
 }
 @media only screen and (max-width: 481px) {
@@ -367,7 +366,7 @@ body {
   }
 }
 #subjectProgress div:nth-child(1) {
-  display: flex;
+  display: flenth-cx;
   align-items: baseline;
 }
 #subjectProgress div:nth-child(2) {
@@ -417,23 +416,132 @@ body {
   position: fixed;
   bottom: 0px;
   display: flex;
-  border-radius: 5px;
   justify-content: space-between;
   align-items: center;
 }
 #navbarInferior img {
   width: 100%;
 }
-#anotherOpstions {
+#navInfReport {
   position: absolute;
   display: flex;
-  background-color: #272727;
+  align-items: center;
+  justify-content: center;
+  background-color: #4d4d4d;
   bottom: 50px;
   right: 0;
-  width: 16.66666667%;
+  width: 20%;
   height: 50px;
-  padding-top: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+#navInfReport img {
+  width: 50%;
+}
+#teacherObservations {
+  padding-top: 80px;
+  /*
+    LINEA VERTICAL BACKGROUND
+    background: rgba(255,255,255,1);
+background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+    */
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #teacherObservations {
+    padding-top: 120px;
+  }
+}
+@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+  #teacherObservations {
+    padding-top: 120px;
+  }
+}
+@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #teacherObservations {
+    padding-top: 120px;
+  }
+}
+#teacherObservations #divCircleWeeks {
+  display: flex;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffffff), color-stop(47%, #ffffff), color-stop(48%, #000000), color-stop(51%, #000000), color-stop(51%, #ffffff), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+}
+#teacherObservations #divCircleWeeks .circleWeek {
+  cursor: pointer;
+  background-color: #055263;
+  height: 70px;
+  width: 70px;
+  color: white;
+  border-radius: 50%;
+  margin-left: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+  font-family: 'Coda Caption', sans-serif;
+  font-size: xx-large;
+}
+@media only screen and (max-width: 481px) {
+  #teacherObservations #divCircleWeeks .circleWeek {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    font-size: small;
+  }
+}
+#teacherObservations #allDays {
+  padding-left: 0px;
+  margin-left: 10px;
+  padding-right: 0px;
+}
+#teacherObservations #allDays #divCircleDays {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #ffffff), color-stop(47%, #ffffff), color-stop(48%, #000000), color-stop(51%, #000000), color-stop(51%, #ffffff), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(left, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: -o-linear-gradient(left, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: -ms-linear-gradient(left, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
+}
+#teacherObservations #allDays #divCircleDays .circleDay:nth-child(1) {
+  margin-top: 15px;
+}
+#teacherObservations #allDays #divCircleDays .circleDay {
+  cursor: pointer;
+  background-color: #055263;
+  height: 70px;
+  width: 70px;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+  font-family: 'Coda Caption', sans-serif;
+  font-size: xx-large;
+}
+@media only screen and (max-width: 481px) {
+  #teacherObservations #allDays #divCircleDays .circleDay {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    font-size: small;
+  }
 }
 /*# sourceMappingURL=newstyle.css.map */
