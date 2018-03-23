@@ -78,6 +78,8 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.material.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.uikit.js"/>" ></script>
     
+    
+    <script type="text/javascript" src="<c:url value="/recursos/js/constantes.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/progressStudent.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/teacherObservations.js"/>"></script>
     

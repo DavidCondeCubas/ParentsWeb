@@ -1,3 +1,23 @@
+function initProgress(url) {
+    resetNavInf();
+    currentOption = "progressStudent";
+    $("#navInfProgress").empty();
+   
+    $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
+    menu("progressStudent");
+    $("#navInfReport").hide();
+    $("#navInfMore").attr("value", "a_MenuIcon.svg");
+}
+
+function initProgressMenu(url) {
+    currentOption = "progressStudent";
+    getRating_Student();
+    $("#navInfProgress").empty();
+  
+    $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
+    $("#progressStudent").show();
+}
+
 function getRating_Student() {
     var id = currentStudent;
     $("#mySidenav").empty();

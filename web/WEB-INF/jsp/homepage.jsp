@@ -25,11 +25,13 @@
             var mapFinalRatings;
             var currentStudent;
             var currentOption;
+
             var monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-            ];
+                "July", "August", "September", "October", "November", "December"];
 
-
+            var monthColors = ["#ff9529", "#451c8c", "#3d962d", "#054663",
+                "#ff9529", "#451c8c", "#3d962d", "#054663",
+                "#ff9529", "#451c8c", "#3d962d", "#054663", ];
 
             $(document).ready(function () {
                 makeCircleSons();
@@ -51,33 +53,19 @@
                     menu($(this).attr("value"));
                 });
 
-
-
                 $("#navbarInferior div").click(function () {
                     var nameDiv = $(this).attr("id"), url;
                     hideAllElements();
 
                     switch (nameDiv) {
                         case "navInfProgress":
-                            resetNavInf();
-                            currentOption = "progressStudent";
-                            $("#navInfProgress").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
-                            $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
-                            menu("progressStudent");
-                            $("#navInfReport").hide();
-                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
+                            initProgress(url);
                             break;
                         case "navInfObservations":
-                            resetNavInf();
-                            currentOption = "teacherObservations";
-                            $("#navInfObservations").empty();
                             url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
-                            $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
-                            menu("teacherObservations");
-
-                            $("#navInfReport").hide();
-                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
+                            initObservations(url);
+                            getWeeks();
                             break;
                         case "navInfWhatIam":
                             resetNavInf();
@@ -158,24 +146,20 @@
                 $("#progressStudent").hide();
                 $("#teacherObservations").hide();
             }
+
             function menu(nameDiv) {
                 document.body.style.backgroundColor = "white";
                 hideAllOptionsContent();
+                var url = "";
                 switch (nameDiv) {
                     case "progressStudent":
-                        currentOption = "progressStudent";
-                        getRating_Student();
-                        $("#navInfProgress").empty();
                         url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
-                        $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
-                        $("#progressStudent").show();
+                        initProgressMenu(url);
                         break;
                     case "teacherObservations":
-                        currentOption = "navInfObservations";
-                        $("#navInfObservations").empty();
                         url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
-                        $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
-                        $("#teacherObservations").show();
+                        initObservationsMenu(url);
+                        getWeeks();
                         break;
                     case "whatIdo":
                         currentOption = "navInfWhatIam";
@@ -306,11 +290,19 @@
             <div id="accordion">
             </div>
         </div>
+
         <div id="teacherObservations">
-           
+
             <div id="allWeeks" class="col-xs-12" style="position:relative;max-width:100%;overflow:auto">
+                <div  id="namesMonths" style="width:1500px">
+                    <!--<div>JANUARY</div>
+                    <div>FEBRUARY</div>
+                    <div>MARCH</div>
+                    <div>APRIL</div>
+                    <div>MAY</div>-->
+                </div>
                 <div id="divCircleWeeks" style="width:1500px">
-                    <div class="circleWeek">1w</div>
+                    <!--<div class="circleWeek">1w</div>
                     <div class="circleWeek">2w</div>
                     <div class="circleWeek">3w</div>
                     <div class="circleWeek">4w</div>
@@ -324,18 +316,18 @@
                     <div class="circleWeek">3w</div>
                     <div class="circleWeek">4w</div>
                     <div class="circleWeek">5w</div>
-                    <div class="circleWeek">6w</div>
+                    <div class="circleWeek">6w</div>-->
                 </div>
             </div>
             <div class="col-xs-12">
                 <div id="allDays" class="col-xs-1">
                     <div id="divCircleDays">
-                        <div class="circleDay">1</div>
-                        <div class="circleDay">4</div>
-                        <div class="circleDay">7</div>
-                        <div class="circleDay">11</div>
-                        <div class="circleDay">18</div>
-                        <div class="circleDay">27</div>
+                        <div class="circleDay" style="margin-bottom: 150px">1</div>
+                        <div class="circleDay" style="margin-bottom: 250px">4</div>
+                        <div class="circleDay" style="margin-bottom: 350px">7</div>
+                        <div class="circleDay" style="margin-bottom: 150px">11</div>
+                        <div class="circleDay" style="margin-bottom: 450px">18</div>
+                        <div class="circleDay" style="margin-bottom: 150px">27</div>
                         <div style="height:50px"></div>
                     </div>
                 </div>
