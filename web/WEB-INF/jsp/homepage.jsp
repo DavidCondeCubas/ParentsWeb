@@ -65,7 +65,7 @@
                         case "navInfObservations":
                             url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
                             initObservations(url);
-                            getWeeks();
+                            getCirclesWeeks();
                             break;
                         case "navInfWhatIam":
                             resetNavInf();
@@ -159,7 +159,6 @@
                     case "teacherObservations":
                         url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
                         initObservationsMenu(url);
-                        getWeeks();
                         break;
                     case "whatIdo":
                         currentOption = "navInfWhatIam";
@@ -294,14 +293,14 @@
         <div id="teacherObservations">
 
             <div id="allWeeks" class="col-xs-12" style="position:relative;max-width:100%;overflow:auto">
-                <div  id="namesMonths" style="width:1500px">
+                <div  id="namesMonths" >
                     <!--<div>JANUARY</div>
                     <div>FEBRUARY</div>
                     <div>MARCH</div>
                     <div>APRIL</div>
                     <div>MAY</div>-->
                 </div>
-                <div id="divCircleWeeks" style="width:1500px">
+                <div id="divCircleWeeks">
                     <!--<div class="circleWeek">1w</div>
                     <div class="circleWeek">2w</div>
                     <div class="circleWeek">3w</div>
@@ -319,17 +318,50 @@
                     <div class="circleWeek">6w</div>-->
                 </div>
             </div>
-            <div class="col-xs-12">
+            <div id="divObservations" class="col-xs-12">
                 <div id="allDays" class="col-xs-1">
                     <div id="divCircleDays">
-                        <div class="circleDay" style="margin-bottom: 150px">1</div>
+                        <!--<div class="circleDay" style="margin-bottom: 150px">1</div>
                         <div class="circleDay" style="margin-bottom: 250px">4</div>
                         <div class="circleDay" style="margin-bottom: 350px">7</div>
                         <div class="circleDay" style="margin-bottom: 150px">11</div>
                         <div class="circleDay" style="margin-bottom: 450px">18</div>
                         <div class="circleDay" style="margin-bottom: 150px">27</div>
-                        <div style="height:50px"></div>
+                        <div style="height:50px"></div>-->
                     </div>
+                </div>
+
+                
+                <div  id="divAllComments" class="col-xs-10 nopaddingMargin">
+                    <!--<div class="divOneComment  col-xs-12">
+                        <div class="divTeachers col-xs-3 " >
+
+                        </div>
+                        <div class="divComments col-xs-9 " >
+                            <div class="triangDivSup"></div>
+                            <div class="triangDivInf"></div>
+                            <div class="divInfoComment" class="col-xs-12 nopaddingMargin">
+                                <strong>Type: </strong>Physical<br>
+                                <p>There are 5 weeks in jan- how will it handle this</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class=" divOneComment col-xs-12">
+                        <div class="divTeachers col-xs-3 " >
+
+                        </div>
+                        <div class="divComments col-xs-9 " >
+                            <div class="triangDivSup"></div>
+                            <div class="triangDivInf"></div>
+                            <div class="divInfoComment" class="col-xs-12 nopaddingMargin">
+                                <strong>Type: </strong>Emotional<br>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                            </div>
+                        </div>
+                        
+                    </div>-->
                 </div>
             </div>
         </div>

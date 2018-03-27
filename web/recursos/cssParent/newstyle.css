@@ -438,19 +438,11 @@ body {
 #navInfReport img {
   width: 50%;
 }
+#allWeeks {
+  height: 51.5px;
+}
 #teacherObservations {
   padding-top: 60px;
-  /*
-    LINEA VERTICAL BACKGROUND
-    background: rgba(255,255,255,1);
-background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
-background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
-    */
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #teacherObservations {
@@ -525,7 +517,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
 }
 #teacherObservations #allDays #divCircleDays .circleDay:nth-child(1) {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 #teacherObservations #allDays #divCircleDays .circleDay {
   cursor: pointer;
@@ -548,4 +540,76 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     font-size: small;
   }
 }
+#teacherObservations #divObservations .divOneComment {
+  margin: 0px;
+  padding: 0px;
+}
+#teacherObservations #divObservations .divOneComment .divTeachers {
+  margin: 0px;
+  padding: 0px;
+}
+#teacherObservations #divObservations .divOneComment .divComments {
+  background-color: #7777771c;
+  border-radius: 8px;
+  margin-left: 5%;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10px;
+}
+#teacherObservations #divObservations .divOneComment .divComments .triangDivSup {
+  position: relative;
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #ffffff 50%, #f0f0f0 51%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #ffffff 50%, #f0f0f0 51%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #ffffff 50%, #f0f0f0 51%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  width: 12px;
+  height: 12px;
+  right: 12px;
+  top: 12px;
+}
+#teacherObservations #divObservations .divOneComment .divComments .triangDivInf {
+  position: relative;
+  /* Old browsers */
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #ffffff 50%, #f0f0f0 51%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #ffffff 50%, #f0f0f0 51%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #ffffff 50%, #f0f0f0 51%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  width: 12px;
+  height: 12px;
+  right: 12px;
+  top: 12px;
+}
+#teacherObservations #divObservations .divOneComment .divComments .divInfoComment {
+  height: 100%;
+  position: relative;
+  top: -20px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+#teacherObservations #divObservations .divOneComment .divComments:nth-child(1) {
+  margin-top: 5px;
+}
+/*
+LINEA VERTICAL BACKGROUND
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+*/
 /*# sourceMappingURL=newstyle.css.map */

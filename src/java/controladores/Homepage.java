@@ -6,7 +6,13 @@ import com.google.gson.Gson;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.ServletContext;
@@ -134,6 +140,94 @@ public class Homepage extends MultiActionController {
             
         return json.toString();
         
+    }
+    
+   
+    
+     @RequestMapping("/getCommentsDay.htm")
+    @ResponseBody
+    public String getCommentsDay( HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
+        
+        String fecha = hsr.getParameter("fecha");  
+        String numberWeek= fecha.split("/")[0];
+        String monthSelected = fecha.split("/")[1];
+        String yearSelected = fecha.split("/")[2]; 
+        String studentId = hsr.getParameter("idStudent");
+        
+        DateFormat formatoFecha;// = new SimpleDateFormat("M/d/yyyy"); 
+        if(monthSelected.length() == 1) monthSelected= "0"+monthSelected;
+        String date = yearSelected+"-" +monthSelected+ "-01";
+
+        LocalDate convertedDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-M-d"));
+        convertedDate = convertedDate.withDayOfMonth(convertedDate.getMonth().length(convertedDate.isLeapYear()));
+
+        int DIAS_MAX = convertedDate.getDayOfMonth();
+        
+        int days = 0, logId;
+
+        Observation oAux = new Observation();
+
+        formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+        String dateSelected = yearSelected + "-" + monthSelected + "-" + "01";
+
+        ArrayList<ArrayList<Observation>> arrayObservations = new ArrayList<ArrayList<Observation>>();
+        ArrayList<Observation> arrayComments = new ArrayList<Observation>();
+        String consulta = "SELECT * FROM public.classobserv WHERE student_id = " + studentId + " AND commentdate = '" + dateSelected + "'";
+        try {
+            boolean sameWeek = false;
+            while (days < DIAS_MAX) {
+               sameWeek = false;
+                arrayComments.clear();
+                consulta = "SELECT * FROM classobserv WHERE student_id = " + studentId + " AND commentdate = '" + dateSelected + "' ORDER BY commentdate";
+                ResultSet rs = DBConect.eduweb.executeQuery(consulta);
+
+                while (rs.next()) {
+                    
+                    java.util.Date d = rs.getDate("commentdate");
+                    
+                    oAux.setCommentDate("" + d);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(d);
+                    cal.setMinimalDaysInFirstWeek(1);
+                    oAux.setNumSemana("" + cal.get(Calendar.WEEK_OF_MONTH));
+                    
+                    if(numberWeek.equals(""+cal.get(Calendar.WEEK_OF_MONTH))){
+                        sameWeek = true;
+                        oAux.setId(rs.getInt("id"));
+                        logId = rs.getInt("logged_by");
+                        oAux.setNameTeacher("" + logId);
+                        oAux.setLogged_by(logId);
+                        oAux.setDate("" + rs.getDate("date_created"));
+                        oAux.setObservation(rs.getString("comment"));
+                        oAux.setType(rs.getString("category"));
+                        oAux.setStudentid(Integer.parseInt(studentId));
+                        oAux.setFoto(rs.getBoolean("foto"));
+                        arrayComments.add(new Observation(oAux));
+                    }
+                    
+                }
+
+                if(sameWeek) arrayObservations.add(new ArrayList<Observation>(arrayComments));
+                days++;
+                dateSelected = getNextDate(dateSelected);
+
+            }
+        } catch (SQLException ex) {
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));
+        }
+        return new Gson().toJson(arrayObservations);
+
+    }
+    
+    
+    private String getNextDate(String curDate) throws ParseException {
+        final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        final java.util.Date date = format.parse(curDate);
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        return format.format(calendar.getTime());
     }
     
     private List<String> getSubjects(int studentid) throws SQLException {
