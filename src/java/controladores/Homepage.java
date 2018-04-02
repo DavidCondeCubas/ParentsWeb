@@ -3,6 +3,8 @@ package controladores;
 import Montessori.*;
 import atg.taglib.json.util.JSONObject;
 import com.google.gson.Gson;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.*;
@@ -12,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +34,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
 
 @RequestMapping("/")
 public class Homepage extends MultiActionController {
@@ -46,7 +51,7 @@ public class Homepage extends MultiActionController {
 
     public ModelAndView inicio(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
         return new ModelAndView("userform");
-      //  return new ModelAndView("homepage");
+        //  return new ModelAndView("homepage");
     }
 
     @RequestMapping
@@ -73,7 +78,7 @@ public class Homepage extends MultiActionController {
         } else {
             HashMap<Integer, String> mapSons = login.getSons(user.getId());
             if (!mapSons.isEmpty()) {
-                
+
                 ModelAndView mv = new ModelAndView("homepage");
                 String message = "welcome user";
                 int termId = 1, yearId = 1;
@@ -85,7 +90,7 @@ public class Homepage extends MultiActionController {
                 session.setAttribute("user", user);
                 session.setAttribute("termId", termId);
                 session.setAttribute("yearId", yearId);
-                
+
                 String nameTerm = "", nameYear = "";
                 ResultSet rs3 = DBConect.ah.executeQuery("select name from SchoolTerm where TermID = " + termId + " and YearID = " + yearId);
                 while (rs3.next()) {
@@ -97,20 +102,19 @@ public class Homepage extends MultiActionController {
                 }
                 session.setAttribute("termYearName", nameTerm + " / " + nameYear);
 
-                
                 HashMap<Integer, Subject> mapSubjects = SchoolData_Singleton.getData().getMapSubjects();
                 HashMap<Integer, Profesor> mapProfesor = SchoolData_Singleton.getData().getMapProfesor();
-               // HashMap<Integer, Step> mapStep = SchoolData_Singleton.getData().getMapSteps();
+                // HashMap<Integer, Step> mapStep = SchoolData_Singleton.getData().getMapSteps();
                 HashMap<Integer, Objective> mapOb = SchoolData_Singleton.getData().getMapObjectives();
-                
+
                 mv.addObject("mapSubjects", new Gson().toJson(mapSubjects));
                 mv.addObject("mapProfesor", new Gson().toJson(mapProfesor));
                 mv.addObject("mapObjectives", new Gson().toJson(mapOb));
-                
-                mv.addObject("sons",new Gson().toJson(mapSons));
+
+                mv.addObject("sons", new Gson().toJson(mapSons));
                 mv.addObject("message", message);
                 mv.addObject("username", user.getName());
-                
+
                 return mv;
             } else {
                 ModelAndView mv = new ModelAndView("userform");
@@ -124,45 +128,45 @@ public class Homepage extends MultiActionController {
 
     @RequestMapping("/getSubjectsStudents.htm")
     @ResponseBody
-    public String getSubjectsStudents( HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
+    public String getSubjectsStudents(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
         /*String id = hsr.getParameter("seleccion");   
         
         List<Subject> subs = getSubjects(Integer.parseInt(id));
         return new Gson().toJson(subs);*/
-        
-        String id = hsr.getParameter("seleccion");   
+
+        String id = hsr.getParameter("seleccion");
         JSONObject json = new JSONObject();
-        
+
         List<String> subs = getSubjects(Integer.parseInt(id));
-        
+
         json.put("subjects", new Gson().toJson(subs));
         json.put("mapFinalRatings", new Gson().toJson(getfinalrating(id)));
-            
+
         return json.toString();
-        
+
     }
-    
-   
-    
-     @RequestMapping("/getCommentsDay.htm")
+
+    @RequestMapping("/getCommentsDay.htm")
     @ResponseBody
-    public String getCommentsDay( HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
-        
-        String fecha = hsr.getParameter("fecha");  
-        String numberWeek= fecha.split("/")[0];
+    public String getCommentsDay(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
+
+        String fecha = hsr.getParameter("fecha");
+        String numberWeek = fecha.split("/")[0];
         String monthSelected = fecha.split("/")[1];
-        String yearSelected = fecha.split("/")[2]; 
+        String yearSelected = fecha.split("/")[2];
         String studentId = hsr.getParameter("idStudent");
-        
+
         DateFormat formatoFecha;// = new SimpleDateFormat("M/d/yyyy"); 
-        if(monthSelected.length() == 1) monthSelected= "0"+monthSelected;
-        String date = yearSelected+"-" +monthSelected+ "-01";
+        if (monthSelected.length() == 1) {
+            monthSelected = "0" + monthSelected;
+        }
+        String date = yearSelected + "-" + monthSelected + "-01";
 
         LocalDate convertedDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-M-d"));
         convertedDate = convertedDate.withDayOfMonth(convertedDate.getMonth().length(convertedDate.isLeapYear()));
 
         int DIAS_MAX = convertedDate.getDayOfMonth();
-        
+
         int days = 0, logId;
 
         Observation oAux = new Observation();
@@ -176,22 +180,22 @@ public class Homepage extends MultiActionController {
         try {
             boolean sameWeek = false;
             while (days < DIAS_MAX) {
-               sameWeek = false;
+                sameWeek = false;
                 arrayComments.clear();
                 consulta = "SELECT * FROM classobserv WHERE student_id = " + studentId + " AND commentdate = '" + dateSelected + "' ORDER BY commentdate";
                 ResultSet rs = DBConect.eduweb.executeQuery(consulta);
 
                 while (rs.next()) {
-                    
+
                     java.util.Date d = rs.getDate("commentdate");
-                    
+
                     oAux.setCommentDate("" + d);
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(d);
                     cal.setMinimalDaysInFirstWeek(1);
                     oAux.setNumSemana("" + cal.get(Calendar.WEEK_OF_MONTH));
-                    
-                    if(numberWeek.equals(""+cal.get(Calendar.WEEK_OF_MONTH))){
+
+                    if (numberWeek.equals("" + cal.get(Calendar.WEEK_OF_MONTH))) {
                         sameWeek = true;
                         oAux.setId(rs.getInt("id"));
                         logId = rs.getInt("logged_by");
@@ -201,13 +205,18 @@ public class Homepage extends MultiActionController {
                         oAux.setObservation(rs.getString("comment"));
                         oAux.setType(rs.getString("category"));
                         oAux.setStudentid(Integer.parseInt(studentId));
-                        oAux.setFoto(rs.getBoolean("foto"));
+                        if(rs.getBoolean("foto")){
+                            oAux.setFoto(getImage(hsr,hsr1,""+oAux.getId()));
+                        }
+                        else oAux.setFoto("false");
                         arrayComments.add(new Observation(oAux));
                     }
-                    
+
                 }
 
-                if(sameWeek) arrayObservations.add(new ArrayList<Observation>(arrayComments));
+                if (sameWeek) {
+                    arrayObservations.add(new ArrayList<Observation>(arrayComments));
+                }
                 days++;
                 dateSelected = getNextDate(dateSelected);
 
@@ -219,8 +228,7 @@ public class Homepage extends MultiActionController {
         return new Gson().toJson(arrayObservations);
 
     }
-    
-    
+
     private String getNextDate(String curDate) throws ParseException {
         final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         final java.util.Date date = format.parse(curDate);
@@ -229,11 +237,11 @@ public class Homepage extends MultiActionController {
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         return format.format(calendar.getTime());
     }
-    
+
     private List<String> getSubjects(int studentid) throws SQLException {
         List<String> subjects = new ArrayList<>();
-        String termid="",yearid="";
-        try  {
+        String termid = "", yearid = "";
+        try {
             ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
             while (rs.next()) {
                 termid = "" + rs.getInt("defaulttermid");
@@ -241,9 +249,9 @@ public class Homepage extends MultiActionController {
             }
             String consulta = "select distinct courses.courseid,courses.rcplacement, courses.title, courses.active from roster    inner join classes on roster.classid=classes.classid\n"
                     + "                 inner join courses on courses.courseid=classes.courseid\n"
-                    + "                  where roster.studentid = " + studentid + " and roster.enrolled"+termid+" =1 and courses.active = 1 and courses.reportcard = 1 and classes.yearid = '" + yearid + "' order by courses.rcplacement DESC";
+                    + "                  where roster.studentid = " + studentid + " and roster.enrolled" + termid + " =1 and courses.active = 1 and courses.reportcard = 1 and classes.yearid = '" + yearid + "' order by courses.rcplacement DESC";
             ResultSet rs1 = DBConect.ah.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
-            while(rs1.next()){
+            while (rs1.next()) {
                 subjects.add(rs1.getString("courseid"));
             }
         } catch (SQLException ex) {
@@ -254,12 +262,12 @@ public class Homepage extends MultiActionController {
 
         return subjects;
     }
-    
+
     private HashMap<String, String> getfinalrating(String id) throws SQLException {
         HashMap<String, String> result = new HashMap<>();
         try {
             ResultSet rs1 = DBConect.eduweb.executeQuery("SELECT rating.name,student_id,objective_id FROM rating inner join (select rating_id,student_id,objective_id from progress_report a where comment_date = (select max(comment_date) from progress_report \n"
-                    + "                                                        where student_id = "+id+" AND objective_id =a.objective_id and rating_id not in(6,7))) c ON id = c.rating_id");
+                    + "                                                        where student_id = " + id + " AND objective_id =a.objective_id and rating_id not in(6,7))) c ON id = c.rating_id");
             while (rs1.next()) {
                 result.put(rs1.getInt("student_id") + "_" + rs1.getInt("objective_id"), rs1.getString("name"));
             }
@@ -270,7 +278,7 @@ public class Homepage extends MultiActionController {
         }
         return result;
     }
-    
+
     public ModelAndView save(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
         ModelAndView mv = new ModelAndView("suhomepage");
         String qbdburl = hsr.getParameter("qbdburl");
@@ -290,7 +298,7 @@ public class Homepage extends MultiActionController {
         this.cn = dataSource.getConnection();
         Statement ps = this.cn.createStatement(1004, 1007);
         ResultSet rs = ps.executeQuery("select * from syncconfig");
-        
+
         if (rs.next()) {
             int id = rs.getInt("id");
             ps.executeUpdate("update syncconfig set qbdburl ='" + qbdburl + "',qbdbuser ='" + qbdbuser + "',qbdbpswd = '" + qbdbpswd + "',edudburl = '" + edudburl + "',edudbuser= '" + edudbuser + "',edudbpswd= '" + edudbpswd + "',rwdburl= '" + rwdburl + "', rwdbuser = '" + rwdbuser + "',rwdbpswd = '" + rwdbpswd + "',startdate ='" + startdate + "',itemname='" + itemname + "' where id= " + id);
@@ -418,5 +426,59 @@ public class Homepage extends MultiActionController {
         mv.addObject("check", checkpoint);
         return mv;
 
+    }
+
+    public String getImage(HttpServletRequest request, HttpServletResponse response,String idComment) throws Exception {
+        String obsid =  idComment;
+        String server = "192.168.1.36";
+        int port = 21;
+        String user = "david";
+        String pass = "david";
+
+        String filePath = "/MontessoriObservations/" + obsid + "/";
+        FTPClient ftpClient = new FTPClient();
+        ftpClient.connect(server, port);
+        ftpClient.login(user, pass);
+        ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+
+        if (ftpClient.changeWorkingDirectory(filePath)) {
+            JSONObject json = new JSONObject();
+            String s[] = ftpClient.listNames();
+            filePath = s[0];
+            InputStream inStream = ftpClient.retrieveFileStream(s[0]);
+            // obtains ServletContext
+            ServletContext context = request.getServletContext();
+            String appPath = context.getRealPath("");
+            System.out.println("appPath = " + appPath);
+
+            // gets MIME type of the file
+            String mimeType = context.getMimeType(filePath);
+            if (mimeType == null) {
+                // set to binary type if MIME mapping not found
+                mimeType = "application/octet-stream";
+            }
+
+            //
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            int nRead;
+            byte[] data = new byte[1024];
+            while ((nRead = inStream.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
+
+            buffer.flush();
+            byte[] buf = buffer.toByteArray();
+            //
+            // byte[] buf = new byte[inStream.available()];
+            inStream.read(buf);
+            String imagen = Base64.getEncoder().encodeToString(buf);
+            json.put("imagen", imagen);
+            json.put("ext", mimeType);
+            ftpClient.disconnect();
+            return json.toString();
+        }
+        ftpClient.disconnect();
+        //response.sendRedirect(request.getContextPath());
+        return "";
     }
 }

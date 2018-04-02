@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,7 +12,7 @@ import java.util.Date;
  * @author nmohamed
  */
 public class Observation {
-    
+
     private int id;
     private String observation;
     private String type;
@@ -20,16 +20,18 @@ public class Observation {
     private String nameTeacher;
     private String dateString;
     private String numSemana;
-    private boolean foto;
+    private String foto;
 
-    public Boolean getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(Boolean foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
-    
+
+
+
     public String getNameTeacher() {
         return nameTeacher;
     }
@@ -40,7 +42,7 @@ public class Observation {
     private String commentDate;
     private int logged_by;
     private int studentid;
-    
+
     public String getDateString() {
         return dateString;
     }
@@ -48,10 +50,10 @@ public class Observation {
     public void setDateString(String DateString) {
         this.dateString = DateString;
     }
-   
-    
+
     public Observation() {
     }
+
     public Observation(Observation o2) {
         id = o2.getId();
         observation = o2.getObservation();
@@ -129,6 +131,4 @@ public class Observation {
         this.studentid = studentid;
     }
 
-
-    
 }

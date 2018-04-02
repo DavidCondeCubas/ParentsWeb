@@ -112,9 +112,9 @@ function getCommentsDay(object) {
             var data = JSON.parse(data);
             for (var i = 0; i < data.length; ++i) {
                 for (var k = 0; k < data[i].length; ++k) {
-                    var id =data[i][k].id;
-                    $("#divCircleDays").append("<div id='divCircle"+id+"' class='circleDay' style='background-color:"+object.css("background-color")+"'>" + (data[i][0].date).split("-")[2] + "</div>");
-                    $("#divAllComments").append("<div id='divOne"+id+"' class='divOneComment  col-xs-12'>\n\
+                    var id = data[i][k].id;
+                    $("#divCircleDays").append("<div id='divCircle" + id + "' class='circleDay' style='background-color:" + object.css("background-color") + "'>" + (data[i][0].date).split("-")[2] + "</div>");
+                    $("#divAllComments").append("<div id='divOne" + id + "' class='divOneComment  col-xs-12'>\n\
                                                 <div class='divTeachers col-xs-3 ' >\n\
                                                 </div> \n\
                                                 <div class='divComments col-xs-9'> \n\
@@ -126,12 +126,20 @@ function getCommentsDay(object) {
                                                     </div>\n\
                                                 </div>\n\
                                             </div>");
-                    var marginB = parseInt($("#divOne"+id).css("height")) - parseInt($("#divCircle"+id).css("height"));
-                    $("#divCircle"+id).css("margin-bottom",marginB+"px");
+                    
+
+                    if (data[i][k].foto !== "false") {
+                        var json = JSON.parse(data[i][k].foto);
+                        var imageTag = '<div class="col-xs-12 divFoto">' + '<img id="imgPop'+id+'" class="fotoComment" src="" alt="image" height="100" />' + '</div>';
+                        $("#divOne" + id + " .divComments").append(imageTag);
+                        $('#imgPop' + id).attr("src", "data:" + json.ext + ";base64," + json.imagen);                  
+                    }
+                    var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
+                    $("#divCircle" + id).css("margin-bottom", marginB + "px");
                 }
-                
             }
-            $("#divAllComments").append("<div class='col-xs-12' style='height:50px'></div>");
+
+            $("#divAllComments").append("<div class='col-xs-12' style='height:60px'></div>");
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);

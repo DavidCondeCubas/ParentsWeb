@@ -598,6 +598,13 @@ body {
   margin-right: 5px;
   margin-left: 5px;
 }
+#teacherObservations #divObservations .divOneComment .divComments .divInfoComment p {
+  margin: 0px !important;
+}
+#teacherObservations #divObservations .divOneComment .divComments .divFoto {
+  display: flex;
+  justify-content: center;
+}
 #teacherObservations #divObservations .divOneComment .divComments:nth-child(1) {
   margin-top: 5px;
 }
