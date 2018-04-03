@@ -468,6 +468,7 @@ public class Homepage extends MultiActionController {
 
             buffer.flush();
             byte[] buf = buffer.toByteArray();
+            
             //
             // byte[] buf = new byte[inStream.available()];
             inStream.read(buf);

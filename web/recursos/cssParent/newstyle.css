@@ -605,6 +605,12 @@ body {
   display: flex;
   justify-content: center;
 }
+#teacherObservations #divObservations .divOneComment .divComments .divFoto img {
+  width: 100%;
+  margin-bottom: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 #teacherObservations #divObservations .divOneComment .divComments:nth-child(1) {
   margin-top: 5px;
 }

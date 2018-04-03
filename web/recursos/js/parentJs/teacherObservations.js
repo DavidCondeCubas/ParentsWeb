@@ -1,7 +1,7 @@
 
+
+
 function clickCircleWeek(numWeeks) {
-
-
     $("#allWeeks").scrollLeft(0);
     var desplz = (($(".circleWeek").width() + 10) * numWeeks);
     $("#allWeeks").animate({scrollLeft: "+=" + desplz}, 350);
@@ -60,6 +60,7 @@ function getCirclesWeeks() {
         clickCircleWeek($(this).index());
         getCommentsDay($(this));
     });
+    
 
     $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
     $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
@@ -97,6 +98,8 @@ function weeksInAMonth(year, month_number, day) {
     return result + 1;
 }
 
+
+
 function getCommentsDay(object) {
     $("#divCircleDays").empty();
     $("#divAllComments").empty();
@@ -126,18 +129,24 @@ function getCommentsDay(object) {
                                                     </div>\n\
                                                 </div>\n\
                                             </div>");
-                    
+
 
                     if (data[i][k].foto !== "false") {
                         var json = JSON.parse(data[i][k].foto);
-                        var imageTag = '<div class="col-xs-12 divFoto">' + '<img id="imgPop'+id+'" class="fotoComment" src="" alt="image" height="100" />' + '</div>';
+                        var imageTag = '<div class="col-xs-12 divFoto">' + '<img id="imgPop' + id + '" class="fotoComment" src="" alt="image" height="100" />' + '</div>';
                         $("#divOne" + id + " .divComments").append(imageTag);
-                        $('#imgPop' + id).attr("src", "data:" + json.ext + ";base64," + json.imagen);                  
+                        $('#imgPop' + id).attr("src", "data:" + json.ext + ";base64," + json.imagen);
+
+                        var image = new Image();
+                        image.src = "data:" + json.ext + ";base64," + json.imagen;
+                        if (image.naturalWidth < image.naturalHeight)//horizontal{
+                            $('#imgPop' + id).css("height", "auto");
                     }
                     var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
                     $("#divCircle" + id).css("margin-bottom", marginB + "px");
                 }
             }
+
 
             $("#divAllComments").append("<div class='col-xs-12' style='height:60px'></div>");
         },
