@@ -21,7 +21,25 @@ public class Observation {
     private String dateString;
     private String numSemana;
     private String foto;
+    private String teacherFoto;
+    private String teacherGender;
 
+    public String getTeacherGender() {
+        return teacherGender;
+    }
+
+    public void setTeacherGender(String teacherGender) {
+        this.teacherGender = teacherGender;
+    }
+
+    
+        public String getTeacherFoto() {
+        return teacherFoto;
+    }
+
+    public void setTeacherFoto(String teacherFoto) {
+        this.teacherFoto = teacherFoto;
+    }
     public String getFoto() {
         return foto;
     }
@@ -65,6 +83,8 @@ public class Observation {
         nameTeacher = o2.getNameTeacher();
         numSemana = o2.getNumSemana();
         foto = o2.getFoto();
+        teacherFoto = o2.getTeacherFoto();
+        teacherGender = o2.getTeacherGender();
     }
 
     public String getNumSemana() {

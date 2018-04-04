@@ -16,6 +16,24 @@ public class Profesor {
     private String asignatura;
     private String classId;
     private int id;
+    private String pathFoto;
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPathFoto() {
+        return pathFoto;
+    }
+
+    public void setPathFoto(String PathFoto) {
+        this.pathFoto = PathFoto;
+    }
 
     public int getId() {
         return id;
@@ -25,11 +43,13 @@ public class Profesor {
         this.id = id;
     }
     
-    public Profesor(String firstName,int i, String lastName, String email) {
+    public Profesor(String firstName,int i, String lastName, String email, String path,String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.id = i;
+        this.pathFoto = path;
+        this.gender = gender;
     }
      
     public Profesor(String firstName, String lastName, String email, String asignatura, String classId) {
@@ -38,6 +58,7 @@ public class Profesor {
         this.email = email;
         this.asignatura = asignatura;
         this.classId = classId;
+        
     }
 
     public String getClassId() {

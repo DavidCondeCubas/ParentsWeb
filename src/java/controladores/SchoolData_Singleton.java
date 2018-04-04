@@ -57,9 +57,6 @@ public class SchoolData_Singleton {
         this.mapProfesor = mapProfesor;
     }
 
-    public static SchoolData_Singleton getSchoolData() {
-        return schoolData;
-    }
 
     public static void setSchoolData(SchoolData_Singleton schoolData) {
         SchoolData_Singleton.schoolData = schoolData;
@@ -145,7 +142,9 @@ public class SchoolData_Singleton {
         HashMap<Integer, Profesor> mapTeachers = new HashMap<>();
         ArrayList<Profesor> listaProfesores = new ArrayList<>();
         HashMap<String, String> mapNames = new HashMap<>();
-
+        HashMap<String, String> mapPaths = new HashMap<>();
+        HashMap<String, String> mapGender = new HashMap<>();
+        
         try {
             ArrayList<Integer> staffids = new ArrayList<>();
             ArrayList<String> classids = new ArrayList<>();
@@ -162,17 +161,19 @@ public class SchoolData_Singleton {
                 coursesTitles.add(rs.getString("Title"));
             }
 
-            consulta = "select FirstName,LastName,Email,PersonID from Person";
+            consulta = "select FirstName,LastName,Email,PersonID,PathToPicture,Gender from Person";
             ResultSet rs3 = DBConect.ah.executeQuery(consulta);
             while (rs3.next()) {
                 mapNames.put(rs3.getString("PersonID"), rs3.getString("FirstName") + " " + rs3.getString("LastName"));
+                mapPaths.put(rs3.getString("PersonID"), rs3.getString("PathToPicture"));
+                mapGender.put(rs3.getString("PersonID"), rs3.getString("Gender"));
             }
 
             for (Integer i : staffids) {
                 if (mapNames.containsKey("" + i)) {
-                    listaProfesores.add(new Profesor(mapNames.get("" + i), i, "", ""));
+                    listaProfesores.add(new Profesor(mapNames.get("" + i), i, "", "",mapPaths.get("" + i),mapGender.get("" + i)));
                 } else {
-                    listaProfesores.add(new Profesor(" ", i, "", ""));
+                    listaProfesores.add(new Profesor(" ", i, "", "",mapPaths.get("" + i),mapGender.get("" + i)));
                 }
             }
             for (int i = 0; i < listaProfesores.size(); i++) {

@@ -3,10 +3,14 @@ package controladores;
 import Montessori.*;
 import atg.taglib.json.util.JSONObject;
 import com.google.gson.Gson;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import static java.lang.System.in;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -18,6 +22,7 @@ import java.util.Base64;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -167,7 +172,7 @@ public class Homepage extends MultiActionController {
 
         int DIAS_MAX = convertedDate.getDayOfMonth();
 
-        int days = 0, logId;
+        int days = 0, logId = -1;
 
         Observation oAux = new Observation();
 
@@ -205,10 +210,22 @@ public class Homepage extends MultiActionController {
                         oAux.setObservation(rs.getString("comment"));
                         oAux.setType(rs.getString("category"));
                         oAux.setStudentid(Integer.parseInt(studentId));
-                        if(rs.getBoolean("foto")){
-                            oAux.setFoto(getImage(hsr,hsr1,""+oAux.getId()));
+
+                        if (logId != -1) {
+                            SchoolData_Singleton schoolData = SchoolData_Singleton.getData();
+
+                            oAux.setTeacherFoto("");
+
+                            if (schoolData.getMapProfesor().containsKey(logId)) {
+                                oAux.setTeacherFoto(getImageTeacher(hsr, hsr1, schoolData.getMapProfesor().get(logId).getPathFoto()));
+                                oAux.setTeacherGender(schoolData.getMapProfesor().get(logId).getGender());
+                            }
                         }
-                        else oAux.setFoto("false");
+                        if (rs.getBoolean("foto")) {
+                            oAux.setFoto(getImage(hsr, hsr1, "" + oAux.getId()));
+                        } else {
+                            oAux.setFoto("false");
+                        }
                         arrayComments.add(new Observation(oAux));
                     }
 
@@ -428,8 +445,8 @@ public class Homepage extends MultiActionController {
 
     }
 
-    public String getImage(HttpServletRequest request, HttpServletResponse response,String idComment) throws Exception {
-        String obsid =  idComment;
+    public String getImage(HttpServletRequest request, HttpServletResponse response, String idComment) throws Exception {
+        String obsid = idComment;
         String server = "192.168.1.36";
         int port = 21;
         String user = "david";
@@ -459,6 +476,10 @@ public class Homepage extends MultiActionController {
             }
 
             //
+            /*  
+           
+             */
+            //inStream.reset();
             ByteArrayOutputStream buffer = new ByteArrayOutputStream();
             int nRead;
             byte[] data = new byte[1024];
@@ -468,18 +489,85 @@ public class Homepage extends MultiActionController {
 
             buffer.flush();
             byte[] buf = buffer.toByteArray();
-            
+
             //
             // byte[] buf = new byte[inStream.available()];
+            InputStream AuxIn = new ByteArrayInputStream(buf);
+
+            BufferedImage auxImg = ImageIO.read(AuxIn);
+            int width = auxImg.getWidth();
+            int height = auxImg.getHeight();
+
             inStream.read(buf);
             String imagen = Base64.getEncoder().encodeToString(buf);
             json.put("imagen", imagen);
             json.put("ext", mimeType);
+            json.put("naturalHeight", height);
+            json.put("naturalWidth", width);
             ftpClient.disconnect();
             return json.toString();
         }
         ftpClient.disconnect();
         //response.sendRedirect(request.getContextPath());
+        return "";
+    }
+
+    public String getImageTeacher(HttpServletRequest request, HttpServletResponse response, String teacherPath) throws Exception {
+        try {
+            /*URL url = new URL("ftp://AH-ZAF:e3f14+7mANDp@ftp2.renweb.com/Pictures/" + photoName);
+            URLConnection conn = url.openConnection();
+            InputStream inStream = conn.getInputStream();*/
+            //***********
+
+            String server = "192.168.1.36";
+            int port = 21;
+            String user = "david";
+            String pass = "david";
+
+            JSONObject json = new JSONObject();
+
+            String filepath = "/Pictures/" + teacherPath;
+            FTPClient ftpClient = new FTPClient();
+            ftpClient.connect(server, port);
+            ftpClient.login(user, pass);
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+            //LIMITAR NO EXISTE
+
+            InputStream inStream = ftpClient.retrieveFileStream(filepath);
+            if (inStream != null) {
+                // gets MIME type of the file
+                String mimeType = "";
+                //String filepath = url.getPath();
+                int i = filepath.length() - 1;
+                while (filepath.charAt(i) != '.') {
+                    mimeType = filepath.charAt(i) + mimeType;
+                    i--;
+                }
+                mimeType = '.' + mimeType;
+
+                //
+                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+                int nRead;
+                byte[] data = new byte[1024];
+                while ((nRead = inStream.read(data, 0, data.length)) != -1) {
+                    buffer.write(data, 0, nRead);
+                }
+
+                buffer.flush();
+                byte[] buf = buffer.toByteArray();
+                //
+                // byte[] buf = new byte[inStream.available()];
+                inStream.read(buf);
+                String imagen = Base64.getEncoder().encodeToString(buf);
+                json.put("imagen", imagen);
+                json.put("ext", mimeType);
+                ftpClient.disconnect();
+                return json.toString();
+                //**********
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         return "";
     }
 }

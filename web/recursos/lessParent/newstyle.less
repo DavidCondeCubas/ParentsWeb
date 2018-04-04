@@ -555,6 +555,18 @@ img
             .divTeachers{
                 margin:0px;
                 padding:0px;
+                margin-top: 10px;
+                .divFotoTeacher{
+                    img{
+                        height: 75%;
+                        border-radius: 50%;
+                        width: 100%;
+                    }
+                }
+                div{
+                    text-align: center;
+                    font-weight: bold;
+                }
             }
 
             .divComments{
@@ -564,7 +576,9 @@ img
                 margin:0px;
                 padding:0px;
                 margin-top: 10px;
-
+                -webkit-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                -moz-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
                 .triangDivSup{
                     position: relative;
                     background: #ffffff; /* Old browsers */
@@ -605,12 +619,15 @@ img
                     display: flex;
                     justify-content: center;
                     img{
-                            width: 100%;
+                        max-height: 300px;
+                        max-width: 100%;
+
                         margin-bottom: 5px;
                         border-bottom-left-radius: 5px;
                         border-bottom-right-radius: 5px;
                     }
                 }
+
             }
             .divComments:nth-child(1){
                 margin-top: 5px;

@@ -1,12 +1,22 @@
 
-
+var currentWeek = 0;
 
 function clickCircleWeek(numWeeks) {
     $("#allWeeks").scrollLeft(0);
     var desplz = (($(".circleWeek").width() + 10) * numWeeks);
     $("#allWeeks").animate({scrollLeft: "+=" + desplz}, 350);
-}
 
+}
+/*
+ function clickCircleWeek(indexWeek) {
+ var desplz;
+ desplz = ($(".circleWeek").width() + 10) * Math.abs(currentWeek - indexWeek);
+ 
+ if(currentWeek > indexWeek)
+ $("#allWeeks").animate({scrollRight: "+=" + desplz}, 350);
+ else 
+ $("#allWeeks").animate({scrollLeft: "+=" + desplz}, 350);
+ }*/
 function initObservations(url) {
     resetNavInf();
     currentOption = "teacherObservations";
@@ -58,9 +68,10 @@ function getCirclesWeeks() {
         $(".circleWeek").css("box-shadow", "");
         $(this).css("box-shadow", "1px 1px 9px 3px #060606a6");
         clickCircleWeek($(this).index());
+        currentWeek = $(this).index();
         getCommentsDay($(this));
     });
-    
+
 
     $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
     $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
@@ -101,8 +112,6 @@ function weeksInAMonth(year, month_number, day) {
 
 
 function getCommentsDay(object) {
-    $("#divCircleDays").empty();
-    $("#divAllComments").empty();
     $.ajax({
         type: "POST",
         url: "getCommentsDay.htm",
@@ -112,6 +121,9 @@ function getCommentsDay(object) {
         },
         datatype: "json",
         success: function (data) {
+            $("#divCircleDays").empty();
+            $("#divAllComments").empty();
+
             var data = JSON.parse(data);
             for (var i = 0; i < data.length; ++i) {
                 for (var k = 0; k < data[i].length; ++k) {
@@ -139,11 +151,39 @@ function getCommentsDay(object) {
 
                         var image = new Image();
                         image.src = "data:" + json.ext + ";base64," + json.imagen;
-                        if (image.naturalWidth < image.naturalHeight)//horizontal{
-                            $('#imgPop' + id).css("height", "auto");
+
+                        $('#imgPop' + id).css("width", json.naturalWidth);
+
+                        if (json.naturalHeight > json.naturalWidth) {//vertical
+                            $('#imgPop' + id).css("height", json.naturalHeight);
+                            var marginB = parseInt($("#divOne" + id).css("height") + json.naturalHeight) - parseInt($("#divCircle" + id).css("height"));
+                            $("#divCircle" + id).css("margin-bottom", marginB + "px");
+                        } else {
+                            var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
+                            $("#divCircle" + id).css("margin-bottom", marginB + "px");
+                        }
+
+                    } else {
+                        var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
+                        $("#divCircle" + id).css("margin-bottom", marginB + "px");
                     }
-                    var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
-                    $("#divCircle" + id).css("margin-bottom", marginB + "px");
+
+                    if(data[i][k].teacherFoto !== ""){ // tiene foto
+                        var json2 = JSON.parse(data[i][k].teacherFoto);
+                        var imageTag2 = '<div class="col-xs-12 divFotoTeacher">' + '<img id="imgPopTeacher' + id + '" class="fotoTeacher" src="" alt="image" height="100" />' + '</div>';
+                        $("#divOne" + id + " .divTeachers").append(imageTag2);
+                        $('#imgPopTeacher' + id).attr("src", "data:" + json2.ext + ";base64," + json2.imagen);
+                        var image2 = new Image();
+                        image2.src = "data:" + json2.ext + ";base64," + json2.imagen;
+                        
+                      
+                    }
+                    else{//defecto
+                        
+                    }
+                    
+                    if(mapProfesores[data[i][k].nameTeacher] !== undefined) $("#divOne" + id + " .divTeachers").append("<div>"+mapProfesores[data[i][k].nameTeacher].firstName+"</div>");
+                    else $("#divOne" + id + " .divTeachers").append("<div>Teacher   id: "+data[i][k].nameTeacher+"</div>");
                 }
             }
 
