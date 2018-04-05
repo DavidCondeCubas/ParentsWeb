@@ -106,11 +106,13 @@ public class Homepage extends MultiActionController {
                     nameYear = "" + rs4.getString("SchoolYear");
                 }
                 session.setAttribute("termYearName", nameTerm + " / " + nameYear);
-
-                HashMap<Integer, Subject> mapSubjects = SchoolData_Singleton.getData().getMapSubjects();
-                HashMap<Integer, Profesor> mapProfesor = SchoolData_Singleton.getData().getMapProfesor();
-                // HashMap<Integer, Step> mapStep = SchoolData_Singleton.getData().getMapSteps();
-                HashMap<Integer, Objective> mapOb = SchoolData_Singleton.getData().getMapObjectives();
+                    
+                SchoolData_Singleton schoolData = SchoolData_Singleton.getData();
+                    
+                HashMap<Integer, Subject> mapSubjects = schoolData.getMapSubjects();
+                HashMap<Integer, Profesor> mapProfesor = schoolData.getMapProfesor();
+                // HashMap<Integer, Step> mapStep = schoolData.getMapSteps();
+                HashMap<Integer, Objective> mapOb = schoolData.getMapObjectives();
 
                 mv.addObject("mapSubjects", new Gson().toJson(mapSubjects));
                 mv.addObject("mapProfesor", new Gson().toJson(mapProfesor));
@@ -212,12 +214,15 @@ public class Homepage extends MultiActionController {
                         oAux.setStudentid(Integer.parseInt(studentId));
 
                         if (logId != -1) {
+                            
+                            
                             SchoolData_Singleton schoolData = SchoolData_Singleton.getData();
-
                             oAux.setTeacherFoto("");
-
                             if (schoolData.getMapProfesor().containsKey(logId)) {
-                                oAux.setTeacherFoto(getImageTeacher(hsr, hsr1, schoolData.getMapProfesor().get(logId).getPathFoto()));
+                                String path = schoolData.getMapProfesor().get(logId).getPathFoto();
+                                if(path != null){
+                                    oAux.setTeacherFoto(getImageTeacher(hsr, hsr1, path));
+                                }
                                 oAux.setTeacherGender(schoolData.getMapProfesor().get(logId).getGender());
                             }
                         }
@@ -532,7 +537,7 @@ public class Homepage extends MultiActionController {
             ftpClient.login(user, pass);
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             //LIMITAR NO EXISTE
-
+            
             InputStream inStream = ftpClient.retrieveFileStream(filepath);
             if (inStream != null) {
                 // gets MIME type of the file

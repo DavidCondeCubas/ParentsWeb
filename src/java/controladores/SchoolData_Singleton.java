@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class SchoolData_Singleton {
@@ -136,7 +138,42 @@ public class SchoolData_Singleton {
         }
 
     }
+    
+        private HashMap getTeachers() throws SQLException {
 
+        HashMap<Integer, Profesor> mapTeachers = new HashMap<>();
+        HashMap<String, String> mapNames = new HashMap<>();
+        HashMap<String, String> mapPaths = new HashMap<>();
+        HashMap<String, String> mapGender = new HashMap<>();
+        
+        try {
+            String consulta = "select FirstName,LastName,Email,PersonID,PathToPicture,Gender from Person";
+            ResultSet rs3 = DBConect.ah.executeQuery(consulta);
+            while (rs3.next()) {
+                mapNames.put(rs3.getString("PersonID"), rs3.getString("FirstName") + " " + rs3.getString("LastName"));
+                mapPaths.put(rs3.getString("PersonID"), rs3.getString("PathToPicture"));
+                mapGender.put(rs3.getString("PersonID"), rs3.getString("Gender"));
+            }
+       
+            Iterator it = mapNames.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry)it.next();
+                String key = ""+pair.getKey();             
+                mapTeachers.put(Integer.parseInt(key), new Profesor(mapNames.get(key), -1, "", "",mapPaths.get(key),mapGender.get(key)));
+                it.remove(); // avoids a ConcurrentModificationException
+            }
+            
+
+        } catch (SQLException ex) {
+            System.out.println("Error leyendo Alumnos: " + ex);
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));
+        }
+
+        return mapTeachers;
+    }
+        
+/*
     private HashMap getTeachers() throws SQLException {
 
         HashMap<Integer, Profesor> mapTeachers = new HashMap<>();
@@ -190,5 +227,5 @@ public class SchoolData_Singleton {
 
         return mapTeachers;
     }
-
+*/
 }

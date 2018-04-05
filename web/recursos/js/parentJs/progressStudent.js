@@ -2,7 +2,7 @@ function initProgress(url) {
     resetNavInf();
     currentOption = "progressStudent";
     $("#navInfProgress").empty();
-   
+
     $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     menu("progressStudent");
     $("#navInfReport").hide();
@@ -13,7 +13,7 @@ function initProgressMenu(url) {
     currentOption = "progressStudent";
     getRating_Student();
     $("#navInfProgress").empty();
-  
+
     $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     $("#progressStudent").show();
 }
@@ -164,14 +164,15 @@ function drawRating(rating) {
     var res = "<div class='progress-bar progress-bar-striped active progressAttempted' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
                             Attempted \n\
                         </div> ";
-    if (rating === "Presented") {
+    if (rating === "Presented" || rating === "Mastered") {
         res += " <div class='progress-bar progress-bar-striped active progressPresented' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
                             Presented \n\
                         </div> "
-    } else if (rating === "Mastered") {
-        res += " <div class='progress-bar progress-bar-striped active progressMastered' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
+        if (rating === "Mastered") {
+            res += " <div class='progress-bar progress-bar-striped active progressMastered' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\
                             Mastered \n\
                         </div> "
+        }
     }
     return res;
 

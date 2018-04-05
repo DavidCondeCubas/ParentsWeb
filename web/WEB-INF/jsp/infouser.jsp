@@ -82,6 +82,9 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/constantes.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/progressStudent.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/teacherObservations.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/whatIdoing.js"/>"></script>
+
+    
     
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Roboto:700" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">

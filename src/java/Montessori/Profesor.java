@@ -13,8 +13,6 @@ public class Profesor {
     private String firstName;
     private String lastName;
     private String email;
-    private String asignatura;
-    private String classId;
     private int id;
     private String pathFoto;
     private String gender;
@@ -56,26 +54,9 @@ public class Profesor {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.asignatura = asignatura;
-        this.classId = classId;
         
     }
 
-    public String getClassId() {
-        return classId;
-    }
-
-    public void setClassId(String classId) {
-        this.classId = classId;
-    }
-
-    public String getAsignatura() {
-        return asignatura;
-    }
-
-    public void setAsignatura(String asignatura) {
-        this.asignatura = asignatura;
-    }
     
     public void setFirstName(String firstName) {
         this.firstName = firstName;

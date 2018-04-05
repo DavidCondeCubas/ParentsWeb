@@ -7,16 +7,7 @@ function clickCircleWeek(numWeeks) {
     $("#allWeeks").animate({scrollLeft: "+=" + desplz}, 350);
 
 }
-/*
- function clickCircleWeek(indexWeek) {
- var desplz;
- desplz = ($(".circleWeek").width() + 10) * Math.abs(currentWeek - indexWeek);
- 
- if(currentWeek > indexWeek)
- $("#allWeeks").animate({scrollRight: "+=" + desplz}, 350);
- else 
- $("#allWeeks").animate({scrollLeft: "+=" + desplz}, 350);
- }*/
+
 function initObservations(url) {
     resetNavInf();
     currentOption = "teacherObservations";
@@ -174,12 +165,15 @@ function getCommentsDay(object) {
                         $("#divOne" + id + " .divTeachers").append(imageTag2);
                         $('#imgPopTeacher' + id).attr("src", "data:" + json2.ext + ";base64," + json2.imagen);
                         var image2 = new Image();
-                        image2.src = "data:" + json2.ext + ";base64," + json2.imagen;
-                        
+                        image2.src = "data:" + json2.ext + ";base64," + json2.imagen;     
                       
                     }
                     else{//defecto
-                        
+                        var nameImage = "icon_Recio.svg";
+                        if(data[i][k].teacherGender === "Female"){
+                            nameImage = "icon_SenyoraRecio.svg";
+                        }
+                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='/ParentWeb/recursos/img/iconos/"+nameImage+"' height='100'>");
                     }
                     
                     if(mapProfesores[data[i][k].nameTeacher] !== undefined) $("#divOne" + id + " .divTeachers").append("<div>"+mapProfesores[data[i][k].nameTeacher].firstName+"</div>");

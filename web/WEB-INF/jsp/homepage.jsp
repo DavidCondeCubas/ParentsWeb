@@ -68,14 +68,17 @@
                             getCirclesWeeks();
                             break;
                         case "navInfWhatIam":
-                            resetNavInf();
-                            currentOption = "whatIdo";
-                            $("#navInfWhatIam").empty();
                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
-                            $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
-                            menu("whatIdo");
-                            $("#navInfReport").hide();
-                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
+                            initWhatDoing(url)
+
+                            /* resetNavInf();
+                             currentOption = "whatIdo";
+                             $("#navInfWhatIam").empty();
+                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
+                             $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
+                             menu("whatIdo");
+                             $("#navInfReport").hide();
+                             $("#navInfMore").attr("value", "a_MenuIcon.svg");*/
                             break;
                         case "navInfCalendar":
                             resetNavInf();
@@ -145,6 +148,7 @@
             function hideAllOptionsContent() {
                 $("#progressStudent").hide();
                 $("#teacherObservations").hide();
+                $("#whatsDoingPage").hide();
             }
 
             function menu(nameDiv) {
@@ -161,8 +165,8 @@
                         initObservationsMenu(url);
                         break;
                     case "whatIdo":
-                        currentOption = "navInfWhatIam";
-                        text = "How you like them apples?";
+                        url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
+                        initWhatDoingMenu(url);
                         break;
                     case "calendar":
                         currentOption = "navInfCalendar";
@@ -214,6 +218,7 @@
             function mostrarHome() {
                 $("#progressStudent").hide();
                 $("#teacherObservations").hide();
+                $("#whatsDoingPage").hide();
                 $("#navbarInferior").hide();
                 $("#homepage").show();
             }
@@ -294,77 +299,31 @@
 
             <div id="allWeeks" class="col-xs-12" style="position:relative;max-width:100%;overflow:auto">
                 <div  id="namesMonths" >
-                    <!--<div>JANUARY</div>
-                    <div>FEBRUARY</div>
-                    <div>MARCH</div>
-                    <div>APRIL</div>
-                    <div>MAY</div>-->
                 </div>
                 <div id="divCircleWeeks">
-                    <!--<div class="circleWeek">1w</div>
-                    <div class="circleWeek">2w</div>
-                    <div class="circleWeek">3w</div>
-                    <div class="circleWeek">4w</div>
-                    <div class="circleWeek">5w</div>
-                    <div class="circleWeek">1w</div>
-                    <div class="circleWeek">2w</div>
-                    <div class="circleWeek">3w</div>
-                    <div class="circleWeek">4w</div>
-                    <div class="circleWeek">1w</div>
-                    <div class="circleWeek">2w</div>
-                    <div class="circleWeek">3w</div>
-                    <div class="circleWeek">4w</div>
-                    <div class="circleWeek">5w</div>
-                    <div class="circleWeek">6w</div>-->
                 </div>
             </div>
             <div id="divObservations" class="col-xs-12">
                 <div id="allDays" class="col-xs-1">
                     <div id="divCircleDays">
-                        <!--<div class="circleDay" style="margin-bottom: 150px">1</div>
-                        <div class="circleDay" style="margin-bottom: 250px">4</div>
-                        <div class="circleDay" style="margin-bottom: 350px">7</div>
-                        <div class="circleDay" style="margin-bottom: 150px">11</div>
-                        <div class="circleDay" style="margin-bottom: 450px">18</div>
-                        <div class="circleDay" style="margin-bottom: 150px">27</div>
-                        <div style="height:50px"></div>-->
                     </div>
-                </div>
-
-                
+                </div>             
                 <div  id="divAllComments" class="col-xs-10 nopaddingMargin">
-                    <!--<div class="divOneComment  col-xs-12">
-                        <div class="divTeachers col-xs-3 " >
+                </div>
+            </div>         
+        </div>
 
-                        </div>
-                        <div class="divComments col-xs-9 " >
-                            <div class="triangDivSup"></div>
-                            <div class="triangDivInf"></div>
-                            <div class="divInfoComment" class="col-xs-12 nopaddingMargin">
-                                <strong>Type: </strong>Physical<br>
-                                <p>There are 5 weeks in jan- how will it handle this</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class=" divOneComment col-xs-12">
-                        <div class="divTeachers col-xs-3 " >
-
-                        </div>
-                        <div class="divComments col-xs-9 " >
-                            <div class="triangDivSup"></div>
-                            <div class="triangDivInf"></div>
-                            <div class="divInfoComment" class="col-xs-12 nopaddingMargin">
-                                <strong>Type: </strong>Emotional<br>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                            </div>
-                        </div>
-                        
-                    </div>-->
+        <div id="whatsDoingPage" class="col-xs-12"> <h1>what i doing</h1>
+            <div class="col-xs-12 col-md-12 nopaddingMargin" value="navInfWhatIDoing">
+                <div class="col-xs-6 col-md-6" value ="masterWeek" >
+                    What I´m mastered this week<span class="glyphicon glyphicon-menu-down"></span>
+                </div>
+                <div class="col-xs-6 col-md-6"  value="plannedWeek">
+                   What I have planned next week<span class="glyphicon glyphicon-menu-down"></span>
                 </div>
             </div>
         </div>
+                        
         <div class="col-xs-12 col-md-12" id="navbarInferior">
             <div class="col-xs-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
