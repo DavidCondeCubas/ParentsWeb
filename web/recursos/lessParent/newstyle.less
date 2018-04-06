@@ -668,22 +668,60 @@ img
     }   
 
     #accordionWhats{
-            margin-top: 2%;
+        margin-top: 2%;
+        img{
+            width: 20px;
+            height: 20px;   
+        }
+        img:nth-child(1) {
+            margin-right: 5px;
+        }
+        img:nth-child(2) {
+
+        }
+        img:nth-child(3) {
+            width: 15px;
+            height: 15px; 
+        }
         .card{
+            margin-bottom: 7px;
             .card-header{
                 border-bottom: 1px solid #bbb7b7e6;
             }
             .card-header:last-child {
                 border-bottom: 1px solid white;
             }
-            div{
+            a{
+                color:black;
+                display: flex;
+                justify-content: space-between;
                 div{
-                    @media @tablets,@desktop,@desktopXL {
-                        font-size: large;
-                    } 
-                    // color: @circleOrange;
-
+                    display: flex;
+                    align-items: center;
                 }
+
+                div:nth-child(1){
+                    color:#2f4591;
+                }
+
+                div:nth-child(2){
+                    color: @colorCircleSelect;
+                }
+            }
+            a:focus:hover{
+                text-decoration: none !important;
+            }
+            .accorSteps{
+                display: flex;
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                }
+            }
+            ul{
+                list-style-type: none;
+                padding-left: 20px;
             }
         }
     }

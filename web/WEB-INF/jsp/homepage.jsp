@@ -314,7 +314,7 @@
         </div>
 
         <div id="whatsDoingPage" class="col-xs-12"> 
-            <div class="col-xs-12 col-md-12 nopaddingMargin" >
+            <div class="col-xs-12 col-md-12 nopaddingMargin" id="infWhatPrincipal" >
                 <div class="col-xs-6 infWhat" value ="attemptedWeek" >
                     What I´m attempted this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
@@ -324,108 +324,77 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo2">
-                            <div class="col-xs-12">
-                                <div class="col-xs-6">
-                                    <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
-                                    <div>Alphabetical order</div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div>ENGLISH</div>
-                                    <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
-                                </div>
+                            <div>
+                                <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
+                                <div>Rhyming words</div>
                             </div>
+                            <div>
+                                <div>MUSIC</div>
+                                <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
+                            </div>
+
                         </a>
+                        <div class= "accorSteps">
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                        </div>
                     </div>
                     <div id="collapseTwo2" class="collapse" data-parent="#accordion">
                         <div class="card-body">
                             <ul id="menu">
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Paso 1</a></li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Paso 2</a></li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Paso 3: Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetu</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Rhyming boxes</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Match correct cards</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Write and illustrate in book</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree2">
-                            Collapsible Group Item #3
-                        </a>
-                    </div>
-                    <div id="collapseThree2" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree22">
-                            Collapsible Group Item #3
-                        </a>
-                    </div>
-                    <div id="collapseThree22" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree24">
-                            Collapsible Group Item #3
-                        </a>
-                    </div>
-                    <div id="collapseThree24" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree23">
-                            Collapsible Group Item #3
-                        </a>
-                    </div>
-                    <div id="collapseThree23" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree25">
-                            Collapsible Group Item #3
-                        </a>
-                    </div>
-                    <div id="collapseThree25" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree26">
-                            Collapsible Group Item #3
-                        </a>
-                    </div>
-                    <div id="collapseThree26" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                </div>
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo22">
+                            <div>
+                                <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
+                                <div>T1 - Spelling (six to eight words)</div>
+                            </div>
+                            <div>
+                                <div>ENGLISH</div>
+                                <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
+                            </div>
 
+                        </a>
+                        <div class= "accorSteps">
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+
+                        </div>
+                    </div>
+                    <div id="collapseTwo22" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <ul id="menu">
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Recognises common consonant diagraphs at the beginning and the end of words, e.g. sh, ch, wh</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Groups common words into sound families</a></li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Writes out six to eight CVC words</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />e.g. h-a-t, p-a-n, t-o-p</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />e.g. with, who, and, from</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />e.g. The cat sat on the red mat</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Uses consonant blends to build up and break down words (r and l)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-xs-12 col-md-12 nopaddingMargin" id="navInfWhatIDoing">
-                <div class="col-xs-6 infWhat" value ="masterWeek" >
+                <div class="col-xs-6 infWhat btnInfNavWhat" value ="masterWeek" >
                     What I´m mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
-                <div class="col-xs-6 infWhat"  value="plannedWeek">
+                <div class="col-xs-6 infWhat btnInfNavWhat"  value="plannedWeek">
                     What I have planned next week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
             </div>
