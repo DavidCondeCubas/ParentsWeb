@@ -313,13 +313,18 @@
             </div>         
         </div>
 
-        <div id="whatsDoingPage" class="col-xs-12"> <h1>what i doing</h1>
-            <div class="col-xs-12 col-md-12 nopaddingMargin" value="navInfWhatIDoing">
-                <div class="col-xs-6 col-md-6" value ="masterWeek" >
-                    What I´m mastered this week<span class="glyphicon glyphicon-menu-down"></span>
+        <div id="whatsDoingPage" class="col-xs-12"> 
+            <div class="col-xs-12 col-md-12 nopaddingMargin" >
+                <div class="col-xs-6 infWhat" value ="attemptedWeek" >
+                    What I´m attempted this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
-                <div class="col-xs-6 col-md-6"  value="plannedWeek">
-                   What I have planned next week<span class="glyphicon glyphicon-menu-down"></span>
+            </div>
+            <div class="col-xs-12 col-md-12 nopaddingMargin" id="navInfWhatIDoing">
+                <div class="col-xs-6 infWhat" value ="masterWeek" >
+                    What I´m mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
+                </div>
+                <div class="col-xs-6 infWhat"  value="plannedWeek">
+                   What I have planned next week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
             </div>
         </div>

@@ -629,8 +629,8 @@ body {
   margin-top: 5px;
 }
 #whatsDoingPage {
-  margin-top: 40px;
-  margin-bottom: 50px;
+  margin-top: 60px;
+  margin-bottom: 80px;
   /*izquierda
     font-weight: bold;
     margin: 0px;
@@ -652,19 +652,44 @@ body {
   /* margin: 0px; */
   /* margin-left: 5px; */
   /* font-weight: bold;
-    margin: 0px;
-    font-size: 9.9px;
-    padding: 0px;
-    text-align: center;
-    border-radius: 8px;
-    padding: 3px;
-    background-color: #d5d5d57a;
-    margin-left: 4%;
-}
-.col-xs-6 {
-    width: 48%;
-}
+     margin: 0px;
+     font-size: 9.9px;
+     padding: 0px;
+     text-align: center;
+     border-radius: 8px;
+     padding: 3px;
+     background-color: #d5d5d57a;
+     margin-left: 4%;
+ }
+ .col-xs-6 {
+     width: 48%;
+ }
     */
+}
+#whatsDoingPage .infWhat {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0px;
+  color: #f99927;
+  font-size: 10px;
+  padding: 0px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 3px;
+  background-color: #d5d5d57a;
+  box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
+}
+#whatsDoingPage #navInfWhatIDoing {
+  position: fixed;
+  bottom: 55px;
+  width: 96%;
+  left: 2%;
+}
+#whatsDoingPage #navInfWhatIDoing .infWhat:nth-child(2) {
+  margin-left: 4%;
+}
+#whatsDoingPage #navInfWhatIDoing .col-xs-6 {
+  width: 48%;
 }
 /*
 LINEA VERTICAL BACKGROUND
