@@ -91,7 +91,7 @@ function  showObjectivesRatings(idSubject) {
                                             </div>");
         }
     });
-
+/*
     $.each(mapFinalRatings, function (key, value) {
         if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
             $("#accordion").append("<div class='card '>\n\
@@ -141,7 +141,7 @@ function  showObjectivesRatings(idSubject) {
                                                 </div>\n\
                                             </div>");
         }
-    });
+    });*/
     //DIV VACIO PARA DARLE ESPACIO A LA BARRA INFERIOR
     $("#accordion").append("<div class='card '>\n\
                                                 <div class='card-header col-xs-12' style='height:50px'>\n\

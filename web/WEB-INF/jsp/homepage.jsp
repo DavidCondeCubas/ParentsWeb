@@ -319,16 +319,118 @@
                     What I´m attempted this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
             </div>
+
+            <div class="col-xs-12" id="accordionWhats">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo2">
+                            <div class="col-xs-12">
+                                <div class="col-xs-6">
+                                    <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
+                                    <div>Alphabetical order</div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div>ENGLISH</div>
+                                    <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="collapseTwo2" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <ul id="menu">
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Paso 1</a></li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Paso 2</a></li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Paso 3: Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree2">
+                            Collapsible Group Item #3
+                        </a>
+                    </div>
+                    <div id="collapseThree2" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree22">
+                            Collapsible Group Item #3
+                        </a>
+                    </div>
+                    <div id="collapseThree22" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree24">
+                            Collapsible Group Item #3
+                        </a>
+                    </div>
+                    <div id="collapseThree24" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree23">
+                            Collapsible Group Item #3
+                        </a>
+                    </div>
+                    <div id="collapseThree23" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree25">
+                            Collapsible Group Item #3
+                        </a>
+                    </div>
+                    <div id="collapseThree25" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree26">
+                            Collapsible Group Item #3
+                        </a>
+                    </div>
+                    <div id="collapseThree26" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="col-xs-12 col-md-12 nopaddingMargin" id="navInfWhatIDoing">
                 <div class="col-xs-6 infWhat" value ="masterWeek" >
                     What I´m mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
                 <div class="col-xs-6 infWhat"  value="plannedWeek">
-                   What I have planned next week  <span class="glyphicon glyphicon-menu-down"></span>
+                    What I have planned next week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
             </div>
         </div>
-                        
+
         <div class="col-xs-12 col-md-12" id="navbarInferior">
             <div class="col-xs-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">

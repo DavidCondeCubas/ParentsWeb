@@ -641,8 +641,8 @@ body {
     border-radius: 8px;
     padding: 3px;
     background-color: #d5d5d57a;
-}
-.col-xs-6 {
+    }
+    .col-xs-6 {
     width: 48%;
     
     derecha
@@ -660,10 +660,10 @@ body {
      padding: 3px;
      background-color: #d5d5d57a;
      margin-left: 4%;
- }
- .col-xs-6 {
+    }
+    .col-xs-6 {
      width: 48%;
- }
+    }
     */
 }
 #whatsDoingPage .infWhat {
@@ -690,6 +690,20 @@ body {
 }
 #whatsDoingPage #navInfWhatIDoing .col-xs-6 {
   width: 48%;
+}
+#whatsDoingPage #accordionWhats {
+  margin-top: 2%;
+}
+#whatsDoingPage #accordionWhats .card .card-header {
+  border-bottom: 1px solid #bbb7b7e6;
+}
+#whatsDoingPage #accordionWhats .card .card-header:last-child {
+  border-bottom: 1px solid white;
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #whatsDoingPage #accordionWhats .card div div {
+    font-size: large;
+  }
 }
 /*
 LINEA VERTICAL BACKGROUND
