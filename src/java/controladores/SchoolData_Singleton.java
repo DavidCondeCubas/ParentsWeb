@@ -5,11 +5,11 @@
  */
 package controladores;
 
-import Montessori.DBConect;
-import Montessori.Objective;
-import Montessori.Profesor;
-import Montessori.Step;
-import Montessori.Subject;
+import ParentWeb.DBConect;
+import ParentWeb.Objective;
+import ParentWeb.Profesor;
+import ParentWeb.Step;
+import ParentWeb.Subject;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.ResultSet;
@@ -109,7 +109,7 @@ public class SchoolData_Singleton {
                     auxObj.setName(rs5.getString("name"));
                     auxObj.setIdSubject(idSubject);
                     this.mapObjectives.put(idObj, auxObj);
-                    this.mapSubjects.get(idSubject).addObjective(idObj, auxObj);
+                    this.mapSubjects.get(idSubject).addObjective(idObj);
                 }
             }
 
@@ -121,7 +121,7 @@ public class SchoolData_Singleton {
                 if (this.mapSubjects.containsKey(idSubject)) {
                     int idObjective = rs6.getInt("obj_id");
 
-                    if (this.mapSubjects.get(idSubject).getMapObjectives().containsKey(idObjective)) {
+                    if (this.mapObjectives.containsKey(idObjective)) {
                         Step auxStep = new Step();
                         int idStep = rs6.getInt("id");
                         auxStep.setObj_id(rs6.getInt("obj_id"));
@@ -129,7 +129,7 @@ public class SchoolData_Singleton {
                         auxStep.setOrder(rs6.getInt("storder"));
                         auxStep.setWeight(rs6.getInt("weight"));
                         this.mapSteps.put(idStep, auxStep);
-                        this.mapSubjects.get(idSubject).getMapObjectives().get(idObjective).getMapSteps().put(idStep, auxStep);
+                        this.mapObjectives.get(idObjective).addStep(idStep);
                     }
                 }
             }

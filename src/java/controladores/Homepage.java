@@ -1,6 +1,14 @@
 package controladores;
 
-import Montessori.*;
+import ParentWeb.Profesor;
+import ParentWeb.Observation;
+import ParentWeb.Objective;
+import ParentWeb.DBConect;
+import ParentWeb.DataWhatDoing;
+import ParentWeb.Subject;
+import ParentWeb.LoginVerification;
+import ParentWeb.Step;
+import ParentWeb.User;
 import atg.taglib.json.util.JSONObject;
 import com.google.gson.Gson;
 import java.awt.image.BufferedImage;
@@ -20,6 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import javax.imageio.ImageIO;
@@ -106,16 +115,17 @@ public class Homepage extends MultiActionController {
                     nameYear = "" + rs4.getString("SchoolYear");
                 }
                 session.setAttribute("termYearName", nameTerm + " / " + nameYear);
-                    
+
                 SchoolData_Singleton schoolData = SchoolData_Singleton.getData();
-                    
+
                 HashMap<Integer, Subject> mapSubjects = schoolData.getMapSubjects();
                 HashMap<Integer, Profesor> mapProfesor = schoolData.getMapProfesor();
-                // HashMap<Integer, Step> mapStep = schoolData.getMapSteps();
+                HashMap<Integer, Step> mapStep = schoolData.getMapSteps();
                 HashMap<Integer, Objective> mapOb = schoolData.getMapObjectives();
 
                 mv.addObject("mapSubjects", new Gson().toJson(mapSubjects));
                 mv.addObject("mapProfesor", new Gson().toJson(mapProfesor));
+                mv.addObject("mapSteps", new Gson().toJson(mapStep));
                 mv.addObject("mapObjectives", new Gson().toJson(mapOb));
 
                 mv.addObject("sons", new Gson().toJson(mapSons));
@@ -214,13 +224,12 @@ public class Homepage extends MultiActionController {
                         oAux.setStudentid(Integer.parseInt(studentId));
 
                         if (logId != -1) {
-                            
-                            
+
                             SchoolData_Singleton schoolData = SchoolData_Singleton.getData();
                             oAux.setTeacherFoto("");
                             if (schoolData.getMapProfesor().containsKey(logId)) {
                                 String path = schoolData.getMapProfesor().get(logId).getPathFoto();
-                                if(path != null){
+                                if (path != null) {
                                     oAux.setTeacherFoto(getImageTeacher(hsr, hsr1, path));
                                 }
                                 oAux.setTeacherGender(schoolData.getMapProfesor().get(logId).getGender());
@@ -283,6 +292,101 @@ public class Homepage extends MultiActionController {
         }
 
         return subjects;
+    }
+
+    @RequestMapping("/getDataWhat.htm")
+    @ResponseBody
+    public String getDataWhat(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
+
+        String id = hsr.getParameter("seleccion");
+        JSONObject json = new JSONObject();
+        ArrayList<DataWhatDoing> arrayAttemp = new ArrayList<>();
+        ArrayList<DataWhatDoing> arrayMastered = new ArrayList<>();
+        ArrayList<DataWhatDoing> arrayFuture = new ArrayList<>();
+        int diasSemana = 120;
+
+        // QUEDA PENDIENTE AGREGAR LA RESTRICCION DEL ID_STUDENT
+        String termid = "", yearid = "";
+        try {
+            ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
+            while (rs.next()) {
+                termid = "" + rs.getInt("defaulttermid");
+                yearid = "" + rs.getInt("defaultyearid");
+            }
+
+            Calendar cal = Calendar.getInstance();
+            Timestamp timestampBefore = new Timestamp(cal.getTimeInMillis());
+            String currentDate = "" + timestampBefore;
+
+            //pruebas
+            cal.add(Calendar.DAY_OF_YEAR, diasSemana * -1);
+
+            //cal.add( Calendar.DAY_OF_YEAR, -diasSemana);
+            timestampBefore = new Timestamp(cal.getTimeInMillis());
+            String beforeDate = "" + timestampBefore;
+
+            //7 dias antes
+            //String consulta = "SELECT rating_id,student_id,objective_id,step_id,rating.name FROM progress_report inner join rating on rating.id = rating_id where yearterm_id="+yearid+" and student_id="+id+" and term_id= "+termid+" and comment_date between '"+beforeDate+"' and '"+currentDate+"'";    
+            //pruebas
+            String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.yearterm_id=" + yearid + " and a.term_id= " + termid + " and a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
+
+            ResultSet rs1 = DBConect.eduweb.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
+            while (rs1.next()) {
+                String steps = rs1.getString("step_id");
+                String numSteps = "0";
+                DataWhatDoing auxData = new DataWhatDoing();
+
+                if (steps != null && !steps.equals("0") && !steps.equals("")) {
+                    String[] parts = steps.split(",");
+                    numSteps = "" + parts.length;
+                }
+                auxData.setIdObjective(rs1.getString("objective_id")); // idobjective
+                auxData.setObjectivesSuccess(numSteps); //numSteps
+                auxData.setIdSubject("" + rs1.getInt("subject_id"));
+                
+                String nameAux = rs1.getString("name");
+                if (nameAux.equals("Mastered")) {
+                    arrayMastered.add(auxData);
+                } else {
+                    arrayAttemp.add(auxData);
+                }
+
+            }
+
+            beforeDate = currentDate;
+            //pruebas
+            cal.add(Calendar.DAY_OF_YEAR, diasSemana * 2);
+
+            //cal.add( Calendar.DAY_OF_YEAR, -7);
+            timestampBefore = new Timestamp(cal.getTimeInMillis());
+            currentDate = "" + timestampBefore;
+
+            //String consulta = "SELECT rating_id,student_id,objective_id,step_id,rating.name FROM progress_report inner join rating on rating.id = rating_id where yearterm_id="+yearid+" and student_id="+id+" and term_id= "+termid+" and comment_date between '"+beforeDate+"' and '"+currentDate+"'";    
+            consulta = "SELECT DISTINCT objective_id,subject_id FROM lesson_stud_att inner join lessons on lesson_stud_att.lesson_id = lessons.id where lessons.yearterm_id=" + yearid + " and lessons.term_id= " + termid + " and lessons.start between '" + beforeDate + "' and '" + currentDate + "'";
+
+            ResultSet rs2 = DBConect.eduweb.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
+            while (rs2.next()) {
+           
+                DataWhatDoing auxData = new DataWhatDoing();
+                auxData.setIdObjective(rs2.getString("objective_id")); // idobjective
+                auxData.setObjectivesSuccess("0"); //numSteps
+                auxData.setIdSubject("" + rs2.getInt("subject_id"));
+
+                arrayFuture.add(auxData);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error leyendo Subjects: " + ex);
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));
+        }
+
+        json.put("arrayAttempted", new Gson().toJson(arrayAttemp));
+        json.put("arrayMastered", new Gson().toJson(arrayMastered));
+        json.put("arrayFuture", new Gson().toJson(arrayFuture));
+
+        return json.toString();
+
     }
 
     private HashMap<String, String> getfinalrating(String id) throws SQLException {
@@ -537,7 +641,7 @@ public class Homepage extends MultiActionController {
             ftpClient.login(user, pass);
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             //LIMITAR NO EXISTE
-            
+
             InputStream inStream = ftpClient.retrieveFileStream(filepath);
             if (inStream != null) {
                 // gets MIME type of the file

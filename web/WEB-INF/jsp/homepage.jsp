@@ -22,6 +22,7 @@
             var mapSubjects = ${mapSubjects};
             var mapProfesores = ${mapProfesor};
             var mapObjectives = ${mapObjectives};
+            var mapSteps = ${mapSteps};
             var mapFinalRatings;
             var currentStudent;
             var currentOption;
@@ -388,6 +389,37 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo222">
+                            <div>
+                                <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
+                                <div>Measurement and Data</div>
+                            </div>
+                            <div>
+                                <div>MATHEMATICS</div>
+                                <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
+                            </div>
+
+                        </a>
+                        <div class= "accorSteps">
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
+
+                        </div>
+                    </div>
+                    <div id="collapseTwo222" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <ul id="menu">
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Describe and compare measurable attributes.</li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Classify objects and count the number of objects category.</a></li>
+                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Measure lengths indirectly and by iterating length.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
             </div>
 
             <div class="col-xs-12 col-md-12 nopaddingMargin" id="navInfWhatIDoing">

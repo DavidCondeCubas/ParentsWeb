@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Montessori;
+package ParentWeb;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -26,11 +26,11 @@ public class Objective {
     private int id;
     private String description;
     private String name;
-    private HashMap<Integer, Step> mapSteps;
+    private ArrayList<Integer> arraySteps;
     private int idSubject;
 
     public Objective(){
-        this.mapSteps = new HashMap<>();
+        this.arraySteps = new ArrayList<>();
     }
     public int getIdSubject() {
         return idSubject;
@@ -48,12 +48,12 @@ public class Objective {
         this.id = id;
     }
 
-    public HashMap<Integer, Step> getMapSteps() {
-        return mapSteps;
+    public ArrayList<Integer> getMapSteps() {
+        return arraySteps;
     }
 
-    public void setMapSteps(HashMap<Integer, Step> mapSteps) {
-        this.mapSteps = mapSteps;
+    public void setMapSteps(ArrayList<Integer> mapSteps) {
+        this.arraySteps = mapSteps;
     }
 
     public String getDescription() {
@@ -70,5 +70,8 @@ public class Objective {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void addStep(int id){
+        this.arraySteps.add(id);
     }
 }

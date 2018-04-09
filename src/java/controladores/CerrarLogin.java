@@ -1,6 +1,6 @@
 package controladores;
 
-import Montessori.DBConect;
+import ParentWeb.DBConect;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
