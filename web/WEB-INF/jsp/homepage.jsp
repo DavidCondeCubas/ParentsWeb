@@ -321,112 +321,15 @@
                 </div>
             </div>
 
-            <div class="col-xs-12" id="accordionWhats">
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo2">
-                            <div>
-                                <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
-                                <div>Rhyming words</div>
-                            </div>
-                            <div>
-                                <div>MUSIC</div>
-                                <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
-                            </div>
-
-                        </a>
-                        <div class= "accorSteps">
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                        </div>
-                    </div>
-                    <div id="collapseTwo2" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <ul id="menu">
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Rhyming boxes</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Match correct cards</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Write and illustrate in book</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo22">
-                            <div>
-                                <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
-                                <div>T1 - Spelling (six to eight words)</div>
-                            </div>
-                            <div>
-                                <div>ENGLISH</div>
-                                <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
-                            </div>
-
-                        </a>
-                        <div class= "accorSteps">
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-
-                        </div>
-                    </div>
-                    <div id="collapseTwo22" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <ul id="menu">
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Recognises common consonant diagraphs at the beginning and the end of words, e.g. sh, ch, wh</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Groups common words into sound families</a></li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Writes out six to eight CVC words</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />e.g. h-a-t, p-a-n, t-o-p</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />e.g. with, who, and, from</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />e.g. The cat sat on the red mat</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Uses consonant blends to build up and break down words (r and l)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo222">
-                            <div>
-                                <img src="../ParentWeb/recursos/img/iconos/target.svg" alt="image" />
-                                <div>Measurement and Data</div>
-                            </div>
-                            <div>
-                                <div>MATHEMATICS</div>
-                                <img src="../ParentWeb/recursos/img/iconos/subject.svg" alt="image" />
-                            </div>
-
-                        </a>
-                        <div class= "accorSteps">
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-                            <img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />
-
-                        </div>
-                    </div>
-                    <div id="collapseTwo222" class="collapse" data-parent="#accordion">
-                        <div class="card-body">
-                            <ul id="menu">
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Describe and compare measurable attributes.</li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Classify objects and count the number of objects category.</a></li>
-                                <li><img src="../ParentWeb/recursos/img/iconos/step.svg" alt="image" />Measure lengths indirectly and by iterating length.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> 
+            <div class="col-xs-12" id="accordionWhats">       
+                
             </div>
 
             <div class="col-xs-12 col-md-12 nopaddingMargin" id="navInfWhatIDoing">
-                <div class="col-xs-6 infWhat btnInfNavWhat" value ="masterWeek" >
+                <div class="col-xs-6 infWhat btnInfNavWhat btnSecundario" value ="masterWeek" >
                     What I´m mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
-                <div class="col-xs-6 infWhat btnInfNavWhat"  value="plannedWeek">
+                <div class="col-xs-6 infWhat btnInfNavWhat btnSecundario"  value="plannedWeek">
                     What I have planned next week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
             </div>

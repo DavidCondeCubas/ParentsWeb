@@ -23,7 +23,6 @@ function initWhatDoingMenu(url) {
     $("#navInfWhatIam").empty();
     $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     getDataWhat();
-    paintDataWhat("attemptedWeek");
     $("#whatsDoingPage").show();
 }
 
@@ -39,6 +38,8 @@ $(document).ready(function () {
     $(".btnInfNavWhat").click(function () {
 // navInfWhatIDoing //div Secundarios
 // infWhatPrincipal //div principal
+        var valueBefore = $(this).attr("value");
+    
         var currentValue = $("#infWhatPrincipal div").attr("value");
         var currentText = $("#infWhatPrincipal div").text().trim();
         $("#infWhatPrincipal div").attr("value", $(this).attr("value"));
@@ -49,6 +50,7 @@ $(document).ready(function () {
          $("#navInfWhatIDoing").append(CurrentDiv);
          */
         //HACER CARGA DE DATOS
+        paintDataWhat(valueBefore);
     });
 });
 var arrayAttemp;
@@ -66,6 +68,7 @@ function getDataWhat() {
             arrayAttemp = JSON.parse(data.arrayAttempted);
             arrayMastered = JSON.parse(data.arrayMastered);
             arrayFuture = JSON.parse(data.arrayFuture);
+            paintDataWhat("attemptedWeek");
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
@@ -86,38 +89,80 @@ function paintDataWhat(valueSelected) {
         default:
             arrayData = arrayFuture;
     }
-    $("#accordionWhats").empty();
 
-    for (var i = 0; i < arrayData.length; i++) {
+    $("#accordionWhats").empty();
+    var idSubjectAux;
+    if (arrayData.length > 0) {
+        idSubjectAux = arrayData[0].idSubject;
         $("#accordionWhats").append("<div class='card'>\n\
                                     <div class='card-header'>\n\
-                                        <a class='collapsed card-link' data-toggle='collapse' href='#collapseTwo2'>\n\
-                                            <div>\n\
-                                                <img src='../ParentWeb/recursos/img/iconos/target.svg' alt='image' />\n\
-                                                <div>Rhyming words</div>\n\
-                                            </div>\n\
-                                            <div>\n\
-                                                <div>MUSIC</div>\n\
+                                        <h3 class='card-link'>\n\
+                                            <div class='subjectTitle'>\n\
                                                 <img src='../ParentWeb/recursos/img/iconos/subject.svg' alt='image' />\n\
+                                                <div>" + mapSubjects[arrayData[0].idSubject].name + "</div>\n\
                                             </div>\n\
-                                        </a>\n\
-                                        <div class= 'accorSteps'>\n\
-                                            <img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />\n\
-                                            <img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />\n\
-                                            <img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />\n\
-                                        </div>\n\
-                                    </div>\n\
-                                    <div id='collapseTwo2' class='collapse' data-parent='#accordion'>\n\
-                                        <div class='card-body'>\n\
-                                            <ul id='menu'>\n\
-                                                <li><img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />Rhyming boxes</li>\n\
-                                                <li><img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />Match correct cards</li>\n\
-                                                <li><img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />Write and illustrate in book</li>\n\
-                                            </ul>\n\
-                                        </div>\n\
+                                        </h3>\n\
                                     </div>\n\
                                 </div>");
     }
+    for (var i = 0; i < arrayData.length; i++) {
+        var totalSteps = mapObjectives[arrayData[i].idObjective].arraySteps.length;
+
+        if (idSubjectAux !== arrayData[i].idSubject) {
+            $("#accordionWhats").append("<div class='card'>\n\
+                                    <div class='card-header'>\n\
+                                        <h3 class='card-link'>\n\
+                                            <div class='subjectTitle'>\n\
+                                                <img src='../ParentWeb/recursos/img/iconos/subject.svg' alt='image' />\n\
+                                                <div>" + mapSubjects[arrayData[i].idSubject].name + "</div>\n\
+                                            </div>\n\
+                                        </h3>\n\
+                                    </div>\n\
+                                </div>");
+        }
+        $("#accordionWhats").append("<div class='card'>\n\
+                                    <div class='card-header'>\n\
+                                        <a class='collapsed card-link' data-toggle='collapse' href='#collapse"+i+"'>\n\
+                                            <div>\n\
+                                                <img src='../ParentWeb/recursos/img/iconos/target.svg' alt='image' />\n\
+                                                <div>" + mapObjectives[arrayData[i].idObjective].name + "</div>\n\
+                                            </div>\n\
+                                        </a>\n\
+                                        <div class= 'accorSteps'>"+makeSteps(arrayData[i].ObjectivesSuccess,totalSteps)+"</div>\n\
+                                    </div>\n\
+                                    <div id='collapse"+i+"' class='collapse' data-parent='#accordion'>\n\
+                                        <div class='card-body'>\n\
+                                            <ul id='menu'>"+makeNamesObjectives(arrayData[i].ObjectivesSuccess,totalSteps,mapObjectives[arrayData[i].idObjective].arraySteps)+"</ul>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>");
+
+        idSubjectAux = arrayData[i].idSubject;
+    }
+}
+function makeSteps(comp, total){ //steps completados, no completados
+    var res="";
+    
+    for (var i = 0; i < comp;i++)
+        res += "<img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />";
+    
+    for (var i = 0; i < total-comp;i++)
+        res += "<img src='../ParentWeb/recursos/img/iconos/emptyStep.svg' alt='image' />";
+    
+    return res;
 }
 
+function makeNamesObjectives(comp,total,data){
+    
+    var res="";  
+    
+    for (var i = 0; i < total;i++){
+        
+        if(i < comp) 
+            res += "<li><img src='../ParentWeb/recursos/img/iconos/step.svg' alt='image' />"+mapSteps[data[i]].name+"</li>";
+        else 
+            res += "<li><img src='../ParentWeb/recursos/img/iconos/emptyStep.svg' alt='image' />"+mapSteps[data[i]].name+"</li>";
+    }
+    return res;
+}
 

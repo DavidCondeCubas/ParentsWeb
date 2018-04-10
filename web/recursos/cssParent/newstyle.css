@@ -676,7 +676,7 @@ body {
   text-align: center;
   border-radius: 8px;
   padding: 3px;
-  background-color: #d5d5d57a;
+  background-color: #f2f2f2;
   box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
 }
 #whatsDoingPage #navInfWhatIDoing {
@@ -713,6 +713,11 @@ body {
 }
 #whatsDoingPage #accordionWhats .card .card-header:last-child {
   border-bottom: 1px solid white;
+}
+#whatsDoingPage #accordionWhats .card .subjectTitle {
+  display: flex;
+  color: #2f4591;
+  align-items: center;
 }
 #whatsDoingPage #accordionWhats .card a {
   color: black;
