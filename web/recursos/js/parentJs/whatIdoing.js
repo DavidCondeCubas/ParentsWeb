@@ -107,7 +107,11 @@ function paintDataWhat(valueSelected) {
     }
     for (var i = 0; i < arrayData.length; i++) {
         var totalSteps = mapObjectives[arrayData[i].idObjective].arraySteps.length;
-
+        
+        var objSuccess = arrayData[i].ObjectivesSuccess;
+        if(valueSelected === "masterWeek") 
+            objSuccess = totalSteps;
+            
         if (idSubjectAux !== arrayData[i].idSubject) {
             $("#accordionWhats").append("<div class='card'>\n\
                                     <div class='card-header'>\n\
@@ -128,11 +132,11 @@ function paintDataWhat(valueSelected) {
                                                 <div>" + mapObjectives[arrayData[i].idObjective].name + "</div>\n\
                                             </div>\n\
                                         </a>\n\
-                                        <div class= 'accorSteps'>"+makeSteps(arrayData[i].ObjectivesSuccess,totalSteps)+"</div>\n\
+                                        <div class= 'accorSteps'>"+makeSteps(objSuccess,totalSteps)+"</div>\n\
                                     </div>\n\
                                     <div id='collapse"+i+"' class='collapse' data-parent='#accordion'>\n\
                                         <div class='card-body'>\n\
-                                            <ul id='menu'>"+makeNamesObjectives(arrayData[i].ObjectivesSuccess,totalSteps,mapObjectives[arrayData[i].idObjective].arraySteps)+"</ul>\n\
+                                            <ul id='menu'>"+makeNamesObjectives(objSuccess,totalSteps,mapObjectives[arrayData[i].idObjective].arraySteps)+"</ul>\n\
                                         </div>\n\
                                     </div>\n\
                                 </div>");
