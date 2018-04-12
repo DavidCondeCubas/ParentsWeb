@@ -315,7 +315,7 @@
         </div>
 
         <div id="whatsDoingPage" class="col-xs-12"> 
-            <div class="col-xs-12 col-md-12 nopaddingMargin" id="infWhatPrincipal" >
+            <div class="col-xs-12 nopaddingMargin" id="infWhatPrincipal" >
                 <div class="col-xs-12 infWhat" value ="attemptedWeek" >
                     What i attempted this week
                 </div>
@@ -325,7 +325,7 @@
                 
             </div>
 
-            <div class="col-xs-12 col-md-12 nopaddingMargin" id="navInfWhatIDoing">
+            <div class="col-xs-12  nopaddingMargin" id="navInfWhatIDoing">
                 <div class="col-xs-6 infWhat btnInfNavWhat btnSecundario" value ="masterWeek" >
                     What i mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
@@ -335,20 +335,20 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-12" id="navbarInferior">
-            <div class="col-xs-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
+        <div class="col-xs-12 col-sm-12 col-md-12" id="navbarInferior">
+            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
             </div>
-            <div class="col-xs-2 col-md-2" id="navInfObservations" value="a_ObservationIcon.svg">
+            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfObservations" value="a_ObservationIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_ObservationIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations">
             </div>
-            <div class="col-xs-2 col-md-2" id="navInfWhatIam" value="a_LearningIcon.svg">
+            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfWhatIam" value="a_LearningIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_LearningIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
             </div>
-            <div class="col-xs-2 col-md-2" id="navInfCalendar" value="a_CalendarIcon.svg">
+            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfCalendar" value="a_CalendarIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
             </div>
-            <div class="col-xs-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
+            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
                 <img src="<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="More">
             </div>
             <div  id="navInfReport" value="a_ReportIcon.svg">

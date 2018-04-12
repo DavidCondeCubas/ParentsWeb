@@ -245,6 +245,7 @@ img
     transition: margin-left .5s;
     padding: 20px;
     margin-top:  @alturaNavDesktop+8;
+    margin-bottom: 52px;
     @media @smartphones{
         margin-top: @alturaNavCell+8;
     }
@@ -287,6 +288,13 @@ img
         }
         .card-header:last-child {
             border-bottom: 1px solid white;
+        }
+
+        a{
+            color: black;
+        }
+        a:focus:hover{
+            text-decoration: none !important;
         }
         div{
             div{
@@ -445,7 +453,8 @@ img
     }
 }
 #allWeeks{
-    height: 51.5px;
+    height: 54px;
+    overflow-y: hidden !important;
 }
 #teacherObservations{
 

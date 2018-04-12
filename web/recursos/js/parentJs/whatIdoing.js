@@ -27,14 +27,7 @@ function initWhatDoingMenu(url) {
 }
 
 $(document).ready(function () {
-    $(".card-header a").click(function () {
 
-        if ($(this).parent().next().hasClass("collapse") && $(this).parent().next().hasClass("in")) {
-            $(this).parent().children(".accorSteps").show()
-        } else
-            $(this).parent().children(".accorSteps").hide()
-
-    });
     $(".btnInfNavWhat").click(function () {
 // navInfWhatIDoing //div Secundarios
 // infWhatPrincipal //div principal
@@ -143,6 +136,15 @@ function paintDataWhat(valueSelected) {
 
         idSubjectAux = arrayData[i].idSubject;
     }
+    
+        $(".card-header a").click(function () {
+
+        if ($(this).parent().next().hasClass("collapse") && $(this).parent().next().hasClass("in")) {
+            $(this).parent().children(".accorSteps").show()
+        } else
+            $(this).parent().children(".accorSteps").hide()
+
+    });
 }
 function makeSteps(comp, total){ //steps completados, no completados
     var res="";

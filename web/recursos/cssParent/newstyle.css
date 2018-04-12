@@ -231,6 +231,7 @@ body {
   transition: margin-left 0.5s;
   padding: 20px;
   margin-top: 98px;
+  margin-bottom: 52px;
 }
 @media only screen and (max-width: 481px) {
   #accordion {
@@ -275,6 +276,12 @@ body {
 }
 #accordion .card .card-header:last-child {
   border-bottom: 1px solid white;
+}
+#accordion .card a {
+  color: black;
+}
+#accordion .card a:focus:hover {
+  text-decoration: none !important;
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
   #accordion .card div div {
@@ -441,7 +448,8 @@ body {
   width: 50%;
 }
 #allWeeks {
-  height: 51.5px;
+  height: 54px;
+  overflow-y: hidden !important;
 }
 #teacherObservations {
   padding-top: 60px;

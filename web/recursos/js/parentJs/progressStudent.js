@@ -69,96 +69,94 @@ function  showObjectivesRatings(idSubject) {
     $.each(mapFinalRatings, function (key, value) {
         if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
             $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' id='heading" + key + "'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
+                                                <div class='card-header'>\n\
+                                                        <a class='collapsed card-link' data-toggle='collapse' href='#collapse" + key + "'>\n\
+                                                            <div >\n\
                                                             " + mapObjectives[key.split("_")[1]].name + "\
                                                             </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
+                                                        </a>\n\
+                                                        <div>\n\
+                                                                <div class='progress nopadding'>\n\
                                                                 " + drawRating(value) + "\n\
                                                                 </div>\n\
                                                             </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
                                                 </div>\n\
-                                                <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
-                                                    <div class='card-body'>\n\
+                                                <div id='collapse" + key + "' class='collapse' data-parent='#accordion'>\n\
+                                                    <div class='card-body' style='text-align:  center;'>\n\
                                                         " + mapObjectives[key.split("_")[1]].description + "\n\
                                                     </div>\n\
                                                 </div>\n\
                                             </div>");
         }
+
+        /*   $("#accordionWhats").append("<div class='card'>\n\
+         <div class='card-header'>\n\
+         <a class='collapsed card-link' data-toggle='collapse' href='#collapse"+i+"'>\n\
+         <div>\n\
+         <img src='../ParentWeb/recursos/img/iconos/target.svg' alt='image' />\n\
+         <div>" + mapObjectives[arrayData[i].idObjective].name + "</div>\n\
+         </div>\n\
+         </a>\n\
+         <div class= 'accorSteps'>"+makeSteps(objSuccess,totalSteps)+"</div>\n\
+         </div>\n\
+         <div id='collapse"+i+"' class='collapse' data-parent='#accordion'>\n\
+         <div class='card-body'>\n\
+         <ul id='menu'>"+makeNamesObjectives(objSuccess,totalSteps,mapObjectives[arrayData[i].idObjective].arraySteps)+"</ul>\n\
+         </div>\n\
+         </div>\n\
+         </div>");*/
     });
-/*
-    $.each(mapFinalRatings, function (key, value) {
-        if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
-            $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' id='heading" + key + "'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
-                                                            " + mapObjectives[key.split("_")[1]].name + "\
-                                                            </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
-                                                                " + drawRating(value) + "\n\
-                                                                </div>\n\
-                                                            </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
-                                                </div>\n\
-                                                <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
-                                                    <div class='card-body'>\n\
-                                                        " + mapObjectives[key.split("_")[1]].description + "\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>");
-        }
-    });
-    $.each(mapFinalRatings, function (key, value) {
-        if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
-            $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' id='heading" + key + "'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
-                                                            " + mapObjectives[key.split("_")[1]].name + "\
-                                                            </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
-                                                                " + drawRating(value) + "\n\
-                                                                </div>\n\
-                                                            </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
-                                                </div>\n\
-                                                <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
-                                                    <div class='card-body'>\n\
-                                                        " + mapObjectives[key.split("_")[1]].description + "\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>");
-        }
-    });*/
-    //DIV VACIO PARA DARLE ESPACIO A LA BARRA INFERIOR
-    $("#accordion").append("<div class='card '>\n\
-                                                <div class='card-header col-xs-12' style='height:50px'>\n\
-                                                    <h5 class='mb-0' style='width:100%'\n\
-                                                        <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse'  aria-expanded='false'>\n\
-                                                            <div class='col-xs-12 nopadding text-left'>\n\
-                                                            \
-                                                            </div>\n\
-                                                            <div class='col-xs-12 nopadding text-center'>\n\
-                                                                <div class='col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
-                                                                \n\
-                                                                </div>\n\
-                                                            </div>\n\
-                                                        </button>\n\
-                                                    </h5>\n\
-                                                </div>\n\
-                                            </div>");
+    /*
+     $.each(mapFinalRatings, function (key, value) {
+     if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
+     $("#accordion").append("<div class='card '>\n\
+     <div class='card-header col-xs-12' id='heading" + key + "'>\n\
+     <h5 class='mb-0' style='width:100%'\n\
+     <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
+     <div class='col-xs-12 nopadding text-left'>\n\
+     " + mapObjectives[key.split("_")[1]].name + "\
+     </div>\n\
+     <div class='col-xs-12 nopadding text-center'>\n\
+     <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
+     " + drawRating(value) + "\n\
+     </div>\n\
+     </div>\n\
+     </button>\n\
+     </h5>\n\
+     </div>\n\
+     <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
+     <div class='card-body'>\n\
+     " + mapObjectives[key.split("_")[1]].description + "\n\
+     </div>\n\
+     </div>\n\
+     </div>");
+     }
+     });
+     $.each(mapFinalRatings, function (key, value) {
+     if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
+     $("#accordion").append("<div class='card '>\n\
+     <div class='card-header col-xs-12' id='heading" + key + "'>\n\
+     <h5 class='mb-0' style='width:100%'\n\
+     <button class='btn btn-link collapsed col-xs-12 nopadding' data-toggle='collapse' data-target='#collapse" + key + "' aria-expanded='false' aria-controls='collapse" + key + "'>\n\
+     <div class='col-xs-12 nopadding text-left'>\n\
+     " + mapObjectives[key.split("_")[1]].name + "\
+     </div>\n\
+     <div class='col-xs-12 nopadding text-center'>\n\
+     <div class='progress col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 nopadding'>\n\
+     " + drawRating(value) + "\n\
+     </div>\n\
+     </div>\n\
+     </button>\n\
+     </h5>\n\
+     </div>\n\
+     <div id='collapse" + key + "' class='collapse text-center' aria-labelledby='heading" + key + "' data-parent='#accordion'>\n\
+     <div class='card-body'>\n\
+     " + mapObjectives[key.split("_")[1]].description + "\n\
+     </div>\n\
+     </div>\n\
+     </div>");
+     }
+     });*/
 }
 function drawRating(rating) {
     var res = "<div class='progress-bar progress-bar-striped active progressAttempted' role='progressbar'aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' >\n\

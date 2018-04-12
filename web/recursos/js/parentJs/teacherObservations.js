@@ -22,6 +22,10 @@ function initObservationsMenu(url) {
     $("#navInfObservations").empty();
     $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     $("#teacherObservations").show();
+    
+    $("#divCircleDays").empty();
+    $("#divAllComments").empty();
+
     getCirclesWeeks();
 }
 
@@ -72,7 +76,7 @@ function makeCircleWeek(numWeeks, contMonth, first, year) {
     //SOLO PARA MOVIL
 
     for (var i = 1; i <= numWeeks; ++i) {
-        $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "/" + contMonth + "/" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w < /div>")
+        $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "/" + contMonth + "/" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
     }
     var tamCircleWeekMovil = 0;
     if (first === true)
@@ -159,25 +163,26 @@ function getCommentsDay(object) {
                         $("#divCircle" + id).css("margin-bottom", marginB + "px");
                     }
 
-                    if(data[i][k].teacherFoto !== ""){ // tiene foto
+                    if (data[i][k].teacherFoto !== "") { // tiene foto
                         var json2 = JSON.parse(data[i][k].teacherFoto);
                         var imageTag2 = '<div class="col-xs-12 divFotoTeacher">' + '<img id="imgPopTeacher' + id + '" class="fotoTeacher" src="" alt="image" height="100" />' + '</div>';
                         $("#divOne" + id + " .divTeachers").append(imageTag2);
                         $('#imgPopTeacher' + id).attr("src", "data:" + json2.ext + ";base64," + json2.imagen);
                         var image2 = new Image();
-                        image2.src = "data:" + json2.ext + ";base64," + json2.imagen;     
-                      
-                    }
-                    else{//defecto
+                        image2.src = "data:" + json2.ext + ";base64," + json2.imagen;
+
+                    } else {//defecto
                         var nameImage = "icon_Recio.svg";
-                        if(data[i][k].teacherGender === "Female"){
+                        if (data[i][k].teacherGender === "Female") {
                             nameImage = "icon_SenyoraRecio.svg";
                         }
-                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='../ParentWeb/recursos/img/iconos/"+nameImage+"' height='100'>");
+                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='../ParentWeb/recursos/img/iconos/" + nameImage + "' height='100'>");
                     }
-                    
-                    if(mapProfesores[data[i][k].nameTeacher] !== undefined) $("#divOne" + id + " .divTeachers").append("<div>"+mapProfesores[data[i][k].nameTeacher].firstName+"</div>");
-                    else $("#divOne" + id + " .divTeachers").append("<div>Teacher   id: "+data[i][k].nameTeacher+"</div>");
+
+                    if (mapProfesores[data[i][k].nameTeacher] !== undefined)
+                        $("#divOne" + id + " .divTeachers").append("<div>" + mapProfesores[data[i][k].nameTeacher].firstName + "</div>");
+                    else
+                        $("#divOne" + id + " .divTeachers").append("<div>Teacher   id: " + data[i][k].nameTeacher + "</div>");
                 }
             }
 
