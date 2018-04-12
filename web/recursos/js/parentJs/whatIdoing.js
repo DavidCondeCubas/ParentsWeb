@@ -43,7 +43,7 @@ $(document).ready(function () {
         var currentValue = $("#infWhatPrincipal div").attr("value");
         var currentText = $("#infWhatPrincipal div").text().trim();
         $("#infWhatPrincipal div").attr("value", $(this).attr("value"));
-        $("#infWhatPrincipal div").html($(this).text().trim() + '  <span class="glyphicon glyphicon-menu-down"></span>');
+        $("#infWhatPrincipal div").html($(this).text().trim());
         $(this).attr("value", currentValue);
         $(this).html(currentText + '  <span class="glyphicon glyphicon-menu-down"></span>');
         /* $("#infWhatPrincipal ").empty().append(seleccDiv);

@@ -316,8 +316,8 @@
 
         <div id="whatsDoingPage" class="col-xs-12"> 
             <div class="col-xs-12 col-md-12 nopaddingMargin" id="infWhatPrincipal" >
-                <div class="col-xs-6 infWhat" value ="attemptedWeek" >
-                    What I´m attempted this week  <span class="glyphicon glyphicon-menu-down"></span>
+                <div class="col-xs-12 infWhat" value ="attemptedWeek" >
+                    What i attempted this week
                 </div>
             </div>
 
@@ -327,7 +327,7 @@
 
             <div class="col-xs-12 col-md-12 nopaddingMargin" id="navInfWhatIDoing">
                 <div class="col-xs-6 infWhat btnInfNavWhat btnSecundario" value ="masterWeek" >
-                    What I´m mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
+                    What i mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
                 </div>
                 <div class="col-xs-6 infWhat btnInfNavWhat btnSecundario"  value="plannedWeek">
                     What I have planned next week  <span class="glyphicon glyphicon-menu-down"></span>

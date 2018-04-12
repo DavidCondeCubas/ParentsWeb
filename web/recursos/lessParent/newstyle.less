@@ -11,6 +11,7 @@
 @colorNavBar: #4d4d4d;
 @alturaNavDesktop: 90px;
 @alturaNavCell: 40px;
+@alturaNameStudent: 10px;
 
 @backgroundPresented: #054663;
 @backgroundAttempted: #753cd9;
@@ -51,13 +52,15 @@ img
 
 
 #nameStudent{
-    position: absolute;
+    position: fixed;
     top: @alturaNavDesktop+2;
 
     font-size: medium;
     font-weight: bold;
     background-color: #05526333;
-    border-radius: 3px;
+    background-color: #055263;
+    color: white;
+    z-index: 2;
 
     @media @tablets{
         font-size: small;
@@ -65,7 +68,7 @@ img
     }
     @media @smartphones{
         font-size: xx-small;
-        top: @alturaNavCell+2;
+        top: @alturaNavCell;
     }
 }
 #userform {
@@ -640,24 +643,42 @@ img
 #whatsDoingPage{
     margin-top: 60px;
     margin-bottom: 80px;
-    .infWhat{
-        cursor: pointer;
-        font-weight: bold;
-        margin: 0px;
-        color: #f99927;
-        font-size: 10px;
-        padding: 0px;
-        text-align: center;
-        border-radius: 8px;
-        padding: 3px;
-        background-color: #f2f2f2;
-        box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
+    #infWhatPrincipal{
+        position: fixed;
+        left: 0;
+        padding: 3px !important;
+        z-index: 2;
+        top: @alturaNavCell + @alturaNameStudent - 1px;
+        .infWhat{
+            text-decoration: underline double;
+            font-size: x-large;
+            background-color: white;
+            padding: 0px;
+            text-align: center;
+            color: @circleOrange;
+
+        }
     }
     #navInfWhatIDoing{
+        .infWhat{
+            cursor: pointer;
+            //font-weight: bold;
+            margin: 0px;
+            color: @circleOrange;
+            font-size: 10.5px;
+            padding: 0px;
+            text-align: center;
+            border-radius: 8px;
+            padding: 3px;
+            background-color: #f2f2f2;
+            box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
+        }
         position: fixed;
-        bottom: 55px;
+        bottom: @alturaNavCell + @alturaNameStudent;
         width: 96%;
         left: 2%;
+        padding-bottom: 5px !important;
+        background-color: white;
 
         .infWhat:nth-child(2) {
             margin-left: 4%;
@@ -668,7 +689,7 @@ img
     }   
 
     #accordionWhats{
-        margin-top: 2%;
+        margin-top: 20px;
         img{
             width: 20px;
             height: 20px;   
@@ -687,6 +708,9 @@ img
             margin-bottom: 7px;
             .card-header{
                 border-bottom: 1px solid #bbb7b7e6;
+                h3{
+                    font-size: 18px;
+                }
             }
             .card-header:last-child {
                 border-bottom: 1px solid white;

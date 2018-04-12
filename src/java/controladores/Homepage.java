@@ -362,7 +362,7 @@ public class Homepage extends MultiActionController {
             currentDate = "" + timestampBefore;
 
             //String consulta = "SELECT rating_id,student_id,objective_id,step_id,rating.name FROM progress_report inner join rating on rating.id = rating_id where yearterm_id="+yearid+" and student_id="+id+" and term_id= "+termid+" and comment_date between '"+beforeDate+"' and '"+currentDate+"'";    
-            consulta = "SELECT DISTINCT objective_id,subject_id FROM lesson_stud_att inner join lessons on lesson_stud_att.lesson_id = lessons.id where lessons.yearterm_id=" + yearid + " and lessons.term_id= " + termid + " and lessons.start between '" + beforeDate + "' and '" + currentDate + "'";
+            consulta = "SELECT DISTINCT objective_id,subject_id FROM lesson_stud_att inner join lessons on lesson_stud_att.lesson_id = lessons.id where lessons.yearterm_id=" + yearid + " and lessons.term_id= " + termid + " and lessons.start between '" + beforeDate + "' and '" + currentDate + "' order by subject_id";
 
             ResultSet rs2 = DBConect.eduweb.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
             while (rs2.next()) {
