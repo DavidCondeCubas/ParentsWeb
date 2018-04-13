@@ -61,7 +61,7 @@ function getDataWhat() {
             arrayAttemp = JSON.parse(data.arrayAttempted);
             arrayMastered = JSON.parse(data.arrayMastered);
             arrayFuture = JSON.parse(data.arrayFuture);
-            paintDataWhat("attemptedWeek");
+            paintDataWhat($("#infWhatPrincipal div").attr("value"));
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);

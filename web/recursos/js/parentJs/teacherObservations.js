@@ -104,7 +104,10 @@ function weeksInAMonth(year, month_number, day) {
     return result + 1;
 }
 
-
+Date.prototype.getWeek = function () {
+    var onejan = new Date(this.getFullYear(), 0, 1);
+    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+};
 
 function getCommentsDay(object) {
     $.ajax({
