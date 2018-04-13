@@ -59,6 +59,8 @@ function getCirclesWeeks() {
     totalWeeks += numWeeks;
     makeCircleWeek(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
 
+
+    
     $(".circleWeek").click(function () {
         $(".circleWeek").css("box-shadow", "");
         $(this).css("box-shadow", "1px 1px 9px 3px #060606a6");
@@ -70,13 +72,14 @@ function getCirclesWeeks() {
 
     $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
     $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
+    $("#1-3-2018").click();
 }
 
 function makeCircleWeek(numWeeks, contMonth, first, year) {
     //SOLO PARA MOVIL
 
     for (var i = 1; i <= numWeeks; ++i) {
-        $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "/" + contMonth + "/" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
+        $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "-" + contMonth + "-" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
     }
     var tamCircleWeekMovil = 0;
     if (first === true)
