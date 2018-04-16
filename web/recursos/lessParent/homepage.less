@@ -1,0 +1,99 @@
+/* Normal import */
+@import "academicProgress.less";
+@import "homepage.less";
+@import "teacherObservations.less";
+@import "navBarInferior.less";
+@import "menuHomepage.less";
+@import "navUsuario.less";
+
+@smartphones: ~"only screen and (max-width: 481px)";
+@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
+@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
+@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+
+@colorCircle: #055263;
+@circleDarkBlue: #055263;
+@colorCircleSelect: #f99927;
+@circleOrange: #f99927;
+@colorGrisEduWEB: #F39200;
+@colorNavBar: #4d4d4d;
+@alturaNavDesktop: 90px;
+@alturaNavCell: 40px;
+@alturaNameStudent: 10px;
+
+@alturaNavInfMovil: 50px;
+@alturaNavInfTablet: 75px;
+@alturaNavInfTabletXL: 100px;
+
+
+@backgroundPresented: #054663;
+@backgroundAttempted: #753cd9;
+@backgroundMastered: #3d8341;
+@colorProgress: white;
+ 
+@fondo:#dadada;
+body
+{
+    background-color: @fondo;
+}
+img
+{
+    @media @smartphones{ 
+        width:60%;
+
+    }
+    @media @tablets{ 
+        width:60%;
+
+    }
+    @media @desktop{ 
+        width:60%;
+
+    }
+    @media @desktopXL{ 
+        width:40%;
+
+    }  
+}
+.nopaddingMargin {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.nopadding{
+    padding: 0 !important;
+}
+
+
+#nameStudent{
+    position: fixed;
+    top: @alturaNavDesktop;
+
+    font-size: medium;
+    font-weight: bold;
+    background-color: #05526333;
+    background-color: #055263;
+    color: white;
+    z-index: 2;
+
+    @media @tablets{
+        font-size: small;
+
+    }
+    @media @smartphones{
+        font-size: xx-small;
+        top: @alturaNavCell;
+    }
+}
+#userform {
+    max-width: 35%;
+    @media @tablets{
+        max-width:50%;
+    }
+    @media @smartphones{
+        max-width:100%;
+    }
+}
+
+
+
+

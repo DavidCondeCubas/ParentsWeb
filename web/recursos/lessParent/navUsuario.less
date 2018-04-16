@@ -1,0 +1,87 @@
+/* Normal import */
+@import "homepage.less";
+
+.navUsuario{
+    overflow: hidden;
+    background-color: @colorNavBar;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: white;
+    height: @alturaNavDesktop;
+    margin-bottom: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 2;
+    @media @smartphones{
+        height: @alturaNavCell;
+    }
+
+    .row{
+        height: 100%;
+        #childrensNav{
+            height: 100%;
+            .row{
+                margin: 0px;
+
+                display:flex;
+                align-items: center;
+                .circle{
+                    cursor: pointer;
+                    background-color: @circleDarkBlue;
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 50%;
+                    border: 3px solid  #fff;
+                    margin-left: 5px; 
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 65px; 
+                    font-family: 'Coda Caption', sans-serif;
+                    font-size: xx-large;
+                    @media @smartphones {
+                        height: 35px;
+                        width: 35px;
+                        border: 2px solid #fff;
+                        line-height: 30px; 
+                        font-size: medium;
+                    }
+                }
+            }
+        }
+        .divName{
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-items: center;
+            height: 100%;
+            .row{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .parentName{
+                    margin: 0px;
+                    font-size: x-large;
+                    @media @smartphones {
+                        font-size: x-small;
+                    }
+                }
+                .termName{
+                    margin: 0px;
+                    @media @smartphones, @tablets {
+                        margin: 0px;
+                        font-size: xx-small;
+                    }
+
+                }
+            }
+        }
+        .logOut{
+            height: 100%;
+            a img{
+                height: 100%;
+                width: 80%;
+            } 
+        }
+    }
+}

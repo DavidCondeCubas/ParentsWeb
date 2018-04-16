@@ -1,0 +1,203 @@
+/* Normal import */
+@import "homepage.less";
+
+
+
+#allWeeks{
+    height: 54px;
+    overflow-y: hidden !important;
+}
+#teacherObservations{
+
+    padding-top: 60px;
+    //height: -webkit-fill-available;
+    @media @tablets{ 
+        padding-top: 120px;
+    }
+    @media @desktop{ 
+        padding-top: 120px;
+    }
+    @media @desktopXL{ 
+        padding-top: 120px;
+    }
+
+    #namesMonths{
+        display: flex;
+        text-align: center;
+        font-weight: bold;
+        width: 3000px; // defecto 
+    }
+    #divCircleWeeks{
+        display: flex;
+         width: 3000px; // defecto 
+        //background linea horizontal
+        background: rgba(255,255,255,1);
+        background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+        background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+        background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+        background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+
+
+        .circleWeek{
+            cursor: pointer;
+            // background-color: @circleDarkBlue;
+            height: 70px;
+            width: 70px;
+            color: white;
+            border-radius: 50%;
+            margin-left: 10px; 
+            text-align: center;
+            vertical-align: middle;
+            line-height: 65px; 
+            font-family: 'Coda Caption', sans-serif;
+            font-size: xx-large;
+            @media @smartphones {
+                height: 25px;
+                width: 25px;
+                line-height: 25px;
+                font-size: small;
+            }
+
+        }
+    }
+    #allDays{
+
+        padding-left: 0px;
+        margin-left: 10px;
+        padding-right: 0px;
+
+        #divCircleDays{
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+            justify-content: center;
+            align-items: center;
+            //LINEA VERTICAL BACKGROUND
+            background: rgba(255,255,255,1);
+            background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+            background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+            background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+            background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+            .circleDay:nth-child(1){
+                margin-top: 25px;
+            }
+            .circleDay{
+                cursor: pointer;
+                background-color: @circleDarkBlue;
+                height: 70px;
+                width: 70px;
+                color: white;
+
+                border-radius: 50%; 
+                text-align: center;
+                vertical-align: middle;
+                line-height: 65px; 
+                font-family: 'Coda Caption', sans-serif;
+                font-size: xx-large;
+                //margin-top: 30px;
+                @media @smartphones {
+                    height: 20px;
+                    width: 20px;
+                    line-height: 20px;
+                    font-size: small;
+                }
+
+            }
+        }
+    }
+    #divObservations{
+
+        .divOneComment{
+            margin:0px;
+            padding:0px;
+
+            .divTeachers{
+                margin:0px;
+                padding:0px;
+                margin-top: 10px;
+                .divFotoTeacher{
+                    img{
+                        height: 75%;
+                        border-radius: 50%;
+                        width: 100%;
+                    }
+                }
+                div{
+                    text-align: center;
+                    font-weight: bold;
+                }
+            }
+
+            .divComments{
+                background-color: #7777771c;
+                border-radius: 8px;
+                margin-left: 5%;
+                margin:0px;
+                padding:0px;
+                margin-top: 10px;
+                -webkit-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                -moz-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                .triangDivSup{
+                    position: relative;
+                    background: #ffffff; /* Old browsers */
+                    background: -moz-linear-gradient(-45deg, #ffffff 50%, #f0f0f0 51%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(-45deg, #ffffff 50%,#f0f0f0 51%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(135deg, #ffffff 50%,#f0f0f0 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */        width: 12px;
+                    width: 12px;
+                    height: 12px;
+                    right: 12px;
+                    top: 12px;
+
+                }
+                .triangDivInf{
+                    position: relative;
+                    background: #ffffff; /* Old browsers */
+                    background: #ffffff; /* Old browsers */
+                    background: -moz-linear-gradient(45deg, #ffffff 50%, #f0f0f0 51%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(45deg, #ffffff 50%,#f0f0f0 51%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(45deg, #ffffff 50%,#f0f0f0 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+                    width: 12px;
+                    height: 12px;
+                    right: 12px;
+                    top: 12px;
+                }
+                .divInfoComment{
+                    height: 100%;
+                    position: relative;
+                    top: -20px;
+                    margin-right: 5px;
+                    margin-left: 5px;
+                    p{
+                        margin: 0px !important;
+                    }
+                }
+                .divFoto{
+                    display: flex;
+                    justify-content: center;
+                    img{
+                        max-height: 300px;
+                        max-width: 100%;
+
+                        margin-bottom: 5px;
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                    }
+                }
+
+            }
+            .divComments:nth-child(1){
+                margin-top: 5px;
+            }
+
+        }
+    }
+}

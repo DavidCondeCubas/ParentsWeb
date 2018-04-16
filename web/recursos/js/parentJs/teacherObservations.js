@@ -16,23 +16,24 @@ function initObservations(url) {
     menu("teacherObservations");
     $("#navInfReport").hide();
     $("#navInfMore").attr("value", "a_MenuIcon.svg");
+
 }
 function initObservationsMenu(url) {
     currentOption = "teacherObservations";
     $("#navInfObservations").empty();
     $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     $("#teacherObservations").show();
-    
+
     $("#divCircleDays").empty();
     $("#divAllComments").empty();
 
     getCirclesWeeks();
+
 }
 
 
 function getCirclesWeeks() {
     $("#divCircleWeeks").empty();
-
     $("#namesMonths").empty();
     var d = new Date();
 
@@ -60,7 +61,7 @@ function getCirclesWeeks() {
     makeCircleWeek(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
 
 
-    
+
     $(".circleWeek").click(function () {
         $(".circleWeek").css("box-shadow", "");
         $(this).css("box-shadow", "1px 1px 9px 3px #060606a6");
@@ -72,7 +73,12 @@ function getCirclesWeeks() {
 
     $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
     $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
-    $("#1-3-2018").click();
+
+       var d = new Date();
+    var month =  (d.getMonth() + 1)
+    var idCircle = "#1-" +month+ "-2018";
+    $(idCircle).click();
+
 }
 
 function makeCircleWeek(numWeeks, contMonth, first, year) {
@@ -107,11 +113,6 @@ function weeksInAMonth(year, month_number, day) {
     return result + 1;
 }
 
-Date.prototype.getWeek = function () {
-    var onejan = new Date(this.getFullYear(), 0, 1);
-    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
-};
-
 function getCommentsDay(object) {
     $.ajax({
         type: "POST",
@@ -144,6 +145,27 @@ function getCommentsDay(object) {
                                             </div>");
 
 
+                    if (data[i][k].teacherFoto !== "") { // tiene foto
+                        var json2 = JSON.parse(data[i][k].teacherFoto);
+                        var imageTag2 = '<div class="col-xs-12 divFotoTeacher">' + '<img id="imgPopTeacher' + id + '" class="fotoTeacher" src="" alt="image" height="100" />' + '</div>';
+                        $("#divOne" + id + " .divTeachers").append(imageTag2);
+                        $('#imgPopTeacher' + id).attr("src", "data:" + json2.ext + ";base64," + json2.imagen);
+                        var image2 = new Image();
+                        image2.src = "data:" + json2.ext + ";base64," + json2.imagen;
+
+                    } else {//defecto
+                        var nameImage = "icon_Recio.svg";
+                        if (data[i][k].teacherGender === "Female") {
+                            nameImage = "icon_SenyoraRecio.svg";
+                        }
+                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='../ParentWeb/recursos/img/iconos/" + nameImage + "' height='100'>");
+                    }
+
+                    if (mapProfesores[data[i][k].nameTeacher] !== undefined)
+                        $("#divOne" + id + " .divTeachers").append("<div>" + mapProfesores[data[i][k].nameTeacher].firstName + "</div>");
+                    else
+                        $("#divOne" + id + " .divTeachers").append("<div>Teacher   id: " + data[i][k].nameTeacher + "</div>");
+
                     if (data[i][k].foto !== "false") {
                         var json = JSON.parse(data[i][k].foto);
                         var imageTag = '<div class="col-xs-12 divFoto">' + '<img id="imgPop' + id + '" class="fotoComment" src="" alt="image" height="100" />' + '</div>';
@@ -169,26 +191,7 @@ function getCommentsDay(object) {
                         $("#divCircle" + id).css("margin-bottom", marginB + "px");
                     }
 
-                    if (data[i][k].teacherFoto !== "") { // tiene foto
-                        var json2 = JSON.parse(data[i][k].teacherFoto);
-                        var imageTag2 = '<div class="col-xs-12 divFotoTeacher">' + '<img id="imgPopTeacher' + id + '" class="fotoTeacher" src="" alt="image" height="100" />' + '</div>';
-                        $("#divOne" + id + " .divTeachers").append(imageTag2);
-                        $('#imgPopTeacher' + id).attr("src", "data:" + json2.ext + ";base64," + json2.imagen);
-                        var image2 = new Image();
-                        image2.src = "data:" + json2.ext + ";base64," + json2.imagen;
 
-                    } else {//defecto
-                        var nameImage = "icon_Recio.svg";
-                        if (data[i][k].teacherGender === "Female") {
-                            nameImage = "icon_SenyoraRecio.svg";
-                        }
-                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='../ParentWeb/recursos/img/iconos/" + nameImage + "' height='100'>");
-                    }
-
-                    if (mapProfesores[data[i][k].nameTeacher] !== undefined)
-                        $("#divOne" + id + " .divTeachers").append("<div>" + mapProfesores[data[i][k].nameTeacher].firstName + "</div>");
-                    else
-                        $("#divOne" + id + " .divTeachers").append("<div>Teacher   id: " + data[i][k].nameTeacher + "</div>");
                 }
             }
 

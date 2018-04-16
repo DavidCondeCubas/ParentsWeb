@@ -1,0 +1,91 @@
+/* Normal import */
+@import "homepage.less";
+
+/*
+@smartphones: ~"only screen and (max-width: 481px)";
+@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
+@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
+@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+
+@colorCircle: #055263;
+@circleDarkBlue: #055263;
+@colorCircleSelect: #f99927;
+@circleOrange: #f99927;
+@colorGrisEduWEB: #F39200;
+@colorNavBar: #4d4d4d;
+@alturaNavDesktop: 90px;
+@alturaNavCell: 40px;
+@alturaNameStudent: 10px;
+
+@alturaNavInfMovil: 50px
+@alturaNavInfTablet: 75px
+@alturaNavInfTabletXL: 100px
+
+@backgroundPresented: #054663;
+@backgroundAttempted: #753cd9;
+@backgroundMastered: #3d8341;
+@colorProgress: white;
+ 
+@fondo:#dadada;*/
+
+#navbarInferior{
+    background-color: @colorNavBar;
+    height: @alturaNavInfTablet;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media @smartphones {
+        height: @alturaNavInfMovil;
+    }
+    @media @desktop{
+        height: @alturaNavInfTabletXL;
+    }
+    @media @desktopXL{
+        margin-left: 25%;
+        width: 50%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    img{
+        width: 60%;
+        @media @smartphones {
+            width: 100%;
+        }
+        @media @desktopXL{
+            width: 45%;
+        }
+
+    }
+}
+#navInfReport{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: @colorNavBar;
+    bottom: @alturaNavInfTablet; 
+    right: 0;
+    width: 20%;
+    height: @alturaNavInfTablet;
+
+    @media @smartphones {
+        bottom: @alturaNavInfMovil;
+        height: @alturaNavInfMovil;
+    }
+
+    @media @desktop{
+        bottom: @alturaNavInfTabletXL;
+        height: @alturaNavInfTabletXL;
+    }
+    img{
+        width: 50%;
+    }
+}

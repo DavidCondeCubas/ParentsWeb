@@ -58,6 +58,9 @@
                     var nameDiv = $(this).attr("id"), url;
                     hideAllElements();
 
+                    $("#homepage").hide();
+                    $("#" + nameDiv).show();
+
                     switch (nameDiv) {
                         case "navInfProgress":
                             url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
@@ -66,7 +69,7 @@
                         case "navInfObservations":
                             url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
                             initObservations(url);
-                            getCirclesWeeks();
+                           // getCirclesWeeks();
                             break;
                         case "navInfWhatIam":
                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
@@ -140,8 +143,8 @@
                             }
                             $("#navInfMore").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='More'>");
                     }
-                    $("#" + nameDiv).show();
-                    $("#homepage").hide();
+
+
                 });
 
             });
@@ -156,10 +159,14 @@
                 document.body.style.backgroundColor = "white";
                 hideAllOptionsContent();
                 var url = "";
+                $("#homepage").hide();
+                $("#" + nameDiv).show();
+                $("#navbarInferior").show();
                 switch (nameDiv) {
                     case "progressStudent":
                         url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
                         initProgressMenu(url);
+
                         break;
                     case "teacherObservations":
                         url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
@@ -179,9 +186,8 @@
                     default: //more
                         text = "I have never heard of that fruit...";
                 }
-                $("#" + nameDiv).show();
-                $("#navbarInferior").show();
-                $("#homepage").hide();
+
+
             }
             function hideAllElements() {
                 $("#mySidenav").empty();
@@ -232,9 +238,11 @@
 
             /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
             function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-                document.getElementById("accordion").style.marginLeft = "0";
-                document.body.style.backgroundColor = "white";
+                if($('header').width() <= 768){ // solos e cerrara para las las tablets y moviles
+                    document.getElementById("mySidenav").style.width = "0";
+                    document.getElementById("accordion").style.marginLeft = "0";
+                    document.body.style.backgroundColor = "white";
+                }
             }
 
             function makeCircleSons() {
@@ -253,31 +261,31 @@
         <div class="col-xs-12" id="nameStudent"></div>
         <div id="homepage" class="container-fluid">
             <div class="col-xs-12 col-md-12 col-lg-12">
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="btnHomepage col-xs-12" value="progressStudent" style="background-color:#f99927;">
                         <img src="<c:url value='/recursos/img/iconos/avance-profesional.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
                         <p>Academic Progress</P>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="btnHomepage col-xs-12" value="teacherObservations" style="background-color:#055263;">
                         <img src="<c:url value='/recursos/img/iconos/blog.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations" style="margin-left:15px;">
                         <p> Teachers Observations</P>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="btnHomepage col-xs-12" value="whatIdo" style="background-color:#333333;">
                         <img src="<c:url value='/recursos/img/iconos/hombre-leyendo.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
                         <p>What I am learning now?</P>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="btnHomepage col-xs-12" value="calendar" style="background-color:#50d1c1;">
                         <img src="<c:url value='/recursos/img/iconos/megafono (2).svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
                         <p>Calendar and Announcements</P>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="btnHomepage col-xs-12" value="reportCard" style="background-color:#fd8469;">
                         <img src="<c:url value='/recursos/img/iconos/analitica.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                         <p>Report Card</P>
@@ -322,7 +330,7 @@
             </div>
 
             <div class="col-xs-12" id="accordionWhats">       
-                
+
             </div>
 
             <div class="col-xs-12  nopaddingMargin" id="navInfWhatIDoing">

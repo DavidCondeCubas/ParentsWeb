@@ -168,9 +168,9 @@ public class Homepage extends MultiActionController {
     public String getCommentsDay(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
 
         String fecha = hsr.getParameter("fecha");
-        String numberWeek = fecha.split("/")[0];
-        String monthSelected = fecha.split("/")[1];
-        String yearSelected = fecha.split("/")[2];
+        String numberWeek = fecha.split("-")[0];
+        String monthSelected = fecha.split("-")[1];
+        String yearSelected = fecha.split("-")[2];
         String studentId = hsr.getParameter("idStudent");
 
         DateFormat formatoFecha;// = new SimpleDateFormat("M/d/yyyy"); 

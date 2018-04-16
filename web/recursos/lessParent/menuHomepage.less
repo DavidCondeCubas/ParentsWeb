@@ -1,0 +1,78 @@
+/* Normal import */
+@import "homepage.less";
+
+
+#homepage{
+
+    padding-top: 80px;
+    //height: -webkit-fill-available;
+    @media @tablets{ 
+        padding-top: 120px;
+    }
+    @media @desktop{ 
+        padding-top: 120px;
+    }
+    @media @desktopXL{ 
+        padding-top: 120px;
+    }
+    div{
+        div{
+            //background-color: @colorCircle;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            height:300px;
+            flex-direction: column;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            @media @smartphones{ 
+                height:180px;
+                font-size: smaller;
+                padding: 5%;
+
+            }
+            @media @tablets{ 
+                height:250px;
+                font-size: small;
+                padding: 2%;
+
+            }
+            @media @desktop{ 
+                height:300px;
+                font-size: medium;
+                padding: 2%;
+
+            }
+            @media @desktopXL{ 
+                height:350px;
+                font-size: medium;
+                padding-left: 4%;
+                padding-right: 4%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+
+            }
+        }
+
+
+        .btnHomepage:hover{
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    }
+    /*.area{
+        height: 250px;
+        margin-bottom: 3px;
+        border-radius: 10px;
+        @media @smartphones {
+            height: 250px;
+        }
+        @media  @tablets{
+            height: 350px;
+        }
+    }*/
+}

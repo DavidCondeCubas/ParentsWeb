@@ -1,0 +1,256 @@
+/* Normal import */
+@import "homepage.less";
+/*
+@smartphones: ~"only screen and (max-width: 481px)";
+@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
+@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
+@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+
+@colorCircle: #055263;
+@circleDarkBlue: #055263;
+@colorCircleSelect: #f99927;
+@circleOrange: #f99927;
+@colorGrisEduWEB: #F39200;
+@colorNavBar: #4d4d4d;
+@alturaNavDesktop: 90px;
+@alturaNavCell: 40px;
+@alturaNameStudent: 10px;
+
+@alturaNavInfMovil: 50px
+@alturaNavInfTablet: 75px
+
+@backgroundPresented: #054663;
+@backgroundAttempted: #753cd9;
+@backgroundMastered: #3d8341;
+@colorProgress: white;
+ 
+@fondo:#dadada;*/
+
+
+#accordion{
+    transition: margin-left .5s;
+    padding: 20px;
+    margin-top:  @alturaNavDesktop+8;
+    margin-bottom: 52px;
+    @media @smartphones{
+        margin-top: @alturaNavCell+8;
+    }
+    @media @tablets,@desktop,@desktopXL{
+        margin-left: 250px;    
+    }
+    @media @desktop,@desktopXL{
+        margin-left: 300px;    
+    }
+    h1{
+        text-align: center;
+        @media @smartphones{
+            font-size: large;
+            font-weight: bold;
+        }
+
+    }
+    .progressMastered{
+        width: 34%;
+        background-color: @backgroundMastered;
+        color: white !important;
+    }
+
+    .progressPresented{
+        width: 33%;
+        background-color: @backgroundPresented;
+        color: white !important;
+    }
+
+    .progressAttempted{
+        width: 33%;
+        background-color: @backgroundAttempted;
+        color: white !important;
+    }
+    .progress{
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+    }
+    .card{
+        .card-header{
+            border-bottom: 1px solid #bbb7b7e6;
+        }
+        .card-header:last-child {
+            border-bottom: 1px solid white;
+        }
+
+        a{
+            color: black;
+        }
+        a:focus:hover{
+            text-decoration: none !important;
+        }
+        div{
+            div{
+                @media @tablets,@desktop,@desktopXL {
+                    font-size: large;
+                } 
+                // color: @circleOrange;
+
+            }
+        }
+    }
+}
+#mySidenav{
+
+    margin-top:  @alturaNavDesktop+5;
+    margin-bottom: @alturaNavInfTablet;
+
+    @media @smartphones{
+        margin-bottom: @alturaNavInfMovil;
+        margin-top: @alturaNavCell+5;
+    } 
+    @media @tablets{
+        margin-top:  @alturaNavDesktop+20;
+        width: 250px;  
+    }
+    @media @desktop,@desktopXL{
+         width: 300px; 
+    }
+
+
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
+
+    @media @smartphones {
+        a:nth-child(2) {
+            margin-top: 10px;
+        }
+        padding-top: 15px;
+    }
+    @media @desktop,@desktopXL{
+        padding-top: 25px;
+        a:nth-child(1) {
+            display:none;
+        }
+
+    }
+
+    a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 27.5px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        @media @smartphones {
+            font-size: 18px;
+
+        }
+        @media @tablets{
+            font-size: 25px;
+        }
+
+    }
+    a:last-child{
+        margin-bottom:  @alturaNavInfTablet*2;
+        @media @smartphones{
+            margin-bottom:  @alturaNavInfMovil*2;
+        }
+    }
+    .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        @media @smartphones {
+            top: -2%;
+            right: 2%;
+        }
+    }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+#subjectProgress{
+    margin-top:15px;
+    display: flex;
+    justify-content: space-between;
+    div{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    
+    @media @tablets,@desktop,@desktopXL {
+        font-size: x-large;
+        
+    } 
+    @media @desktop,@desktopXL {
+            padding-left: 300px;
+        }
+        
+    div:nth-child(1) {
+        display: flenth-cx;
+        align-items: baseline;
+        span{
+            @media @desktop,@desktopXL {
+            display:none;
+            }
+        }
+    }
+
+    div:nth-child(2) {
+        font-size: large;
+        @media @tablets,@desktop,@desktopXL {
+            font-size: xx-large;
+        } 
+        font-weight: bold;
+    }
+
+    div:nth-child(3) {
+        color: @circleOrange;
+    }
+}
+
+/*By Jesús*/
+.panel-success > .panel-heading {
+    color: #3c763d;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.panel-success {
+    border-color: @colorGrisEduWEB;
+}
+.btn-success {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.btn-success:active:focus {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}
+.btn-success:focus {
+    color: #fff;
+    background-color: @colorGrisEduWEB;
+    border-color: @colorGrisEduWEB;
+}

@@ -34,7 +34,8 @@ function getRating_Student() {
             mapFinalRatings = JSON.parse(data.mapFinalRatings);
 
             $("#mySidenav").empty();
-            $("#mySidenav").append(" <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>&times;</a>")
+            $("#mySidenav").append(" <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>&times;</a>");
+  
             for (var i = 1; i < subjects.length; i++) {
                 $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='animated zoomIn subjectsMenu'>" + mapSubjects[subjects[i]].name + "</a>")
             }
@@ -62,9 +63,10 @@ function  showObjectivesRatings(idSubject) {
 
     $("#accordion").empty();
     $("#subjectProgress").empty();
-    $("#subjectProgress").append("<div col-xs-3  onclick='openNav()'><span class='glyphicon glyphicon-chevron-left'></span><span>Subjects</span></div>");
-    $("#subjectProgress").append("<div col-xs-6>" + (mapSubjects[idSubject].name).toUpperCase() + "</h1></div>");
-    $("#subjectProgress").append("<div col-xs-3>" + monthNames[currentMonth.getMonth()] + "</div>");
+    
+    $("#subjectProgress").append("<div class='col-xs-3' onclick='openNav()'><span class='glyphicon glyphicon-chevron-left'></span><span>Subjects</span></div>");
+    $("#subjectProgress").append("<div class='col-xs-6 col-md-9'>" + (mapSubjects[idSubject].name).toUpperCase() + "</h1></div>");
+    $("#subjectProgress").append("<div class='col-xs-3 col-md-3'>" + monthNames[currentMonth.getMonth()] + "</div>");
 
     $.each(mapFinalRatings, function (key, value) {
         if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {

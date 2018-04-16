@@ -1,0 +1,167 @@
+/* Normal import */
+@import "homepage.less";
+
+
+#whatsDoingPage{
+    margin-top: 60px;
+    margin-bottom: 80px;
+    #infWhatPrincipal{
+        position: fixed;
+        left: 0;
+        padding: 3px !important;
+        z-index: 2;
+        top: @alturaNavCell + @alturaNameStudent - 1px;
+        .infWhat{
+            text-decoration: underline double;
+            font-size: x-large;
+            background-color: white;
+            padding: 0px;
+            text-align: center;
+            color: @circleOrange;
+
+        }
+    }
+    #navInfWhatIDoing{
+        .infWhat{
+            cursor: pointer;
+            //font-weight: bold;
+            margin: 0px;
+            color: @circleOrange;
+            font-size: 10.5px;
+            padding: 0px;
+            text-align: center;
+            border-radius: 8px;
+            padding: 3px;
+            background-color: #f2f2f2;
+            box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
+        }
+        position: fixed;
+        bottom: @alturaNavCell + @alturaNameStudent;
+        width: 96%;
+        left: 2%;
+        padding-bottom: 5px !important;
+        background-color: white;
+
+        .infWhat:nth-child(2) {
+            margin-left: 4%;
+        }
+        .col-xs-6{
+            width: 48%;  
+        }
+    }   
+
+    #accordionWhats{
+        margin-top: 20px;
+        img{
+            width: 20px;
+            height: 20px;   
+        }
+        img:nth-child(1) {
+            margin-right: 5px;
+        }
+        img:nth-child(2) {
+
+        }
+        img:nth-child(3) {
+            width: 15px;
+            height: 15px; 
+        }
+        .card{
+            margin-bottom: 7px;
+            .card-header{
+                border-bottom: 1px solid #bbb7b7e6;
+                h3{
+                    font-size: 18px;
+                }
+            }
+            .card-header:last-child {
+                border-bottom: 1px solid white;
+            }
+            .subjectTitle{
+                display: flex;
+                color: #2f4591;
+                align-items: center;
+            }
+            a{
+                color:black;
+                display: flex;
+                justify-content: space-between;
+                div{
+                    display: flex;
+                    align-items: center;
+                }
+
+                div:nth-child(1){
+                    color:#2f4591;
+                }
+
+                div:nth-child(2){
+                    color: @colorCircleSelect;
+                }
+            }
+            a:focus:hover{
+                text-decoration: none !important;
+            }
+            .accorSteps{
+                display: flex;
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                }
+            }
+            ul{
+                list-style-type: none;
+                padding-left: 20px;
+            }
+        }
+    }
+
+
+    /*izquierda
+    font-weight: bold;
+    margin: 0px;
+    color: #f99927;
+    font-size: 10px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 3px;
+    background-color: #d5d5d57a;
+    }
+    .col-xs-6 {
+    width: 48%;
+    
+    derecha
+    
+    padding-left: 0px; */
+    /* padding: 0px; */
+    /* margin: 0px; */
+    /* margin-left: 5px; */
+    /* font-weight: bold;
+     margin: 0px;
+     font-size: 9.9px;
+     padding: 0px;
+     text-align: center;
+     border-radius: 8px;
+     padding: 3px;
+     background-color: #d5d5d57a;
+     margin-left: 4%;
+    }
+    .col-xs-6 {
+     width: 48%;
+    }
+    */
+}
+
+/*
+LINEA VERTICAL BACKGROUND
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+*/
