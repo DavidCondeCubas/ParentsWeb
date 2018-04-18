@@ -268,6 +268,11 @@
   height: 54px;
   overflow-y: hidden !important;
 }
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #allWeeks {
+    height: 75px;
+  }
+}
 #teacherObservations {
   padding-top: 60px;
 }
@@ -325,6 +330,14 @@
     font-size: small;
   }
 }
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #teacherObservations #divCircleWeeks .circleWeek {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: x-large;
+  }
+}
 #teacherObservations #allDays {
   padding-left: 0px;
   margin-left: 10px;
@@ -369,6 +382,14 @@
     font-size: small;
   }
 }
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #teacherObservations #allDays #divCircleDays .circleDay {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: large;
+  }
+}
 #teacherObservations #divObservations .divOneComment {
   margin: 0px;
   padding: 0px;
@@ -382,6 +403,12 @@
   height: 75%;
   border-radius: 50%;
   width: 100%;
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #teacherObservations #divObservations .divOneComment .divTeachers .divFotoTeacher {
+    height: 50%;
+    width: 50%;
+  }
 }
 #teacherObservations #divObservations .divOneComment .divTeachers div {
   text-align: center;
@@ -509,7 +536,7 @@
     height: 100px;
   }
 }
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
   #navbarInferior {
     margin-left: 25%;
     width: 50%;

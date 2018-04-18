@@ -77,15 +77,15 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.jqueryui.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.material.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/dataTables/dataTables.uikit.js"/>" ></script>
-    
-    
+
+
     <script type="text/javascript" src="<c:url value="/recursos/js/constantes.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/progressStudent.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/teacherObservations.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/parentJs/whatIdoing.js"/>"></script>
 
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Roboto:700" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/homepage.css"/>" />
@@ -99,28 +99,32 @@
     function logout() {
         document.location.href = "<c:url value="/cerrarLogin.htm"/>";
     }
+   
 </script>
+
+
 <header>
-<div class="navUsuario" id="infousuario">   
-    <div class="row">
-        <div class="col-xs-7" id="childrensNav">
-            <div class="row"> </div>
-            <div class="col-xs-12"></div>
-        </div>
-        
-        
-                
-        <div class="divName col-xs-3">
-            <div class="row">
-                <p class="parentName text-center"><strong><c:out value="${sessionScope.user.name}"/></strong></p> 
-                <p class="termName text-center"><c:out value="${sessionScope.termYearName}"/></p>
+    <div class="navUsuario" id="infousuario">   
+       
+        <div class="row">
+            <div class="col-xs-7" id="childrensNav">
+                <div class="row"> </div>
+                <div class="col-xs-12"></div>
+            </div>
+
+
+
+            <div class="divName col-xs-3">
+                <div class="row">
+                    <p class="parentName text-center"><strong><c:out value="${sessionScope.user.name}"/></strong></p> 
+                    <p class="termName text-center"><c:out value="${sessionScope.termYearName}"/></p>
+                </div>
+            </div>
+            <div class="logOut col-xs-2">
+                <a onclick="$('#logoutmodal').modal('show');" role="button" aria-haspopup="true" aria-expanded="false"><img class="imgUser" src="<c:url value="/recursos/img/iconos/user-01.svg"/>"></a>
             </div>
         </div>
-        <div class="logOut col-xs-2">
-            <a onclick="$('#logoutmodal').modal('show');" role="button" aria-haspopup="true" aria-expanded="false"><img class="imgUser" src="<c:url value="/recursos/img/iconos/user-01.svg"/>"></a>
-        </div>
-    </div>
-</div>    
+    </div>    
 </header>
 
 
