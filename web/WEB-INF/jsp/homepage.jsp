@@ -26,9 +26,10 @@
             var mapFinalRatings;
             var currentStudent;
             var currentOption;
+            var colorVerde= "#3aaa35";
 
-            var monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"];
+            var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
             var monthColors = ["#ff9529", "#451c8c", "#3d962d", "#054663",
                 "#ff9529", "#451c8c", "#3d962d", "#054663",
@@ -324,10 +325,12 @@
         </div>
 
         <div id="teacherObservations">
-            <div id="allWeeks" class="col-xs-12" style="position:relative;max-width:100%;overflow:auto">
-                <div  id="namesMonths" >
+            <div id="allWeeks" class="col-xs-12">
+                <div  id="namesMonths" class="col-xs-12 nopaddingMargin">
                 </div>
-                <div id="divCircleWeeks">
+                <div id="divCircleWeeks" class="col-xs-12">
+                    <div class="col-xs-2">Week:</div>
+                    <div class="col-xs-10 weekNumbers"></div>
                 </div>
             </div>
             <div id="divObservations" class="col-xs-12">

@@ -662,7 +662,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   vertical-align: middle;
   line-height: 65px;
   font-family: 'Coda Caption', sans-serif;
-  font-size: xx-large;
+  font-size: large;
 }
 @media only screen and (max-width: 481px) {
   .navUsuario .row #childrensNav .row .circle {
@@ -812,7 +812,7 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 65px;
-  font-family: 'Coda Caption', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: xx-large;
 }
 @media only screen and (max-width: 481px) {
@@ -907,7 +907,7 @@ body {
   margin-top: 25px;
 }
 #teacherObservations #allDays #divCircleDays .circleDay {
-  background-color: #7cc170;
+  background-color: #3aaa35;
   cursor: pointer;
   height: 70px;
   width: 70px;
@@ -916,7 +916,7 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 65px;
-  font-family: 'Coda Caption', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: xx-large;
 }
 @media only screen and (max-width: 481px) {
@@ -943,7 +943,7 @@ body {
   margin: 0px;
   padding: 0px;
   margin-top: 10px;
-  color: #7cc170;
+  color: #3aaa35;
 }
 #teacherObservations #divObservations .divOneComment .divTeachers .divFotoTeacher img {
   height: 75%;
@@ -1014,7 +1014,7 @@ body {
   margin-left: 5px;
 }
 #teacherObservations #divObservations .divOneComment .divComments .divInfoComment strong {
-  color: #7cc170;
+  color: #3aaa35;
 }
 #teacherObservations #divObservations .divOneComment .divComments .divInfoComment p {
   margin: 0px !important;
@@ -1088,7 +1088,7 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 65px;
-  font-family: 'Coda Caption', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: xx-large;
 }
 #teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divComments {
