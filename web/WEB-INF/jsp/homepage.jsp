@@ -41,10 +41,10 @@
 
                 $(".circle").click(function () {
                     var color = $(this).css("background-color");
-                    if (color === "rgb(5, 82, 99)") { //noSelect
+                    if (color === "rgb(139, 194, 110)") { //noSelect
                         currentStudent = $(this).attr("data");
-                        $(".circle").css({'background-color': 'rgb(5, 82, 99)', 'color': 'white'});
-                        $(this).css({'background-color': '#f99927', 'color': '#055263'});
+                        $(".circle").css({'background-color': 'rgb(139, 194, 110)', 'color': 'white'});
+                        $(this).css({'background-color': '#3aaa35', 'color': 'white'});
                         $("#nameStudent").text($(this).attr("title"));
                         menu(currentOption);
                     }
@@ -252,7 +252,7 @@
                 });
                 currentStudent = $("#childrensNav div").children().first().attr("data");
 
-                $("#childrensNav div").children().first().css({'background-color': '#f99927', 'color': '#055263'});
+                $("#childrensNav div").children().first().css({'background-color': '#3aaa35', 'color': 'white'});
                 $("#nameStudent").text($("#childrensNav div").children().first().attr("title"));
             }
 
@@ -282,37 +282,36 @@
             <div class="col-xs-12 col-md-12 col-lg-12">
 
                 <div class="col-xs-6 col-sm-offset-1 col-sm-5 col-md-offset-0 col-md-4  col-lg-offset-0 col-lg-4">
-                    <div class="btnHomepage col-xs-12" value="progressStudent" style="background-color:#f99927;">
-                        <img src="<c:url value='/recursos/img/iconos/avance-profesional.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
+                    <div class="btnHomepage col-xs-12" value="progressStudent" style="background-color:#862200;">
+                        <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
                         <p>Academic Progress</P>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-5 col-md-4 col-lg-4">
                     <div class="btnHomepage col-xs-12" value="teacherObservations" style="background-color:#055263;">
-                        <img src="<c:url value='/recursos/img/iconos/blog.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations" style="margin-left:15px;">
+                        <img src="<c:url value='/recursos/img/iconos/a_ObservationIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations" style="margin-left:15px;">
                         <p> Teachers Observations</P>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-offset-1 col-sm-5 col-md-offset-0 col-md-4 col-lg-offset-0 col-lg-4">
                     <div class="btnHomepage col-xs-12" value="whatIdo" style="background-color:#333333;">
-                        <img src="<c:url value='/recursos/img/iconos/hombre-leyendo.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
+                        <img src="<c:url value='/recursos/img/iconos/a_LearningIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
                         <p>What I am learning now?</P>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-5 col-md-4 col-lg-4">
-                    <div class="btnHomepage col-xs-12" value="calendar" style="background-color:#50d1c1;">
-                        <img src="<c:url value='/recursos/img/iconos/megafono (2).svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
+                    <div class="btnHomepage col-xs-12" value="calendar" style="background-color:#c4a72b;">
+                        <img src="<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
                         <p>Calendar and Announcements</P>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-offset-1 col-sm-5 col-md-offset-0 col-md-4 col-lg-offset-0 col-lg-4">
                     <div class="btnHomepage col-xs-12" value="reportCard" style="background-color:#fd8469;">
-                        <img src="<c:url value='/recursos/img/iconos/analitica.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                        <img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                         <p>Report Card</P>
                     </div>
                 </div>
             </div>
-
         </div>
         <div id="progressStudent">
             <div id="mySidenav" class="sidenav">
