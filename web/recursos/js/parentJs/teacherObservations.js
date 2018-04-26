@@ -101,8 +101,8 @@ function resizeMargins() {
         $("#divCircleDays").children().eq(idx).css("margin-bottom", marginB + "px");
         idx++;
     });
-    
- //parseInt($("#divCircle" + id).css("height"));
+
+    //parseInt($("#divCircle" + id).css("height"));
 
 
     /*
@@ -114,12 +114,22 @@ function resizeMargins() {
 }
 
 function getCirclesWeeksMovil() {
-    $("#divCircleWeeks").empty();
+    $("#divCircleWeeks .weekNumbers").empty();
     $("#namesMonths").empty();
+    /*
+     <div id="allWeeks" class="col-xs-12">
+     <div  id="namesMonths" class="col-xs-12">
+     </div>
+     <div id="divCircleWeeks" class="col-xs-12">
+     <div class="col-xs-2">Week:</div>
+     <div class="col-xs-10 weekNumbers"></div>
+     </div>
+     </div>
+     */
     var d = new Date();
 
-    var startMonth = 10;
-    var startYear = 2017;
+    var startMonth = 10; // ¡TOMAR EL MES DE INICIO DEL SEMESTRE!!
+    var startYear = 2017; // ¡TOMAR EL AÑO DE INICIO DEL SEMESTRE!!
     var contMonth = startMonth;
     var contYear = startYear;
 
@@ -143,40 +153,124 @@ function getCirclesWeeksMovil() {
 
 
 
-    $(".circleWeek").click(function () {
-        $(".circleWeek").css("box-shadow", "");
-        $(this).css("box-shadow", "1px 1px 9px 3px #060606a6");
+    $(".daySelected").click(function () {
+        /*  $(".circleWeek").css("box-shadow", "");
+         $(this).css("box-shadow", "1px 1px 9px 3px #060606a6");*/
+
+        $(".daySelected").css("background-color", "white");
+        $(".daySelected").css("color", "black");
+        
+        $(this).css("background-color", colorVerde);
+        $(this).css("color", "white");
+
         clickCircleWeek($(this).index());
         currentWeek = $(this).index();
         getCommentsDay($(this));
     });
 
+    $(".monthObservations").click(function () {
+        $(".monthObservations").css("background-color", "white");
+        $(".monthObservations").css("color", colorVerde);
+        $(this).css("background-color", colorVerde);
+        $(this).css("color", "white");
 
-    $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
-    $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
+        $(".weekNumbers .daySelected").hide();
+        $(".weekNumbers .daySelected[data='" + $(this).attr("id") + "']").show();
+       
+        $("#divCircleDays").empty();
+        $("#divAllComments").empty();
+        $(".daySelected").css("background-color", "white");
+        $(".daySelected").css("color", "black");
+    });
 
-    var d = new Date();
-    var month = (d.getMonth() + 1)
-    var idCircle = "#1-" + month + "-2018";
-    $(idCircle).click();
-
+    $(".weekNumbers .daySelected").hide();
 }
-
+/*
+ function getCirclesWeeksMovil() {
+ $("#divCircleWeeks").empty();
+ $("#namesMonths").empty();
+ var d = new Date();
+ 
+ var startMonth = 10;
+ var startYear = 2017;
+ var contMonth = startMonth;
+ var contYear = startYear;
+ 
+ var currentMonth = d.getMonth() + 1;
+ var currentYear = d.getFullYear();
+ var totalWeeks = 0;
+ 
+ while (contMonth < currentMonth || contYear < currentYear) {
+ var numWeeks = weeksInAMonth(contYear, contMonth, 0);
+ totalWeeks += numWeeks;
+ makeCircleWeekMovil(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
+ contMonth = (contMonth + 1) % 13;
+ if (contMonth === 0) {
+ ++contYear;
+ ++contMonth;
+ }
+ }
+ numWeeks = weeksInAMonth(contYear, contMonth, d.getDay());
+ totalWeeks += numWeeks;
+ makeCircleWeekMovil(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
+ 
+ 
+ 
+ $(".circleWeek").click(function () {
+ $(".circleWeek").css("box-shadow", "");
+ $(this).css("box-shadow", "1px 1px 9px 3px #060606a6");
+ clickCircleWeek($(this).index());
+ currentWeek = $(this).index();
+ getCommentsDay($(this));
+ });
+ 
+ 
+ $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
+ $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
+ 
+ var d = new Date();
+ var month = (d.getMonth() + 1)
+ var idCircle = "#1-" + month + "-2018";
+ $(idCircle).click();
+ 
+ }
+ */
 
 
 function makeCircleWeekMovil(numWeeks, contMonth, first, year) {
-    //SOLO PARA MOVIL
+    /*
+     <div id="allWeeks" class="col-xs-12">
+     <div  id="namesMonths" class="col-xs-12">
+     </div>
+     <div id="divCircleWeeks" class="col-xs-12">
+     <div class="col-xs-2">Week:</div>
+     <div class="col-xs-10 weekNumbers"></div>
+     </div>
+     </div>
+     */
+
+    var idMonth = contMonth + "-" + year;
 
     for (var i = 1; i <= numWeeks; ++i) {
-        $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "-" + contMonth + "-" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
+        $("#divCircleWeeks .weekNumbers").append("<div data='" + idMonth + "' class='daySelected' id='" + i + "-" + contMonth + "-" + year + "' > " + i + "</div>");
     }
-    var tamCircleWeekMovil = 0;
-    if (first === true)
-        var tamCircleWeekMovil = 10;
-    tamCircleWeekMovil += (($(".circleWeek").width() + 10) * numWeeks);
-    $("#namesMonths").append("<div style='color:" + monthColors[contMonth - 1] + ";width:" + tamCircleWeekMovil + "px'>" + monthNames[contMonth - 1].toUpperCase() + "</div>");
+    $("#namesMonths").append("<div id='" + idMonth + "' class='monthObservations'>" + monthNames[contMonth - 1].toUpperCase() + "</div>");
 }
 
+/*
+ function makeCircleWeekMovil(numWeeks, contMonth, first, year) {
+ //SOLO PARA MOVIL
+ 
+ for (var i = 1; i <= numWeeks; ++i) {
+ $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "-" + contMonth + "-" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
+ }
+ var tamCircleWeekMovil = 0;
+ if (first === true)
+ var tamCircleWeekMovil = 10;
+ tamCircleWeekMovil += (($(".circleWeek").width() + 10) * numWeeks);
+ $("#namesMonths").append("<div style='color:" + monthColors[contMonth - 1] + ";width:" + tamCircleWeekMovil + "px'>" + monthNames[contMonth - 1].toUpperCase() + "</div>");
+ }
+ */
 function makeCircleWeek(numWeeks, contMonth, first, year) {
     for (var i = 1; i <= numWeeks; ++i) {
         $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "-" + contMonth + "-" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
@@ -224,7 +318,7 @@ function getCommentsDay(object) {
             for (var i = 0; i < data.length; ++i) {
                 for (var k = 0; k < data[i].length; ++k) {
                     var id = data[i][k].id;
-                    $("#divCircleDays").append("<div id='divCircle" + id + "' class='circleDay' style='background-color:" + object.css("background-color") + "'>" + (data[i][0].date).split("-")[2] + "</div>");
+                    $("#divCircleDays").append("<div id='divCircle" + id + "' class='circleDay' >" + (data[i][0].date).split("-")[2] + "</div>");
                     $("#divAllComments").append("<div id='divOne" + id + "' class='divOneComment  col-xs-12'>\n\
                                                 <div class='divTeachers col-xs-3 ' >\n\
                                                 </div> \n\
