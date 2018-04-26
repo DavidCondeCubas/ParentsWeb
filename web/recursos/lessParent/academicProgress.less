@@ -106,7 +106,7 @@
         margin-top: @alturaNavCell+5;
     } 
     @media @tablets{
-        margin-top:  @alturaNavDesktop+20;
+        margin-top:  @alturaNavTablet+18;
         width: 250px;  
     }
     @media @desktop,@desktopXL{
@@ -156,9 +156,14 @@
 
         }
         @media @tablets{
-            font-size: 25px;
+            font-size: x-large;
         }
-
+         @media @desktop{
+            font-size: xx-large;
+        }
+        @media @desktopXL{
+            font-size: xx-large;
+        }
     }
     a:last-child{
         margin-bottom:  @alturaNavInfTablet*2;

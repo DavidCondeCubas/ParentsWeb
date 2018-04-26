@@ -104,7 +104,7 @@
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #mySidenav {
-    margin-top: 110px;
+    margin-top: 68px;
     width: 250px;
   }
 }
@@ -166,7 +166,17 @@
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   .sidenav a {
-    font-size: 25px;
+    font-size: x-large;
+  }
+}
+@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+  .sidenav a {
+    font-size: xx-large;
+  }
+}
+@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  .sidenav a {
+    font-size: xx-large;
   }
 }
 .sidenav a:last-child {
@@ -265,6 +275,158 @@
   border-color: #F39200;
 }
 /* Normal import */
+#whatsDoingPage {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  /*izquierda
+    font-weight: bold;
+    margin: 0px;
+    color: #f99927;
+    font-size: 10px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 3px;
+    background-color: #d5d5d57a;
+    }
+    .col-xs-6 {
+    width: 48%;
+    
+    derecha
+    
+    padding-left: 0px; */
+  /* padding: 0px; */
+  /* margin: 0px; */
+  /* margin-left: 5px; */
+  /* font-weight: bold;
+     margin: 0px;
+     font-size: 9.9px;
+     padding: 0px;
+     text-align: center;
+     border-radius: 8px;
+     padding: 3px;
+     background-color: #d5d5d57a;
+     margin-left: 4%;
+    }
+    .col-xs-6 {
+     width: 48%;
+    }
+    */
+}
+#whatsDoingPage #infWhatPrincipal {
+  position: fixed;
+  left: 0;
+  padding: 3px !important;
+  z-index: 2;
+  top: 49px;
+}
+#whatsDoingPage #infWhatPrincipal .infWhat {
+  text-decoration: underline double;
+  font-size: x-large;
+  background-color: white;
+  padding: 0px;
+  text-align: center;
+  color: #f99927;
+}
+#whatsDoingPage #navInfWhatIDoing {
+  position: fixed;
+  bottom: 50px;
+  width: 96%;
+  left: 2%;
+  padding-bottom: 5px !important;
+  background-color: white;
+}
+#whatsDoingPage #navInfWhatIDoing .infWhat {
+  cursor: pointer;
+  margin: 0px;
+  color: #f99927;
+  font-size: 10.5px;
+  padding: 0px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 3px;
+  background-color: #f2f2f2;
+  box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
+}
+#whatsDoingPage #navInfWhatIDoing .infWhat:nth-child(2) {
+  margin-left: 4%;
+}
+#whatsDoingPage #navInfWhatIDoing .col-xs-6 {
+  width: 48%;
+}
+#whatsDoingPage #accordionWhats {
+  margin-top: 20px;
+}
+#whatsDoingPage #accordionWhats img {
+  width: 20px;
+  height: 20px;
+}
+#whatsDoingPage #accordionWhats img:nth-child(1) {
+  margin-right: 5px;
+}
+#whatsDoingPage #accordionWhats img:nth-child(3) {
+  width: 15px;
+  height: 15px;
+}
+#whatsDoingPage #accordionWhats .card {
+  margin-bottom: 7px;
+}
+#whatsDoingPage #accordionWhats .card .card-header {
+  border-bottom: 1px solid #bbb7b7e6;
+}
+#whatsDoingPage #accordionWhats .card .card-header h3 {
+  font-size: 18px;
+}
+#whatsDoingPage #accordionWhats .card .card-header:last-child {
+  border-bottom: 1px solid white;
+}
+#whatsDoingPage #accordionWhats .card .subjectTitle {
+  display: flex;
+  color: #2f4591;
+  align-items: center;
+}
+#whatsDoingPage #accordionWhats .card a {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+#whatsDoingPage #accordionWhats .card a div {
+  display: flex;
+  align-items: center;
+}
+#whatsDoingPage #accordionWhats .card a div:nth-child(1) {
+  color: #2f4591;
+}
+#whatsDoingPage #accordionWhats .card a div:nth-child(2) {
+  color: #f99927;
+}
+#whatsDoingPage #accordionWhats .card a:focus:hover {
+  text-decoration: none !important;
+}
+#whatsDoingPage #accordionWhats .card .accorSteps {
+  display: flex;
+}
+#whatsDoingPage #accordionWhats .card .accorSteps img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+#whatsDoingPage #accordionWhats .card ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+/*
+LINEA VERTICAL BACKGROUND
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+*/
+/* Normal import */
 #allWeeks {
   height: 54px;
   overflow-y: hidden !important;
@@ -276,6 +438,35 @@
 }
 #teacherObservations {
   padding-top: 60px;
+}
+#teacherObservations .circleWeek {
+  cursor: pointer;
+  height: 70px;
+  width: 70px;
+  color: white;
+  border-radius: 50%;
+  margin-left: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+  font-family: 'Coda Caption', sans-serif;
+  font-size: xx-large;
+}
+@media only screen and (max-width: 481px) {
+  #teacherObservations .circleWeek {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    font-size: small;
+  }
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #teacherObservations .circleWeek {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: x-large;
+  }
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #teacherObservations {
@@ -309,35 +500,6 @@
   background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
   background: linear-gradient(to bottom, #ffffff 0%, #ffffff 47%, #000000 48%, #000000 51%, #ffffff 51%, #ffffff 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
-}
-#teacherObservations #divCircleWeeks .circleWeek {
-  cursor: pointer;
-  height: 70px;
-  width: 70px;
-  color: white;
-  border-radius: 50%;
-  margin-left: 10px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 65px;
-  font-family: 'Coda Caption', sans-serif;
-  font-size: xx-large;
-}
-@media only screen and (max-width: 481px) {
-  #teacherObservations #divCircleWeeks .circleWeek {
-    height: 25px;
-    width: 25px;
-    line-height: 25px;
-    font-size: small;
-  }
-}
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
-  #teacherObservations #divCircleWeeks .circleWeek {
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
-    font-size: x-large;
-  }
 }
 #teacherObservations #allDays {
   padding-left: 0px;
@@ -385,10 +547,10 @@
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #teacherObservations #allDays #divCircleDays .circleDay {
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    font-size: large;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    font-size: medium;
   }
 }
 #teacherObservations #divObservations .divOneComment {
@@ -485,6 +647,90 @@
 #teacherObservations #divObservations .divOneComment .divComments:nth-child(1) {
   margin-top: 5px;
 }
+#teacherObsDesktopView {
+  padding-top: 60px;
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #teacherObsDesktopView {
+    padding-top: 120px;
+  }
+}
+@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+  #teacherObsDesktopView {
+    padding-top: 120px;
+  }
+}
+@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+  #teacherObsDesktopView {
+    padding-top: 120px;
+  }
+}
+#teacherObsDesktopView .allWeeksDesktop:nth-child(1) {
+  margin-left: 10px;
+}
+#teacherObsDesktopView .allWeeksDesktop {
+  position: relative;
+  width: 294px;
+  overflow: auto;
+  padding: 0;
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop {
+  background: -o-linear-gradient(left, #fefefe 13%, #fefefe 13%, #b5b5b5 14%, #b5b5b5 17%, #ffffff 15%, #ffffff 100%);
+  background: -ms-linear-gradient(left, #fefefe 13%, #fefefe 13%, #b5b5b5 14%, #b5b5b5 17%, #ffffff 15%, #ffffff 100%);
+  background: linear-gradient(to right, #fefefe 13%, #fefefe 13%, #b5b5b5 14%, #b5b5b5 17%, #ffffff 15%, #ffffff 100%);
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divAllCommentsStyle:last-child {
+  margin-bottom: 125px !important;
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop #divCircleWeeksDesktop {
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 52%, #b5b5b5 52%, #b5b5b5 64%, #fefefe 64%, #fefefe 95%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffffff), color-stop(52%, #ffffff), color-stop(52%, #b5b5b5), color-stop(64%, #b5b5b5), color-stop(64%, #fefefe), color-stop(95%, #fefefe));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 52%, #b5b5b5 52%, #b5b5b5 64%, #fefefe 64%, #fefefe 95%);
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 52%, #b5b5b5 52%, #b5b5b5 64%, #fefefe 64%, #fefefe 95%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 52%, #b5b5b5 52%, #b5b5b5 64%, #fefefe 64%, #fefefe 95%);
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 52%, #b5b5b5 52%, #b5b5b5 64%, #fefefe 64%, #fefefe 95%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fefefe', GradientType=0);
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop #divCircleWeeksDesktop .circleWeek {
+  cursor: pointer;
+  height: 70px;
+  width: 70px;
+  color: white;
+  border-radius: 50%;
+  margin-left: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 65px;
+  font-family: 'Coda Caption', sans-serif;
+  font-size: xx-large;
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divComments {
+  background-color: #ececec;
+  border-radius: 8px;
+  margin-left: 5%;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10px;
+  /* -webkit-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                 -moz-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                 box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);*/
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divComments .divInfoComment {
+  padding: 9px;
+  text-align: justify;
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divComments .divTeachers {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+#teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divComments .divTeachers img {
+  width: 80%;
+  border-radius: 50%;
+  height: 55px;
+}
 /* Normal import */
 /*
 @smartphones: ~"only screen and (max-width: 481px)";
@@ -535,6 +781,14 @@
 @media only screen and (min-width: 1024px) and ( max-width: 1280px) {
   #navbarInferior {
     height: 100px;
+  }
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  #navbarInferior {
+    margin-left: 15%;
+    width: 70%;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
   }
 }
 @media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
@@ -621,7 +875,7 @@
   cursor: pointer;
   border-radius: 8px;
   margin-bottom: 10px;
-  height: 300px;
+  height: 350px;
   flex-direction: column;
   color: white;
   font-weight: bold;
@@ -636,7 +890,7 @@
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #homepage div div {
-    height: 250px;
+    height: 275px;
     font-size: small;
     padding: 2%;
   }
@@ -666,22 +920,22 @@ body {
 }
 @media only screen and (max-width: 481px) {
   img {
-    width: 60%;
+    width: 55%;
   }
 }
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   img {
-    width: 60%;
+    width: 55%;
   }
 }
 @media only screen and (min-width: 1024px) and ( max-width: 1280px) {
   img {
-    width: 60%;
+    width: 55%;
   }
 }
 @media only screen and (min-width: 1281px) and ( max-width: 2048px) {
   img {
-    width: 40%;
+    width: 50%;
   }
 }
 .nopaddingMargin {
@@ -704,6 +958,7 @@ body {
 @media only screen and (min-width: 482px) and ( max-width: 1023px) {
   #nameStudent {
     font-size: small;
+    top: 50px;
   }
 }
 @media only screen and (max-width: 481px) {
@@ -725,6 +980,12 @@ body {
     max-width: 100%;
   }
 }
+/*
+@smartphones: ~"only screen and (max-width: 481px)";
+@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
+@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
+@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+*/
 .navUsuario {
   overflow: hidden;
   background-color: #4d4d4d;
@@ -740,6 +1001,11 @@ body {
 @media only screen and (max-width: 481px) {
   .navUsuario {
     height: 40px;
+  }
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  .navUsuario {
+    height: 50px;
   }
 }
 .navUsuario .row {
@@ -776,6 +1042,15 @@ body {
     font-size: medium;
   }
 }
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  .navUsuario .row #childrensNav .row .circle {
+    height: 45px;
+    width: 45px;
+    border: 2px solid #fff;
+    line-height: 40px;
+    font-size: large;
+  }
+}
 .navUsuario .row .divName {
   display: flex;
   flex-direction: column;
@@ -796,6 +1071,11 @@ body {
 @media only screen and (max-width: 481px) {
   .navUsuario .row .divName .row .parentName {
     font-size: x-small;
+  }
+}
+@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+  .navUsuario .row .divName .row .parentName {
+    font-size: large;
   }
 }
 .navUsuario .row .divName .row .termName {

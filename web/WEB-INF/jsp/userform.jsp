@@ -17,8 +17,6 @@
         <title>Welcome</title>
         
         <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap.css"/>" />
-                
-        
         <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/newstyle.css"/>" />
         
     </head>
@@ -29,9 +27,9 @@
         <div class="col-sm-12" style="margin-top: 10px;">
             <div class="panel panel-success">
                 <div class="panel-body"align="center">
-                    <div class="container " style="margin-top: 10%; margin-bottom: 10%;">
+                    <div class="container " style="margin-top: 10%;margin-bottom: 10%;display:  flex;justify-content:  center;">
 
-                    <div class="panel" id="userform" align="left">
+                    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 panel" id="userform" align="left">
                         <div class="form-group fondoGris">
                             <img class="img-responsive center-block" src="recursos/img/KidSSpace-01.png" alt="logo"/>
                         </div>

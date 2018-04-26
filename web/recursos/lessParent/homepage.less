@@ -1,6 +1,6 @@
 /* Normal import */
 @import "academicProgress.less";
-@import "homepage.less";
+@import "whatIdoing.less";
 @import "teacherObservations.less";
 @import "navBarInferior.less";
 @import "menuHomepage.less";
@@ -17,8 +17,11 @@
 @circleOrange: #f99927;
 @colorGrisEduWEB: #F39200;
 @colorNavBar: #4d4d4d;
+
 @alturaNavDesktop: 90px;
+@alturaNavTablet: 50px;
 @alturaNavCell: 40px;
+
 @alturaNameStudent: 10px;
 
 @alturaNavInfMovil: 50px;
@@ -30,7 +33,7 @@
 @backgroundAttempted: #753cd9;
 @backgroundMastered: #3d8341;
 @colorProgress: white;
- 
+
 @fondo:#dadada;
 body
 {
@@ -39,19 +42,19 @@ body
 img
 {
     @media @smartphones{ 
-        width:60%;
+        width:55%;
 
     }
     @media @tablets{ 
-        width:60%;
+        width:55%;
 
     }
     @media @desktop{ 
-        width:60%;
+        width:55%;
 
     }
     @media @desktopXL{ 
-        width:40%;
+        width:50%;
 
     }  
 }
@@ -77,7 +80,7 @@ img
 
     @media @tablets{
         font-size: small;
-
+        top: @alturaNavTablet;
     }
     @media @smartphones{
         font-size: xx-small;

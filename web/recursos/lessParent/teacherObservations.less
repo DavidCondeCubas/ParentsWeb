@@ -13,6 +13,33 @@
 }
 #teacherObservations{
 
+    .circleWeek{
+        cursor: pointer;
+        // background-color: @circleDarkBlue;
+        height: 70px;
+        width: 70px;
+        color: white;
+        border-radius: 50%;
+        margin-left: 10px; 
+        text-align: center;
+        vertical-align: middle;
+        line-height: 65px; 
+        font-family: 'Coda Caption', sans-serif;
+        font-size: xx-large;
+        @media @smartphones {
+            height: 25px;
+            width: 25px;
+            line-height: 25px;
+            font-size: small;
+        }
+        @media @tablets{
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: x-large;
+        }
+
+    }
     padding-top: 60px;
     //height: -webkit-fill-available;
     @media @tablets{ 
@@ -45,34 +72,9 @@
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
 
 
-        .circleWeek{
-            cursor: pointer;
-            // background-color: @circleDarkBlue;
-            height: 70px;
-            width: 70px;
-            color: white;
-            border-radius: 50%;
-            margin-left: 10px; 
-            text-align: center;
-            vertical-align: middle;
-            line-height: 65px; 
-            font-family: 'Coda Caption', sans-serif;
-            font-size: xx-large;
-            @media @smartphones {
-                height: 25px;
-                width: 25px;
-                line-height: 25px;
-                font-size: small;
-            }
-            @media @tablets{
-                height: 50px;
-                width: 50px;
-                line-height: 50px;
-                font-size: x-large;
-            }
 
-        }
     }
+
     #allDays{
 
         padding-left: 0px;
@@ -118,10 +120,10 @@
                     font-size: small;
                 }
                 @media @tablets{
-                    height: 40px;
-                    width: 40px;
-                    line-height: 40px;
-                    font-size: large;
+                    height: 25px;
+                    width: 25px;
+                    line-height: 25px;
+                    font-size: medium;
                 }
 
             }
@@ -220,4 +222,95 @@
 
         }
     }
+
+
+}
+
+#teacherObsDesktopView{
+    padding-top: 60px;
+    //height: -webkit-fill-available;
+    @media @tablets{ 
+        padding-top: 120px;
+    }
+    @media @desktop{ 
+        padding-top: 120px;
+    }
+    @media @desktopXL{ 
+        padding-top: 120px;
+    }
+    .allWeeksDesktop:nth-child(1){
+        margin-left: 10px;
+    }
+    .allWeeksDesktop{
+        position:relative;
+        width:294px;
+        overflow:auto;     
+        padding: 0;
+        #namesMonthsDesktop{
+
+        }
+        #divWeekDesktop{
+            background: -o-linear-gradient(left, rgba(254,254,254,1) 13%, rgba(254,254,254,1) 13%, rgba(181,181,181,1) 14%, rgba(181,181,181,1) 17%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 100%);
+            background: -ms-linear-gradient(left, rgba(254,254,254,1) 13%, rgba(254,254,254,1) 13%, rgba(181,181,181,1) 14%, rgba(181,181,181,1) 17%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 100%);
+            background: linear-gradient(to right, rgba(254,254,254,1) 13%, rgba(254,254,254,1) 13%, rgba(181,181,181,1) 14%, rgba(181,181,181,1) 17%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 100%);
+            .divAllCommentsStyle:last-child{
+                margin-bottom: 125px !important;
+            }
+
+            #divCircleWeeksDesktop{
+                background: rgba(255,255,255,1);
+                background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 52%, rgba(181,181,181,1) 52%, rgba(181,181,181,1) 64%, rgba(254,254,254,1) 64%, rgba(254,254,254,1) 95%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(52%, rgba(255,255,255,1)), color-stop(52%, rgba(181,181,181,1)), color-stop(64%, rgba(181,181,181,1)), color-stop(64%, rgba(254,254,254,1)), color-stop(95%, rgba(254,254,254,1)));
+                background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 52%, rgba(181,181,181,1) 52%, rgba(181,181,181,1) 64%, rgba(254,254,254,1) 64%, rgba(254,254,254,1) 95%);
+                background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 52%, rgba(181,181,181,1) 52%, rgba(181,181,181,1) 64%, rgba(254,254,254,1) 64%, rgba(254,254,254,1) 95%);
+                background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 52%, rgba(181,181,181,1) 52%, rgba(181,181,181,1) 64%, rgba(254,254,254,1) 64%, rgba(254,254,254,1) 95%);
+                background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 52%, rgba(181,181,181,1) 52%, rgba(181,181,181,1) 64%, rgba(254,254,254,1) 64%, rgba(254,254,254,1) 95%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fefefe', GradientType=0 );
+                .circleWeek{
+                    cursor: pointer;
+                    // background-color: @circleDarkBlue;
+                    height: 70px;
+                    width: 70px;
+                    color: white;
+                    border-radius: 50%;
+                    margin-left: 10px; 
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 65px; 
+                    font-family: 'Coda Caption', sans-serif;
+                    font-size: xx-large;
+
+                }
+            }
+            .divComments{
+                background-color: #ececec;
+                border-radius: 8px;
+                margin-left: 5%;
+                margin:0px;
+                padding:0px;
+                margin-top: 10px;
+                /* -webkit-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                 -moz-box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);
+                 box-shadow: 27px 22px 69px -29px rgba(0,0,0,0.75);*/
+                .divInfoComment{
+                    padding: 9px;
+                    text-align: justify;
+                }
+                .divTeachers{
+                    display: flex;
+                    align-items: center;
+                    font-weight: bold;
+                    padding-bottom: 10px;
+                    img{
+                        width: 80%;
+                        border-radius: 50%;
+                        height: 55px;
+                    }
+                }
+
+            }
+        }
+    }
+
+
 }

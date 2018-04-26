@@ -22,17 +22,98 @@ function initObservationsMenu(url) {
     currentOption = "teacherObservations";
     $("#navInfObservations").empty();
     $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
-    $("#teacherObservations").show();
-
     $("#divCircleDays").empty();
     $("#divAllComments").empty();
 
-    getCirclesWeeks();
+    if ($('header').width() < 769) {
+        $("#teacherObsDesktopView").hide();
+        $("#teacherObservations").show();
+        getCirclesWeeksMovil();
+    } else {
+        $("#teacherObservations").hide();
+        $("#teacherObsDesktopView").show();
+        getCirclesWeeks();
+    }
 
 }
 
-
 function getCirclesWeeks() {
+    $("#divCircleWeeks").empty();
+    $("#namesMonths").empty();
+    var d = new Date();
+
+    var startMonth = 10;
+    var startYear = 2017;
+    var contMonth = startMonth;
+    var contYear = startYear;
+
+    var currentMonth = d.getMonth() + 1;
+    var currentYear = d.getFullYear();
+    var totalWeeks = 0;
+    while (contMonth < currentMonth || contYear < currentYear) {
+        var numWeeks = weeksInAMonth(contYear, contMonth, 0);
+        totalWeeks += numWeeks;
+        makeCircleWeek(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
+        contMonth = (contMonth + 1) % 13;
+        if (contMonth === 0) {
+            ++contYear;
+            ++contMonth;
+        }
+    }
+    numWeeks = weeksInAMonth(contYear, contMonth, d.getDay());
+    totalWeeks += numWeeks;
+    makeCircleWeek(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
+
+    $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
+    $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
+
+    var d = new Date();
+    var month = (d.getMonth() + 1)
+    var idCircle = "#1-" + month + "-2018";
+    $(idCircle).click();
+}
+
+function resizeMargins() {
+    var month = "-1";
+    var cont = 0;
+    var idx = 0;
+    var heightCircle = $("#divCircleWeeks div").height();
+
+    $("#divCircleWeeks div").each(function (index) {
+        if (month !== "-1" && month !== $(this).prop("id").split("-")[1]) {
+            $("#namesMonths").children().eq(idx).width(cont * (heightCircle + 10));
+            cont = 0;
+            idx++;
+        }
+        cont++;
+        month = $(this).prop("id").split("-")[1];
+    });
+
+    $("#namesMonths").children().eq(idx).width(cont * (heightCircle + 10));
+    $("#divCircleWeeks div").length;
+
+    $("#namesMonths").css("width", $("#divCircleWeeks div").length * (heightCircle + 10));
+    $("#divCircleWeeks").css("width", $("#divCircleWeeks div").length * (heightCircle + 10));
+
+    idx = 0;
+    $("#divAllComments .divOneComment").each(function (index) {
+        var marginB = parseInt($(this).css("height")) - parseInt($("#divCircle" + $(this).prop("id").split("divOne")[1]).css("height"));
+        $("#divCircleDays").children().eq(idx).css("margin-bottom", marginB + "px");
+        idx++;
+    });
+    
+ //parseInt($("#divCircle" + id).css("height"));
+
+
+    /*
+     $("#namesMonths").children().eq(1); 
+     $("#divCircleWeeks div")[0].id.split("-")[1]
+     $("#divCircleWeeks div").height()
+     $("#namesMonths div")
+     $("#namesMonths div").first().width(360)*/
+}
+
+function getCirclesWeeksMovil() {
     $("#divCircleWeeks").empty();
     $("#namesMonths").empty();
     var d = new Date();
@@ -49,7 +130,7 @@ function getCirclesWeeks() {
     while (contMonth < currentMonth || contYear < currentYear) {
         var numWeeks = weeksInAMonth(contYear, contMonth, 0);
         totalWeeks += numWeeks;
-        makeCircleWeek(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
+        makeCircleWeekMovil(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
         contMonth = (contMonth + 1) % 13;
         if (contMonth === 0) {
             ++contYear;
@@ -58,7 +139,7 @@ function getCirclesWeeks() {
     }
     numWeeks = weeksInAMonth(contYear, contMonth, d.getDay());
     totalWeeks += numWeeks;
-    makeCircleWeek(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
+    makeCircleWeekMovil(numWeeks, contMonth, (contMonth === startMonth && contYear === startYear), contYear);
 
 
 
@@ -74,16 +155,29 @@ function getCirclesWeeks() {
     $("#namesMonths").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
     $("#divCircleWeeks").css("width", (totalWeeks + 10) * ($(".circleWeek").width() + 10));
 
-       var d = new Date();
-    var month =  (d.getMonth() + 1)
-    var idCircle = "#1-" +month+ "-2018";
+    var d = new Date();
+    var month = (d.getMonth() + 1)
+    var idCircle = "#1-" + month + "-2018";
     $(idCircle).click();
 
 }
 
-function makeCircleWeek(numWeeks, contMonth, first, year) {
+
+
+function makeCircleWeekMovil(numWeeks, contMonth, first, year) {
     //SOLO PARA MOVIL
 
+    for (var i = 1; i <= numWeeks; ++i) {
+        $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "-" + contMonth + "-" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
+    }
+    var tamCircleWeekMovil = 0;
+    if (first === true)
+        var tamCircleWeekMovil = 10;
+    tamCircleWeekMovil += (($(".circleWeek").width() + 10) * numWeeks);
+    $("#namesMonths").append("<div style='color:" + monthColors[contMonth - 1] + ";width:" + tamCircleWeekMovil + "px'>" + monthNames[contMonth - 1].toUpperCase() + "</div>");
+}
+
+function makeCircleWeek(numWeeks, contMonth, first, year) {
     for (var i = 1; i <= numWeeks; ++i) {
         $("#divCircleWeeks").append("<div class = 'circleWeek' id='" + i + "-" + contMonth + "-" + year + "' style='background-color:" + monthColors[contMonth - 1] + "' > " + i + "w </div>");
     }
