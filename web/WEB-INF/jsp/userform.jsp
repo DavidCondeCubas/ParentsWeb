@@ -30,8 +30,8 @@
                     <div class="container " style="margin-top: 10%;margin-bottom: 10%;display:  flex;justify-content:  center;">
 
                     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 panel" id="userform" align="left">
-                        <div class="form-group fondoGris">
-                            <img class="img-responsive center-block" src="recursos/img/KidSSpace-01.png" alt="logo"/>
+                        <div class="col-xs-10 col-xs-offset-1 form-group fondoGris">
+                            <img class="img-responsive center-block" src="recursos/img/iconos/logoBamboo_Icon.svg" alt="logo"/>
                         </div>
                         <div class="panel-body" >
                             <form name ="form1" action="userform.htm?opcion=login" method="post" >

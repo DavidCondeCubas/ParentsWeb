@@ -34,10 +34,10 @@ function getRating_Student() {
             mapFinalRatings = JSON.parse(data.mapFinalRatings);
 
             $("#mySidenav").empty();
-            $("#mySidenav").append(" <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'>&times;</a>");
+            $("#mySidenav").append(" <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'><span class='glyphicon glyphicon-remove'></span</a>");
   
             for (var i = 1; i < subjects.length; i++) {
-                $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='animated zoomIn subjectsMenu'>" + mapSubjects[subjects[i]].name + "</a>")
+                $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='animated zoomIn subjectsMenu'>" + mapSubjects[subjects[i]].name + "</a>");
             }
 
             $(".subjectsMenu").click(function () {
