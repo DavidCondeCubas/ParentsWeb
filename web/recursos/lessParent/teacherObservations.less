@@ -1,7 +1,7 @@
 /* Normal import */
 @import "homepage.less";
 
-
+@colorVerde: #7cc170;
 
 #allWeeks{
     height: 54px;
@@ -53,13 +53,21 @@
     }
 
     #namesMonths{
+        /* display: flex;
+         text-align: center;
+         font-weight: bold;
+         width: 3000px; // defecto */
         display: flex;
-        text-align: center;
-        font-weight: bold;
-        width: 3000px; // defecto 
+        align-items: baseline;
+        justify-content: space-between;
+        color: rgb(124, 193, 112) !important;
+        .monthObservations{
+            padding: 3px;
+            border-radius: 5px;
+        }
     }
     #divCircleWeeks{
-        display: flex;
+        /*display: flex;
         width: 3000px; // defecto 
         //background linea horizontal
         background: rgba(255,255,255,1);
@@ -70,8 +78,17 @@
         background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
         background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+        */
+        .weekNumbers{
+            display: flex;
+            justify-content: space-evenly;
 
-
+            .daySelected{
+                border-radius: 50%;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
 
     }
 
@@ -88,20 +105,21 @@
             justify-content: center;
             align-items: center;
             //LINEA VERTICAL BACKGROUND
-            background: rgba(255,255,255,1);
-            background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
-            background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-            background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-            background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+            /* background: rgba(255,255,255,1);
+             background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+             background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+             background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+             background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+             background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+             background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );*/
             .circleDay:nth-child(1){
                 margin-top: 25px;
             }
             .circleDay{
+                background-color: @colorVerde;
                 cursor: pointer;
-                background-color: @circleDarkBlue;
+           //     background-color: @circleDarkBlue;
                 height: 70px;
                 width: 70px;
                 color: white;
@@ -139,6 +157,7 @@
                 margin:0px;
                 padding:0px;
                 margin-top: 10px;
+                color: @colorVerde;
                 .divFotoTeacher{
                     img{
                         height: 75%;
@@ -198,6 +217,9 @@
                     top: -20px;
                     margin-right: 5px;
                     margin-left: 5px;
+                    strong{
+                         color: @colorVerde;
+                    }
                     p{
                         margin: 0px !important;
                     }
