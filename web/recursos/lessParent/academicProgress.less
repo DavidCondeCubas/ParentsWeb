@@ -110,7 +110,7 @@
         width: 250px;  
     }
     @media @desktop,@desktopXL{
-         width: 300px; 
+        width: 300px; 
     }
 
 
@@ -126,7 +126,7 @@
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #8bc26e; /* Black*/
+    background-color: #3aaa35; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -145,28 +145,31 @@
         }
 
     }
-
-    a {
-        padding: 8px 8px 8px 16px;
-        text-decoration: none;
-        font-size: 27.5px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-        @media @smartphones {
-            font-size: 14px;
-
-        }
-        @media @tablets{
-            font-size: x-large;
-        }
+    
+    .animated {
+         padding: 8px 8px 8px 16px;
+         text-decoration: none;
+         font-size: 27.5px;
+         color: white;
+         border-bottom: solid 2px white;
+         display: block;
+         transition: 0.3s;
+         @media @smartphones {
+             font-size: 14px;
+         }
+         @media @tablets{
+             font-size: x-large;
+         }
          @media @desktop{
-            font-size: xx-large;
-        }
-        @media @desktopXL{
-            font-size: xx-large;
-        }
+             font-size: xx-large;
+         }
+         @media @desktopXL{
+             font-size: xx-large;
+         }
     }
+    
+    
+    
     a:last-child{
         margin-bottom:  @alturaNavInfTablet*2;
         @media @smartphones{
@@ -174,11 +177,25 @@
         }
     }
     .closebtn {
+
+        color: white;
+        transition: 0.3s;
+
+
         position: absolute;
         top: 0;
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
+        @media @tablets{
+            font-size: x-large;
+        }
+        @media @desktop{
+            font-size: xx-large;
+        }
+        @media @desktopXL{
+            font-size: xx-large;
+        }
         @media @smartphones {
             top: -2%;
             right: 2%;
@@ -188,7 +205,9 @@
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: @colorGrisEduWEB;
+    font-weight: bold;
+
 }
 
 #subjectProgress{
@@ -200,21 +219,21 @@
         align-content: center;
         justify-content: center;
     }
-    
+
     @media @tablets,@desktop,@desktopXL {
         font-size: large;
-        
+
     } 
     @media @desktop,@desktopXL {
-            padding-left: 300px;
-        }
-        
+        padding-left: 300px;
+    }
+
     div:nth-child(1) {
         display: flenth-cx;
         align-items: baseline;
         span{
             @media @desktop,@desktopXL {
-            display:none;
+                display:none;
             }
         }
     }
