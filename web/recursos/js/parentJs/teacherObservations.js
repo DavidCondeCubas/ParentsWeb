@@ -74,44 +74,52 @@ function getCirclesWeeks() {
 }
 
 function resizeMargins() {
-    var month = "-1";
-    var cont = 0;
     var idx = 0;
-    var heightCircle = $("#divCircleWeeks div").height();
-
-    $("#divCircleWeeks div").each(function (index) {
-        if (month !== "-1" && month !== $(this).prop("id").split("-")[1]) {
-            $("#namesMonths").children().eq(idx).width(cont * (heightCircle + 10));
-            cont = 0;
-            idx++;
-        }
-        cont++;
-        month = $(this).prop("id").split("-")[1];
-    });
-
-    $("#namesMonths").children().eq(idx).width(cont * (heightCircle + 10));
-    $("#divCircleWeeks div").length;
-
-    $("#namesMonths").css("width", $("#divCircleWeeks div").length * (heightCircle + 10));
-    $("#divCircleWeeks").css("width", $("#divCircleWeeks div").length * (heightCircle + 10));
-
-    idx = 0;
     $("#divAllComments .divOneComment").each(function (index) {
         var marginB = parseInt($(this).css("height")) - parseInt($("#divCircle" + $(this).prop("id").split("divOne")[1]).css("height"));
         $("#divCircleDays").children().eq(idx).css("margin-bottom", marginB + "px");
         idx++;
     });
-
-    //parseInt($("#divCircle" + id).css("height"));
-
-
-    /*
-     $("#namesMonths").children().eq(1); 
-     $("#divCircleWeeks div")[0].id.split("-")[1]
-     $("#divCircleWeeks div").height()
-     $("#namesMonths div")
-     $("#namesMonths div").first().width(360)*/
-}
+}/*
+ function resizeMargins() {
+ var month = "-1";
+ var cont = 0;
+ var idx = 0;
+ var heightCircle = $("#divCircleWeeks div").height();
+ 
+ $("#divCircleWeeks div").each(function (index) {
+ if (month !== "-1" && month !== $(this).prop("id").split("-")[1]) {
+ $("#namesMonths").children().eq(idx).width(cont * (heightCircle + 10));
+ cont = 0;
+ idx++;
+ }
+ cont++;
+ month = $(this).prop("id").split("-")[1];
+ });
+ 
+ $("#namesMonths").children().eq(idx).width(cont * (heightCircle + 10));
+ $("#divCircleWeeks div").length;
+ 
+ $("#namesMonths").css("width", $("#divCircleWeeks div").length * (heightCircle + 10));
+ $("#divCircleWeeks").css("width", $("#divCircleWeeks div").length * (heightCircle + 10));
+ 
+ idx = 0;
+ $("#divAllComments .divOneComment").each(function (index) {
+ var marginB = parseInt($(this).css("height")) - parseInt($("#divCircle" + $(this).prop("id").split("divOne")[1]).css("height"));
+ $("#divCircleDays").children().eq(idx).css("margin-bottom", marginB + "px");
+ idx++;
+ });
+ 
+ //parseInt($("#divCircle" + id).css("height"));
+ 
+ 
+ /*
+ $("#namesMonths").children().eq(1); 
+ $("#divCircleWeeks div")[0].id.split("-")[1]
+ $("#divCircleWeeks div").height()
+ $("#namesMonths div")
+ $("#namesMonths div").first().width(360)*//*
+  }*/
 
 function getCirclesWeeksMovil() {
     $("#divCircleWeeks .weekNumbers").empty();
@@ -159,7 +167,7 @@ function getCirclesWeeksMovil() {
 
         $(".daySelected").css("background-color", "white");
         $(".daySelected").css("color", "black");
-        
+
         $(this).css("background-color", colorVerde);
         $(this).css("color", "white");
 
@@ -176,7 +184,7 @@ function getCirclesWeeksMovil() {
 
         $(".weekNumbers .daySelected").hide();
         $(".weekNumbers .daySelected[data='" + $(this).attr("id") + "']").show();
-       
+
         $("#divCircleDays").empty();
         $("#divAllComments").empty();
         $(".daySelected").css("background-color", "white");
@@ -184,6 +192,12 @@ function getCirclesWeeksMovil() {
     });
 
     $(".weekNumbers .daySelected").hide();
+    $("#" + currentMonth + "-" + currentYear).click();
+    $("#1-" + currentMonth + "-" + currentYear).click();
+    
+    
+    /*  $("#1-2018").click();
+     $("#3-1-2018").click();*/
 }
 /*
  function getCirclesWeeksMovil() {
