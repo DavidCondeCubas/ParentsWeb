@@ -28,12 +28,12 @@
             var currentOption;
             var colorVerde= "#3aaa35";
 
-            var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "Jule", "August", "September", "October", "November", "December"];
 
             var monthColors = ["#ff9529", "#451c8c", "#3d962d", "#054663",
                 "#ff9529", "#451c8c", "#3d962d", "#054663",
-                "#ff9529", "#451c8c", "#3d962d", "#054663", ];
+                "#ff9529", "#451c8c", "#3d962d", "#054663"];
 
             $(document).ready(function () {
                 makeCircleSons();

@@ -72,6 +72,7 @@
 
     }
     .card{
+        
         .card-header{
             border-bottom: 1px solid #bbb7b7e6;
         }
@@ -94,6 +95,10 @@
 
             }
         }
+    }
+    a.card-link
+    {
+        text-decoration: none !important;
     }
 }
 #mySidenav{
@@ -212,7 +217,7 @@
 
 #subjectProgress{
     margin-top:15px;
-    display: flex;
+    display: inline-block;
     justify-content: space-between;
     div{
         display: flex;
@@ -229,7 +234,6 @@
     }
 
     div:nth-child(1) {
-        display: flenth-cx;
         align-items: baseline;
         span{
             @media @desktop,@desktopXL {
@@ -238,16 +242,19 @@
         }
     }
 
-    div:nth-child(2) {
+    div:nth-child(3) {
         font-size: medium;
+        text-align: center;
+        color: @circleOrange;
+        
         @media @tablets,@desktop,@desktopXL {
             font-size: xx-large;
         } 
         font-weight: bold;
     }
 
-    div:nth-child(3) {
-        color: @circleOrange;
+    div:nth-child(2) {
+        color: @colorGrisEduWEB;
     }
 }
 

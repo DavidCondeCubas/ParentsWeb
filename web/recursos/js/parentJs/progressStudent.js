@@ -65,8 +65,10 @@ function  showObjectivesRatings(idSubject) {
     $("#subjectProgress").empty();
     
     $("#subjectProgress").append("<div class='col-xs-3' onclick='openNav()'><span class='glyphicon glyphicon-chevron-left'></span><span>Subjects</span></div>");
-    $("#subjectProgress").append("<div class='col-xs-7 col-md-9'>" + (mapSubjects[idSubject].name).toUpperCase() + "</h1></div>");
-    $("#subjectProgress").append("<div class='col-xs-2 col-md-3'>" + monthNames[currentMonth.getMonth()] + "</div>");
+    $("#subjectProgress").append("<div class='col-xs-offset-7 col-xs-2 col-md-3 col-xs-offset-6'>" + monthNames[currentMonth.getMonth()] + "</div>");
+    $("#subjectProgress").append("<div class='col-xs-12 col-md-12'>" + (mapSubjects[idSubject].name).toUpperCase() + "</div>");
+    
+    
 
     $.each(mapFinalRatings, function (key, value) {
         if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
