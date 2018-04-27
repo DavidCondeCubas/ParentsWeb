@@ -21,16 +21,15 @@
         
     </head>
     <body>  
-        <div class="col-sm-12" style="margin-top: 10px;">
+        <div class="container" style="margin-top: 10px;">
             <div class="panel panel-success">
-                <div class="panel-body"align="center">
-<!--                    <div class="container " style="margin-top: 10%;margin-bottom: 10%;display:  flex;justify-content:  center;">-->
-
-                    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 panel" id="userform" align="left">
-                        <div class="col-xs-10 col-xs-offset-1 form-group fondoGris">
+                <div class="panel-body" align="center">
+                    <div id="userform" align="left">
+                        <div class="col-lg-10 col-lg-offset-1 form-group fondoGris">
                             <img class="img-responsive center-block" src="recursos/img/iconos/logoBamboo_Icon.svg" alt="logo"/>
                         </div>
-                        <div class="panel-body" >
+                        <div class="col-lg-10 col-lg-offset-1 form-group fondoGris">
+                            
                             <form name ="form1" action="userform.htm?opcion=login" method="post" >
                                 <div
                                     <c:if test="${message != null}">
@@ -55,10 +54,9 @@
                                     <a class="btn" href="datosIdioma.htm?lenguaje=es"><spring:message code="etiq.txtspanish"/></a>
                                     <a class="btn" href="datosIdioma.htm?lenguaje=ar"><spring:message code="etiq.txtarabic"/></a>--%>
                                 </div> 
+                        
                         </div>
                     </div>
-
-<!--                    </div>-->
                 </div>                    
             </div>
             <div class="panel-footer" align="center"><font style="color: #111">Copyright @2016, EduWeb Group, All Rights Reserved.</font></div>
