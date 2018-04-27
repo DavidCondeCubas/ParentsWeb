@@ -3,43 +3,35 @@
 
 @colorVerde: #3aaa35;
 
-#allWeeks{
-    height: 54px;
-    overflow-y: hidden !important;
-    @media @tablets{
-        height: 75px;
-
-    }
-}
 #teacherObservations{
-
-    .circleWeek{
-        cursor: pointer;
-        // background-color: @circleDarkBlue;
-        height: 70px;
-        width: 70px;
-        color: white;
-        border-radius: 50%;
-        margin-left: 10px; 
-        text-align: center;
-        vertical-align: middle;
-        line-height: 65px; 
-        font-family: 'Montserrat', sans-serif;
-        font-size: xx-large;
-        @media @smartphones {
-            height: 25px;
-            width: 25px;
-            line-height: 25px;
-            font-size: small;
-        }
-        @media @tablets{
-            height: 50px;
-            width: 50px;
-            line-height: 50px;
-            font-size: x-large;
-        }
-
-    }
+    /*
+        .circleWeek{
+            cursor: pointer;
+            // background-color: @circleDarkBlue;
+            height: 70px;
+            width: 70px;
+            color: white;
+            border-radius: 50%;
+            margin-left: 10px; 
+            text-align: center;
+            vertical-align: middle;
+            line-height: 65px; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: xx-large;
+            @media @smartphones {
+                height: 25px;
+                width: 25px;
+                line-height: 25px;
+                font-size: small;
+            }
+            @media @tablets{
+                height: 50px;
+                width: 50px;
+                line-height: 50px;
+                font-size: x-large;
+            }
+    
+        }*/
     padding-top: 60px;
     //height: -webkit-fill-available;
     @media @tablets{ 
@@ -51,36 +43,39 @@
     @media @desktopXL{ 
         padding-top: 120px;
     }
-
-    #namesMonths{
-        /* display: flex;
-         text-align: center;
-         font-weight: bold;
-         width: 3000px; // defecto */
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        color: rgb(124, 193, 112) !important;
-        .monthObservations{
-            padding: 3px;
-            border-radius: 5px;
-        }
-    }
-    #divCircleWeeks{
-        .weekNumbers{
+    #allWeeks{
+        position: fixed;
+        z-index: 2;
+        background-color: white;
+        #namesMonths{
+            /* display: flex;
+             text-align: center;
+             font-weight: bold;
+             width: 3000px; // defecto */
             display: flex;
-            justify-content: space-evenly;
-
-            .daySelected{
-                border-radius: 50%;
-                width: 20px;
-                height: 20px;
-                text-align: center;
+            align-items: baseline;
+            justify-content: space-between;
+            color: rgb(124, 193, 112) !important;
+            .monthObservations{
+                padding: 3px;
+                border-radius: 5px;
             }
         }
+        #divCircleWeeks{
+            .weekNumbers{
+                display: flex;
+                justify-content: space-evenly;
 
+                .daySelected{
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                }
+            }
+
+        }
     }
-
     #allDays{
 
         padding-left: 0px;
@@ -137,6 +132,17 @@
         }
     }
     #divObservations{
+        padding-top: 50px; // movil
+        //height: -webkit-fill-available;
+        @media @tablets{ 
+            padding-top: 70px;
+        }
+        @media @desktop{ 
+            padding-top: 120px;
+        }
+        @media @desktopXL{ 
+            padding-top: 120px;
+        }
 
         .divOneComment{
             margin:0px;
@@ -174,7 +180,7 @@
                 -webkit-box-shadow: 7px 7px 9px -3px rgba(0,0,0,0.49);
                 -moz-box-shadow: 7px 7px 9px -3px rgba(0,0,0,0.49);
                 box-shadow: 7px 7px 9px -3px rgba(0,0,0,0.49);
-                
+
                 .triangDivSup{
                     position: relative;
                     background: #ffffff; /* Old browsers */
@@ -313,7 +319,7 @@
                     align-items: center;
                     font-weight: bold;
                     padding-bottom: 10px;
-                        z-index: 2;
+                    z-index: 2;
                     img{
                         width: 80%;
                         border-radius: 50%;
