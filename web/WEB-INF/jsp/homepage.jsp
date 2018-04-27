@@ -249,7 +249,7 @@
 
             function makeCircleSons() {
                 $.each(sons, function (key, value) {
-                    $("#childrensNav .row").append("<div data-GradeLevel='" + value[1] + "' data='" + key + "' title='" + value[0] + "' class='circle'>" + value[0].substring(0, 2) + "</div>");
+                    $("#childrensNav .row").append("<div data-GradeLevel='" + value[1] + "' data='" + key + "' title='" + value[0] + "' class='circle'>" + value[0].substring(0, 2).toUpperCase() + "</div>");
                 });
                 currentStudent = $("#childrensNav div").children().first().attr("data");
 
@@ -326,9 +326,9 @@
 
         <div id="teacherObservations">
             <div id="allWeeks" class="col-xs-12">
-                <div  id="namesMonths" class="col-xs-12 nopaddingMargin">
+                <div  id="namesMonths" class="col-xs-12 col-sm-offset-1 col-sm-10">
                 </div>
-                <div id="divCircleWeeks" class="col-xs-12">
+                <div id="divCircleWeeks" class="col-xs-12 col-sm-offset-2 col-sm-8">
                     <div class="col-xs-2">Week:</div>
                     <div class="col-xs-10 weekNumbers"></div>
                 </div>
@@ -343,7 +343,7 @@
             </div>    
 
         </div>
-        <div id="teacherObsDesktopView">
+        <div id="teacherObsDesktopView" style="display:none">
             <div  id="namesMonthsDesktop"></div>
             <div id="contentTeacherObservationsDesktop" style="    display: flex;">
                 <div class="allWeeksDesktop" class="col-xs-12">
