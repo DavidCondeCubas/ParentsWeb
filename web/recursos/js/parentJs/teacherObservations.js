@@ -189,6 +189,7 @@ function getCirclesWeeksMovil() {
         $("#divAllComments").empty();
         $(".daySelected").css("background-color", "white");
         $(".daySelected").css("color", "black");
+        $("#1-" +$(this).attr("id")).click();
     });
 
     $(".weekNumbers .daySelected").hide();
