@@ -17,7 +17,6 @@
         <title>Welcome</title>
         
         <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/css/bootstrap.css"/>" />
-        <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/newstyle.css"/>" />
         
     </head>
     <body>  
