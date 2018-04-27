@@ -41,8 +41,8 @@ function getRating_Student() {
             }
 
             $(".subjectsMenu").click(function () {
-                $(".subjectsMenu").css({'color': '#818181'});
-                $(this).css({'color': 'white'});
+                $(".subjectsMenu").css({'color': '','font-weight': ''});
+                $(this).css({'color': 'black','font-weight': 'bold'});
                 showObjectivesRatings($(this).attr("id"));
                 closeNav();
             });
@@ -65,8 +65,8 @@ function  showObjectivesRatings(idSubject) {
     $("#subjectProgress").empty();
     
     $("#subjectProgress").append("<div class='col-xs-3' onclick='openNav()'><span class='glyphicon glyphicon-chevron-left'></span><span>Subjects</span></div>");
-    $("#subjectProgress").append("<div class='col-xs-6 col-md-9'>" + (mapSubjects[idSubject].name).toUpperCase() + "</h1></div>");
-    $("#subjectProgress").append("<div class='col-xs-3 col-md-3'>" + monthNames[currentMonth.getMonth()] + "</div>");
+    $("#subjectProgress").append("<div class='col-xs-7 col-md-9'>" + (mapSubjects[idSubject].name).toUpperCase() + "</h1></div>");
+    $("#subjectProgress").append("<div class='col-xs-2 col-md-3'>" + monthNames[currentMonth.getMonth()] + "</div>");
 
     $.each(mapFinalRatings, function (key, value) {
         if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
