@@ -303,7 +303,7 @@ public class Homepage extends MultiActionController {
         ArrayList<DataWhatDoing> arrayAttemp = new ArrayList<>();
         ArrayList<DataWhatDoing> arrayMastered = new ArrayList<>();
         ArrayList<DataWhatDoing> arrayFuture = new ArrayList<>();
-        int diasSemana = 120;
+        int diasSemana = 360;
 
         // QUEDA PENDIENTE AGREGAR LA RESTRICCION DEL ID_STUDENT
         String termid = "", yearid = "";
@@ -325,10 +325,10 @@ public class Homepage extends MultiActionController {
             timestampBefore = new Timestamp(cal.getTimeInMillis());
             String beforeDate = "" + timestampBefore;
 
-            //7 dias antes
-            //String consulta = "SELECT rating_id,student_id,objective_id,step_id,rating.name FROM progress_report inner join rating on rating.id = rating_id where yearterm_id="+yearid+" and student_id="+id+" and term_id= "+termid+" and comment_date between '"+beforeDate+"' and '"+currentDate+"'";    
+           
+           // String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.student_id = "+id+" and a.yearterm_id=" + yearid + " and a.term_id= " + termid + " and a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
             //pruebas
-            String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.student_id = "+id+" and a.yearterm_id=" + yearid + " and a.term_id= " + termid + " and a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
+            String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
 
             ResultSet rs1 = DBConect.eduweb.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
             while (rs1.next()) {
