@@ -24,16 +24,16 @@ function initObservationsMenu(url) {
     $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     $("#divCircleDays").empty();
     $("#divAllComments").empty();
-
-    if ($('header').width() < 769) {
-        $("#teacherObsDesktopView").hide();
-        $("#teacherObservations").show();
-        getCirclesWeeksMovil();
-    } else {
-        $("#teacherObservations").hide();
-        $("#teacherObsDesktopView").show();
-        getCirclesWeeks();
-    }
+    getCirclesWeeksMovil();
+    /*  if ($('header').width() < 769) {
+     $("#teacherObsDesktopView").hide();
+     $("#teacherObservations").show();
+     getCirclesWeeksMovil();
+     } else {
+     $("#teacherObservations").hide();
+     $("#teacherObsDesktopView").show();
+     getCirclesWeeks();
+     }*/
 
 }
 
@@ -189,14 +189,14 @@ function getCirclesWeeksMovil() {
         $("#divAllComments").empty();
         $(".daySelected").css("background-color", "white");
         $(".daySelected").css("color", "black");
-        $("#1-" +$(this).attr("id")).click();
+        $("#1-" + $(this).attr("id")).click();
     });
 
     $(".weekNumbers .daySelected").hide();
     $("#" + currentMonth + "-" + currentYear).click();
     $("#1-" + currentMonth + "-" + currentYear).click();
-    
-    
+
+
     /*  $("#1-2018").click();
      $("#3-1-2018").click();*/
 }
@@ -269,7 +269,7 @@ function makeCircleWeekMovil(numWeeks, contMonth, first, year) {
     for (var i = 1; i <= numWeeks; ++i) {
         $("#divCircleWeeks .weekNumbers").append("<div data='" + idMonth + "' class='daySelected' id='" + i + "-" + contMonth + "-" + year + "' > " + i + "</div>");
     }
-    $("#namesMonths").append("<div id='" + idMonth + "' class='monthObservations'>" + monthNames[contMonth - 1].toUpperCase() + "</div>");
+    $("#namesMonths").append("<div id='" + idMonth + "' class='monthObservations'>" + monthNames[contMonth - 1].substring(0, 3).toUpperCase() + "</div>");
 }
 
 /*

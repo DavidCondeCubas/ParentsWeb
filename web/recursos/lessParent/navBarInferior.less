@@ -27,49 +27,57 @@
 @colorProgress: white;
  
 @fondo:#dadada;*/
-
-#navbarInferior{
-    background-color: @colorNavBar;
+#navbarInferiorContenedor{
+    background-color: white;
     height: @alturaNavInfTablet;
     position: fixed;
     bottom: 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     z-index: 2;
-    div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     @media @smartphones {
         height: @alturaNavInfMovil;
     }
     @media @desktop{
         height: @alturaNavInfTabletXL;
     }
-   
-    @media  @tablets{
-        margin-left: 15%;
-        width: 70%;
-        border-top-right-radius: 8px;
-        border-top-left-radius: 8px;
-    }
-    @media @desktop,@desktopXL{
-        margin-left: 25%;
-        width: 50%;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-    }
-    img{
-        width: 60%;
-        @media @smartphones {
-            width: 100%;
-        }
-        @media @desktopXL{
-            width: 45%;
+    #navbarInferior{
+        background-color: @colorNavBar;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        @media (min-width: 768px){
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+        @media  @tablets{
+            /*     margin-left: 15%;
+                 width: 70%;
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;*/
+        }
+        @media @desktop,@desktopXL{
+            /*  margin-left: 25%;
+              width: 50%;*/
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        img{
+            width: 60%;
+            @media @smartphones {
+                width: 100%;
+            }
+            @media @desktopXL{
+                width: 45%;
+            }
+
+        }
     }
 }
 #navInfReport{

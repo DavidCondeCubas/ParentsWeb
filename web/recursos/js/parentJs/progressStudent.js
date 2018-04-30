@@ -86,7 +86,7 @@ function  showObjectivesRatings(idSubject) {
                                                             </div>\n\
                                                 </div>\n\
                                                 <div id='collapse" + key + "' class='collapse' data-parent='#accordion'>\n\
-                                                    <div class='card-body' style='text-align:  center;'>\n\
+                                                    <div class='card-body' style='text-align:  justify;'>\n\
                                                         " + mapObjectives[key.split("_")[1]].description + "\n\
                                                     </div>\n\
                                                 </div>\n\

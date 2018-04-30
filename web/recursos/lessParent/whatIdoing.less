@@ -8,9 +8,13 @@
     #infWhatPrincipal{
         position: fixed;
         left: 0;
-        padding: 3px !important;
+       // padding: 3px !important;
         z-index: 2;
-        top: @alturaNavCell + @alturaNameStudent - 1px;
+        top:52px;
+        @media @tablets{
+             top: 68px;
+        }
+           
         .infWhat{
             text-decoration: underline double;
             font-size: large;
@@ -27,13 +31,19 @@
             //font-weight: bold;
             margin: 0px;
             color: @circleOrange;
-            font-size: 10.5px;
+
             padding: 0px;
             text-align: center;
             border-radius: 8px;
             padding: 3px;
             background-color: #f2f2f2;
             box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
+
+            font-size: 9.8px; // MOVIL SOLO 1 LINEA
+            span{
+                font-size: 9px; // MOVIL SOLO 1 LINEA
+            }
+
         }
         position: fixed;
         bottom: @alturaNavCell + @alturaNameStudent;
@@ -42,6 +52,9 @@
         padding-bottom: 5px !important;
         background-color: white;
 
+        @media @tablets{
+            bottom: 72px;
+        }
         .infWhat:nth-child(2) {
             margin-left: 4%;
         }
@@ -66,10 +79,14 @@
             width: 15px;
             height: 15px; 
         }
+        .card:nth-child(1) {
+            border-top: 1px solid white;
+        }
         .card{
-            margin-bottom: 7px;
+            border-bottom: 1px solid #bbb7b7e6;
+            margin-bottom: 10px;
+
             .card-header{
-                border-bottom: 1px solid #bbb7b7e6;
                 h3{
                     font-size: 18px;
                 }
@@ -114,6 +131,9 @@
                 list-style-type: none;
                 padding-left: 20px;
             }
+        }
+        .cardTitle{
+            border-bottom: 1px solid white;
         }
     }
 

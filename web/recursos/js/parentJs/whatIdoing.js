@@ -87,7 +87,7 @@ function paintDataWhat(valueSelected) {
     var idSubjectAux;
     if (arrayData.length > 0) {
         idSubjectAux = arrayData[0].idSubject;
-        $("#accordionWhats").append("<div class='card'>\n\
+        $("#accordionWhats").append("<div class='card cardTitle'>\n\
                                     <div class='card-header'>\n\
                                         <h3 class='card-link'>\n\
                                             <div class='subjectTitle'>\n\
@@ -106,8 +106,8 @@ function paintDataWhat(valueSelected) {
             objSuccess = totalSteps;
             
         if (idSubjectAux !== arrayData[i].idSubject) {
-            $("#accordionWhats").append("<div class='card'>\n\
-                                    <div class='card-header'>\n\
+            $("#accordionWhats").append("<div class='card cardTitle'>\n\
+                                    <div class='card-header '>\n\
                                         <h3 class='card-link'>\n\
                                             <div class='subjectTitle'>\n\
                                                 <img src='../ParentWeb/recursos/img/iconos/subject.svg' alt='image' />\n\

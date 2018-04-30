@@ -47,6 +47,15 @@
         position: fixed;
         z-index: 2;
         background-color: white;
+        padding-top: 3px;
+        
+        top: 52px; //MOVIL
+        @media @tablets{ 
+            top: 68px;
+        }
+         @media @desktop{ 
+            top: 112px;
+        }
         #namesMonths{
             /* display: flex;
              text-align: center;
@@ -56,6 +65,7 @@
             align-items: baseline;
             justify-content: space-between;
             color: rgb(124, 193, 112) !important;
+            overflow: auto;
             .monthObservations{
                 padding: 3px;
                 border-radius: 5px;
@@ -138,7 +148,7 @@
             padding-top: 70px;
         }
         @media @desktop{ 
-            padding-top: 120px;
+            padding-top: 50px;
         }
         @media @desktopXL{ 
             padding-top: 120px;

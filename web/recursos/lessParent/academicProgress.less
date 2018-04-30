@@ -71,15 +71,19 @@
         margin-bottom: 10px;
 
     }
-    .card{
-        
-        .card-header{
-            border-bottom: 1px solid #bbb7b7e6;
-        }
-        .card-header:last-child {
-            border-bottom: 1px solid white;
-        }
 
+    .card:nth-child(1) {
+        border-top: 1px solid white;
+    }
+    .card{
+        border-top: 1px solid #bbb7b7e6;
+        /* .card-header{
+             border-bottom: 1px solid #bbb7b7e6;
+         }
+         .card-header:last-child {
+             border-bottom: 1px solid white;
+         }
+        */
         a{
             color: black;
         }
@@ -95,6 +99,7 @@
 
             }
         }
+
     }
     a.card-link
     {
@@ -150,31 +155,31 @@
         }
 
     }
-    
+
     .animated {
-         padding: 8px 8px 8px 16px;
-         text-decoration: none;
-         font-size: 27.5px;
-         color: white;
-         border-bottom: solid 2px white;
-         display: block;
-         transition: 0.3s;
-         @media @smartphones {
-             font-size: 14px;
-         }
-         @media @tablets{
-             font-size: x-large;
-         }
-         @media @desktop{
-             font-size: xx-large;
-         }
-         @media @desktopXL{
-             font-size: xx-large;
-         }
+        padding: 8px 8px 8px 16px;
+        text-decoration: none;
+        font-size: 27.5px;
+        color: white;
+        border-bottom: solid 2px white;
+        display: block;
+        transition: 0.3s;
+        @media @smartphones {
+            font-size: 14px;
+        }
+        @media @tablets{
+            font-size: x-large;
+        }
+        @media @desktop{
+            font-size: xx-large;
+        }
+        @media @desktopXL{
+            font-size: xx-large;
+        }
     }
-    
-    
-    
+
+
+
     a:last-child{
         margin-bottom:  @alturaNavInfTablet*2;
         @media @smartphones{
@@ -246,7 +251,7 @@
         font-size: medium;
         text-align: center;
         color: @circleOrange;
-        
+
         @media @tablets,@desktop,@desktopXL {
             font-size: xx-large;
         } 

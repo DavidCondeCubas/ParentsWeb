@@ -257,14 +257,14 @@
                 $("#nameStudent").text($("#childrensNav div").children().first().attr("title"));
             }
 
-            var resizeId;
+           var resizeId;
             $(window).resize(function () {
                 clearTimeout(resizeId);
                 resizeId = setTimeout(doneResizing, 500);
             });
 
             function doneResizing() {
-                if (currentOption === "teacherObservations") {
+                /*if (currentOption === "teacherObservations") {
                     if ($('header').width() < 769) {
                         resizeMargins();
                     } else {
@@ -272,13 +272,16 @@
                             getCirclesWeeks();
                     }
 
-                }
+                }*/
+            resizeMargins();
             }
             //<img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
         </script>
     </head>
     <body>
         <div class="col-xs-12" id="nameStudent"></div>
+        
+        <div class="col-xs-12" id="navBarDesktop"></div>     
         <div id="homepage" class="container-fluid">
             <div class="col-xs-12 col-md-12 col-lg-12">
 
@@ -325,7 +328,7 @@
         </div>
 
         <div id="teacherObservations">
-            <div id="allWeeks" class="col-xs-12">
+            <div id="allWeeks" class="col-xs-12 col-md-offset-1 col-md-10">
                 <div  id="namesMonths" class="col-xs-12 col-sm-offset-1 col-sm-10">
                 </div>
                 <div id="divCircleWeeks" class="col-xs-12 col-sm-offset-2 col-sm-8">
@@ -333,7 +336,7 @@
                     <div class="col-xs-10 weekNumbers"></div>
                 </div>
             </div>
-            <div id="divObservations" class="col-xs-12">
+            <div id="divObservations" class="col-xs-12 col-md-offset-1 col-md-10">
                 <div id="allDays" class="col-xs-1">
                     <div id="divCircleDays">
                     </div>
@@ -836,24 +839,26 @@
             </div>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12" id="navbarInferior">
-            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
-                <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfObservations" value="a_ObservationIcon.svg">
-                <img src="<c:url value='/recursos/img/iconos/a_ObservationIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations">
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfWhatIam" value="a_LearningIcon.svg">
-                <img src="<c:url value='/recursos/img/iconos/a_LearningIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfCalendar" value="a_CalendarIcon.svg">
-                <img src="<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
-                <img src="<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="More">
-            </div>
-            <div  id="navInfReport" value="a_ReportIcon.svg">
-                <img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+        <div class="col-xs-12 nopaddingMargin" id="navbarInferiorContenedor">
+            <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6" id="navbarInferior">
+                <div class="col-xs-2 col-sm-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
+                    <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2" id="navInfObservations" value="a_ObservationIcon.svg">
+                    <img src="<c:url value='/recursos/img/iconos/a_ObservationIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Teachers Observations">
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2" id="navInfWhatIam" value="a_LearningIcon.svg">
+                    <img src="<c:url value='/recursos/img/iconos/a_LearningIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="What I am learning now?">
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2" id="navInfCalendar" value="a_CalendarIcon.svg">
+                    <img src="<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
+                    <img src="<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="More">
+                </div>
+                <div  id="navInfReport" value="a_ReportIcon.svg">
+                    <img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                </div>
             </div>
         </div> 
 
