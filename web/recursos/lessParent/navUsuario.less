@@ -17,7 +17,7 @@
     margin-bottom: 2px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 2;
-    @media @smartphones{
+    @media @XSsmartphones,@smartphones{
         height: @alturaNavCell;
     }
     @media @tablets {
@@ -46,7 +46,7 @@
                     line-height: 65px; 
                     font-family: 'Montserrat', sans-serif;
                     font-size: large;
-                    @media @smartphones {
+                    @media @XSsmartphones,@smartphones {
                         height: 35px;
                         width: 35px;
                         border: 2px solid #fff;
@@ -77,7 +77,7 @@
                 .parentName{
                     margin: 0px;
                     font-size: x-large;
-                    @media @smartphones {
+                    @media @XSsmartphones,@smartphones {
                         font-size: x-small;
                     }
                     @media @tablets{
@@ -86,7 +86,7 @@
                 }
                 .termName{
                     margin: 0px;
-                    @media @smartphones, @tablets {
+                    @media @XSsmartphones,@smartphones, @tablets {
                         margin: 0px;
                         font-size: xx-small;
                     }

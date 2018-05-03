@@ -26,24 +26,29 @@
  
 @fondo:#dadada;*/
 
-
+/*@XSsmartphones: ~"only screen and (max-width: 543px)";
+@smartphones: ~"only screen and (min-width: 544px) and ( max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";*/
 #accordion{
     transition: margin-left .5s;
     padding: 20px;
-    margin-top:  @alturaNavDesktop+8;
+    margin-top:  @alturaNavDesktop + 8;
     margin-bottom: 52px;
-    @media @smartphones{
+    @media @XSsmartphones,@smartphones{
         margin-top: @alturaNavCell+8;
     }
     @media @tablets,@desktop,@desktopXL{
         margin-left: 250px;    
     }
     @media @desktop,@desktopXL{
-        margin-left: 300px;    
+        margin-left: 300px !important;    
+        margin-top:  @alturaNavDesktop + @alturaNavBarDesktop + 8;
     }
     h1{
         text-align: center;
-        @media @smartphones{
+        @media @XSsmartphones,@smartphones{
             font-size: large;
             font-weight: bold;
         }
@@ -111,7 +116,7 @@
     margin-top:  @alturaNavDesktop+5;
     margin-bottom: @alturaNavInfTablet;
 
-    @media @smartphones{
+    @media @XSsmartphones,@smartphones{
         margin-bottom: @alturaNavInfMovil;
         margin-top: @alturaNavCell+5;
     } 
@@ -120,7 +125,9 @@
         width: 250px;  
     }
     @media @desktop,@desktopXL{
-        width: 300px; 
+        display: block;
+        margin-top:  @alturaNavDesktop + @alturaNavBarDesktop + 5;
+        width: 300px  !important; 
     }
 
 
@@ -142,13 +149,14 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 
 
-    @media @smartphones {
+    @media @XSsmartphones,@smartphones {
         a:nth-child(2) {
             margin-top: 10px;
         }
         padding-top: 15px;
     }
     @media @desktop,@desktopXL{
+        width: 300px  !important;  
         padding-top: 25px;
         a:nth-child(1) {
             display:none;
@@ -164,25 +172,20 @@
         border-bottom: solid 2px white;
         display: block;
         transition: 0.3s;
-        @media @smartphones {
+        @media @XSsmartphones,@smartphones {
             font-size: 14px;
         }
-        @media @tablets{
-            font-size: x-large;
+        @media @tablets, @desktop, @desktopXL{
+            font-size: large;
         }
-        @media @desktop{
-            font-size: xx-large;
-        }
-        @media @desktopXL{
-            font-size: xx-large;
-        }
+
     }
 
 
 
     a:last-child{
         margin-bottom:  @alturaNavInfTablet*2;
-        @media @smartphones{
+        @media @XSsmartphones,@smartphones{
             margin-bottom:  @alturaNavInfMovil*2;
         }
     }
@@ -206,7 +209,7 @@
         @media @desktopXL{
             font-size: xx-large;
         }
-        @media @smartphones {
+        @media @XSsmartphones,@smartphones {
             top: -2%;
             right: 2%;
         }

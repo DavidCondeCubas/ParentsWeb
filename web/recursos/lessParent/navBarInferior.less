@@ -1,11 +1,11 @@
-/* Normal import */
+ /*Normal import */
 @import "homepage.less";
 
 /*
-@smartphones: ~"only screen and (max-width: 481px)";
-@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
-@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
-@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+@smartphones: ~"only screen and (max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";
 
 @colorCircle: #055263;
 @circleDarkBlue: #055263;
@@ -27,18 +27,29 @@
 @colorProgress: white;
  
 @fondo:#dadada;*/
+
+/*@XSsmartphones: ~"only screen and (max-width: 543px)";
+@smartphones: ~"only screen and (min-width: 544px) and ( max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";*/
+
 #navbarInferiorContenedor{
     background-color: white;
     height: @alturaNavInfTablet;
     position: fixed;
     bottom: 0px;
     z-index: 2;
-    @media @smartphones {
+    @media @XSsmartphones,@smartphones {
         height: @alturaNavInfMovil;
     }
-    @media @desktop{
+    /*@media @desktop{
         height: @alturaNavInfTabletXL;
-    }
+    }*/
+    
+     @media @desktop,@desktopXL{
+            display:none;
+        }
     #navbarInferior{
         background-color: @colorNavBar;
         height: 100%;
@@ -60,9 +71,15 @@
             /*     margin-left: 15%;
                  width: 70%;
             border-top-right-radius: 8px;
+            /*@XSsmartphones: ~"only screen and (max-width: 543px)";
+@smartphones: ~"only screen and (min-width: 544px) and ( max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";
             border-top-left-radius: 8px;*/
         }
         @media @desktop,@desktopXL{
+           
             /*  margin-left: 25%;
               width: 50%;*/
             border-top-right-radius: 10px;
@@ -70,8 +87,12 @@
         }
         img{
             width: 60%;
-            @media @smartphones {
+            
+            @media @XSsmartphones {
                 width: 100%;
+            }
+            @media @smartphones {
+                width: 50%;
             }
             @media @desktopXL{
                 width: 45%;
@@ -91,7 +112,7 @@
     width: 20%;
     height: @alturaNavInfTablet;
 
-    @media @smartphones {
+    @media @XSsmartphones,@smartphones {
         bottom: @alturaNavInfMovil;
         height: @alturaNavInfMovil;
     }
