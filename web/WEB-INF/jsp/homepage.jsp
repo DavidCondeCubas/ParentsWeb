@@ -26,7 +26,7 @@
             var mapFinalRatings;
             var currentStudent;
             var currentOption;
-            var colorVerde= "#3aaa35";
+            var colorVerde = "#3aaa35";
 
             var monthNames = ["January", "February", "March", "April", "May", "June",
                 "Jule", "August", "September", "October", "November", "December"];
@@ -39,6 +39,19 @@
                 makeCircleSons();
                 mostrarHome();
                 $("#navInfReport").hide();
+
+                $(".opcionMenuDesktop").click(function () {
+                   var idOption = $(this).attr("value");
+                   
+                   
+                   $(this).parent().children().css("background-color",colorVerde);
+                   $(this).css("background-color","#1d1d1b");
+                   
+                   $(this).parent().children().css("font-weight","");
+                   $(this).css("font-weight","bold");
+                   
+                   $("#"+idOption).click();
+                });
 
                 $(".circle").click(function () {
                     var color = $(this).css("background-color");
@@ -257,7 +270,7 @@
                 $("#nameStudent").text($("#childrensNav div").children().first().attr("title"));
             }
 
-           var resizeId;
+            var resizeId;
             $(window).resize(function () {
                 clearTimeout(resizeId);
                 resizeId = setTimeout(doneResizing, 500);
@@ -265,23 +278,41 @@
 
             function doneResizing() {
                 /*if (currentOption === "teacherObservations") {
-                    if ($('header').width() < 769) {
-                        resizeMargins();
-                    } else {
-                        if (!$("#teacherObsDesktopView").is(":visible"))
-                            getCirclesWeeks();
-                    }
-
-                }*/
-            resizeMargins();
+                 if ($('header').width() < 769) {
+                 resizeMargins();
+                 } else {
+                 if (!$("#teacherObsDesktopView").is(":visible"))
+                 getCirclesWeeks();
+                 }
+                 
+                 }*/
+                resizeMargins();
             }
+
+
+
             //<img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
         </script>
     </head>
     <body>
         <div class="col-xs-12" id="nameStudent"></div>
-        
-        <div class="col-xs-12" id="navBarDesktop"></div>     
+        <div class="col-xs-12" id="navBarDesktop">
+            <div  value="navInfProgress" class="opcionMenuDesktop">
+                Academic Progress
+            </div>
+            <div   value="navInfObservations" class="opcionMenuDesktop">
+                Teachers Observations
+            </div>
+            <div   value="navInfWhatIam" class="opcionMenuDesktop">
+                What I am learning <br>now?
+            </div>
+            <div   value="navInfCalendar" class="opcionMenuDesktop">
+                Calendar and Announcements
+            </div>
+            <div   value="navInfMore" class="opcionMenuDesktop">
+                Report Card
+            </div>
+        </div>     
         <div id="homepage" class="container-fluid">
             <div class="col-xs-12 col-md-12 col-lg-12">
 
