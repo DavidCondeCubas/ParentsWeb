@@ -85,7 +85,8 @@ public class SchoolData_Singleton {
 
     private void getSubject() {
         // carga subjects
-        String consulta = "SELECT Title,CourseID FROM AH_ZAF.dbo.Courses where active =1 and Title not like ''";
+        //solo demo active =0
+        String consulta = "SELECT Title,CourseID FROM AH_ZAF.dbo.Courses where"+/* active =1 and*/" Title not like ''";
         try {
             ResultSet rs4 = DBConect.ah.executeQuery(consulta);
 

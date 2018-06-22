@@ -16,6 +16,7 @@ function initProgressMenu(url) {
 
     $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     $("#progressStudent").show();
+
 }
 
 function getRating_Student() {
@@ -35,14 +36,16 @@ function getRating_Student() {
 
             $("#mySidenav").empty();
             $("#mySidenav").append(" <a href='javascript:void(0)' class='closebtn' onclick='closeNav()'><span class='glyphicon glyphicon-remove'></span</a>");
-  
+
+            subjects.sort(function(a,b) {return (mapSubjects[a].name > mapSubjects[b].name) ? 1 : ((mapSubjects[b].name > mapSubjects[a].name) ? -1 : 0);} ); 
+            
             for (var i = 1; i < subjects.length; i++) {
                 $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='animated zoomIn subjectsMenu'>" + mapSubjects[subjects[i]].name + "</a>");
             }
 
             $(".subjectsMenu").click(function () {
-                $(".subjectsMenu").css({'color': '','font-weight': ''});
-                $(this).css({'color': 'black','font-weight': 'bold'});
+                $(".subjectsMenu").css({'color': '', 'font-weight': ''});
+                $(this).css({'color': 'black', 'font-weight': 'bold'});
                 showObjectivesRatings($(this).attr("id"));
                 closeNav();
             });
@@ -63,31 +66,43 @@ function  showObjectivesRatings(idSubject) {
 
     $("#accordion").empty();
     $("#subjectProgress").empty();
-    
+
     $("#subjectProgress").append("<div class='col-xs-3' onclick='openNav()'><span class='glyphicon glyphicon-chevron-left'></span><span>Subjects</span></div>");
     $("#subjectProgress").append("<div class='col-xs-offset-7 col-xs-2 col-md-3 col-xs-offset-6'>" + monthNames[currentMonth.getMonth()] + "</div>");
     $("#subjectProgress").append("<div class='col-xs-12 col-md-12'>" + (mapSubjects[idSubject].name).toUpperCase() + "</div>");
-    
-    
+
+    var arr = [];
 
     $.each(mapFinalRatings, function (key, value) {
         if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
+            arr.push({
+                name: mapObjectives[key.split("_")[1]].name,
+                rating: value,
+                description: mapObjectives[key.split("_")[1]].description
+            });
+        }
+    });
+
+    arr.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);} ); 
+
+    $.each(arr, function (key, value) {
+      //  if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
             $("#accordion").append("<div class='card '>\n\
                                                 <div class='card-header'>\n\
                                                         <a class='collapsed card-link' data-toggle='collapse' href='#collapse" + key + "'>\n\
                                                             <div >\n\
-                                                            " + mapObjectives[key.split("_")[1]].name + "\
+                                                            " + value.name + "\
                                                             </div>\n\
                                                         </a>\n\
                                                         <div>\n\
                                                                 <div class='progress nopadding'>\n\
-                                                                " + drawRating(value) + "\n\
+                                                                " + drawRating(value.rating) + "\n\
                                                                 </div>\n\
                                                             </div>\n\
                                                 </div>\n\
                                                 <div id='collapse" + key + "' class='collapse' data-parent='#accordion'>\n\
                                                     <div class='card-body' style='text-align:  justify;'>\n\
-                                                        " + mapObjectives[key.split("_")[1]].description + "\n\
+                                                        " + value.description + "\n\
                                                     </div>\n\
                                                 </div>\n\
                                             </div>");
@@ -109,6 +124,13 @@ function  showObjectivesRatings(idSubject) {
          </div>\n\
          </div>\n\
          </div>");*/
+   // }
+    );
+    $(function () {
+        var $self = $(this);
+        var sortedList = $('.identifier-controls', $self).sort(function (lhs, rhs) {
+            return parseInt($(lhs).attr("data-order"), 10) - parseInt($(rhs).attr("data-order"), 10);
+        });
     });
     /*
      $.each(mapFinalRatings, function (key, value) {

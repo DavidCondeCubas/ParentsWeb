@@ -5,12 +5,12 @@
 @import "navBarInferior.less";
 @import "menuHomepage.less";
 @import "navUsuario.less";
-
+ 
 
 @XSsmartphones: ~"only screen and (max-width: 543px)";
 @smartphones: ~"only screen and (min-width: 544px) and ( max-width: 767px)";
 @tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
-@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1199px)";
 @desktopXL: ~"only screen and (min-width: 1200px)";
 
 
@@ -107,7 +107,7 @@ img
     }
 }
 #navBarDesktop{
-    display:none;
+    display:flex;
     border-bottom: solid 2px white;
     @media @desktop,@desktopXL{
         position: fixed;

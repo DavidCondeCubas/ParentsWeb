@@ -38,7 +38,7 @@ $(document).ready(function () {
         $("#infWhatPrincipal div").attr("value", $(this).attr("value"));
         $("#infWhatPrincipal div").html($(this).text().trim());
         $(this).attr("value", currentValue);
-        $(this).html(currentText + '  <span class="glyphicon glyphicon-menu-down"></span>');
+        $(this).html(currentText);
         /* $("#infWhatPrincipal ").empty().append(seleccDiv);
          $("#navInfWhatIDoing").append(CurrentDiv);
          */
@@ -69,7 +69,21 @@ function getDataWhat() {
             console.log(thrownError);
         }
     });
+}//mapObjectives[arrayData[i].idObjective].name
+function compare(a,b) {
+  if (mapSubjects[a.idSubject].name < mapSubjects[b.idSubject].name)
+    return -1;
+  else if (mapSubjects[a.idSubject].name > mapSubjects[b.idSubject].name)
+    return 1;
+  else{
+        if (mapObjectives[a.idObjective].name < mapObjectives[b.idObjective].name)
+            return -1;
+        if (mapObjectives[a.idObjective].name > mapObjectives[b.idObjective].name)
+            return 1;
+        return 0;
+  }
 }
+
 function paintDataWhat(valueSelected) {
     var arrayData;
     switch (valueSelected) {
@@ -82,7 +96,8 @@ function paintDataWhat(valueSelected) {
         default:
             arrayData = arrayFuture;
     }
-
+ //   arrayData.sort(function(a,b) {return (mapSubjects[a.idSubject].name > mapSubjects[b.idSubject].name) ? 1 : ((mapSubjects[b.idSubject].name > mapSubjects[a.idSubject].name) ? -1 : 0);} ); 
+    arrayData.sort(compare);
     $("#accordionWhats").empty();
     var idSubjectAux;
     if (arrayData.length > 0) {

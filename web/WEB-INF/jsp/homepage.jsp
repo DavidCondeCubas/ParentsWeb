@@ -39,18 +39,16 @@
                 makeCircleSons();
                 mostrarHome();
                 $("#navInfReport").hide();
-
+                $("#navBarDesktop").hide();
                 $(".opcionMenuDesktop").click(function () {
-                   var idOption = $(this).attr("value");
-                   
-                   
-                   $(this).parent().children().css("background-color",colorVerde);
-                   $(this).css("background-color","#1d1d1b");
-                   
-                   $(this).parent().children().css("font-weight","");
-                   $(this).css("font-weight","bold");
-                   
-                   $("#"+idOption).click();
+                    var idOption = $(this).attr("value");
+                    $(this).parent().children().css("background-color", colorVerde);
+                    $(this).css("background-color", "#1d1d1b");
+
+                    $(this).parent().children().css("font-weight", "");
+                    $(this).css("font-weight", "bold");
+
+                    $("#" + idOption).click();
                 });
 
                 $(".circle").click(function () {
@@ -172,30 +170,39 @@
 
             function menu(nameDiv) {
                 document.body.style.backgroundColor = "white";
+
                 hideAllOptionsContent();
                 var url = "";
                 $("#homepage").hide();
                 $("#" + nameDiv).show();
                 $("#navbarInferior").show();
+           //     $("#navBarDesktop").show();
+                if($('header').width() >= 768)     // Landscape phones
+                    $("#navBarDesktop").show();
+                    
                 switch (nameDiv) {
                     case "progressStudent":
+                        paintButtonMenu(1);
                         url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
                         initProgressMenu(url);
-
                         break;
                     case "teacherObservations":
+                        paintButtonMenu(2);
                         url = "<c:url value='/recursos/img/iconos/n_ObservationIconNaranja.svg'/>";
                         initObservationsMenu(url);
                         break;
                     case "whatIdo":
+                        paintButtonMenu(3);
                         url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
                         initWhatDoingMenu(url);
                         break;
                     case "calendar":
+                        // $("#navBarDesktop div:nth-child(4)").click();
                         currentOption = "navInfCalendar";
                         text = "How you like them apples?";
                         break;
                     case "report":
+                        //  $("#navBarDesktop div:nth-child(5)").click();
                         currentOption = "navInfReport";
                         break;
                     default: //more
@@ -286,17 +293,52 @@
                  }
                  
                  }*/
+                /*Extra small devices
+                 Portrait phones (<544px)
+                 Small devices
+                 (≥544px - <768px)
+                 Medium devices
+                 Tablets (≥768px - <992px)
+                 Large devices
+                 Desktops (≥992px - <1200px)
+                 Extra large devices
+                 Desktops (≥1200px)*/
+                if ($('header').width() < 544) {// is mobile device
+                    $("#navBarDesktop").hide();
+
+                } else if ($('header').width() < 768) {    // Landscape phones
+                    $("#navBarDesktop").hide();
+
+                } else if ($('header').width() < 992) { //Tablets 
+                    if(currentOption !== undefined)
+                        $("#navBarDesktop").show();
+                    
+                } else if ($('header').width() < 1200) { // Desktops
+                    if(currentOption !== undefined)
+                        $("#navBarDesktop").show();
+
+                } else { //Desktops
+                    if(currentOption !== undefined)
+                        $("#navBarDesktop").show();
+                    
+                }
                 resizeMargins();
             }
 
 
+            function paintButtonMenu(indice) {
 
+                $("#navBarDesktop div").css("background-color", colorVerde);
+                $("#navBarDesktop div:nth-child(" + indice + ")").css("background-color", "#1d1d1b");
+                $("#navBarDesktop div").css("font-weight", "");
+                $("#navBarDesktop div:nth-child(" + indice + ")").css("font-weight", "bold");
+            }
             //<img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
         </script>
     </head>
     <body>
         <div class="col-xs-12" id="nameStudent"></div>
-        <div class="col-xs-12" id="navBarDesktop">
+        <div class="col-md-12" id="navBarDesktop">
             <div  value="navInfProgress" class="opcionMenuDesktop">
                 Academic Progress
             </div>
@@ -367,12 +409,12 @@
                     <div class="col-xs-10 weekNumbers"></div>
                 </div>
             </div>
-            <div id="divObservations" class="col-xs-12 col-md-offset-1 col-md-10">
-                <div id="allDays" class="col-xs-1">
+            <div id="divObservations" class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+               <!-- <div id="allDays" class="col-xs-1">
                     <div id="divCircleDays">
                     </div>
-                </div>             
-                <div  id="divAllComments" class="col-xs-10 nopaddingMargin">
+                </div>            --> 
+                <div  id="divAllComments" class="col-xs-12 nopaddingMargin">
                 </div>
             </div>    
 
@@ -856,22 +898,22 @@
                 </div>
             </div>
 
-            <div class="col-xs-12" id="accordionWhats">       
+            <div class="col-xs-12 col-md-10 col-md-offset-1" id="accordionWhats">       
 
             </div>
 
             <div class="col-xs-12  nopaddingMargin" id="navInfWhatIDoing">
                 <div class="col-xs-6 infWhat btnInfNavWhat btnSecundario" value ="masterWeek" >
-                    What i mastered this week  <span class="glyphicon glyphicon-menu-down"></span>
+                    What i mastered this week  
                 </div>
                 <div class="col-xs-6 infWhat btnInfNavWhat btnSecundario"  value="plannedWeek">
-                    What I have planned next week  <span class="glyphicon glyphicon-menu-down"></span>
+                    What I have planned next week  
                 </div>
             </div>
         </div>
 
         <div class="col-xs-12 nopaddingMargin" id="navbarInferiorContenedor">
-            <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6" id="navbarInferior">
+            <div class="col-xs-12 " id="navbarInferior">
                 <div class="col-xs-2 col-sm-2 col-md-2" id="navInfProgress" value="a_ProgressIcon.svg">
                     <img src="<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Student Progress">
                 </div>

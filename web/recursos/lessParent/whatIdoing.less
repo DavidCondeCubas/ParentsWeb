@@ -5,27 +5,41 @@
 #whatsDoingPage{
     margin-top: 60px;
     margin-bottom: 80px;
-    @media @desktop,@desktopXL{
-         margin-top: @alturaNavBarDesktop + 60;
+    
+    @media @tablets{
+         margin-top: @alturaNavBarDesktop;
     }
+    @media @desktop,@desktopXL{
+        margin-top: 152px;
+    }
+    
     #infWhatPrincipal{
         position: fixed;
         left: 0;
        // padding: 3px !important;
         z-index: 2;
         top:52px;
+        
         @media @tablets{
              top: 68px;
         }
-           
+        @media @desktop,@desktopXL{
+            top: 152px;
+        }
         .infWhat{
+            padding-top: 3px;
             text-decoration: underline double;
             font-size: large;
             background-color: white;
             padding: 0px;
             text-align: center;
             color: @circleOrange;
-
+            @media @tablets{
+                margin-top: 10px;
+            }
+             @media @desktop{
+                font-size: x-large; 
+            }
         }
     }
     
@@ -47,6 +61,9 @@
             span{
                 font-size: 9px; // MOVIL SOLO 1 LINEA
             }
+            @media @desktop{
+                font-size: large; 
+            }
 
         }
         position: fixed;
@@ -58,6 +75,9 @@
 
         @media @tablets{
             bottom: 72px;
+        }
+        @media @desktop,@desktopXL{
+            bottom: 0px;
         }
         .infWhat:nth-child(2) {
             margin-left: 4%;

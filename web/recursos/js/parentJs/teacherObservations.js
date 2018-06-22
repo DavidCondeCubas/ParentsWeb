@@ -333,24 +333,29 @@ function getCommentsDay(object) {
             for (var i = 0; i < data.length; ++i) {
                 for (var k = 0; k < data[i].length; ++k) {
                     var id = data[i][k].id;
-                    $("#divCircleDays").append("<div id='divCircle" + id + "' class='circleDay' >" + (data[i][0].date).split("-")[2] + "</div>");
+                    //$("#divCircleDays").append("<div id='divCircle" + id + "' class='circleDay' >" + (data[i][0].date).split("-")[2] + "</div>");
                     $("#divAllComments").append("<div id='divOne" + id + "' class='divOneComment  col-xs-12'>\n\
-                                                <div class='divTeachers col-xs-3 ' >\n\
-                                                </div> \n\
-                                                <div class='divComments col-xs-9'> \n\
-                                                    <div class='triangDivSup'></div>\n\
-                                                    <div class='triangDivInf'></div>\n\
-                                                    <div class='divInfoComment' class='col-xs-12 nopaddingMargin'>\n\
-                                                        <strong>Type: </strong>" + data[i][k].type + "<br> \n\
-                                                        <p>" + data[i][k].observation + "</p>\n\
+                                                    <div class='col-xs-3 date_teacher nopaddingMargin'>\n\
+                                                        <div class='col-xs-4 nopaddingMargin'>\n\
+                                                            <div id='divCircle" + id + "' class='circleDay' >" + (data[i][0].date).split("-")[2] + "</div>\n\
+                                                        </div>\n\
+                                                        <div class='divTeachers col-xs-8 nopaddingMargin' >\n\
+                                                        </div> \n\
                                                     </div>\n\
-                                                </div>\n\
-                                            </div>");
+                                                    <div class='divComments col-xs-9'> \n\
+                                                        <div class='triangDivSup'></div>\n\
+                                                        <div class='triangDivInf'></div>\n\
+                                                        <div class='divInfoComment' class='col-xs-12 nopaddingMargin'>\n\
+                                                            <strong>Type: </strong>" + data[i][k].type + "<br> \n\
+                                                            <p>" + data[i][k].observation + "</p>\n\
+                                                        </div>\n\
+                                                    </div>\n\
+                                                </div>");
 
 
                     if (data[i][k].teacherFoto !== "") { // tiene foto
                         var json2 = JSON.parse(data[i][k].teacherFoto);
-                        var imageTag2 = '<div class="col-xs-12 divFotoTeacher">' + '<img id="imgPopTeacher' + id + '" class="fotoTeacher" src="" alt="image" height="100" />' + '</div>';
+                        var imageTag2 = '<div class="col-xs-12 divFotoTeacher nopaddingMargin">' + '<img id="imgPopTeacher' + id + '" class="fotoTeacher" src="" alt="image" height="100" />' + '</div>';
                         $("#divOne" + id + " .divTeachers").append(imageTag2);
                         $('#imgPopTeacher' + id).attr("src", "data:" + json2.ext + ";base64," + json2.imagen);
                         var image2 = new Image();
@@ -361,7 +366,7 @@ function getCommentsDay(object) {
                         if (data[i][k].teacherGender === "Female") {
                             nameImage = "icon_SenyoraRecio.svg";
                         }
-                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='../ParentWeb/recursos/img/iconos/" + nameImage + "' height='100'>");
+                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher nopaddingMargin'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='../ParentWeb/recursos/img/iconos/" + nameImage + "' height='100'>");
                     }
 
                     if (mapProfesores[data[i][k].nameTeacher] !== undefined)
@@ -382,16 +387,16 @@ function getCommentsDay(object) {
 
                         if (json.naturalHeight > json.naturalWidth) {//vertical
                             $('#imgPop' + id).css("height", json.naturalHeight);
-                            var marginB = parseInt($("#divOne" + id).css("height") + json.naturalHeight) - parseInt($("#divCircle" + id).css("height"));
-                            $("#divCircle" + id).css("margin-bottom", marginB + "px");
-                        } else {
+                           /* var marginB = parseInt($("#divOne" + id).css("height") + json.naturalHeight) - parseInt($("#divCircle" + id).css("height"));
+                            $("#divCircle" + id).css("margin-bottom", marginB + "px");*/
+                        }/* else {
                             var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
                             $("#divCircle" + id).css("margin-bottom", marginB + "px");
-                        }
+                        }*/
 
                     } else {
-                        var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
-                        $("#divCircle" + id).css("margin-bottom", marginB + "px");
+                       /* var marginB = parseInt($("#divOne" + id).css("height")) - parseInt($("#divCircle" + id).css("height"));
+                        $("#divCircle" + id).css("margin-bottom", marginB + "px");*/
                     }
 
 
