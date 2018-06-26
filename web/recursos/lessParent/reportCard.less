@@ -1,0 +1,26 @@
+/* Normal import */
+@import "homepage.less";
+
+#reportPage{
+    margin-top: 60px;
+    margin-bottom: 80px;
+    object{
+        @media @smartphones{
+            height: 400px;
+        }
+        @media @tablets{
+            height: 600px;
+        }
+        @media @desktop,@desktopXL{
+            height: 900px;
+        }
+    }
+    @media @tablets{
+        margin-top: @alturaNavBarDesktop;
+    }
+    @media @desktop,@desktopXL{
+        margin-top: 152px;
+    }
+
+
+}

@@ -1,7 +1,7 @@
 function initWhatDoing(url) {
     resetNavInf();
     /*currentOption = "teacherObservations";
-     $("#navInfObservations").empty();
+     $("#navInfWhatDoingObservations").empty();
      $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
      menu("teacherObservations");
      $("#navInfReport").hide();
@@ -14,8 +14,8 @@ function initWhatDoing(url) {
     $("#navInfWhatIam").empty();
     $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
     menu("whatIdo");
-    $("#navInfReport").hide();
-    $("#navInfMore").attr("value", "a_MenuIcon.svg");
+   // $("#navInfReport").hide();
+    //$("#navInfMore").attr("value", "a_MenuIcon.svg");
 }
 
 function initWhatDoingMenu(url) {
@@ -114,7 +114,15 @@ function paintDataWhat(valueSelected) {
                                 </div>");
     }
     for (var i = 0; i < arrayData.length; i++) {
-        var totalSteps = mapObjectives[arrayData[i].idObjective].arraySteps.length;
+        
+        var totalSteps = 0;
+        var nameObjective = "No objective";
+        var steps = [];
+        if(arrayData[i].idObjective !== "-1"){
+                    totalSteps = mapObjectives[arrayData[i].idObjective].arraySteps.length;
+                    nameObjective = mapObjectives[arrayData[i].idObjective].name;
+                    steps = mapObjectives[arrayData[i].idObjective].arraySteps;
+        }
         
         var objSuccess = arrayData[i].ObjectivesSuccess;
         if(valueSelected === "masterWeek") 
@@ -132,19 +140,21 @@ function paintDataWhat(valueSelected) {
                                     </div>\n\
                                 </div>");
         }
+        
+
         $("#accordionWhats").append("<div class='card'>\n\
                                     <div class='card-header'>\n\
                                         <a class='collapsed card-link' data-toggle='collapse' href='#collapse"+i+"'>\n\
                                             <div>\n\
                                                 <img src='../ParentWeb/recursos/img/iconos/target.svg' alt='image' />\n\
-                                                <div>" + mapObjectives[arrayData[i].idObjective].name + "</div>\n\
+                                                <div>" + nameObjective + "</div>\n\
                                             </div>\n\
                                         </a>\n\
                                         <div class= 'accorSteps'>"+makeSteps(objSuccess,totalSteps)+"</div>\n\
                                     </div>\n\
                                     <div id='collapse"+i+"' class='collapse' data-parent='#accordion'>\n\
                                         <div class='card-body'>\n\
-                                            <ul id='menu'>"+makeNamesObjectives(objSuccess,totalSteps,mapObjectives[arrayData[i].idObjective].arraySteps)+"</ul>\n\
+                                            <ul id='menu'>"+makeNamesObjectives(objSuccess,totalSteps,steps)+"</ul>\n\
                                         </div>\n\
                                     </div>\n\
                                 </div>");

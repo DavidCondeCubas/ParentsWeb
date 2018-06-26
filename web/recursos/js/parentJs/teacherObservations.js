@@ -14,8 +14,8 @@ function initObservations(url) {
     $("#navInfObservations").empty();
     $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
     menu("teacherObservations");
-    $("#navInfReport").hide();
-    $("#navInfMore").attr("value", "a_MenuIcon.svg");
+  //  $("#navInfReport").hide();
+    //$("#navInfMore").attr("value", "a_MenuIcon.svg");
 
 }
 function initObservationsMenu(url) {

@@ -679,4 +679,72 @@ public class Homepage extends MultiActionController {
         }
         return "";
     }
+    
+    @RequestMapping("/getReport.htm")
+    @ResponseBody
+       public String getReport(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        try {
+            /*URL url = new URL("ftp://AH-ZAF:e3f14+7mANDp@ftp2.renweb.com/Pictures/" + photoName);
+            URLConnection conn = url.openConnection();
+            InputStream inStream = conn.getInputStream();*/
+            //***********
+            String termId="",yearId="";
+             String studentId = request.getParameter("idStudent");
+            ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
+            while (rs.next()) {
+                termId = "" + rs.getInt("defaulttermid");
+                yearId = "" + rs.getInt("defaultyearid");
+            }
+            
+            String server = "192.168.1.36";
+            int port = 21;
+            String user = "david";
+            String pass = "david";
+
+            JSONObject json = new JSONObject();
+
+            String filepath = "/ReportCards/" + yearId+"/"+termId+"/10179/report.pdf";
+            FTPClient ftpClient = new FTPClient();
+            ftpClient.connect(server, port);
+            ftpClient.login(user, pass);
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+            //LIMITAR NO EXISTE
+
+            InputStream inStream = ftpClient.retrieveFileStream(filepath);
+            if (inStream != null) {
+                // gets MIME type of the file
+                String mimeType = "";
+                //String filepath = url.getPath();
+                int i = filepath.length() - 1;
+                while (filepath.charAt(i) != '.') {
+                    mimeType = filepath.charAt(i) + mimeType;
+                    i--;
+                }
+                mimeType = '.' + mimeType;
+
+                //
+                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+                int nRead;
+                byte[] data = new byte[1024];
+                while ((nRead = inStream.read(data, 0, data.length)) != -1) {
+                    buffer.write(data, 0, nRead);
+                }
+
+                buffer.flush();
+                byte[] buf = buffer.toByteArray();
+                //
+                // byte[] buf = new byte[inStream.available()];
+                inStream.read(buf);
+                String imagen = Base64.getEncoder().encodeToString(buf);
+                json.put("report", imagen);
+                json.put("ext", mimeType);
+                ftpClient.disconnect();
+                return json.toString();
+                //**********
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return "";
+    }
 }

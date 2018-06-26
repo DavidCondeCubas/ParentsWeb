@@ -1,0 +1,343 @@
+/* Normal import */
+@import "homepage.less";
+
+#calendarPage{
+    margin-bottom: 65px;
+
+    @media @tablets{
+        margin-top: @alturaNavBarDesktop+10;
+    }
+    @media @desktop,@desktopXL{
+        margin-top: 162px;
+    }
+
+    #announcements{
+        .contenedorAnnon{
+            background-color: #efefef;
+            border-radius: 10px;
+
+            padding-bottom: 10px;
+            .titleCalendar{
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #3aaa35;
+                font-size: large;
+                font-weight: bold;
+                text-align: center;
+                @media @tablets{
+
+                }
+                @media @desktop,@desktopXL{
+
+                }
+            }
+            img{
+                width: 70%;
+                @media @tablets{
+                    width: 50%;
+                }
+
+            }
+            .firstFormatCalendar{
+                background-color: #8bc26e;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                div{
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .secondFormatCalendar{
+                background-color: white;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                div{
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+        margin-bottom: 50px;
+    }
+    #schoolCalendar{
+        border-left: solid 2px #efefef;
+        @media @tablets{
+
+        }
+        .contenedorAnnon{
+
+            background-color: #efefef;
+            border-radius: 10px;
+
+            padding-bottom: 10px;
+            .titleCalendar{
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #3aaa35;
+                font-size: large;
+                font-weight: bold;
+                text-align: center;
+                @media @tablets{
+
+                }
+                @media @desktop,@desktopXL{
+
+                }
+            }
+            img{
+                width: 70%;
+            }
+            .firstFormatCalendar{
+                background-color: #8bc26e;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                text-align: center;
+                div{
+
+                    div{
+                        display: flex;
+                        /* justify-items: center; */
+                        /* align-items: center; */
+                        /* align-content: center; */
+                        justify-content: center;
+                        .fechaSchool{
+                            background-color: #8bc26e;
+                            display: inline-block;
+                            color: black;
+                            border: 1px solid white;
+                            padding: 4px;
+                            border-radius: 5px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+        .secondFormatCalendar{
+            background-color: #efefef;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            border: solid 1px white;
+            text-align: center;
+            div{
+
+                div{
+                    display: flex;
+                    /* justify-items: center; */
+                    /* align-items: center; */
+                    /* align-content: center; */
+                    justify-content: center;
+                    .fechaSchool{
+                        background-color: #efefef;
+                        display: inline-block;
+                        color: black;
+                        border: 1px solid white;
+                        padding: 4px;
+                        border-radius: 5px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        margin-bottom: 50px;
+    }
+    #todayEvents{
+        border-left: solid 2px #efefef;
+        @media @tablets{
+
+        }
+        .contenedorAnnon{
+
+            background-color: #efefef;
+            border-radius: 10px;
+
+            padding-bottom: 10px;
+            .titleCalendar{
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #3aaa35;
+                font-size: large;
+                font-weight: bold;
+                text-align: center;
+                @media @tablets{
+
+                }
+                @media @desktop,@desktopXL{
+
+                }
+            }
+            img{
+                width: 70%;
+            }
+            .firstFormatCalendar{
+                background-color: white;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                text-align: center;
+                div{
+
+                    div{
+                        display: flex;
+                        /* justify-items: center; */
+                        /* align-items: center; */
+                        /* align-content: center; */
+                        justify-content: center;
+                        .fechaSchool{
+                            background-color: white;
+                            display: inline-block;
+                            color: black;
+                            border: 1px solid #efefef;
+                            padding: 4px;
+                            border-radius: 5px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+        .secondFormatCalendar{
+            background-color: #efefef;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            border: solid 1px white;
+            text-align: center;
+            div{
+
+                div{
+                    display: flex;
+                    /* justify-items: center; */
+                    /* align-items: center; */
+                    /* align-content: center; */
+                    justify-content: center;
+                    .fechaSchool{
+                        background-color: #efefef;
+                        display: inline-block;
+                        color: black;
+                        border: 1px solid white;
+                        padding: 4px;
+                        border-radius: 5px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        margin-bottom: 50px;
+    }
+    #tomorrowEvents{
+
+        @media @tablets{
+
+        }
+        .contenedorAnnon{
+
+            background-color: #efefef;
+            border-radius: 10px;
+
+            padding-bottom: 10px;
+            .titleCalendar{
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #3aaa35;
+                font-size: large;
+                font-weight: bold;
+                text-align: center;
+                @media @tablets{
+
+                }
+                @media @desktop,@desktopXL{
+
+                }
+            }
+            img{
+                width: 70%;
+            }
+            .firstFormatCalendar{
+                background-color: white;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                text-align: center;
+                div{
+
+                    div{
+                        display: flex;
+                        /* justify-items: center; */
+                        /* align-items: center; */
+                        /* align-content: center; */
+                        justify-content: center;
+                        .fechaSchool{
+                            background-color: white;
+                            display: inline-block;
+                            color: black;
+                            border: 1px solid #efefef;
+                            padding: 4px;
+                            border-radius: 5px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+        .secondFormatCalendar{
+            background-color: #efefef;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            border: solid 1px white;
+            text-align: center;
+            div{
+
+                div{
+                    display: flex;
+                    /* justify-items: center; */
+                    /* align-items: center; */
+                    /* align-content: center; */
+                    justify-content: center;
+                    .fechaSchool{
+                        background-color: #efefef;
+                        display: inline-block;
+                        color: black;
+                        border: 1px solid white;
+                        padding: 4px;
+                        border-radius: 5px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        margin-bottom: 50px;
+    }
+
+
+}

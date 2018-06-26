@@ -5,8 +5,8 @@ function initProgress(url) {
 
     $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
     menu("progressStudent");
-    $("#navInfReport").hide();
-    $("#navInfMore").attr("value", "a_MenuIcon.svg");
+  //  $("#navInfReport").hide();
+    //$("#navInfMore").attr("value", "a_MenuIcon.svg");
 }
 
 function initProgressMenu(url) {
@@ -40,7 +40,8 @@ function getRating_Student() {
             subjects.sort(function(a,b) {return (mapSubjects[a].name > mapSubjects[b].name) ? 1 : ((mapSubjects[b].name > mapSubjects[a].name) ? -1 : 0);} ); 
             
             for (var i = 1; i < subjects.length; i++) {
-                $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='animated zoomIn subjectsMenu'>" + mapSubjects[subjects[i]].name + "</a>");
+                $("#mySidenav").append("<a id='" + subjects[i] + "' href='#' class='animated zoomIn subjectsMenu'>" + mapSubjects[subjects[i]].name +"\
+<span class='badge badge-light'>"+countObjectives(subjects[i])+"</span></a>");
             }
 
             $(".subjectsMenu").click(function () {
@@ -59,6 +60,15 @@ function getRating_Student() {
             console.log(thrownError);
         }
     });
+}
+function countObjectives(idSubjects){
+    var cont =0;
+    $.each(mapFinalRatings, function (key, value) {
+        if (mapObjectives[key.split("_")[1]].idSubject == idSubjects) {
+            cont++;
+        }
+    });
+    return cont;
 }
 
 function  showObjectivesRatings(idSubject) {
@@ -84,7 +94,17 @@ function  showObjectivesRatings(idSubject) {
     });
 
     arr.sort(function(a,b) {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);} ); 
-
+    if(arr.length === 0){
+        $("#accordion").append("<div class='card '>\n\
+                                                <div class='card-header'>\n\
+                                                        <a class='collapsed card-link' data-toggle='collapse' >\n\
+                                                          <div>\n\
+                                                            Without qualified objectives\n\
+                                                          </div>\n\
+                                                        </a>\n\
+                                                </div>\n\
+                                </div>");
+    }
     $.each(arr, function (key, value) {
       //  if (mapObjectives[key.split("_")[1]].idSubject == idSubject) {
             $("#accordion").append("<div class='card '>\n\

@@ -36,9 +36,12 @@
                 "#ff9529", "#451c8c", "#3d962d", "#054663"];
 
             $(document).ready(function () {
+
+
+
                 makeCircleSons();
                 mostrarHome();
-                $("#navInfReport").hide();
+                //$("#navInfReport").hide();
                 $("#navBarDesktop").hide();
                 $(".opcionMenuDesktop").click(function () {
                     var idOption = $(this).attr("value");
@@ -85,7 +88,7 @@
                             break;
                         case "navInfWhatIam":
                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
-                            initWhatDoing(url)
+                            initWhatDoing(url);
 
                             /* resetNavInf();
                              currentOption = "whatIdo";
@@ -97,24 +100,27 @@
                              $("#navInfMore").attr("value", "a_MenuIcon.svg");*/
                             break;
                         case "navInfCalendar":
-                            resetNavInf();
-                            currentOption = "calendar";
-                            $("#navInfCalendar").empty();
+
                             url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
-                            $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
-                            menu("calendar");
-                            $("#navInfReport").hide();
-                            $("#navInfMore").attr("value", "a_MenuIcon.svg");
-                            break;
-                        case "navInfReport":
-                            resetNavInf();
-                            currentOption = "report";
-                            $("#navInfReport").empty();
-                            url = "<c:url value='/recursos/img/iconos/n_ReportIconNaranja.svg'/>";
-                            $("#navInfReport").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
-                            menu("report");
+                            initCalendar(url);
+                            //  $("#navInfMore").attr("value", "a_MenuIcon.svg");
 
                             break;
+                        case "navInfReport":
+                            /*  resetNavInf();
+                             currentOption = "report";
+                             $("#navInfReport").empty();
+                             url = "<c:url value='/recursos/img/iconos/n_ReportIconNaranja.svg'/>";
+                             $("#navInfReport").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
+                             menu("report");
+                             $("#navInfReport").hide();
+                             $("#navInfMore").attr("value", "a_MenuIcon.svg");*/
+
+                            url = "<c:url value='/recursos/img/iconos/n_ReportIconNaranja.svg'/>";
+                            initReportCard(url);
+
+                            ;
+                            break
 
                         default: //more
                             var prevState = $("#navInfMore").attr("value") === "a_MenuIcon.svg";
@@ -166,6 +172,8 @@
                 $("#teacherObservations").hide();
                 $("#teacherObsDesktopView").hide();
                 $("#whatsDoingPage").hide();
+                $("#reportPage").hide();
+                $("#calendarPage").hide();
             }
 
             function menu(nameDiv) {
@@ -176,10 +184,10 @@
                 $("#homepage").hide();
                 $("#" + nameDiv).show();
                 $("#navbarInferior").show();
-           //     $("#navBarDesktop").show();
-                if($('header').width() >= 768)     // Landscape phones
+                //     $("#navBarDesktop").show();
+                if ($('header').width() >= 768)     // Landscape phones
                     $("#navBarDesktop").show();
-                    
+
                 switch (nameDiv) {
                     case "progressStudent":
                         paintButtonMenu(1);
@@ -197,13 +205,16 @@
                         initWhatDoingMenu(url);
                         break;
                     case "calendar":
-                        // $("#navBarDesktop div:nth-child(4)").click();
-                        currentOption = "navInfCalendar";
-                        text = "How you like them apples?";
+                        paintButtonMenu(4);
+                        url = "<c:url value='/recursos/img/iconos/n_CalendarIconNaranja.svg'/>";
+                        initCalendarMenu(url);
                         break;
                     case "report":
                         //  $("#navBarDesktop div:nth-child(5)").click();
-                        currentOption = "navInfReport";
+                        paintButtonMenu(5);
+                        url = "<c:url value='/recursos/img/iconos/n_ReportIconNaranja.svg'/>";
+                        initReportCardMenu(url);
+
                         break;
                     default: //more
                         text = "I have never heard of that fruit...";
@@ -248,6 +259,8 @@
                 $("#progressStudent").hide();
                 $("#teacherObservations").hide();
                 $("#whatsDoingPage").hide();
+                $("#calendarPage").hide();
+                $("#reportPage").hide();
                 $("#navbarInferior").hide();
                 $("#homepage").show();
             }
@@ -310,17 +323,17 @@
                     $("#navBarDesktop").hide();
 
                 } else if ($('header').width() < 992) { //Tablets 
-                    if(currentOption !== undefined)
+                    if (currentOption !== undefined)
                         $("#navBarDesktop").show();
-                    
+
                 } else if ($('header').width() < 1200) { // Desktops
-                    if(currentOption !== undefined)
+                    if (currentOption !== undefined)
                         $("#navBarDesktop").show();
 
                 } else { //Desktops
-                    if(currentOption !== undefined)
+                    if (currentOption !== undefined)
                         $("#navBarDesktop").show();
-                    
+
                 }
                 resizeMargins();
             }
@@ -333,6 +346,59 @@
                 $("#navBarDesktop div").css("font-weight", "");
                 $("#navBarDesktop div:nth-child(" + indice + ")").css("font-weight", "bold");
             }
+            function downloadPdf() {
+                var pdfResult = $("#objectPdf").attr("data").split(',')[1];
+                let pdfWindow = window.open("");
+                pdfWindow.document.write("<iframe width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(pdfResult) + "'></iframe>");
+            }
+            function downloadPdf_2() {
+                var out = $("#objectPdf").attr("data");
+                window.open(out);
+            }
+
+            function functionPdf_3() {
+                var pdfResult = $("#objectPdf").attr("data").split(',')[1];
+                solution1(pdfResult);
+            }
+            function solution1(base64Data) {
+
+                var arrBuffer = base64ToArrayBuffer(base64Data);
+
+                // It is necessary to create a new blob object with mime-type explicitly set
+                // otherwise only Chrome works like it should
+                var newBlob = new Blob([arrBuffer], {type: "application/pdf"});
+
+                // IE doesn't allow using a blob object directly as link href
+                // instead it is necessary to use msSaveOrOpenBlob
+                if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                    window.navigator.msSaveOrOpenBlob(newBlob);
+                    return;
+                }
+
+                // For other browsers: 
+                // Create a link pointing to the ObjectURL containing the blob.
+                var data = window.URL.createObjectURL(newBlob);
+
+                var link = document.createElement('a');
+                document.body.appendChild(link); //required in FF, optional for Chrome
+                link.href = data;
+                link.download = "file.pdf";
+                link.click();
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }
+
+            function base64ToArrayBuffer(data) {
+                var binaryString = window.atob(data);
+                var binaryLen = binaryString.length;
+                var bytes = new Uint8Array(binaryLen);
+                for (var i = 0; i < binaryLen; i++) {
+                    var ascii = binaryString.charCodeAt(i);
+                    bytes[i] = ascii;
+                }
+                return bytes;
+            }
+            ;
             //<img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
         </script>
     </head>
@@ -351,7 +417,7 @@
             <div   value="navInfCalendar" class="opcionMenuDesktop">
                 Calendar and Announcements
             </div>
-            <div   value="navInfMore" class="opcionMenuDesktop">
+            <div   value="navInfReport" class="opcionMenuDesktop">
                 Report Card
             </div>
         </div>     
@@ -383,7 +449,7 @@
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-offset-1 col-sm-5 col-md-offset-0 col-md-4 col-lg-offset-0 col-lg-4">
-                    <div class="btnHomepage col-xs-12" value="reportCard" style="background-color:#fd8469;">
+                    <div class="btnHomepage col-xs-12" value="report" style="background-color:#fd8469;">
                         <img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                         <p>Report Card</P>
                     </div>
@@ -410,10 +476,10 @@
                 </div>
             </div>
             <div id="divObservations" class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-               <!-- <div id="allDays" class="col-xs-1">
-                    <div id="divCircleDays">
-                    </div>
-                </div>            --> 
+                <!-- <div id="allDays" class="col-xs-1">
+                     <div id="divCircleDays">
+                     </div>
+                 </div>            --> 
                 <div  id="divAllComments" class="col-xs-12 nopaddingMargin">
                 </div>
             </div>    
@@ -926,14 +992,260 @@
                 <div class="col-xs-2 col-sm-2 col-md-2" id="navInfCalendar" value="a_CalendarIcon.svg">
                     <img src="<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Calendar and Announcements">
                 </div>
-                <div class="col-xs-2 col-sm-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
+                <!--<div class="col-xs-2 col-sm-2 col-md-2" id="navInfMore" value="a_MenuIcon.svg">
                     <img src="<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="More">
-                </div>
-                <div  id="navInfReport" value="a_ReportIcon.svg">
+                </div>-->
+                <div class="col-xs-2 col-sm-2 col-md-2"  id="navInfReport" value="a_ReportIcon.svg">
                     <img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                 </div>
             </div>
         </div> 
+        <div id="calendarPage">
+            <div id="announcements" class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-xs-12 contenedorAnnon">
+                    <div class="col-xs-12 titleCalendar">
+                        Announcements        
+                    </div>                   
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-2 nopaddingMargin">
+                                <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                            </div>
+                            <div class="col-xs-10 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin ">
+                            <div class="col-xs-2 nopaddingMargin">
+                                <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                            </div>
+                            <div class="col-xs-10  nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-2 nopaddingMargin">
+                                <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                            </div>
+                            <div class="col-xs-10 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-2 nopaddingMargin">
+                                <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                            </div>
+                            <div class="col-xs-10  nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div>  
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-2 nopaddingMargin">
+                                <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                            </div>
+                            <div class="col-xs-10 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-2 nopaddingMargin">
+                                <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+                            </div>
+                            <div class="col-xs-10  nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div>
 
+                </div> 
+            </div>
+            <div id="schoolCalendar" class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-xs-12 contenedorAnnon">
+                    <div class="col-xs-12 titleCalendar">
+                        School Calendar: Dates to note     
+                    </div>                   
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                </div>
+            </div>
+            <div id="todayEvents" class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-xs-12 contenedorAnnon">
+                    <div class="col-xs-12 titleCalendar">
+                       Today´s Events     
+                    </div>                   
+
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                </div>
+            </div>
+             <div id="tomorrowEvents" class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-xs-12 contenedorAnnon">
+                    <div class="col-xs-12 titleCalendar">
+                       Tomorrow´s Events     
+                    </div>                   
+
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/04/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div id="reportPage" class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 ">
+            <object id="objectPdf" data="" type="application/pdf" width="100%" height="100%">
+                <p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a id="linkPdf" href="">Download PDF</a>.</p>
+            </object>
+            <div class="col-xs-12">
+                <button onclick="downloadPdf_2()"> test 2 </button>
+                <button onclick="downloadPdf()"> test 1 </button>
+                <button onclick="downloadPdf_3()"> test 3</button>
+            </div>
+        </div>
     </body>
 </html>
