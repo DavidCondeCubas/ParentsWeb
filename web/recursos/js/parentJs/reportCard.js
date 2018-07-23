@@ -19,9 +19,11 @@ function initReportCard(url) {
     currentOption = "report";
     $("#navInfReport").empty();
     $("#navInfReport").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
+
+
     menu("report");
-  /*  $("#navInfReport").hide();
-    $("#navInfMore").attr("value", "a_MenuIcon.svg");*/
+    /*  $("#navInfReport").hide();
+     $("#navInfMore").attr("value", "a_MenuIcon.svg");*/
 }
 
 function initReportCardMenu(url) {
@@ -33,7 +35,11 @@ function initReportCardMenu(url) {
 }
 
 $(document).ready(function () {
-
+    var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (is_safari) {
+        $("#idObjectReport").empty();
+        $("#idObjectReport").append("<p>This browser does not support PDFs. Please download the PDF to view it: <a id='linkPdf' onclick='downloadPdf()'>Download PDF</a>.</p>");
+    }
 
 });
 
@@ -62,4 +68,37 @@ function getReport() {
             console.log(thrownError);
         }
     });
+
+
+}
+
+function downloadPdf() {
+
+    var blob = b64toBlob($("#objectPdf").attr("data").split(',')[1], 'application/pdf');
+    var blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl);
+}
+
+function b64toBlob(b64Data, contentType, sliceSize) {
+    contentType = contentType || '';
+    sliceSize = sliceSize || 512;
+
+    var byteCharacters = atob(b64Data);
+    var byteArrays = [];
+
+    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        var byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+    }
+
+    var blob = new Blob(byteArrays, {type: contentType});
+    return blob;
 }

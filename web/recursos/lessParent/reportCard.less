@@ -4,22 +4,37 @@
 #reportPage{
     margin-top: 60px;
     margin-bottom: 80px;
-    object{
-        @media @smartphones{
-            height: 400px;
-        }
-        @media @tablets{
-            height: 600px;
-        }
-        @media @desktop,@desktopXL{
-            height: 900px;
+    background-color: #efefef;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    .tittleReport{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3aaa35;
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+    }
+    .objectReport{        
+        object{
+            @media @smartphones{
+                height: 400px;
+            }
+            @media @tablets{
+                height: 600px;
+            }
+            @media @desktop,@desktopXL{
+                height: 900px;
+            }
         }
     }
     @media @tablets{
         margin-top: @alturaNavBarDesktop;
     }
     @media @desktop,@desktopXL{
-        margin-top: 152px;
+        margin-top: 162px;
     }
 
 

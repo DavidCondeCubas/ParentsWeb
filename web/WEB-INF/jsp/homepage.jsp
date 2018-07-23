@@ -164,7 +164,7 @@
 
 
                 });
-
+                
             });
 
             function hideAllOptionsContent() {
@@ -346,59 +346,9 @@
                 $("#navBarDesktop div").css("font-weight", "");
                 $("#navBarDesktop div:nth-child(" + indice + ")").css("font-weight", "bold");
             }
-            function downloadPdf() {
-                var pdfResult = $("#objectPdf").attr("data").split(',')[1];
-                let pdfWindow = window.open("");
-                pdfWindow.document.write("<iframe width='100%' height='100%' src='data:application/pdf;base64, " + encodeURI(pdfResult) + "'></iframe>");
-            }
-            function downloadPdf_2() {
-                var out = $("#objectPdf").attr("data");
-                window.open(out);
-            }
 
-            function functionPdf_3() {
-                var pdfResult = $("#objectPdf").attr("data").split(',')[1];
-                solution1(pdfResult);
-            }
-            function solution1(base64Data) {
 
-                var arrBuffer = base64ToArrayBuffer(base64Data);
 
-                // It is necessary to create a new blob object with mime-type explicitly set
-                // otherwise only Chrome works like it should
-                var newBlob = new Blob([arrBuffer], {type: "application/pdf"});
-
-                // IE doesn't allow using a blob object directly as link href
-                // instead it is necessary to use msSaveOrOpenBlob
-                if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-                    window.navigator.msSaveOrOpenBlob(newBlob);
-                    return;
-                }
-
-                // For other browsers: 
-                // Create a link pointing to the ObjectURL containing the blob.
-                var data = window.URL.createObjectURL(newBlob);
-
-                var link = document.createElement('a');
-                document.body.appendChild(link); //required in FF, optional for Chrome
-                link.href = data;
-                link.download = "file.pdf";
-                link.click();
-                window.URL.revokeObjectURL(data);
-                link.remove();
-            }
-
-            function base64ToArrayBuffer(data) {
-                var binaryString = window.atob(data);
-                var binaryLen = binaryString.length;
-                var bytes = new Uint8Array(binaryLen);
-                for (var i = 0; i < binaryLen; i++) {
-                    var ascii = binaryString.charCodeAt(i);
-                    bytes[i] = ascii;
-                }
-                return bytes;
-            }
-            ;
             //<img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
         </script>
     </head>
@@ -1012,7 +962,7 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                <strong>Activities Calendar 2018</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1022,7 +972,8 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10  nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                <strong>Assembly orientation montessori methodology</strong><br>
+                                Presenter: Vincent Watters.
                             </div>
                         </div>            
                     </div> 
@@ -1032,7 +983,8 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                               <strong>Renweb platform in Spanish and English</strong><br>
+                               Orientation on changing the language in ParentWEB.
                             </div>
                         </div>            
                     </div> 
@@ -1042,7 +994,8 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10  nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                  <strong>Registration open for football team.</strong><br>
+                               
                             </div>
                         </div>            
                     </div>  
@@ -1052,7 +1005,8 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                  <strong>June´s menu</strong><br>
+                             
                             </div>
                         </div>            
                     </div> 
@@ -1062,7 +1016,9 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10  nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                 <strong>Flag raising ceremony</strong><br>
+                               There will be a flag raising ceremony next Monday. All
+                               students must wear white uniforms.Don´t be late. 
                             </div>
                         </div>            
                     </div>
@@ -1082,7 +1038,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                <strong>2018: Term End</strong> 
                             </div>
                         </div>            
                     </div> 
@@ -1090,11 +1046,11 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    07/10/2018
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1102,11 +1058,11 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    07/11/2018
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1114,11 +1070,11 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    07/12/2018
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                              <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1126,11 +1082,11 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    07/13/2018
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                               <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1138,11 +1094,11 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    07/14/2018
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                             <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1150,11 +1106,11 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    07/15/2018
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                                <strong>Winter vacations</strong> 
                             </div>
                         </div>            
                     </div> 
@@ -1162,27 +1118,112 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    07/16/2018
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                                Lorem Ipsum has been the industry's standard dummy. 
+                              <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
+                     <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/17/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                <strong>Winter vacations</strong> 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/18/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                              <strong>Winter vacations</strong>
+                            </div>
+                        </div>            
+                    </div> 
+                     <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/19/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                <strong>2018: Term2 Begin</strong> 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/20/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                              <strong>Teacher´s day</strong>
+                            </div>
+                        </div>            
+                    </div> 
+                     <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    07/25/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                <strong>Assembly</strong> 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 secondFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    08/01/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                              <strong>Progress Report</strong>
+                            </div>
+                        </div>            
+                    </div> 
+                     <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    08/02/2018
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                <strong>Parent's meeting</strong> 
+                            </div>
+                        </div>            
+                    </div> 
+                    
                 </div>
             </div>
             <div id="todayEvents" class="col-xs-12 col-md-6 col-lg-3">
                 <div class="col-xs-12 contenedorAnnon">
                     <div class="col-xs-12 titleCalendar">
-                       Today´s Events     
+                        Today´s Events     
                     </div>                   
 
                     <div class="col-xs-12 firstFormatCalendar">
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    09:00 h
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
@@ -1194,7 +1235,7 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    10:30 h
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
@@ -1204,17 +1245,17 @@
                     </div> 
                 </div>
             </div>
-             <div id="tomorrowEvents" class="col-xs-12 col-md-6 col-lg-3">
+            <div id="tomorrowEvents" class="col-xs-12 col-md-6 col-lg-3">
                 <div class="col-xs-12 contenedorAnnon">
                     <div class="col-xs-12 titleCalendar">
-                       Tomorrow´s Events     
+                        Tomorrow´s Events     
                     </div>                   
 
                     <div class="col-xs-12 firstFormatCalendar">
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    09:00 h
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
@@ -1226,7 +1267,19 @@
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
-                                    07/04/2018
+                                    10:00 h
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
+                                Lorem Ipsum has been the industry's standard dummy. 
+                            </div>
+                        </div>            
+                    </div> 
+                    <div class="col-xs-12 firstFormatCalendar">
+                        <div class="col-xs-12 nopaddingMargin">
+                            <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
+                                <div class="fechaSchool">
+                                    12:00
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
@@ -1238,13 +1291,13 @@
             </div>
         </div>
         <div id="reportPage" class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 ">
-            <object id="objectPdf" data="" type="application/pdf" width="100%" height="100%">
-                <p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a id="linkPdf" href="">Download PDF</a>.</p>
-            </object>
-            <div class="col-xs-12">
-                <button onclick="downloadPdf_2()"> test 2 </button>
-                <button onclick="downloadPdf()"> test 1 </button>
-                <button onclick="downloadPdf_3()"> test 3</button>
+            <div class="col-xs-12 tittleReport">
+                Last Report card
+            </div>
+            <div id="idObjectReport" class="col-xs-12 objectReport">        
+                <object id="objectPdf" data="" type="application/pdf" width="100%" height="100%">
+                    <p>This browser does not support PDFs. Please download the PDF to view it: <a id="linkPdf" onclick="downloadPdf()">Download PDF</a>.</p>
+                </object>
             </div>
         </div>
     </body>

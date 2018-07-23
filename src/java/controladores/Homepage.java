@@ -50,6 +50,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 @RequestMapping("/")
 public class Homepage extends MultiActionController {
@@ -310,7 +311,8 @@ public class Homepage extends MultiActionController {
         try {
             ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
             while (rs.next()) {
-                termid = "" + rs.getInt("defaulttermid");
+              //  termid = "" + rs.getInt("defaulttermid"); SOLO PARA DEMO
+                termid = "2";
                 yearid = "" + rs.getInt("defaultyearid");
             }
 
@@ -325,8 +327,7 @@ public class Homepage extends MultiActionController {
             timestampBefore = new Timestamp(cal.getTimeInMillis());
             String beforeDate = "" + timestampBefore;
 
-           
-            String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.student_id = "+id+" and a.yearterm_id=" + yearid + " and a.term_id= " + termid + " and a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
+            String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.student_id = " + id + " and a.yearterm_id=" + yearid + " and a.term_id= " + termid + " and a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
             //pruebas
             //String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
 
@@ -343,11 +344,11 @@ public class Homepage extends MultiActionController {
                 auxData.setIdObjective(rs1.getString("objective_id")); // idobjective
                 auxData.setObjectivesSuccess(numSteps); //numSteps
                 auxData.setIdSubject("" + rs1.getInt("subject_id"));
-                
+
                 String nameAux = rs1.getString("name");
                 if (nameAux.equals("Mastered")) {
                     arrayMastered.add(auxData);
-                } else if(nameAux.equals("Attempted")){
+                } else if (nameAux.equals("Attempted")) {
                     arrayAttemp.add(auxData);
                 }
 
@@ -362,11 +363,11 @@ public class Homepage extends MultiActionController {
             currentDate = "" + timestampBefore;
 
             //String consulta = "SELECT rating_id,student_id,objective_id,step_id,rating.name FROM progress_report inner join rating on rating.id = rating_id where yearterm_id="+yearid+" and student_id="+id+" and term_id= "+termid+" and comment_date between '"+beforeDate+"' and '"+currentDate+"'";    
-            consulta = "SELECT DISTINCT objective_id,subject_id FROM lesson_stud_att inner join lessons on lesson_stud_att.lesson_id = lessons.id where  lesson_stud_att.student_id = "+id+" and lessons.yearterm_id=" + yearid + " and lessons.term_id= " + termid + " and lessons.start between '" + beforeDate + "' and '" + currentDate + "' order by subject_id";
+            consulta = "SELECT DISTINCT objective_id,subject_id FROM lesson_stud_att inner join lessons on lesson_stud_att.lesson_id = lessons.id where  lesson_stud_att.student_id = " + id + " and lessons.yearterm_id=" + yearid + " and lessons.term_id= " + termid + " and lessons.start between '" + beforeDate + "' and '" + currentDate + "' order by subject_id";
 
             ResultSet rs2 = DBConect.eduweb.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
             while (rs2.next()) {
-           
+
                 DataWhatDoing auxData = new DataWhatDoing();
                 auxData.setIdObjective(rs2.getString("objective_id")); // idobjective
                 auxData.setObjectivesSuccess("0"); //numSteps
@@ -679,23 +680,23 @@ public class Homepage extends MultiActionController {
         }
         return "";
     }
-    
+
     @RequestMapping("/getReport.htm")
     @ResponseBody
-       public String getReport(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String getReport(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
             /*URL url = new URL("ftp://AH-ZAF:e3f14+7mANDp@ftp2.renweb.com/Pictures/" + photoName);
             URLConnection conn = url.openConnection();
             InputStream inStream = conn.getInputStream();*/
             //***********
-            String termId="",yearId="";
-             String studentId = request.getParameter("idStudent");
+            String termId = "", yearId = "";
+            String studentId = request.getParameter("idStudent");
             ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
             while (rs.next()) {
                 termId = "" + rs.getInt("defaulttermid");
                 yearId = "" + rs.getInt("defaultyearid");
             }
-            
+
             String server = "192.168.1.36";
             int port = 21;
             String user = "david";
@@ -703,7 +704,7 @@ public class Homepage extends MultiActionController {
 
             JSONObject json = new JSONObject();
 
-            String filepath = "/ReportCards/" + yearId+"/"+termId+"/10179/report.pdf";
+            String filepath = "/ReportCards/" + yearId + "/2/10179/report.pdf";
             FTPClient ftpClient = new FTPClient();
             ftpClient.connect(server, port);
             ftpClient.login(user, pass);
@@ -747,4 +748,5 @@ public class Homepage extends MultiActionController {
         }
         return "";
     }
+
 }
