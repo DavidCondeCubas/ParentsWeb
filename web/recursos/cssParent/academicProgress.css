@@ -39,20 +39,50 @@
     }
     */
 }
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #whatsDoingPage {
+    margin-top: 44px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #whatsDoingPage {
+    margin-top: 152px;
+  }
+}
 #whatsDoingPage #infWhatPrincipal {
   position: fixed;
   left: 0;
-  padding: 3px !important;
   z-index: 2;
-  top: 49px;
+  top: 52px;
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #whatsDoingPage #infWhatPrincipal {
+    top: 68px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #whatsDoingPage #infWhatPrincipal {
+    top: 152px;
+  }
 }
 #whatsDoingPage #infWhatPrincipal .infWhat {
+  padding-top: 3px;
   text-decoration: underline double;
   font-size: large;
   background-color: white;
   padding: 0px;
   text-align: center;
   color: #3aaa35;
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #whatsDoingPage #infWhatPrincipal .infWhat {
+    margin-top: 10px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #whatsDoingPage #infWhatPrincipal .infWhat {
+    font-size: x-large;
+  }
 }
 #whatsDoingPage #navInfWhatIDoing {
   position: fixed;
@@ -66,13 +96,31 @@
   cursor: pointer;
   margin: 0px;
   color: #3aaa35;
-  font-size: 10.5px;
   padding: 0px;
   text-align: center;
   border-radius: 8px;
   padding: 3px;
   background-color: #f2f2f2;
   box-shadow: rgba(6, 6, 6, 0.65) 2px 2px 8px 0px;
+  font-size: 9.8px;
+}
+#whatsDoingPage #navInfWhatIDoing .infWhat span {
+  font-size: 9px;
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #whatsDoingPage #navInfWhatIDoing .infWhat {
+    font-size: large;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #whatsDoingPage #navInfWhatIDoing {
+    bottom: 72px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #whatsDoingPage #navInfWhatIDoing {
+    bottom: 0px;
+  }
 }
 #whatsDoingPage #navInfWhatIDoing .infWhat:nth-child(2) {
   margin-left: 4%;
@@ -94,11 +142,12 @@
   width: 15px;
   height: 15px;
 }
-#whatsDoingPage #accordionWhats .card {
-  margin-bottom: 7px;
+#whatsDoingPage #accordionWhats .card:nth-child(1) {
+  border-top: 1px solid white;
 }
-#whatsDoingPage #accordionWhats .card .card-header {
+#whatsDoingPage #accordionWhats .card {
   border-bottom: 1px solid #bbb7b7e6;
+  margin-bottom: 10px;
 }
 #whatsDoingPage #accordionWhats .card .card-header h3 {
   font-size: 18px;
@@ -141,6 +190,9 @@
   list-style-type: none;
   padding-left: 20px;
 }
+#whatsDoingPage #accordionWhats .cardTitle {
+  border-bottom: 1px solid white;
+}
 /*
 LINEA VERTICAL BACKGROUND
 background: rgba(255,255,255,1);
@@ -153,98 +205,88 @@ background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
 */
 /* Normal import */
-#allWeeks {
-  height: 54px;
-  overflow-y: hidden !important;
-}
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
-  #allWeeks {
-    height: 75px;
-  }
-}
 #teacherObservations {
+  /*
+        .circleWeek{
+            cursor: pointer;
+            // background-color: @circleDarkBlue;
+            height: 70px;
+            width: 70px;
+            color: white;
+            border-radius: 50%;
+            margin-left: 10px; 
+            text-align: center;
+            vertical-align: middle;
+            line-height: 65px; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: xx-large;
+            @media @smartphones {
+                height: 25px;
+                width: 25px;
+                line-height: 25px;
+                font-size: small;
+            }
+            @media @tablets{
+                height: 50px;
+                width: 50px;
+                line-height: 50px;
+                font-size: x-large;
+            }
+    
+        }*/
   padding-top: 60px;
 }
-#teacherObservations .circleWeek {
-  cursor: pointer;
-  height: 70px;
-  width: 70px;
-  color: white;
-  border-radius: 50%;
-  margin-left: 10px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 65px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: xx-large;
-}
-@media only screen and (max-width: 481px) {
-  #teacherObservations .circleWeek {
-    height: 25px;
-    width: 25px;
-    line-height: 25px;
-    font-size: small;
-  }
-}
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
-  #teacherObservations .circleWeek {
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
-    font-size: x-large;
-  }
-}
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #teacherObservations {
-    padding-top: 120px;
+    padding-top: 70px;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #teacherObservations {
-    padding-top: 120px;
+    padding-top: 164px;
   }
 }
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
-  #teacherObservations {
-    padding-top: 120px;
+#teacherObservations #allWeeks {
+  position: fixed;
+  z-index: 2;
+  background-color: white;
+  padding-top: 10px;
+  top: 52px;
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #teacherObservations #allWeeks {
+    top: 68px;
   }
 }
-#teacherObservations #namesMonths {
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #teacherObservations #allWeeks {
+    top: 152px;
+  }
+}
+#teacherObservations #allWeeks #namesMonths {
   /* display: flex;
-         text-align: center;
-         font-weight: bold;
-         width: 3000px; // defecto */
+             text-align: center;
+             font-weight: bold;
+             width: 3000px; // defecto */
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   color: #7cc170 !important;
+  overflow: auto;
 }
-#teacherObservations #namesMonths .monthObservations {
+#teacherObservations #allWeeks #namesMonths .monthObservations {
   padding: 3px;
   border-radius: 5px;
 }
-#teacherObservations #divCircleWeeks {
-  /*display: flex;
-        width: 3000px; // defecto 
-        //background linea horizontal
-        background: rgba(255,255,255,1);
-        background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(255,255,255,1)), color-stop(48%, rgba(0,0,0,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(51%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
-        background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-        background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-        background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 47%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 51%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
-        */
-}
-#teacherObservations #divCircleWeeks .weekNumbers {
+#teacherObservations #allWeeks #divCircleWeeks .weekNumbers {
   display: flex;
   justify-content: space-evenly;
 }
-#teacherObservations #divCircleWeeks .weekNumbers .daySelected {
+#teacherObservations #allWeeks #divCircleWeeks .weekNumbers .daySelected {
   border-radius: 50%;
-  padding-left: 5px;
-  padding-right: 5px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
 }
 #teacherObservations #allDays {
   padding-left: 0px;
@@ -272,17 +314,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #teacherObservations #allDays #divCircleDays .circleDay {
   background-color: #3aaa35;
   cursor: pointer;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   color: white;
   border-radius: 50%;
   text-align: center;
   vertical-align: middle;
   line-height: 65px;
   font-family: 'Montserrat', sans-serif;
-  font-size: xx-large;
+  font-size: large;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   #teacherObservations #allDays #divCircleDays .circleDay {
     height: 20px;
     width: 20px;
@@ -290,7 +332,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     font-size: small;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #teacherObservations #allDays #divCircleDays .circleDay {
     height: 25px;
     width: 25px;
@@ -298,41 +340,90 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     font-size: medium;
   }
 }
+#teacherObservations #divObservations {
+  padding-top: 50px;
+  /*@media @tablets{ 
+            padding-top: 60px;
+        }
+        @media @desktop{ 
+            padding-top: 50px;
+        }
+        @media @desktopXL{ 
+            padding-top: 120px;
+        }*/
+}
 #teacherObservations #divObservations .divOneComment {
   margin: 0px;
+  margin-bottom: 15px;
   padding: 0px;
+  display: flex;
+  align-items: baseline;
 }
-#teacherObservations #divObservations .divOneComment .divTeachers {
+#teacherObservations #divObservations .divOneComment .date_teacher {
+  display: flex;
+  align-items: center;
+}
+#teacherObservations #divObservations .divOneComment .date_teacher .circleDay {
+  background-color: #3aaa35;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: large;
+}
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
+  #teacherObservations #divObservations .divOneComment .date_teacher .circleDay {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    font-size: small;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #teacherObservations #divObservations .divOneComment .date_teacher .circleDay {
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    font-size: medium;
+  }
+}
+#teacherObservations #divObservations .divOneComment .date_teacher .divTeachers {
   margin: 0px;
   padding: 0px;
   margin-top: 10px;
+  font-size: smaller;
   color: #3aaa35;
 }
-#teacherObservations #divObservations .divOneComment .divTeachers .divFotoTeacher img {
+#teacherObservations #divObservations .divOneComment .date_teacher .divTeachers .divFotoTeacher img {
   height: 75%;
   border-radius: 50%;
-  width: 100%;
+  width: 90%;
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
-  #teacherObservations #divObservations .divOneComment .divTeachers .divFotoTeacher {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #teacherObservations #divObservations .divOneComment .date_teacher .divTeachers .divFotoTeacher {
     height: 50%;
     width: 50%;
   }
 }
-#teacherObservations #divObservations .divOneComment .divTeachers div {
+#teacherObservations #divObservations .divOneComment .date_teacher .divTeachers div {
   text-align: center;
   font-weight: bold;
 }
 #teacherObservations #divObservations .divOneComment .divComments {
-  background-color: #7777771c;
+  background-color: #efefef;
   border-radius: 8px;
-  margin-left: 5%;
   margin: 0px;
+  margin-left: 10px;
   padding: 0px;
   margin-top: 10px;
-  -webkit-box-shadow: 27px 22px 69px -29px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 27px 22px 69px -29px rgba(0, 0, 0, 0.75);
-  box-shadow: 27px 22px 69px -29px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 7px 9px -3px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 7px 7px 9px -3px rgba(0, 0, 0, 0.49);
+  box-shadow: 7px 7px 9px -3px rgba(0, 0, 0, 0.49);
 }
 #teacherObservations #divObservations .divOneComment .divComments .triangDivSup {
   position: relative;
@@ -399,17 +490,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #teacherObsDesktopView {
   padding-top: 60px;
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #teacherObsDesktopView {
     padding-top: 120px;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px) {
   #teacherObsDesktopView {
     padding-top: 120px;
   }
 }
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 1200px) {
   #teacherObsDesktopView {
     padding-top: 120px;
   }
@@ -457,7 +548,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divComments {
   background-color: #ececec;
   border-radius: 8px;
-  margin-left: 5%;
+  margin-left: 10px;
   margin: 0px;
   padding: 0px;
   margin-top: 10px;
@@ -474,18 +565,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   align-items: center;
   font-weight: bold;
   padding-bottom: 10px;
+  z-index: 2;
 }
 #teacherObsDesktopView .allWeeksDesktop #divWeekDesktop .divComments .divTeachers img {
   width: 80%;
   border-radius: 50%;
   height: 55px;
 }
-/* Normal import */
+/*Normal import */
 /*
-@smartphones: ~"only screen and (max-width: 481px)";
-@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
-@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
-@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+@smartphones: ~"only screen and (max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";
 
 @colorCircle: #055263;
 @circleDarkBlue: #055263;
@@ -507,86 +599,104 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 @colorProgress: white;
  
 @fondo:#dadada;*/
-#navbarInferior {
-  background-color: #1d1d1b;
+/*@XSsmartphones: ~"only screen and (max-width: 543px)";
+@smartphones: ~"only screen and (min-width: 544px) and ( max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";*/
+#navbarInferiorContenedor {
+  background-color: white;
   height: 75px;
   position: fixed;
   bottom: 0px;
+  z-index: 2;
+  /*@media @desktop{
+        height: @alturaNavInfTabletXL;
+    }*/
+}
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
+  #navbarInferiorContenedor {
+    height: 50px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #navbarInferiorContenedor {
+    display: none;
+  }
+}
+#navbarInferiorContenedor #navbarInferior {
+  background-color: #1d1d1b;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  /*
+        @media (min-width: 768px){
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+        @media  @tablets{
+                margin-left: 15%;
+                 width: 70%;
+            border-top-right-radius: 8px;
+            /*@XSsmartphones: ~"only screen and (max-width: 543px)";
+@smartphones: ~"only screen and (min-width: 544px) and ( max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";
+            border-top-left-radius: 8px;
+        }*/
 }
-#navbarInferior div {
+#navbarInferiorContenedor #navbarInferior div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-@media only screen and (max-width: 481px) {
-  #navbarInferior {
-    height: 50px;
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #navbarInferiorContenedor #navbarInferior {
+    /*  margin-left: 25%;
+              width: 50%;*/
+    /*border-top-right-radius: 10px;
+            border-top-left-radius: 10px;*/
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
-  #navbarInferior {
-    height: 100px;
-  }
-}
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
-  #navbarInferior {
-    margin-left: 15%;
-    width: 70%;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-  }
-}
-@media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
-  #navbarInferior {
-    margin-left: 25%;
-    width: 50%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-  }
-}
-#navbarInferior img {
+#navbarInferiorContenedor #navbarInferior img {
   width: 60%;
 }
-@media only screen and (max-width: 481px) {
-  #navbarInferior img {
-    width: 100%;
+@media only screen and (max-width: 543px) {
+  #navbarInferiorContenedor #navbarInferior img {
+    width: 70%;
   }
 }
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
-  #navbarInferior img {
-    width: 45%;
+@media only screen and (min-width: 544px) and ( max-width: 767px) {
+  #navbarInferiorContenedor #navbarInferior img {
+    width: 50%;
   }
 }
-#navInfReport {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1d1d1b;
-  bottom: 75px;
-  right: 0;
-  width: 20%;
-  height: 75px;
-}
-@media only screen and (max-width: 481px) {
-  #navInfReport {
-    bottom: 50px;
-    height: 50px;
-  }
-}
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
-  #navInfReport {
-    bottom: 100px;
-    height: 100px;
-  }
-}
-#navInfReport img {
-  width: 50%;
-}
+/*#navInfReport{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: @colorNavBar;
+    bottom: @alturaNavInfTablet; 
+    right: 0;
+    width: 20%;
+    height: @alturaNavInfTablet;
+
+    @media @XSsmartphones,@smartphones {
+        bottom: @alturaNavInfMovil;
+        height: @alturaNavInfMovil;
+    }
+
+    @media @desktop{
+        bottom: @alturaNavInfTabletXL;
+        height: @alturaNavInfTabletXL;
+    }
+    img{
+        width: 50%;
+    }
+}*/
 /* Normal import */
 #homepage {
   padding-top: 80px;
@@ -602,17 +712,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
         }
     }*/
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #homepage {
     padding-top: 120px;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px) {
   #homepage {
     padding-top: 120px;
   }
 }
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 1200px) {
   #homepage {
     padding-top: 120px;
   }
@@ -630,28 +740,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   font-weight: bold;
   text-align: center;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px) {
   #homepage div div {
     height: 180px;
     font-size: smaller;
     padding: 5%;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 544px) and ( max-width: 767px) {
+  #homepage div div {
+    height: 260px;
+    font-size: smaller;
+    padding: 5%;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #homepage div div {
     height: 275px;
     font-size: small;
     padding: 2%;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px) {
   #homepage div div {
     height: 300px;
     font-size: medium;
     padding: 2%;
   }
 }
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 1200px) {
   #homepage div div {
     height: 350px;
     font-size: medium;
@@ -683,12 +800,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 2;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   .navUsuario {
     height: 40px;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   .navUsuario {
     height: 50px;
   }
@@ -718,7 +835,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   font-family: 'Montserrat', sans-serif;
   font-size: large;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   .navUsuario .row #childrensNav .row .circle {
     height: 35px;
     width: 35px;
@@ -727,7 +844,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     font-size: small;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   .navUsuario .row #childrensNav .row .circle {
     height: 45px;
     width: 45px;
@@ -753,12 +870,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   margin: 0px;
   font-size: x-large;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   .navUsuario .row .divName .row .parentName {
     font-size: x-small;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   .navUsuario .row .divName .row .parentName {
     font-size: large;
   }
@@ -766,7 +883,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .navUsuario .row .divName .row .termName {
   margin: 0px;
 }
-@media only screen and (max-width: 481px), only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px), only screen and (min-width: 768px) and ( max-width: 991px) {
   .navUsuario .row .divName .row .termName {
     margin: 0px;
     font-size: xx-small;
@@ -779,6 +896,335 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   height: 100%;
   width: 80%;
 }
+/* Normal import */
+#reportPage {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  background-color: #efefef;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+#reportPage .tittleReport {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3aaa35;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+@media only screen and (min-width: 544px) and ( max-width: 767px) {
+  #reportPage .objectReport object {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #reportPage .objectReport object {
+    height: 600px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #reportPage .objectReport object {
+    height: 900px;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #reportPage {
+    margin-top: 44px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #reportPage {
+    margin-top: 162px;
+  }
+}
+/* Normal import */
+#calendarPage {
+  margin-bottom: 65px;
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #calendarPage {
+    margin-top: 54px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #calendarPage {
+    margin-top: 162px;
+  }
+}
+#calendarPage #announcements {
+  margin-bottom: 50px;
+}
+#calendarPage #announcements .contenedorAnnon {
+  background-color: #efefef;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+#calendarPage #announcements .contenedorAnnon .titleCalendar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3aaa35;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+#calendarPage #announcements .contenedorAnnon img {
+  width: 70%;
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #calendarPage #announcements .contenedorAnnon img {
+    width: 50%;
+  }
+}
+#calendarPage #announcements .contenedorAnnon .firstFormatCalendar {
+  background-color: #8bc26e;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+#calendarPage #announcements .contenedorAnnon .firstFormatCalendar div {
+  display: flex;
+  align-items: center;
+}
+#calendarPage #announcements .contenedorAnnon .firstFormatCalendar div .col-xs-10 {
+  display: block;
+}
+#calendarPage #announcements .contenedorAnnon .secondFormatCalendar {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+#calendarPage #announcements .contenedorAnnon .secondFormatCalendar div {
+  display: flex;
+  align-items: center;
+}
+#calendarPage #announcements .contenedorAnnon .secondFormatCalendar div .col-xs-10 {
+  display: block;
+}
+#calendarPage #schoolCalendar {
+  border-left: solid 2px #efefef;
+  margin-bottom: 50px;
+}
+#calendarPage #schoolCalendar .contenedorAnnon {
+  background-color: #efefef;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+#calendarPage #schoolCalendar .contenedorAnnon .titleCalendar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3aaa35;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+#calendarPage #schoolCalendar .contenedorAnnon img {
+  width: 70%;
+}
+#calendarPage #schoolCalendar .contenedorAnnon .firstFormatCalendar {
+  background-color: #8bc26e;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+#calendarPage #schoolCalendar .contenedorAnnon .firstFormatCalendar div div {
+  display: flex;
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+}
+#calendarPage #schoolCalendar .contenedorAnnon .firstFormatCalendar div div .fechaSchool {
+  background-color: #8bc26e;
+  display: inline-block;
+  color: black;
+  border: 1px solid white;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#calendarPage #schoolCalendar .secondFormatCalendar {
+  background-color: #efefef;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: solid 1px white;
+  text-align: center;
+}
+#calendarPage #schoolCalendar .secondFormatCalendar div div {
+  display: flex;
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+}
+#calendarPage #schoolCalendar .secondFormatCalendar div div .fechaSchool {
+  background-color: #efefef;
+  display: inline-block;
+  color: black;
+  border: 1px solid white;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#calendarPage #todayEvents {
+  border-left: solid 2px #efefef;
+  margin-bottom: 50px;
+}
+#calendarPage #todayEvents .contenedorAnnon {
+  background-color: #efefef;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+#calendarPage #todayEvents .contenedorAnnon .titleCalendar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3aaa35;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+#calendarPage #todayEvents .contenedorAnnon img {
+  width: 70%;
+}
+#calendarPage #todayEvents .contenedorAnnon .firstFormatCalendar {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+#calendarPage #todayEvents .contenedorAnnon .firstFormatCalendar div div {
+  display: flex;
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+}
+#calendarPage #todayEvents .contenedorAnnon .firstFormatCalendar div div .fechaSchool {
+  background-color: white;
+  display: inline-block;
+  color: black;
+  border: 1px solid #efefef;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#calendarPage #todayEvents .secondFormatCalendar {
+  background-color: #efefef;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: solid 1px white;
+  text-align: center;
+}
+#calendarPage #todayEvents .secondFormatCalendar div div {
+  display: flex;
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+}
+#calendarPage #todayEvents .secondFormatCalendar div div .fechaSchool {
+  background-color: #efefef;
+  display: inline-block;
+  color: black;
+  border: 1px solid white;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#calendarPage #tomorrowEvents {
+  margin-bottom: 50px;
+}
+#calendarPage #tomorrowEvents .contenedorAnnon {
+  background-color: #efefef;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+#calendarPage #tomorrowEvents .contenedorAnnon .titleCalendar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3aaa35;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+#calendarPage #tomorrowEvents .contenedorAnnon img {
+  width: 70%;
+}
+#calendarPage #tomorrowEvents .contenedorAnnon .firstFormatCalendar {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+#calendarPage #tomorrowEvents .contenedorAnnon .firstFormatCalendar div div {
+  display: flex;
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+}
+#calendarPage #tomorrowEvents .contenedorAnnon .firstFormatCalendar div div .fechaSchool {
+  background-color: white;
+  display: inline-block;
+  color: black;
+  border: 1px solid #efefef;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#calendarPage #tomorrowEvents .secondFormatCalendar {
+  background-color: #efefef;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: solid 1px white;
+  text-align: center;
+}
+#calendarPage #tomorrowEvents .secondFormatCalendar div div {
+  display: flex;
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+}
+#calendarPage #tomorrowEvents .secondFormatCalendar div div .fechaSchool {
+  background-color: #efefef;
+  display: inline-block;
+  color: black;
+  border: 1px solid white;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+/*
+@smartphones: ~"only screen and (max-width: 481px)";
+@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
+@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
+@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+*/
 body {
   /*    background-color: @fondo;*/
   font-family: 'Montserrat', sans-serif;
@@ -791,22 +1237,22 @@ body {
   display: flex;
   align-items: center;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   img {
     width: 55%;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   img {
     width: 55%;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px) {
   img {
     width: 55%;
   }
 }
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 1200px) {
   img {
     width: 50%;
   }
@@ -820,34 +1266,81 @@ body {
 }
 #nameStudent {
   position: fixed;
-  top: 90px;
+  top: 88px;
   font-size: medium;
   font-weight: bold;
-  background-color: #787878;
+  background-color: #1d1d1b;
   color: white;
   z-index: 2;
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #nameStudent {
     font-size: small;
     top: 50px;
   }
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   #nameStudent {
     font-size: xx-small;
     top: 40px;
   }
 }
+#navBarDesktop {
+  display: flex;
+  border-bottom: solid 2px white;
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #navBarDesktop {
+    position: fixed;
+    top: 110px;
+    font-size: medium;
+    color: white;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 44px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #1d1d1b;
+    /*     background: rgba(29,29,27,1);
+             background: -moz-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(29,29,27,1)), color-stop(49%, rgba(29,29,27,1)), color-stop(50%, rgba(59,170,53,1)), color-stop(100%, rgba(59,170,53,1)));
+             background: -webkit-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: -o-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: -ms-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: linear-gradient(to bottom, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1b', endColorstr='#3baa35', GradientType=0 );
+        */
+  }
+}
+#navBarDesktop .opcionMenuDesktop {
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  border-left: solid 1px #1d1d1b;
+  border-top-right-radius: 8px;
+  width: 20%;
+  background-color: #8bc26e;
+  height: 100%;
+  /* min-height: 100%; */
+  /* border-radius: 5px; */
+  padding-top: auto;
+  /* padding: 11px; */
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+  /* border-top-left-radius: 10px; */
+}
 #userform {
   max-width: 35%;
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #userform {
     max-width: 50%;
   }
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   #userform {
     max-width: 100%;
   }
@@ -877,31 +1370,37 @@ body {
 @colorProgress: white;
  
 @fondo:#dadada;*/
+/*@XSsmartphones: ~"only screen and (max-width: 543px)";
+@smartphones: ~"only screen and (min-width: 544px) and ( max-width: 767px)";
+@tablets: ~"only screen and (min-width: 768px) and ( max-width: 991px)";
+@desktop: ~"only screen and (min-width: 992px) and ( max-width: 1999px)";
+@desktopXL: ~"only screen and (min-width: 1200px)";*/
 #accordion {
   transition: margin-left 0.5s;
   padding: 20px;
   margin-top: 98px;
   margin-bottom: 52px;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   #accordion {
     margin-top: 48px;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px), only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #accordion {
     margin-left: 250px;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #accordion {
-    margin-left: 300px;
+    margin-left: 300px !important;
+    margin-top: 142px;
   }
 }
 #accordion h1 {
   text-align: center;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   #accordion h1 {
     font-size: large;
     font-weight: bold;
@@ -909,28 +1408,35 @@ body {
 }
 #accordion .progressMastered {
   width: 34%;
-  background-color: #3d8341;
+  background-color: #3aaa35;
   color: white !important;
 }
 #accordion .progressPresented {
   width: 33%;
-  background-color: #054663;
+  background-color: #7f4725;
   color: white !important;
 }
 #accordion .progressAttempted {
   width: 33%;
-  background-color: #753cd9;
+  background-color: #bd8938;
   color: white !important;
 }
 #accordion .progress {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-#accordion .card .card-header {
-  border-bottom: 1px solid #bbb7b7e6;
+#accordion .card:nth-child(1) {
+  border-top: 1px solid white;
 }
-#accordion .card .card-header:last-child {
-  border-bottom: 1px solid white;
+#accordion .card {
+  border-top: 1px solid #bbb7b7e6;
+  /* .card-header{
+             border-bottom: 1px solid #bbb7b7e6;
+         }
+         .card-header:last-child {
+             border-bottom: 1px solid white;
+         }
+        */
 }
 #accordion .card a {
   color: black;
@@ -938,30 +1444,35 @@ body {
 #accordion .card a:focus:hover {
   text-decoration: none !important;
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px), only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #accordion .card div div {
     font-size: large;
   }
+}
+#accordion a.card-link {
+  text-decoration: none !important;
 }
 #mySidenav {
   margin-top: 95px;
   margin-bottom: 75px;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   #mySidenav {
     margin-bottom: 50px;
     margin-top: 45px;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
   #mySidenav {
     margin-top: 68px;
     width: 250px;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #mySidenav {
-    width: 300px;
+    display: block;
+    margin-top: 139px;
+    width: 300px  !important;
   }
 }
 .glyphicon {
@@ -980,7 +1491,7 @@ body {
   top: 0;
   /* Stay at the top */
   left: 0;
-  background-color: #8bc26e;
+  background-color: #3aaa35;
   /* Black*/
   overflow-x: hidden;
   /* Disable horizontal scroll */
@@ -989,7 +1500,7 @@ body {
   transition: 0.5s;
   /* 0.5 second transition effect to slide in the sidenav */
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   .sidenav {
     padding-top: 15px;
   }
@@ -997,58 +1508,73 @@ body {
     margin-top: 10px;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   .sidenav {
+    width: 300px  !important;
     padding-top: 25px;
   }
   .sidenav a:nth-child(1) {
     display: none;
   }
 }
-.sidenav a {
+.sidenav .animated {
   padding: 8px 8px 8px 16px;
   text-decoration: none;
   font-size: 27.5px;
-  color: #818181;
+  color: white;
+  border-bottom: solid 2px white;
   display: block;
   transition: 0.3s;
 }
-@media only screen and (max-width: 481px) {
-  .sidenav a {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
+  .sidenav .animated {
     font-size: 14px;
   }
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px) {
-  .sidenav a {
-    font-size: x-large;
+@media only screen and (min-width: 768px) and ( max-width: 991px), only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  .sidenav .animated {
+    font-size: large;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px) {
-  .sidenav a {
-    font-size: xx-large;
-  }
-}
-@media only screen and (min-width: 1281px) and ( max-width: 2048px) {
-  .sidenav a {
-    font-size: xx-large;
-  }
+.sidenav .animated span {
+  margin-left: 5px;
+  border: solid 1px white;
+  color: white;
+  background-color: #3aaa35;
 }
 .sidenav a:last-child {
   margin-bottom: 150px;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   .sidenav a:last-child {
     margin-bottom: 100px;
   }
 }
 .sidenav .closebtn {
+  color: white;
+  transition: 0.3s;
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
 }
-@media only screen and (max-width: 481px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  .sidenav .closebtn {
+    font-size: x-large;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px) {
+  .sidenav .closebtn {
+    font-size: xx-large;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .sidenav .closebtn {
+    font-size: xx-large;
+  }
+}
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
   .sidenav .closebtn {
     top: -2%;
     right: 2%;
@@ -1056,11 +1582,12 @@ body {
 }
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #646464;
+  font-weight: bold;
 }
 #subjectProgress {
   margin-top: 15px;
-  display: flex;
+  display: inline-block;
   justify-content: space-between;
 }
 #subjectProgress div {
@@ -1068,64 +1595,65 @@ body {
   align-content: center;
   justify-content: center;
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 768px) and ( max-width: 991px), only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #subjectProgress {
     font-size: large;
   }
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #subjectProgress {
     padding-left: 300px;
   }
 }
 #subjectProgress div:nth-child(1) {
-  display: flenth-cx;
   align-items: baseline;
 }
-@media only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
   #subjectProgress div:nth-child(1) span {
     display: none;
   }
 }
-#subjectProgress div:nth-child(2) {
+#subjectProgress div:nth-child(3) {
   font-size: medium;
+  text-align: center;
+  color: #3aaa35;
   font-weight: bold;
 }
-@media only screen and (min-width: 482px) and ( max-width: 1023px), only screen and (min-width: 1024px) and ( max-width: 1280px), only screen and (min-width: 1281px) and ( max-width: 2048px) {
-  #subjectProgress div:nth-child(2) {
+@media only screen and (min-width: 768px) and ( max-width: 991px), only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #subjectProgress div:nth-child(3) {
     font-size: xx-large;
   }
 }
-#subjectProgress div:nth-child(3) {
-  color: #3aaa35;
+#subjectProgress div:nth-child(2) {
+  color: #646464;
 }
 /*By Jesús*/
 .panel-success > .panel-heading {
   color: #3c763d;
-  background-color: #F39200;
-  border-color: #F39200;
+  background-color: #646464;
+  border-color: #646464;
 }
 .panel-success {
-  border-color: #F39200;
+  border-color: #646464;
 }
 .btn-success {
   color: #fff;
-  background-color: #F39200;
-  border-color: #F39200;
+  background-color: #646464;
+  border-color: #646464;
 }
 .btn-success:hover {
   color: #fff;
-  background-color: #F39200;
-  border-color: #F39200;
+  background-color: #646464;
+  border-color: #646464;
 }
 .btn-success:active:focus {
   color: #fff;
-  background-color: #F39200;
-  border-color: #F39200;
+  background-color: #646464;
+  border-color: #646464;
 }
 .btn-success:focus {
   color: #fff;
-  background-color: #F39200;
-  border-color: #F39200;
+  background-color: #646464;
+  border-color: #646464;
 }
 /*# sourceMappingURL=academicProgress.css.map */

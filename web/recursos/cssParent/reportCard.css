@@ -1,5 +1,6 @@
 /* Normal import */
 /* Normal import */
+/* Normal import */
 /*
 @smartphones: ~"only screen and (max-width: 481px)";
 @tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
@@ -1208,49 +1209,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   width: 80%;
 }
 /* Normal import */
-#reportPage {
-  margin-top: 60px;
-  margin-bottom: 80px;
-  background-color: #efefef;
-  border-radius: 10px;
-  padding-bottom: 20px;
-}
-#reportPage .tittleReport {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #3aaa35;
-  font-size: large;
-  font-weight: bold;
-  text-align: center;
-}
-@media only screen and (min-width: 544px) and ( max-width: 767px) {
-  #reportPage .objectReport object {
-    height: 400px;
-  }
-}
-@media only screen and (min-width: 768px) and ( max-width: 991px) {
-  #reportPage .objectReport object {
-    height: 600px;
-  }
-}
-@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
-  #reportPage .objectReport object {
-    height: 900px;
-  }
-}
-@media only screen and (min-width: 768px) and ( max-width: 991px) {
-  #reportPage {
-    margin-top: 44px;
-  }
-}
-@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
-  #reportPage {
-    margin-top: 162px;
-  }
-}
-/* Normal import */
 #calendarPage {
   margin-bottom: 65px;
 }
@@ -1656,4 +1614,46 @@ body {
     max-width: 100%;
   }
 }
-/*# sourceMappingURL=homepage.css.map */
+#reportPage {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  background-color: #efefef;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+#reportPage .tittleReport {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3aaa35;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+@media only screen and (min-width: 544px) and ( max-width: 767px) {
+  #reportPage .objectReport object {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #reportPage .objectReport object {
+    height: 600px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #reportPage .objectReport object {
+    height: 900px;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #reportPage {
+    margin-top: 44px;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #reportPage {
+    margin-top: 162px;
+  }
+}
+/*# sourceMappingURL=reportCard.css.map */

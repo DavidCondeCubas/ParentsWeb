@@ -1,5 +1,6 @@
 /* Normal import */
 /* Normal import */
+/* Normal import */
 /*
 @smartphones: ~"only screen and (max-width: 481px)";
 @tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
@@ -1250,7 +1251,132 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     margin-top: 162px;
   }
 }
-/* Normal import */
+/*
+@smartphones: ~"only screen and (max-width: 481px)";
+@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
+@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
+@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
+*/
+body {
+  /*    background-color: @fondo;*/
+  font-family: 'Montserrat', sans-serif;
+}
+.vertical-center {
+  min-height: 100%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+}
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
+  img {
+    width: 55%;
+  }
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  img {
+    width: 55%;
+  }
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px) {
+  img {
+    width: 55%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  img {
+    width: 50%;
+  }
+}
+.nopaddingMargin {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.nopadding {
+  padding: 0 !important;
+}
+#nameStudent {
+  position: fixed;
+  top: 88px;
+  font-size: medium;
+  font-weight: bold;
+  background-color: #1d1d1b;
+  color: white;
+  z-index: 2;
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #nameStudent {
+    font-size: small;
+    top: 50px;
+  }
+}
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
+  #nameStudent {
+    font-size: xx-small;
+    top: 40px;
+  }
+}
+#navBarDesktop {
+  display: flex;
+  border-bottom: solid 2px white;
+}
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #navBarDesktop {
+    position: fixed;
+    top: 110px;
+    font-size: medium;
+    color: white;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 44px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #1d1d1b;
+    /*     background: rgba(29,29,27,1);
+             background: -moz-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(29,29,27,1)), color-stop(49%, rgba(29,29,27,1)), color-stop(50%, rgba(59,170,53,1)), color-stop(100%, rgba(59,170,53,1)));
+             background: -webkit-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: -o-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: -ms-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             background: linear-gradient(to bottom, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
+             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1b', endColorstr='#3baa35', GradientType=0 );
+        */
+  }
+}
+#navBarDesktop .opcionMenuDesktop {
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  border-left: solid 1px #1d1d1b;
+  border-top-right-radius: 8px;
+  width: 20%;
+  background-color: #8bc26e;
+  height: 100%;
+  /* min-height: 100%; */
+  /* border-radius: 5px; */
+  padding-top: auto;
+  /* padding: 11px; */
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+  /* border-top-left-radius: 10px; */
+}
+#userform {
+  max-width: 35%;
+}
+@media only screen and (min-width: 768px) and ( max-width: 991px) {
+  #userform {
+    max-width: 50%;
+  }
+}
+@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
+  #userform {
+    max-width: 100%;
+  }
+}
 #calendarPage {
   margin-bottom: 65px;
 }
@@ -1530,130 +1656,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   border-radius: 5px;
   font-weight: bold;
 }
-/*
-@smartphones: ~"only screen and (max-width: 481px)";
-@tablets: ~"only screen and (min-width: 482px) and ( max-width: 1023px)";
-@desktop: ~"only screen and (min-width: 1024px) and ( max-width: 1280px)";
-@desktopXL: ~"only screen and (min-width: 1281px) and ( max-width: 2048px)";
-*/
-body {
-  /*    background-color: @fondo;*/
-  font-family: 'Montserrat', sans-serif;
-}
-.vertical-center {
-  min-height: 100%;
-  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh;
-  /* These two lines are counted as one :-)       */
-  display: flex;
-  align-items: center;
-}
-@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
-  img {
-    width: 55%;
-  }
-}
-@media only screen and (min-width: 768px) and ( max-width: 991px) {
-  img {
-    width: 55%;
-  }
-}
-@media only screen and (min-width: 992px) and ( max-width: 1199px) {
-  img {
-    width: 55%;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  img {
-    width: 50%;
-  }
-}
-.nopaddingMargin {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.nopadding {
-  padding: 0 !important;
-}
-#nameStudent {
-  position: fixed;
-  top: 88px;
-  font-size: medium;
-  font-weight: bold;
-  background-color: #1d1d1b;
-  color: white;
-  z-index: 2;
-}
-@media only screen and (min-width: 768px) and ( max-width: 991px) {
-  #nameStudent {
-    font-size: small;
-    top: 50px;
-  }
-}
-@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
-  #nameStudent {
-    font-size: xx-small;
-    top: 40px;
-  }
-}
-#navBarDesktop {
-  display: flex;
-  border-bottom: solid 2px white;
-}
-@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
-  #navBarDesktop {
-    position: fixed;
-    top: 110px;
-    font-size: medium;
-    color: white;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    height: 44px;
-    margin: 0px;
-    padding: 0px;
-    background-color: #1d1d1b;
-    /*     background: rgba(29,29,27,1);
-             background: -moz-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
-             background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(29,29,27,1)), color-stop(49%, rgba(29,29,27,1)), color-stop(50%, rgba(59,170,53,1)), color-stop(100%, rgba(59,170,53,1)));
-             background: -webkit-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
-             background: -o-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
-             background: -ms-linear-gradient(top, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
-             background: linear-gradient(to bottom, rgba(29,29,27,1) 0%, rgba(29,29,27,1) 49%, rgba(59,170,53,1) 50%, rgba(59,170,53,1) 100%);
-             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1b', endColorstr='#3baa35', GradientType=0 );
-        */
-  }
-}
-#navBarDesktop .opcionMenuDesktop {
-  cursor: pointer;
-  border-top-left-radius: 8px;
-  border-left: solid 1px #1d1d1b;
-  border-top-right-radius: 8px;
-  width: 20%;
-  background-color: #8bc26e;
-  height: 100%;
-  /* min-height: 100%; */
-  /* border-radius: 5px; */
-  padding-top: auto;
-  /* padding: 11px; */
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  justify-content: center;
-  /* border-top-left-radius: 10px; */
-}
-#userform {
-  max-width: 35%;
-}
-@media only screen and (min-width: 768px) and ( max-width: 991px) {
-  #userform {
-    max-width: 50%;
-  }
-}
-@media only screen and (max-width: 543px), only screen and (min-width: 544px) and ( max-width: 767px) {
-  #userform {
-    max-width: 100%;
-  }
-}
-/*# sourceMappingURL=homepage.css.map */
+/*# sourceMappingURL=calendar.css.map */

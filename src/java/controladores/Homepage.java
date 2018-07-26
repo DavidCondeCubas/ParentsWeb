@@ -704,7 +704,7 @@ public class Homepage extends MultiActionController {
 
             JSONObject json = new JSONObject();
 
-            String filepath = "/ReportCards/" + yearId + "/2/10179/report.pdf";
+            String filepath = "/ReportCards/59/2/10179/report.pdf";
             FTPClient ftpClient = new FTPClient();
             ftpClient.connect(server, port);
             ftpClient.login(user, pass);
