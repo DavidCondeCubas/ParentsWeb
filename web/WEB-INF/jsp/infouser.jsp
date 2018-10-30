@@ -90,10 +90,25 @@
     <script type="text/javascript" src="<c:url value="/recursos/js/pdfobject.js"/>" ></script>
     <script type="text/javascript" src="<c:url value="/recursos/js/pdfobject.min.js"/>" ></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Roboto:700" rel="stylesheet">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="<c:url value="/recursos/cssParent/homepage.css"/>" />
-
+ 
+    <script type="text/javascript" src="<c:url value="/recursos/js/utils.js"/>"></script>
+  
+    <!--<script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/app.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/services.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/controllers.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/filters.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/messages_manager.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/message_composer.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/directives.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/recursos/js/telegram-js/directives_mobile.js"/>"></script>
+ -->
+ 
 </head>
 
 <script>

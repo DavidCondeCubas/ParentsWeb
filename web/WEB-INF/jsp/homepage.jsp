@@ -27,16 +27,13 @@
             var currentStudent;
             var currentOption;
             var colorVerde = "#3aaa35";
-
             var monthNames = ["January", "February", "March", "April", "May", "June",
                 "Jule", "August", "September", "October", "November", "December"];
-
             var monthColors = ["#ff9529", "#451c8c", "#3d962d", "#054663",
                 "#ff9529", "#451c8c", "#3d962d", "#054663",
                 "#ff9529", "#451c8c", "#3d962d", "#054663"];
-
             $(document).ready(function () {
-
+                // testTelegram();
 
 
                 makeCircleSons();
@@ -47,13 +44,10 @@
                     var idOption = $(this).attr("value");
                     $(this).parent().children().css("background-color", colorVerde);
                     $(this).css("background-color", "#1d1d1b");
-
                     $(this).parent().children().css("font-weight", "");
                     $(this).css("font-weight", "bold");
-
                     $("#" + idOption).click();
                 });
-
                 $(".circle").click(function () {
                     var color = $(this).css("background-color");
                     if (color === "rgb(139, 194, 110)") { //noSelect
@@ -64,18 +58,14 @@
                         menu(currentOption);
                     }
                 });
-
                 $(".btnHomepage").click(function () {
                     menu($(this).attr("value"));
                 });
-
                 $("#navbarInferior div").click(function () {
                     var nameDiv = $(this).attr("id"), url;
                     hideAllElements();
-
                     $("#homepage").hide();
                     $("#" + nameDiv).show();
-
                     switch (nameDiv) {
                         case "navInfProgress":
                             url = "<c:url value='/recursos/img/iconos/n_ProgressIconNaranja.svg'/>";
@@ -89,7 +79,6 @@
                         case "navInfWhatIam":
                             url = "<c:url value='/recursos/img/iconos/n_LearningIconNaranja.svg'/>";
                             initWhatDoing(url);
-
                             /* resetNavInf();
                              currentOption = "whatIdo";
                              $("#navInfWhatIam").empty();
@@ -118,7 +107,6 @@
 
                             url = "<c:url value='/recursos/img/iconos/n_ReportIconNaranja.svg'/>";
                             initReportCard(url);
-
                             ;
                             break
 
@@ -128,20 +116,14 @@
                             $("#navInfObservations").empty();
                             $("#navInfWhatIam").empty();
                             $("#navInfCalendar").empty();
-
                             var url = "<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>";
                             $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
-
                             url = "<c:url value='/recursos/img/iconos/a_ObservationIcon.svg'/>";
                             $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
-
                             url = "<c:url value='/recursos/img/iconos/a_LearningIcon.svg'/>";
                             $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
-
                             url = "<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>";
                             $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
-
-
                             $("#navInfMore").empty();
                             if (prevState) {
 
@@ -157,16 +139,252 @@
                                 url = "<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>";
                                 $("#navInfMore").attr("value", "a_MenuIcon.svg");
                                 $("#navInfReport").hide();
-
                             }
                             $("#navInfMore").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='More'>");
                     }
 
 
                 });
-                
-            });
+                // notifyMe();
+                // setTimeout(notifyMe2, 10000);
 
+            });
+            /*function testTelegram() {
+             telegramApi.setConfig({
+             app: {
+             id: 498527, 
+             hash: '17c8afa7a6588194de1360434685b5ee', 
+             version: telegramApi.VERSION 
+             },
+             server: {
+             test: [
+             {
+             id: 2, 
+             host: '149.154.167.40',
+             port: 443
+             }
+             ],
+             production: [
+             {id: 1, host: '149.154.167.50', port: 443},
+             {id: 2, host: '149.154.167.50', port: 443},
+             {id: 3, host: '149.154.167.50', port: 443},
+             {id: 4, host: '149.154.167.50', port: 443},
+             {id: 5, host: '149.154.167.50', port: 443},
+             ]
+             }
+             });
+             
+             /*  angModule = angular.module("myApp", []);
+             angModule.controller("mainCtrl", function ($scope) {
+             $scope.person = {
+             firstName: "John",
+             lastName: "Doe",
+             };
+             });*/
+
+
+
+            /* var options = {
+             
+             clearDraft: true
+             }
+             telegramApi.invokeApi('auth.sendCode', {
+             flags: 0,
+             phone_number: '+34616790081',
+             api_id: 498527,
+             api_hash: '17c8afa7a6588194de1360434685b5ee',
+             lang_code: navigator.language || 'en'
+             },options).then(function (sentCode) {
+             
+             var result = sentCode.phone_code_hash;
+             
+             });
+             
+             /*telegramApi.invokeApi('auth.sendCode', {
+             flags: 0,
+             phone_number: '0034651045332',
+             api_id: 498527,
+             api_hash: '17c8afa7a6588194de1360434685b5ee',
+             lang_code: navigator.language || 'en'
+             }).then(function (sentCode) {
+             
+             result = sentCode.phone_code_hash;
+             
+             }, function (error) {
+             });
+             */
+
+            /* Auth methods */
+            /* Auth methods */
+
+            /*
+             var method = 'auth.signIn'
+             var params = {
+             phone_number: 651045332,
+             phone_code_hash: $scope.credentials.phone_code_hash,
+             phone_code: 0034
+             }
+             
+             
+             MtpApiManager.invokeApi(method, params, options).then(saveAuth, function (error) {
+             $scope.progress.enabled = false
+             if (error.code == 400 && error.type == 'PHONE_NUMBER_UNOCCUPIED') {
+             error.handled = true
+             $scope.credentials.phone_code_valid = true
+             $scope.credentials.phone_unoccupied = true
+             $scope.about = {}
+             return
+             } else if (error.code == 400 && error.type == 'PHONE_NUMBER_OCCUPIED') {
+             error.handled = true
+             return $scope.logIn(false)
+             } else if (error.code == 401 && error.type == 'SESSION_PASSWORD_NEEDED') {
+             $scope.progress.enabled = true
+             updatePasswordState().then(function () {
+             $scope.progress.enabled = false
+             $scope.credentials.phone_code_valid = true
+             $scope.credentials.password_needed = true
+             $scope.about = {}
+             })
+             error.handled = true
+             return
+             }
+             
+             switch (error.type) {
+             case 'FIRSTNAME_INVALID':
+             alert('FIRSTNAME_INVALID');
+             
+             break
+             case 'LASTNAME_INVALID':
+             alert('LASTNAME_INVALID');
+             
+             break
+             case 'PHONE_CODE_INVALID':
+             
+             alert('PHONE_CODE_INVALID');
+             
+             break
+             case 'PHONE_CODE_EXPIRED':
+             alert('PHONE_CODE_EXPIRED');
+             
+             break
+             }
+             
+             telegramApi.sendCode('0034').then(function (sent_code) {
+             if (!sent_code.phone_registered) {
+             alert("not found");
+             }
+             // phone_code_hash will need to sign in or sign up
+             window.phone_code_hash = sent_code.phone_code_hash;
+             });
+             
+             telegramApi.sendCode('651045332').then(function (sent_code) {
+             if (!sent_code.phone_registered) {
+             alert("not found");
+             }
+             // phone_code_hash will need to sign in or sign up
+             window.phone_code_hash = sent_code.phone_code_hash;
+             });
+             */
+            /*telegramApi.sendCode('0034651045332').then(function (sent_code) {
+             if (!sent_code.phone_registered) {
+             alert("not found");
+             }
+             // phone_code_hash will need to sign in or sign up
+             window.phone_code_hash = sent_code.phone_code_hash;
+             });
+             
+             telegramApi.sendSms('0034651045332', window.phone_code_hash).then(function () {
+             alert("send sms")
+             });
+             
+             /*   telegramApi.signIn('651045332', window.phone_code_hash, '0034').then(function () {
+             // Sign in complete
+             delete window.phone_code_hash;
+             }, function (err) {
+             switch (err.type) {
+             case 'PHONE_CODE_INVALID':
+             alert("PHONE_CODE_INVALID");
+             break;
+             case 'PHONE_NUMBER_UNOCCUPIED':
+             // User not registered, you should use signUp method
+             alert("PHONE_NUMBER_UNOCCUPIED");
+             break;
+             }
+             });
+             /* telegramApi.sendMessage(9999999999, 'Hey man!').then(function(updates) {
+             // Do something
+             });
+             
+             telegramApi.getUserInfo().then(function (user) {
+             if (user.id) {
+             alert("encontro usuario");
+             } else {
+             alert("false");
+             }
+             });
+             */
+            //}
+            function donothing() {
+
+            }
+            function notifyMe2() {
+                // Comprobamos si el navegador soporta las notificaciones
+                if (!("Notification" in window)) {
+                    alert("Este navegador no soporta las notificaciones del sistema");
+                }
+
+                // Comprobamos si ya nos habían dado permiso
+                else if (Notification.permission === "granted") {
+                    // Si esta correcto lanzamos la notificación
+                    var notification = new Notification("after 10 seconds");
+                }
+
+                // Si no, tendremos que pedir permiso al usuario
+                else if (Notification.permission !== 'denied') {
+                    Notification.requestPermission(function (permission) {
+                        // Si el usuario acepta, lanzamos la notificación
+                        if (permission === "granted") {
+                            var notification = new Notification("after 10 second");
+                        }
+                    });
+                }
+
+
+
+
+                // Finalmente, si el usuario te ha denegado el permiso y 
+                // quieres ser respetuoso no hay necesidad molestar más.
+            }
+            function notifyMe() {
+                // Comprobamos si el navegador soporta las notificaciones
+                if (!("Notification" in window)) {
+                    alert("Este navegador no soporta las notificaciones del sistema");
+                }
+
+                // Comprobamos si ya nos habían dado permiso
+                else if (Notification.permission === "granted") {
+                    // Si esta correcto lanzamos la notificación
+                    var notification = new Notification("first notify");
+                }
+
+                // Si no, tendremos que pedir permiso al usuario
+                else if (Notification.permission !== 'denied') {
+                    Notification.requestPermission(function (permission) {
+                        // Si el usuario acepta, lanzamos la notificación
+                        if (permission === "granted") {
+                            var notification = new Notification("first notify");
+                        }
+                    });
+                }
+
+
+
+
+                // Finalmente, si el usuario te ha denegado el permiso y 
+                // quieres ser respetuoso no hay necesidad molestar más.
+            }
+            function delay() {
+            }
             function hideAllOptionsContent() {
                 $("#progressStudent").hide();
                 $("#teacherObservations").hide();
@@ -178,7 +396,6 @@
 
             function menu(nameDiv) {
                 document.body.style.backgroundColor = "white";
-
                 hideAllOptionsContent();
                 var url = "";
                 $("#homepage").hide();
@@ -187,7 +404,6 @@
                 //     $("#navBarDesktop").show();
                 if ($('header').width() >= 768)     // Landscape phones
                     $("#navBarDesktop").show();
-
                 switch (nameDiv) {
                     case "progressStudent":
                         paintButtonMenu(1);
@@ -214,7 +430,6 @@
                         paintButtonMenu(5);
                         url = "<c:url value='/recursos/img/iconos/n_ReportIconNaranja.svg'/>";
                         initReportCardMenu(url);
-
                         break;
                     default: //more
                         text = "I have never heard of that fruit...";
@@ -234,25 +449,18 @@
                 $("#navInfCalendar").empty();
                 $("#navInfMore").empty();
                 $("#navInfReport").empty();
-
                 var url = "<c:url value='/recursos/img/iconos/a_ProgressIcon.svg'/>";
                 $("#navInfProgress").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Student Progress'>");
-
                 url = "<c:url value='/recursos/img/iconos/a_ObservationIcon.svg'/>";
                 $("#navInfObservations").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Teachers Observations'>");
-
                 url = "<c:url value='/recursos/img/iconos/a_LearningIcon.svg'/>";
                 $("#navInfWhatIam").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='What I am learning now?'>");
-
                 url = "<c:url value='/recursos/img/iconos/a_CalendarIcon.svg'/>";
                 $("#navInfCalendar").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Calendar and Announcements'>");
-
                 url = "<c:url value='/recursos/img/iconos/a_MenuIcon.svg'/>";
                 $("#navInfMore").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='More'>");
-
                 url = "<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>";
                 $("#navInfReport").append("<img src='" + url + "' data-toggle='tooltip' data-placement='top' title='Report Card'>");
-
             }
 
             function mostrarHome() {
@@ -285,7 +493,6 @@
                     $("#childrensNav .row").append("<div data-GradeLevel='" + value[1] + "' data='" + key + "' title='" + value[0] + "' class='circle'>" + value[0].substring(0, 2).toUpperCase() + "</div>");
                 });
                 currentStudent = $("#childrensNav div").children().first().attr("data");
-
                 $("#childrensNav div").children().first().css({'background-color': '#3aaa35', 'color': 'white'});
                 $("#nameStudent").text($("#childrensNav div").children().first().attr("title"));
             }
@@ -295,7 +502,6 @@
                 clearTimeout(resizeId);
                 resizeId = setTimeout(doneResizing, 500);
             });
-
             function doneResizing() {
                 /*if (currentOption === "teacherObservations") {
                  if ($('header').width() < 769) {
@@ -318,22 +524,17 @@
                  Desktops (≥1200px)*/
                 if ($('header').width() < 544) {// is mobile device
                     $("#navBarDesktop").hide();
-
                 } else if ($('header').width() < 768) {    // Landscape phones
                     $("#navBarDesktop").hide();
-
                 } else if ($('header').width() < 992) { //Tablets 
                     if (currentOption !== undefined)
                         $("#navBarDesktop").show();
-
                 } else if ($('header').width() < 1200) { // Desktops
                     if (currentOption !== undefined)
                         $("#navBarDesktop").show();
-
                 } else { //Desktops
                     if (currentOption !== undefined)
                         $("#navBarDesktop").show();
-
                 }
                 resizeMargins();
             }
@@ -350,9 +551,169 @@
 
 
             //<img src="<c:url value='/recursos/img/iconos/a_ReportIcon.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
+
         </script>
+
     </head>
     <body>
+        <!--<script>
+            telegramApi.setConfig({
+                app: {
+                    id: 405384, /* App ID */
+                    hash: 'f2619cbb0852a0c50721e4c7c3055e48', /* App hash */
+                    version: telegramApi.VERSION /* App version */
+                },
+                server: {
+                    test: [
+                        {id: 1, host: '149.154.175.10', port: 80},
+                        {id: 2, host: '149.154.167.40', port: 80},
+                        {id: 3, host: '149.154.175.117', port: 80}
+                    ],
+                    production: [
+                        {id: 1, host: '149.154.175.50', port: 80},
+                        {id: 2, host: '149.154.167.51', port: 80},
+                        {id: 3, host: '149.154.175.100', port: 80},
+                        {id: 4, host: '149.154.167.91', port: 80},
+                        {id: 5, host: '149.154.171.5', port: 80}
+                    ]
+                    
+                }
+            });
+            /* telegramApi.getUserInfo().then(function (user) {
+             if (user.id) {
+             
+             } else {
+             // Log in
+             }
+             });*/
+            telegramApi.sendCode('34651045332').then(function (sent_code) {
+                if (!sent_code.phone_registered) {
+                    alert("new user");
+                }
+
+                // phone_code_hash will need to sign in or sign up
+                window.phone_code_hash = sent_code.phone_code_hash;
+            });
+            /* var app = angular.module("myApp", []);
+             app.controller("mainCtrl", function ($scope) {
+             angular.extend($scope, {
+             update: function () {
+             if ($scope._timeout) {
+             return;
+             }
+             
+             $scope._timeout = setTimeout(function () {
+             delete $scope._timeout;
+             $scope.$apply();
+             }, 0);
+             },
+             visible: {
+             auth: false,
+             info: false
+             },
+             auth: {},
+             info: {},
+             logs: [],
+             success: [],
+             failed: [],
+             methods: [],
+             json: function (obj, indent) {
+             return JSON.stringify(obj, null, indent ? 4 : 0);
+             },
+             showLog: function (log, type) {
+             switch (type) {
+             case 'console':
+             console.log(log);
+             break;
+             case 'alert':
+             alert(this.json(log, true));
+             break;
+             }
+             },
+             invokeMethod: function (method, params, onSuccess, onError) {
+             telegramApi[method].apply(telegramApi, params).then(function (result) {
+             $scope.success.push(result);
+             $scope.update();
+             onSuccess && onSuccess(result);
+             }, function (err) {
+             $scope.failed.push(err);
+             $scope.update();
+             onError && onError(err);
+             });
+             }
+             });
+             /*$scope.sendCode = function () {
+             $scope.invokeMethod('sendCode', ['34651045332'], function (sent_code) {
+             $scope.phone_code_hash = sent_code.phone_code_hash;
+             });
+             };*/
+            /*  $scope.sendCode = function () {
+             var fullPhone = ('34') + ('647441943')
+             var badPhone = !fullPhone.match(/^[\d\-+\s]+$/)
+             if (!badPhone) {
+             fullPhone = fullPhone.replace(/\D/g, '')
+             if (fullPhone.length < 7) {
+             badPhone = true
+             }
+             }
+             if (badPhone) {
+             $scope.progress.enabled = false
+             $scope.error = {field: 'phone'}
+             return
+             }
+             
+             var id = 42;
+             var MtpApiManager = {
+             errorField: null,
+             getUserID: function () {
+             return {
+             then: function (callback) {
+             callback(id);
+             }
+             };
+             },
+             invokeApi: function (action, params) {
+             telegramApi[action].apply(telegramApi, params).then(function (result) {
+             $scope.success.push(result);
+             $scope.update();
+             
+             }, function (err) {
+             $scope.failed.push(err);
+             $scope.update();
+             
+             });
+             },
+             then: function (callback, error) {
+             if (!this.errorField) {
+             callback({})
+             } else {
+             error(this.errorField)
+             }
+             return {
+             finally: function (final) {
+             final()
+             }
+             }
+             }
+             }
+             
+             var options = {};
+             //  var authKeyStarted = tsNow()
+             MtpApiManager.invokeApi('auth.sendCode', {
+             flags: 0,
+             phone_number: '34651045332',
+             api_id: '498527',
+             api_hash: '17c8afa7a6588194de1360434685b5ee',
+             lang_code: navigator.language || 'en'
+             }, options).then(function (sentCode) {
+             
+             }, function (error) {
+             
+             });
+             };
+             });*/
+
+        </script>-->
         <div class="col-xs-12" id="nameStudent"></div>
         <div class="col-md-12" id="navBarDesktop">
             <div  value="navInfProgress" class="opcionMenuDesktop">
@@ -372,7 +733,7 @@
             </div>
         </div>     
         <div id="homepage" class="container-fluid">
-            <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="col-xs-12 col-md-12 col-lg-10 col-lg-offset-1">
 
                 <div class="col-xs-6 col-sm-offset-1 col-sm-5 col-md-offset-0 col-md-4  col-lg-offset-0 col-lg-4">
                     <div class="btnHomepage col-xs-12" value="progressStudent" style="background-color:#862200;">
@@ -983,8 +1344,8 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10 nopaddingMargin">
-                               <strong>Renweb platform in Spanish and English</strong><br>
-                               Orientation on changing the language in ParentWEB.
+                                <strong>Renweb platform in Spanish and English</strong><br>
+                                Orientation on changing the language in ParentWEB.
                             </div>
                         </div>            
                     </div> 
@@ -994,8 +1355,8 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10  nopaddingMargin">
-                                  <strong>Registration open for football team.</strong><br>
-                               
+                                <strong>Registration open for football team.</strong><br>
+
                             </div>
                         </div>            
                     </div>  
@@ -1005,8 +1366,8 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10 nopaddingMargin">
-                                  <strong>June´s menu</strong><br>
-                             
+                                <strong>June´s menu</strong><br>
+
                             </div>
                         </div>            
                     </div> 
@@ -1016,9 +1377,9 @@
                                 <img src="<c:url value='/recursos/img/iconos/Icon_Announcements.svg'/>" data-toggle="tooltip" data-placement="top" title="Report Card">
                             </div>
                             <div class="col-xs-10  nopaddingMargin">
-                                 <strong>Flag raising ceremony</strong><br>
-                               There will be a flag raising ceremony next Monday. All
-                               students must wear white uniforms.Don´t be late. 
+                                <strong>Flag raising ceremony</strong><br>
+                                There will be a flag raising ceremony next Monday. All
+                                students must wear white uniforms.Don´t be late. 
                             </div>
                         </div>            
                     </div>
@@ -1074,7 +1435,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                              <strong>Winter vacations</strong>
+                                <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1086,7 +1447,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                               <strong>Winter vacations</strong>
+                                <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1098,7 +1459,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                             <strong>Winter vacations</strong>
+                                <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
@@ -1122,11 +1483,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                              <strong>Winter vacations</strong>
+                                <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
-                     <div class="col-xs-12 firstFormatCalendar">
+                    <div class="col-xs-12 firstFormatCalendar">
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
@@ -1146,11 +1507,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                              <strong>Winter vacations</strong>
+                                <strong>Winter vacations</strong>
                             </div>
                         </div>            
                     </div> 
-                     <div class="col-xs-12 firstFormatCalendar">
+                    <div class="col-xs-12 firstFormatCalendar">
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
@@ -1170,11 +1531,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                              <strong>Teacher´s day</strong>
+                                <strong>Teacher´s day</strong>
                             </div>
                         </div>            
                     </div> 
-                     <div class="col-xs-12 firstFormatCalendar">
+                    <div class="col-xs-12 firstFormatCalendar">
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
@@ -1194,11 +1555,11 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-9 col-lg-12 nopaddingMargin">
-                              <strong>Progress Report</strong>
+                                <strong>Progress Report</strong>
                             </div>
                         </div>            
                     </div> 
-                     <div class="col-xs-12 firstFormatCalendar">
+                    <div class="col-xs-12 firstFormatCalendar">
                         <div class="col-xs-12 nopaddingMargin">
                             <div class="col-xs-12 col-sm-3 col-lg-12 nopaddingMargin">
                                 <div class="fechaSchool">
@@ -1210,7 +1571,7 @@
                             </div>
                         </div>            
                     </div> 
-                    
+
                 </div>
             </div>
             <div id="todayEvents" class="col-xs-12 col-md-6 col-lg-3">

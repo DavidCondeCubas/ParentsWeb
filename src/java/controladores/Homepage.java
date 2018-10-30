@@ -103,7 +103,9 @@ public class Homepage extends MultiActionController {
                     yearId = rs2.getInt("defaultyearid");
                 }
                 session.setAttribute("user", user);
-                session.setAttribute("termId", termId);
+               // session.setAttribute("termId", termId);
+                //solo demo
+                   session.setAttribute("termId", "2");
                 session.setAttribute("yearId", yearId);
 
                 String nameTerm = "", nameYear = "";
@@ -201,7 +203,7 @@ public class Homepage extends MultiActionController {
                 sameWeek = false;
                 arrayComments.clear();
                 consulta = "SELECT * FROM classobserv WHERE student_id = " + studentId + " AND commentdate = '" + dateSelected + "' ORDER BY commentdate";
-                ResultSet rs = DBConect.eduweb.executeQuery(consulta);
+                ResultSet rs = DBConect.eduwebTest.executeQuery(consulta);
 
                 while (rs.next()) {
 
@@ -272,11 +274,11 @@ public class Homepage extends MultiActionController {
 
     private List<String> getSubjects(int studentid) throws SQLException {
         List<String> subjects = new ArrayList<>();
-        String termid = "", yearid = "";
+        String termid = "2", yearid = "";
         try {
             ResultSet rs = DBConect.ah.executeQuery("select defaultyearid,defaulttermid from ConfigSchool where configschoolid = 1");
             while (rs.next()) {
-                termid = "" + rs.getInt("defaulttermid");
+               // termid = "" + rs.getInt("defaulttermid");
                 yearid = "" + rs.getInt("defaultyearid");
             }
             String consulta = "select distinct courses.courseid,courses.rcplacement, courses.title, courses.active from roster    inner join classes on roster.classid=classes.classid\n"
@@ -327,9 +329,9 @@ public class Homepage extends MultiActionController {
             timestampBefore = new Timestamp(cal.getTimeInMillis());
             String beforeDate = "" + timestampBefore;
 
-            String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.student_id = " + id + " and a.yearterm_id=" + yearid + " and a.term_id= " + termid + " and a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
+         //  String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.student_id = " + id + " and a.yearterm_id=" + yearid + " and a.term_id= " + termid + " and a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
             //pruebas
-            //String consulta = "SELECT * FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.comment_date between '" + beforeDate + "' and '" + currentDate + "'";
+           String consulta = "SELECT DISTINCT step_id,objective_id,subject_id,a.name FROM (progress_report inner join rating on rating.id = rating_id) a inner join objective on objective.id = a.objective_id where a.comment_date between '" + beforeDate + "' and '" + currentDate + "'" +" and a.student_id = 10931";
 
             ResultSet rs1 = DBConect.eduweb.executeQuery(consulta);// the term and year need to be dynamic, check with vincent
             while (rs1.next()) {

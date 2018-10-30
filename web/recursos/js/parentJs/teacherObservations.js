@@ -366,7 +366,7 @@ function getCommentsDay(object) {
                         if (data[i][k].teacherGender === "Female") {
                             nameImage = "icon_SenyoraRecio.svg";
                         }
-                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher nopaddingMargin'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='../ParentWeb/recursos/img/iconos/" + nameImage + "' height='100'>");
+                        $("#divOne" + id + " .divTeachers").append("<div class='col-xs-12 divFotoTeacher nopaddingMargin'><img id='imgPopTeacher" + id + "' class='fotoTeacher' src='/ParentWeb/recursos/img/iconos/" + nameImage + "' height='100'>");
                     }
 
                     if (mapProfesores[data[i][k].nameTeacher] !== undefined)

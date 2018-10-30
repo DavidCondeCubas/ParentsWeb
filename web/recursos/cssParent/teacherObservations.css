@@ -1494,6 +1494,12 @@ body {
     width: 50%;
   }
 }
+@media only screen and (min-width: 992px) and ( max-width: 1199px), only screen and (min-width: 1200px) {
+  #teacherObservations #divObservations .divOneComment .date_teacher .divTeachers .divFotoTeacher {
+    height: 60%;
+    width: 60%;
+  }
+}
 #teacherObservations #divObservations .divOneComment .date_teacher .divTeachers div {
   text-align: center;
   font-weight: bold;

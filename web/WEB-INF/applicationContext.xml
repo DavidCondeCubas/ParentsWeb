@@ -15,7 +15,7 @@ change the defeinition of the progress view,very important
 <bean id="dataSource"
     class="org.springframework.jdbc.datasource.DriverManagerDataSource"
    p:driverClassName="org.postgresql.Driver"
-        p:url="jdbc:postgresql://192.168.1.3:5432/Lessons" 
+        p:url="jdbc:postgresql://192.168.1.9:5432/Lessons" 
         p:username="eduweb"
         p:password="Madrid2016"/>
 <!--must change the ftp path as well,veryimportant-->
@@ -30,6 +30,12 @@ change the defeinition of the progress view,very important
          p:username="postgres"
         p:password="rapunzel"/>
 
+<bean id="dataSourceTest"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+   p:driverClassName="org.postgresql.Driver"
+        p:url="jdbc:postgresql://192.168.1.3:5432/Lessons" 
+        p:username="eduweb"
+        p:password="Madrid2016"/>
 
 <!--    <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
         <property name="url" value="jdbc:sqlserver://ah-zaf.odbc.renweb.com\ah_zaf:1433;databaseName=ah_zaf"/>
